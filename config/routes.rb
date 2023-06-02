@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :groups, only: [:index, :show] do
-    POST "groups/:id/request", to: "requests#create"
-    POST "groups/:id/events/:id/booking", to: "bookings#create"
+    post "groups/:id/request", to: "requests#create"
+    post "groups/:id/events/:id/booking", to: "bookings#create"
     resources :chatrooms, only: [:show] do
       resources :messages, only: [:create]
     end
