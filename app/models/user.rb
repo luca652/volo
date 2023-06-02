@@ -7,4 +7,5 @@ class User < ApplicationRecord
   has_many :requests
   has_many :resources
   has_many :pins
+  has_many :events
 end
