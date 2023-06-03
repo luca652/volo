@@ -24,3 +24,5 @@ event1 = Event.create!(name: "Crofton Park Story-Time in Italiano", location: "C
 
 resource1 = Resource.create!(title: "FABA - Music and stories in italian", category: "Stories", comment: "Changed my life!",
                              picture_url: "#", user_id: user1.id)
+resource2 = Resource.create!(title: "Italian cookbooks", category: "Cook book", comment: "Delicious!",
+                             picture_url: "#", user_id: user1.id)
