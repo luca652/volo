@@ -1,0 +1,19 @@
+<%= stylesheet_link_tag 'resources', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+
+<div class="container">
+  <div class="card-container">
+    <% @resources.each do |resource| %>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"><%= resource.title %></h5>
+          <p class="card-text"><%= resource.category %></p>
+          <p class="card-text"><%= resource.comment %></p>
+          <p class="card-text"><%= resource.picture_url %></p>
+          <a href="#" class="pin-button"><i class="fas fa-thumbtack"></i></a>
+
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
