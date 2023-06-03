@@ -9,7 +9,7 @@ Rails.application.routes.draw do
       resources :messages, only: [:create]
     end
   end
-  resources :resources, only: [:show] do
+  resources :resources, only: [:index] do
     resources :pins, only: [:create]
   end
 end
