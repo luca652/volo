@@ -4,5 +4,9 @@ class GroupsController < ApplicationController
     @request = Request.new
   end
 
+  def show
+    @group = Group.find(params[:id])
+    @events = @group.events
+  end
 
 end
