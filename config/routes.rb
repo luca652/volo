@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :groups, only: [:index, :show] do
     resources :requests, only: [:create]
-    post "events/:id/booking", to: "bookings#create"
+    post "events/:event_id/bookings", to: "bookings#create"
     resources :chatrooms, only: [:show] do
       resources :messages, only: [:create]
     end

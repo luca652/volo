@@ -1,4 +1,12 @@
 <%= @group.name %>
+<%= @events %>
 <% @events.each do |event| %>
 <%= event.name %>
+<% event.id %>
+<%= simple_form_for [@group, event, @booking] do |f| %>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+      <%= f.hidden_field :group_id, value: @group.id %>
+      <%= f.hidden_field :event_id, value: event.id %>
+      <%= f.submit "Attending!", class: "btn btn-success" %>
+    <% end %>
 <% end %>
