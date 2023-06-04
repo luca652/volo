@@ -1,7 +1,46 @@
 <%= stylesheet_link_tag 'resources', media: 'all', 'data-turbolinks-track': 'reload' %>
 
+<script>
+  // Output a message to the console
+  console.log("JavaScript is working!");
+
+  // Select an element and change its text
+  var element = document.getElementById("test-element");
+  if (element) {
+    element.textContent = "JavaScript is working!";
+  }
+
+  // Filter button click event handler
+  var filterButton = document.getElementById("filter-button");
+  if (filterButton) {
+    filterButton.addEventListener("click", function() {
+      var category = document.getElementById("category-select").value;
+      console.log("Filter by category: " + category);
+
+      // Perform filtering logic here
+
+    });
+  }
+</script>
+
+
 
 <div class="container">
+  <div class="filter-container">
+    <label for="category-select">Filter by Category:</label>
+    <select id="category-select">
+      <option value="all">All</option>
+      <option value="category1">Category 1</option>
+      <option value="category2">Category 2</option>
+      <option value="category3">Category 3</option>
+      <!-- Add more category options as needed -->
+    </select>
+    <button id="filter-button">Filter</button>
+  </div>
+
+
+<div class="container">
+
   <div class="card-container">
     <% @resources.each do |resource| %>
       <div class="card">
@@ -11,7 +50,6 @@
           <p class="card-text"><%= resource.comment %></p>
           <p class="card-text"><%= resource.picture_url %></p>
           <a href="#" class="pin-button"><i class="fas fa-thumbtack"></i></a>
-
         </div>
       </div>
     <% end %>
