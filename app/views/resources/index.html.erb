@@ -26,27 +26,45 @@
 
 
 <div class="container">
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var categoryFilter = document.getElementById('category-filter');
+  categoryFilter.addEventListener('change', handleCategoryFilterChange);
+
+  function handleCategoryFilterChange() {
+    var selectedCategory = categoryFilter.value;
+    var cards = document.getElementsByClassName('card');
+
+    for (var i = 0; i < cards.length; i++) {
+      var card = cards[i];
+      var cardCategory = card.getAttribute('data-category');
+
+      if (selectedCategory === "" || cardCategory === selectedCategory) {
+        card.style.display = "block";
+      } else {
+        card.style.display = "none";
+      }
+    }
+  }
+});
+</script>
+
   <div class="filter-container">
-    <label for="category-select">Filter by Category:</label>
-    <select id="category-select">
-      <option value="all">All</option>
-      <option value="category1">Category 1</option>
-      <option value="category2">Category 2</option>
-      <option value="category3">Category 3</option>
-      <!-- Add more category options as needed -->
+    <label for="category-filter">Filter by Category:</label>
+    <select id="category-filter">
+      <option value="">All Categories</option>
+      <% @categories.each do |category| %>
+        <option value="<%= category %>"><%= category %></option>
+      <% end %>
     </select>
-    <button id="filter-button">Filter</button>
   </div>
-
-
-<div class="container">
 
   <div class="card-container">
     <% @resources.each do |resource| %>
-      <div class="card">
+      <div class="card" data-category="<%= resource.category %>">
         <div class="card-body">
           <h5 class="card-title"><%= resource.title %></h5>
-          <p class="card-text"><%= resource.category %></p>
+          <p class="card-text card-text-category"><%= resource.category %></p>
           <p class="card-text"><%= resource.comment %></p>
           <p class="card-text"><%= resource.picture_url %></p>
           <a href="#" class="pin-button"><i class="fas fa-thumbtack"></i></a>

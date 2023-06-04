@@ -1,7 +1,9 @@
 class ResourcesController < ApplicationController
   def index
-    @resources = Resource.all.order(title: :asc)
+    @resources = Resource.all
+    @categories = Resource.distinct.pluck(:category)
   end
+
 
   def show
     @resource = Resource.find(params[:id])
