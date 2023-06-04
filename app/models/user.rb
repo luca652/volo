@@ -9,5 +9,6 @@ class User < ApplicationRecord
   has_many :pins
   has_many :events
   has_many :bookings
+  has_many :messages
   validates :first_name, :last_name, presence: true
 end
