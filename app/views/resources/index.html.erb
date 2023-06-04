@@ -1,5 +1,29 @@
 <%= stylesheet_link_tag 'resources', media: 'all', 'data-turbolinks-track': 'reload' %>
 
+<script>
+  // Output a message to the console
+  console.log("JavaScript is working!");
+
+  // Select an element and change its text
+  var element = document.getElementById("test-element");
+  if (element) {
+    element.textContent = "JavaScript is working!";
+  }
+
+  // Filter button click event handler
+  var filterButton = document.getElementById("filter-button");
+  if (filterButton) {
+    filterButton.addEventListener("click", function() {
+      var category = document.getElementById("category-select").value;
+      console.log("Filter by category: " + category);
+
+      // Perform filtering logic here
+
+    });
+  }
+</script>
+
+
 
 <div class="container">
 <script>
