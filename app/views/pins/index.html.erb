@@ -1,0 +1,52 @@
+<%= javascript_include_tag 'https://code.jquery.com/jquery-3.6.0.min.js' %>
+
+<h1>Your Pins</h1>
+<%= stylesheet_link_tag 'pins', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+<div class="pins-container">
+  <% @pins.each do |pin| %>
+
+   <div class="pin-card card" data-pin-id="<%= pin.id %>" data-category="<%= pin.resource.category %>">
+  <div class="card-body">
+    <h3 class="card-title"><%= pin.resource.title %></h3>
+    <p class="card-text card-text-category"><%= pin.resource.category %></p>
+    <p class="card-text"><%= pin.resource.comment %></p>
+    <p class="card-text"><%= pin.resource.picture_url %></p>
+    <!-- Add any other relevant information from the pin -->
+    <button class="delete-button btn btn-danger" data-pin-id="<%= pin.id %>">Delete</button>
+  </div>
+</div>
+
+    </div>
+  <% end %>
+</div>
+
+<script>
+  $(document).ready(function() {
+    $('.delete-button').on('click', function(e) {
+      e.preventDefault();
+      var deleteButton = $(this);
+      var pinId = deleteButton.data('pin-id');
+
+      $.ajaxSetup({
+        headers: {
+          'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+        }
+      });
+
+      $.ajax({
+        type: 'DELETE',
+        url: '/pins/' + pinId,
+        dataType: 'json',
+        success: function(response) {
+          // Remove the deleted card from the pins container
+          deleteButton.closest('.pin-card').remove();
+        },
+        error: function(xhr, status, error) {
+          // Handle error, such as displaying an error message
+          console.log(xhr.responseText);
+        }
+      });
+    });
+  });
+</script>

@@ -8,4 +8,10 @@ class ResourcesController < ApplicationController
   def show
     @resource = Resource.find(params[:id])
   end
+
+  def pin
+    @resource = Resource.find(params[:id])
+    current_user.pins.create(resource: @resource)
+    # ...
+  end
 end
