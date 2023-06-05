@@ -11,4 +11,8 @@ class User < ApplicationRecord
   has_many :events
   has_many :bookings
   has_many :messages
+
+  def has_pinned?(resource)
+    pins.exists?(resource: resource)
+  end
 end
