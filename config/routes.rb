@@ -12,4 +12,7 @@ Rails.application.routes.draw do
   resources :resources, only: [:index, :show] do
     resources :pins, only: [:create]
   end
+  resources :pins, only: [:index, :destroy]
+
+
 end

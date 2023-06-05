@@ -1,0 +1,17 @@
+<!-- app/views/pins/index.html.erb -->
+<h1>Your Pins</h1>
+<%= stylesheet_link_tag 'pins', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+<div class="pins-container">
+  <% @pins.each do |pin| %>
+    <div class="pin-card card" data-category="<%= pin.resource.category %>">
+      <div class="card-body">
+        <h3 class="card-title"><%= pin.resource.title %></h3>
+        <p class="card-text card-text-category"><%= pin.resource.category %></p>
+        <p class="card-text"><%= pin.resource.comment %></p>
+        <p class="card-text"><%= pin.resource.picture_url %></p>
+        <!-- Add any other relevant information from the pin -->
+      </div>
+    </div>
+  <% end %>
+</div>
