@@ -1,4 +1,5 @@
 <%= stylesheet_link_tag 'resources', media: 'all', 'data-turbolinks-track': 'reload' %>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
   // Output a message to the console
@@ -14,44 +15,91 @@
   var filterButton = document.getElementById("filter-button");
   if (filterButton) {
     filterButton.addEventListener("click", function() {
-      var category = document.getElementById("category-select").value;
+      var category = document.getElementById("category-filter").value;
       console.log("Filter by category: " + category);
 
       // Perform filtering logic here
 
     });
   }
+
+  $(document).ready(function() {
+    $('.pin-button').on('click', function(e) {
+      e.preventDefault();
+      var pinButton = $(this);
+      var resourceId = pinButton.data('resource-id');
+
+      $.ajaxSetup({
+        headers: {
+          'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+        }
+      });
+
+      $.ajax({
+        type: 'POST',
+        url: '/resources/' + resourceId + '/pins',
+        dataType: 'json',
+        success: function(response) {
+          if (response.error) {
+            // Display error message
+            alert(response.error);
+          } else {
+            // Handle success, such as displaying a success message
+            console.log(response);
+
+            // Fetch the complete card HTML from the server
+            $.ajax({
+              type: 'GET',
+              url: '/resources/' + response.resource_id,
+              dataType: 'html',
+              success: function(cardHTML) {
+                // Append the card HTML to the pins container
+                $('.pins-container').append(cardHTML);
+              },
+              error: function(xhr, status, error) {
+                // Handle error, such as displaying an error message
+                console.log(xhr.responseText);
+              }
+            });
+          }
+        },
+        error: function(xhr, status, error) {
+          // Handle error, such as displaying an error message
+          console.log(xhr.responseText);
+        }
+      });
+    });
+  });
 </script>
-
-
 
 <div class="container">
   <div class="filter-container">
-    <label for="category-select">Filter by Category:</label>
-    <select id="category-select">
-      <option value="all">All</option>
-      <option value="category1">Category 1</option>
-      <option value="category2">Category 2</option>
-      <option value="category3">Category 3</option>
-      <!-- Add more category options as needed -->
+    <label for="category-filter">Filter by Category:</label>
+    <select id="category-filter">
+      <option value="">All Categories</option>
+      <% @categories.each do |category| %>
+        <option value="<%= category %>"><%= category %></option>
+      <% end %>
     </select>
-    <button id="filter-button">Filter</button>
   </div>
-
-
-<div class="container">
 
   <div class="card-container">
     <% @resources.each do |resource| %>
-      <div class="card">
+      <div class="card" data-category="<%= resource.category %>">
         <div class="card-body">
           <h5 class="card-title"><%= resource.title %></h5>
-          <p class="card-text"><%= resource.category %></p>
+          <p class="card-text card-text-category"><%= resource.category %></p>
           <p class="card-text"><%= resource.comment %></p>
           <p class="card-text"><%= resource.picture_url %></p>
-          <a href="#" class="pin-button"><i class="fas fa-thumbtack"></i></a>
+          <a href="#" class="pin-button" data-resource-id="<%= resource.id %>">
+            <i class="fas fa-thumbtack"></i>
+          </a>
         </div>
       </div>
     <% end %>
+  </div>
+
+  <div class="pins-container">
+    <!-- Placeholder for pin cards -->
   </div>
 </div>
