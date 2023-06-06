@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   resources :groups, only: [:index, :show] do
     resources :requests, only: [:create]
     post "events/:event_id/bookings", to: "groups#create_booking", as: :event_bookings
-
+    patch "events/:event_id/bookings/bookings_id/accepted", to: "groups#accepted"
+    patch "events/:event_id/bookings/bookings_id/declined", to: "groups#declined"
     resources :chatrooms, only: [:show] do
       resources :messages, only: [:create]
     end
@@ -17,7 +18,3 @@ Rails.application.routes.draw do
 
   resources :pins, only: [:index, :destroy]
 end
-
-
- # get "events/:event_id/bookings/bookings_id/accepted"
-    # get "events/:event_id/bookings/bookings_id/declined"
