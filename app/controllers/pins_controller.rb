@@ -7,16 +7,21 @@ class PinsController < ApplicationController
   def create
     @resource = Resource.find(params[:resource_id])
 
-  if current_user.has_pinned?(@resource)
-    @resource.decrement!(:pin_count) # Decrement the pin count
-    current_user.pins.where(resource: @resource).destroy_all # Unpin the resource
-    render json: { message: 'Resource unpinned successfully', pin_count: @resource.pin_count }
-  else
-    @resource.increment!(:pin_count) # Increment the pin count
-    current_user.pins.create(resource: @resource) # Pin the resource
-    render json: { message: 'Resource pinned successfully', pin_count: @resource.pin_count }
+    if current_user.has_pinned?(@resource)
+      render json: { error: 'Resource already pinned' }, status: :unprocessable_entity
+    else
+      pin = current_user.pins.build(resource: @resource)
+
+      if pin.save
+        render json: { resource_id: @resource.id }, status: :created
+      else
+        render json: { error: pin.errors.full_messages }, status: :unprocessable_entity
+      end
+    end
   end
-end
+
+
+
 
   def destroy
     @pin = current_user.pins.find(params[:id])

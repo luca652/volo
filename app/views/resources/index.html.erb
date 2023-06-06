@@ -87,23 +87,28 @@
         url: '/resources/' + resourceId + '/pins',
         dataType: 'json',
         success: function(response) {
-          // Handle success, such as displaying a success message
-          console.log(response);
+          if (response.error) {
+            // Display error message
+            alert(response.error);
+          } else {
+            // Handle success, such as displaying a success message
+            console.log(response);
 
-          // Fetch the complete card HTML from the server
-          $.ajax({
-            type: 'GET',
-            url: '/resources/' + response.resource_id,
-            dataType: 'html',
-            success: function(cardHTML) {
-              // Append the card HTML to the pins container
-              $('.pins-container').append(cardHTML);
-            },
-            error: function(xhr, status, error) {
-              // Handle error, such as displaying an error message
-              console.log(xhr.responseText);
-            }
-          });
+            // Fetch the complete card HTML from the server
+            $.ajax({
+              type: 'GET',
+              url: '/resources/' + response.resource_id,
+              dataType: 'html',
+              success: function(cardHTML) {
+                // Append the card HTML to the pins container
+                $('.pins-container').append(cardHTML);
+              },
+              error: function(xhr, status, error) {
+                // Handle error, such as displaying an error message
+                console.log(xhr.responseText);
+              }
+            });
+          }
         },
         error: function(xhr, status, error) {
           // Handle error, such as displaying an error message
