@@ -22,6 +22,7 @@ class PinsController < ApplicationController
 
 
 
+
   def destroy
     @pin = current_user.pins.find(params[:id])
     @pin.destroy
