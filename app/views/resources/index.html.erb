@@ -1,9 +1,43 @@
 <%= stylesheet_link_tag 'resources', media: 'all', 'data-turbolinks-track': 'reload' %>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+<div class="container" data-controller="resources">
+  <div class="filter-container">
+    <label for="category-filter">Filter by Category:</label>
+    <select id="category-filter">
+      <option value="">All Categories</option>
+      <% @categories.each do |category| %>
+        <option value="<%= category %>"><%= category %></option>
+      <% end %>
+    </select>
+    <button id="filter-button">Filter</button> <!-- Added filter button -->
+  </div>
+
+  <div class="card-container">
+    <% @resources.each do |resource| %>
+      <div class="card" data-category="<%= resource.category %>">
+        <div class="card-body">
+          <h5 class="card-title"><%= resource.title %></h5>
+          <p class="card-text card-text-category"><%= resource.category %></p>
+          <p class="card-text"><%= resource.comment %></p>
+          <p class="card-text"><%= resource.picture_url %></p>
+          <a href="#" class="pin-button" data-resource-id="<%= resource.id %>">
+            <i class="fas fa-thumbtack"></i>
+          </a>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="pins-container">
+    <!-- Placeholder for pin cards -->
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
   // Output a message to the console
-  console.log("JavaScript is working!");
+
 
   // Select an element and change its text
   var element = document.getElementById("test-element");
@@ -18,8 +52,21 @@
       var category = document.getElementById("category-filter").value;
       console.log("Filter by category: " + category);
 
-      // Perform filtering logic here
+      // Select all cards
+      var cards = document.getElementsByClassName("card");
 
+      // Iterate over each card and hide/show based on the category
+      for (var i = 0; i < cards.length; i++) {
+        var card = cards[i];
+        var cardCategory = card.getAttribute("data-category");
+
+        // If the category is empty or matches the selected category, show the card
+        if (category === "" || cardCategory === category) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      }
     });
   }
 
@@ -71,35 +118,3 @@
     });
   });
 </script>
-
-<div class="container">
-  <div class="filter-container">
-    <label for="category-filter">Filter by Category:</label>
-    <select id="category-filter">
-      <option value="">All Categories</option>
-      <% @categories.each do |category| %>
-        <option value="<%= category %>"><%= category %></option>
-      <% end %>
-    </select>
-  </div>
-
-  <div class="card-container">
-    <% @resources.each do |resource| %>
-      <div class="card" data-category="<%= resource.category %>">
-        <div class="card-body">
-          <h5 class="card-title"><%= resource.title %></h5>
-          <p class="card-text card-text-category"><%= resource.category %></p>
-          <p class="card-text"><%= resource.comment %></p>
-          <p class="card-text"><%= resource.picture_url %></p>
-          <a href="#" class="pin-button" data-resource-id="<%= resource.id %>">
-            <i class="fas fa-thumbtack"></i>
-          </a>
-        </div>
-      </div>
-    <% end %>
-  </div>
-
-  <div class="pins-container">
-    <!-- Placeholder for pin cards -->
-  </div>
-</div>
