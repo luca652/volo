@@ -1,3 +1,11 @@
+<div class= "groups-container">
+  <div style="width: 100%; height: 600px;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+</div>
+
 <% @groups.each do |group| %>
 <%= group.name %>
   <% if Request.where(group: group, user: current_user).present? %>
@@ -8,12 +16,5 @@
       <%= f.hidden_field :group_id, value: group.id %>
       <%= f.submit "Ask to join", class: "btn btn-success" %>
     <% end %>
-
-
-<div class= "groups-container">
-  <div style="width: 100%; height: 600px;"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
-</div>
+  <% end %>
+<% end %>

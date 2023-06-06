@@ -20,13 +20,8 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:group_id])
     @event = Event.find(params[:event_id])
     @booking = Booking.new(booking_params)
-    @booking.user = current_user
-    @booking.event = @event
-    @booking.event.group = @group
     if @booking.save
-      redirect_to groups_path, status: :created
-    else
-      render :new, status: :unprocessable_entity
+      redirect_to group_path(@group)
     end
   end
 
