@@ -1,12 +1,19 @@
-.navbar-lewagon {
+.navbar-volo {
+  display: flexbox;
   justify-content: space-between;
-  background: white;
+  background: $our-light-yellow;
 }
 
-.navbar-lewagon .navbar-collapse {
+
+.navbar-volo .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.navbar-volo .navbar-brand img {
+  width: 30px;
+}
+
+.navbar-title{
+  color: $our-red;
+  justify-content: space-between;
 }
