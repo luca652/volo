@@ -1,0 +1,12 @@
+<div class="card" data-category="<% @groups.each do |group| %>">
+    <div class="card-body">
+      <h5 class="card-title"><%= group.name %></h5>
+      <%= simple_form_for [group, @request] do |f| %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <%= f.hidden_field :group_id, value: group.id %>
+        <%= f.submit "Ask to join", class: "btn btn-success" %>
+        <% end %>
+    </div>
+  <% end %>
+</div>
+
