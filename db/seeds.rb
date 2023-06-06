@@ -14,12 +14,12 @@ Resource.destroy_all
 
 user1 = User.create!( first_name: "Sara", last_name: "Carambola",
                      language: "Italian", number_of_children: 2, childrens_age: "primary",
-                     location: "Canada Water", email: "sara@sara.com", password: "123456")
+                     location: "27, Plover Way, Canada Water, SE16 7TS", email: "sara@sara.com", password: "123456")
 
 
-group1 = Group.create!(name: "Bambini di Peckham", location: "Peckham Rye", language: "Italian", user_id: user1.id)
+group1 = Group.create!(name: "Bambini di Peckham", location: "Peckham Rye", latitude: 51.46051, longitude:-0.06040, language: "Italian", user_id: user1.id)
 
-event1 = Event.create!(name: "Crofton Park Story-Time in Italiano", location: "Crofton Park Library",
+event1 = Event.create!(name: "Crofton Park Story-Time in Italiano", location: "Crofton Park Library, 375 Brockley Rd, London SE4 2AG",
                        category: "Books", date: "", user_id: user1.id, group_id: group1.id)
 
 resource1 = Resource.create!(title: "FABA - Music and stories in italian", category: "Stories", comment: "Changed my life!",
