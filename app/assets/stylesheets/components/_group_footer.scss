@@ -1,12 +1,13 @@
-.footer {
-  background: $our-light-yellow;
+.container-footer {
+  background: $our-light-grey;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 50px;
-  padding: 0px 50px;
+  padding: 50px;
   color: rgba(0,0,0,0.3);
 }
+
 .footer-links {
   display: block;
   align-items: center;
@@ -19,7 +20,7 @@
   font-size: 24px;
   margin-left: 30px;
   margin-right: 20px;
-  padding: 0px 10px;
+  padding: 8px 8px 10px;
 }
 .footer-links a:hover {
   opacity: 1;

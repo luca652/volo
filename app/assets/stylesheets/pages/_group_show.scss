@@ -1,0 +1,39 @@
+.group-page-info {
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+.group-page-info .title{
+  font-size: large;
+}
+
+.group-page-item {
+  margin-left: 20px;
+  margin-right: 20px;
+  border-top: 1.5px solid $our-grey;
+}
+
+.group-members-container .avatar{
+  margin-bottom: 20px;
+}
+
+.event-info-card-body {
+  align-items: center;
+  padding-left: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  display: block;
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.event-info-card-body p {
+  font-size: 12px;
+  line-height: 1.5;
+  opacity: .7;
+  margin-bottom: 8px;
+  margin-top: 8px;
+}

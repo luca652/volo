@@ -18,6 +18,10 @@
     <%= render "shared/flashes" %>
 
     <%= yield %>
-    <%= render "shared/footer" %>
+    <% if action_name == "show" %>
+      <%= render "shared/group_footer" %>
+    <% else %>
+      <%= render "shared/footer" %>
+    <% end %>
   </body>
 </html>

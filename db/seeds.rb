@@ -19,8 +19,17 @@ user1 = User.create!( first_name: "Sara", last_name: "Carambola",
 
 group1 = Group.create!(name: "Bambini di Peckham", location: "Peckham Rye", latitude: 51.46051, longitude:-0.06040, language: "Italian", user_id: user1.id)
 
-event1 = Event.create!(name: "Crofton Park Story-Time in Italiano", location: "Crofton Park Library, 375 Brockley Rd, London SE4 2AG",
-                       category: "Books", date: "", user_id: user1.id, group_id: group1.id)
+event1 = Event.create!(name: "Story-Time in Italiano", location: "Crofton Park Library, 375 Brockley Rd, London SE4 2AG",
+                       category: "Reading", date: "", user_id: user1.id, group_id: group1.id)
+
+event2 = Event.create!(name: "Christmans song!", location: "Crofton Park Library, 375 Brockley Rd, London SE4 2AG",
+                      category: "Activity", date: "", user_id: user1.id, group_id: group1.id)
+
+event3 = Event.create!(name: "Puppet teather", location: "Crofton Park Library, 375 Brockley Rd, London SE4 2AG",
+                      category: "Activity", date: "", user_id: user1.id, group_id: group1.id)
+
+event4 = Event.create!(name: "Story-Time in Italiano", location: "Crofton Park Library, 375 Brockley Rd, London SE4 2AG",
+                        category: "Reading", date: "", user_id: user1.id, group_id: group1.id)
 
 resource1 = Resource.create!(title: "FABA - Music and stories in italian", category: "Stories", comment: "Changed my life!",
                              picture_url: "#", user_id: user1.id)

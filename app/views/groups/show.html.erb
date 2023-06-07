@@ -1,19 +1,44 @@
-<strong><%= @group.name %></strong>
-<% @events.each do |event| %>
-<% @event = event %>
-<ul>
-  <li>
-    <%= event.name %>
-  </li>
-</ul>
-<% if Booking.where(event: @event, user: current_user).present? %>
-        <p>You're going!</p>
-  <% else %>
-<%= simple_form_for [@group, @event, @booking] do |f| %>
-      <%= f.hidden_field :user_id, value: current_user.id %>
-      <%= f.hidden_field :group_id, value: @group.id %>
-      <%= f.hidden_field :event_id, value: @event.id %>
-      <%= f.submit "Attending!", class: "btn btn-success" %>
-      <% end %>
-<% end %>
-<% end %>
+<div class = "group-page-container">
+  <div class = "group-page-info">
+    <p class= "title"><strong><%= @group.name %></strong></p>
+    <p> Welcome to our group! We periodically run activities at Crafton Park Library
+        so our children will enjoy play practicing thier italian  </p>
+    <p>Language practiced: <strong> <%= @group.language %></strong></p>
+    <p>Children age: <strong> primary years</strong></p>
+  </div>
+  <br>
+  <div class="group-page-item">
+    <p> Members</p>
+    <div class= "group-members-container">
+     <a href="#" class="avatar" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
+    </a>
+    </div>
+  </div>
+  <div class = "group-page-item">
+    <p>Upcoming events <%= link_to "#", class: "btn btn-add" do %>
+     <i class="fa-solid fa-plus"></i>
+    <% end %> </p>
+    <div class= "event-card-container">
+        <% @events.each do |event| %>
+          <div class="event-info-card-body">
+              <% @event = event %>
+              <p><strong><%= event.name %></strong></p>
+              <p><%= event.date %></p>
+              <p><%= event.date %></p>
+              <p><%= event.location %></p>
+            <% if Booking.where(event: @event, user: current_user).present? %>
+                    <p>You're going!</p>
+              <% else %>
+            <%= simple_form_for [@group, @event, @booking] do |f| %>
+                  <%= f.hidden_field :user_id, value: current_user.id %>
+                  <%= f.hidden_field :group_id, value: @group.id %>
+                  <%= f.hidden_field :event_id, value: @event.id %>
+                  <%= f.submit "Attending!", class: "btn btn-success" %>
+                  <% end %>
+            <% end %>
+          </div>
+        <% end %>
+    </div>
+  </div>
+</div>
