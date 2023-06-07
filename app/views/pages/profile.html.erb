@@ -2,7 +2,7 @@
 <h4>Groups</h4>
 <ul>
   <li>
-    <% @my_groups.each do |group| %>
+    <% @groups_admin.each do |group| %>
     <%= group.name %>
     <p>Admin</p>
     <% end %>
@@ -11,9 +11,19 @@
 
 <ul>
   <li>
-    <% @groups.each do |group| %>
+    <% @groups_member.each do |group| %>
     <%= group.name %>
     <p>Member</p>
+    <% end %>
+  </li>
+</ul>
+
+<h4>My upcoming events</h4>
+<ul>
+  <li>
+    <% @my_events.each do |event| %>
+    <p><%= event.name %></p>
+    <p><%= event.date %></p>
     <% end %>
   </li>
 </ul>
