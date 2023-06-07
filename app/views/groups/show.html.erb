@@ -6,7 +6,11 @@
     <p>Language practiced: <strong> <%= @group.language %></strong></p>
     <p>Children age: <strong> primary years</strong></p>
   </div>
-  <br>
+  <div class = "group-page-item">
+    <p> Group photo albums <%= link_to "#", class: "btn btn-add" do %>
+     <i class="fa-solid fa-plus"></i>
+    <% end %> </p></p>
+  </div>
   <div class="group-page-item">
     <p> Members</p>
     <div class= "group-members-container">

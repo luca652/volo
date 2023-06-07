@@ -1,3 +1,7 @@
+.group-page-container {
+  color: $gray;
+}
+
 .group-page-info {
   margin-top: 10px;
   margin-left: 20px;
@@ -26,11 +30,12 @@
   display: block;
   overflow: hidden;
   height: 120px;
-  background: white;
+  background: $our-light-yellow;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
 .event-info-card-body p {
+  color: $gray;
   font-size: 12px;
   line-height: 1.5;
   opacity: .7;
