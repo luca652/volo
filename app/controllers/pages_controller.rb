@@ -8,9 +8,10 @@ class PagesController < ApplicationController
     @user = current_user
     @my_groups = Group.where(user_id: @user.id)
     @requests = Request.where(user_id: @user.id)
+
     @groups = []
     @requests.each do |request|
-      @group.push(request.group)
+      @groups.push(request.group)
     end
   end
 end
