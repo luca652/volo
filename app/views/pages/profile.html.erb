@@ -1,0 +1,9 @@
+<h2>Ciao <%= @user.first_name %> </h2>
+<h4>Groups</h4>
+<ul>
+  <li>
+    <% @my_groups.each do |group| %>
+    <%= group.name %>
+    <% end %>
+  </li>
+</ul>
