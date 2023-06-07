@@ -3,7 +3,7 @@ class RequestsController < ApplicationController
     @group = Group.find(params[:group_id])
     @request = Request.new(request_params)
     if @request.save
-      redirect_to groups_path, status: :created
+      redirect_to groups_path
     else
       render :new, status: :unprocessable_entity
     end

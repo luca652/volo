@@ -7,5 +7,10 @@ class PagesController < ApplicationController
   def profile
     @user = current_user
     @my_groups = Group.where(user_id: @user.id)
+    @requests = Request.where(user_id: @user.id)
+    @groups = []
+    @requests.each do |request|
+      @group.push(request.group)
+    end
   end
 end

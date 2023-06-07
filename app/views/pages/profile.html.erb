@@ -4,6 +4,16 @@
   <li>
     <% @my_groups.each do |group| %>
     <%= group.name %>
+    <p>Admin</p>
+    <% end %>
+  </li>
+</ul>
+
+<ul>
+  <li>
+    <% @groups.each do |group| %>
+    <%= group.name %>
+    <p>Member</p>
     <% end %>
   </li>
 </ul>
