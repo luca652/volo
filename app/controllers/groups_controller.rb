@@ -15,6 +15,7 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
     @events = @group.events
     @booking = Booking.new
+    @chatroom = @group.id
   end
 
   def create_booking
