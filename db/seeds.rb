@@ -9,6 +9,8 @@
 Booking.destroy_all
 Event.destroy_all
 Request.destroy_all
+Message.destroy_all
+Chatroom.destroy_all
 Group.destroy_all
 Pin.destroy_all
 Resource.destroy_all
@@ -70,6 +72,15 @@ event6 = Event.create!(name: "Picnic nel parco", location: "Hilly Fields, 375 Br
                        category: "Activity", date: "2023-8-12", user_id: user2.id, group_id: group1.id)
 event7 = Event.create!(name: "Festa di compleanno di Andrea", location: "Crofton Park Library, 375 Brockley Rd, London SE4 2AG",
                        category: "Activity", date: "2023-7-30", user_id: user4.id, group_id: group1.id)
+
+# BOOKINGS FOR EVENTS
+booking1 = Booking.create!(event_id: event1.id, user_id: user1.id)
+booking2 = Booking.create!(event_id: event2.id, user_id: user1.id)
+booking3 = Booking.create!(event_id: event3.id, user_id: user1.id)
+booking4 = Booking.create!(event_id: event4.id, user_id: user1.id)
+booking5 = Booking.create!(event_id: event5.id, user_id: user1.id)
+booking6 = Booking.create!(event_id: event6.id, user_id: user1.id)
+booking7 = Booking.create!(event_id: event7.id, user_id: user1.id)
 
 #  RESOURCES
 resource1 = Resource.create!(title: "FABA - Music and stories in italian", category: "Stories",
