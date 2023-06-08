@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   resources :groups, only: [:index, :show] do
     resources :requests, only: [:create]
     post "events/:event_id/bookings", to: "groups#create_booking", as: :event_bookings
-    patch "events/:event_id/bookings/bookings_id/accepted", to: "groups#accepted"
-    patch "events/:event_id/bookings/bookings_id/declined", to: "groups#declined"
+    patch "requests/:request_id/accepted", to: "pages#accepted", as: :request_accepted
+    patch "requests/:request_id/declined", to: "pages#declined", as: :request_declined
     resources :chatrooms, only: [:show] do
       resources :messages, only: [:create]
     end

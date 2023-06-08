@@ -1,10 +1,18 @@
-<h2>Ciao <%= @user.first_name %> </h2>
+<h2>Ciao <%= @user.first_name %>!</h2>
 <h4>Groups</h4>
 <ul>
   <li>
     <% @groups_admin.each do |group| %>
-    <%= group.name %>
-    <p>Admin</p>
+      <%= group.name %>
+      <p>Admin</p>
+      <p>Requests</p>
+      <% group.requests.each do |request| %>
+        <% if request.accepted == false && request.declined == false %>
+        <%= request.user.first_name %>
+        <%= link_to "Accept Request", group_request_accepted_path(group.id, request.id), class: "btn btn-success" %>
+        <%= link_to "Decline Request", group_request_accepted_path(group.id, request.id), class: "btn btn-success" %>
+        <% end %>
+      <% end %>
     <% end %>
   </li>
 </ul>
@@ -12,8 +20,14 @@
 <ul>
   <li>
     <% @groups_member.each do |group| %>
-    <%= group.name %>
-    <p>Member</p>
+      <%= group.name %>
+      <p>Member</p>
+    <% end %>
+  </li>
+  <li>
+    <% @groups_pending.each do |group| %>
+      <%= group.name %>
+      <p>Pending</p>
     <% end %>
   </li>
 </ul>
