@@ -28,6 +28,8 @@ user4 = User.create!(first_name: "Mario", last_name: "Pastorelli", language: "It
                      childrens_age: "pre-school", location: "10-14, Mercy Terrace, London SE13 7UX",
                      email: "mario@me.com", password: "123456")
 
+
+
 # GROUPS
 group1 = Group.create!(name: "Bambini di Peckham", location: "Peckham Rye", latitude: 51.46051,
                        longitude: -0.06040, language: "Italian", user_id: user1.id)
