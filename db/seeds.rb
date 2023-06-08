@@ -9,6 +9,8 @@
 Booking.destroy_all
 Event.destroy_all
 Request.destroy_all
+Message.destroy_all
+Chatroom.destroy_all
 Group.destroy_all
 Pin.destroy_all
 Resource.destroy_all
@@ -27,33 +29,39 @@ user3 = User.create!(first_name: "Jess", last_name: "Ferretti", language: "Itali
 user4 = User.create!(first_name: "Mario", last_name: "Pastorelli", language: "Italian", number_of_children: 1,
                      childrens_age: "pre-school", location: "10-14, Mercy Terrace, London SE13 7UX",
                      email: "mario@me.com", password: "123456")
+user5 = User.create!(first_name: "Laura", last_name: "Martin", language: "English / Italian", number_of_children: 1,
+                      childrens_age: "pre-school", location: "10-14, Mercy Terrace, London SE13 7UX",
+                      email: "laura@me.com", password: "123456")
 
 # GROUPS
-group1 = Group.create!(name: "Bambini di Peckham", location: "Peckham Rye", latitude: 51.46051,
-                       longitude: -0.06040, language: "Italian", user_id: user1.id)
-group2 = Group.create!(name: "Brockley Playclub in Italiano", location: "Brockley", latitude: 51.463009,
-                       longitude: -0.04091, language: "Italian", user_id: user2.id)
-group3 = Group.create!(name: "Quelli di Hilly Fields", location: "Brockley", latitude: 51.45977,
-                       longitude: -0.02391, language: "Italian", user_id: user3.id)
-group4 = Group.create!(name: "Horniman Museum - Gruppo italiano", location: "Forest Hill", latitude: 51.441047,
-                       longitude: -0.061680, language: "Italian", user_id: user4.id)
-group5 = Group.create!(name: "Biblioteca di Canada Water", location: "Forest Hill", latitude: 51.497684,
-                       longitude: -0.049308, language: "Italian", user_id: user2.id)
-group6 = Group.create!(name: "Sydenham - Mayow Park", location: "Sydenham", latitude: 51.430003,
-                       longitude: -0.049165, language: "Italian", user_id: user3.id)
-group7 = Group.create!(name: "I dinosauri di Crystal Palace", location: "Crystal Palace", latitude: 51.418972,
-                       longitude: -0.065530, language: "Italian", user_id: user4.id)
-group8 = Group.create!(name: "Dulwich Village - Mamme e bambini", location: "Dulwich Village", latitude: 51.450792,
-                       longitude: -0.085519, language: "Italian", user_id: user2.id)
-group9 = Group.create!(name: "Brockwell Park - Estate Ragazzi", location: "Herne Hill", latitude: 51.4510004,
-                       longitude: -0.1075706, language: "Italian", user_id: user3.id)
-group10 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "New Cross Gate", latitude: 51.468959,
-                        longitude: -0.044985, language: "Italian", user_id: user4.id)
+group1 = Group.create!(name: "Bambini di Peckham", location: "95A Rye Ln, London SE15 4ST",
+                       language: "Italian", user_id: user1.id)
+group2 = Group.create!(name: "Brockley Playclub in Italiano", location: "1 Coulgate St, London SE4 2RW",
+                       language: "Italian", user_id: user2.id)
+group3 = Group.create!(name: "Quelli di Hilly Fields", location: "317 Brockley Rd, London SE4 2QZ",
+                       language: "Italian", user_id: user3.id)
+group4 = Group.create!(name: "Horniman Museum - Gruppo italiano", location: "100 London Rd, London SE23 3PQ",
+                       language: "Italian", user_id: user4.id)
+group5 = Group.create!(name: "Biblioteca di Canada Water", location: "21 Surrey Quays Rd, London SE16 7AR",
+                       language: "Italian", user_id: user2.id)
+group6 = Group.create!(name: "Sydenham - Mayow Park", location: "313-315 Kirkdale, London SE26 4QB",
+                       language: "Italian", user_id: user3.id)
+group7 = Group.create!(name: "I dinosauri di Crystal Palace", location: "95 Church Rd, London SE19 2TA",
+                       language: "Italian", user_id: user4.id)
+group8 = Group.create!(name: "Dulwich Village - Mamme e bambini", location: "116a Lordship Ln, London SE22 8HD",
+                       language: "Italian", user_id: user2.id)
+group9 = Group.create!(name: "Brockwell Park - Estate Ragazzi", location: "10 Half Moon Ln, London SE24 9HU",
+                       language: "Italian", user_id: user3.id)
+group10 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "The Hill Station, Kitto Rd, London SE14 5TW",
+                        language: "Italian", user_id: user4.id)
+
 # REQUESTS
 request1 = Request.create!(user_id: user1.id, group_id: group1.id, accepted: true)
 request2 = Request.create!(user_id: user2.id, group_id: group1.id, accepted: true)
 request3 = Request.create!(user_id: user3.id, group_id: group1.id, accepted: true)
 request4 = Request.create!(user_id: user4.id, group_id: group1.id, accepted: true)
+request5 = Request.create!(user_id: user5.id, group_id: group1.id)
+
 
 # EVENTS
 event1 = Event.create!(name: "Story-Time in Italiano", location: "Crofton Park Library, 375 Brockley Rd, London SE4 2AG",
@@ -70,6 +78,15 @@ event6 = Event.create!(name: "Picnic nel parco", location: "Hilly Fields, 375 Br
                        category: "Activity", date: "2023-8-12", user_id: user2.id, group_id: group1.id)
 event7 = Event.create!(name: "Festa di compleanno di Andrea", location: "Crofton Park Library, 375 Brockley Rd, London SE4 2AG",
                        category: "Activity", date: "2023-7-30", user_id: user4.id, group_id: group1.id)
+
+# BOOKINGS FOR EVENTS
+booking1 = Booking.create!(event_id: event1.id, user_id: user1.id)
+booking2 = Booking.create!(event_id: event2.id, user_id: user1.id)
+booking3 = Booking.create!(event_id: event3.id, user_id: user1.id)
+booking4 = Booking.create!(event_id: event4.id, user_id: user1.id)
+booking5 = Booking.create!(event_id: event5.id, user_id: user1.id)
+booking6 = Booking.create!(event_id: event6.id, user_id: user1.id)
+booking7 = Booking.create!(event_id: event7.id, user_id: user1.id)
 
 #  RESOURCES
 resource1 = Resource.create!(title: "FABA - Music and stories in italian", category: "Stories",
