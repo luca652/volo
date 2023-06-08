@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
+  get "profile", to: "pages#profile"
 
   resources :groups, only: [:index, :show] do
-    resources :requests, only: [:create]
+    resources :requests, only: [:create] do
+      patch :accepted
+      patch :declined
+    end
     post "events/:event_id/bookings", to: "groups#create_booking", as: :event_bookings
-    patch "events/:event_id/bookings/bookings_id/accepted", to: "groups#accepted"
-    patch "events/:event_id/bookings/bookings_id/declined", to: "groups#declined"
     resources :chatrooms, only: [:show] do
       resources :messages, only: [:create]
     end
