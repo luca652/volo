@@ -6,7 +6,7 @@ class GroupsController < ApplicationController
       {
         lat: group.latitude,
         lng: group.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: {groups: group})
+        info_window_html: render_to_string(partial: "info_window", locals: {group: group})
       }
     end
   end
