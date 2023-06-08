@@ -5,12 +5,11 @@
     <% @groups_admin.each do |group| %>
       <%= group.name %>
       <p>Admin</p>
-      <p>Requests</p>
       <% group.requests.each do |request| %>
         <% if request.accepted == false && request.declined == false %>
-        <%= request.user.first_name %>
-        <%= link_to "Accept Request", group_request_accepted_path(group.id, request.id), class: "btn btn-success" %>
-        <%= link_to "Decline Request", group_request_accepted_path(group.id, request.id), class: "btn btn-success" %>
+        <p><%= request.user.first_name %> wants to join</p>
+        <%= link_to "Accept Request", group_request_accepted_path(group.id, request.id, ), method: "patch", class: "btn btn-success" %>
+        <%= link_to "Decline Request", group_request_declined_path(group.id, request.id), method: "patch", class: "btn btn-success" %>
         <% end %>
       <% end %>
     <% end %>

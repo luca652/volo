@@ -4,10 +4,11 @@ Rails.application.routes.draw do
   get "profile", to: "pages#profile"
 
   resources :groups, only: [:index, :show] do
-    resources :requests, only: [:create]
+    resources :requests, only: [:create] do
+      patch :accepted
+      patch :declined
+    end
     post "events/:event_id/bookings", to: "groups#create_booking", as: :event_bookings
-    patch "requests/:request_id/accepted", to: "pages#accepted", as: :request_accepted
-    patch "requests/:request_id/declined", to: "pages#declined", as: :request_declined
     resources :chatrooms, only: [:show] do
       resources :messages, only: [:create]
     end

@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :home ]
+  skip_before_action :authenticate_user!, only: [:home]
 
   def home
   end
@@ -24,28 +24,11 @@ class PagesController < ApplicationController
       end
     end
 
+    # getting user's upcoming events from bookings
     @bookings = Booking.where(user_id: @user.id)
     @my_events = []
     @bookings.each do |booking|
       @my_events.push(booking.event)
     end
-  end
-
-  def accepted
-    @group = Group.find(params[:group_id])
-    @request = Request.find(params[:request_id])
-    @request.group = @group
-    @request.accepted = true
-    @request.save
-    # redirect_to my_mopeds_path(current_user)
-  end
-
-  def declined
-    @group = Group.find(params[:group_id])
-    @request = Request.find(params[:request_id])
-    @request.group = @group
-    @request.declined = true
-    @request.save
-    # redirect_to my_mopeds_path(current_user)
   end
 end

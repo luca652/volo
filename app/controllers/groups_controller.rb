@@ -27,24 +27,6 @@ class GroupsController < ApplicationController
     end
   end
 
-  def accepted
-    @group = Group.find(params[:group_id])
-    @request = Request.find(params[:request_id])
-    @request.group = @group
-    @request.accepted = true
-    @request.save
-    # redirect_to my_mopeds_path(current_user)
-  end
-
-  def declined
-    @group = Group.find(params[:group_id])
-    @request = Request.find(params[:request_id])
-    @request.group = @group
-    @request.declined = true
-    @request.save
-    # redirect_to my_mopeds_path(current_user)
-  end
-
   private
 
   def booking_params
