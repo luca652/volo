@@ -54,12 +54,14 @@ group9 = Group.create!(name: "Brockwell Park - Estate Ragazzi", location: "10 Ha
                        language: "Italian", user_id: user3.id)
 group10 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "The Hill Station, Kitto Rd, London SE14 5TW",
                         language: "Italian", user_id: user4.id)
+
 # REQUESTS
 request1 = Request.create!(user_id: user1.id, group_id: group1.id, accepted: true)
 request2 = Request.create!(user_id: user2.id, group_id: group1.id, accepted: true)
 request3 = Request.create!(user_id: user3.id, group_id: group1.id, accepted: true)
 request4 = Request.create!(user_id: user4.id, group_id: group1.id, accepted: true)
 request5 = Request.create!(user_id: user5.id, group_id: group1.id)
+
 
 # EVENTS
 event1 = Event.create!(name: "Story-Time in Italiano", location: "Crofton Park Library, 375 Brockley Rd, London SE4 2AG",

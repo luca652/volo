@@ -23,13 +23,18 @@
       <p>Member</p>
     <% end %>
   </li>
-  <li>
-    <% @groups_pending.each do |group| %>
-      <%= group.name %>
-      <p>Pending</p>
-    <% end %>
-  </li>
 </ul>
+
+<% unless @groups_pending.empty? %>
+  <ul>
+    <li>
+      <% @groups_pending.each do |group| %>
+        <%= group.name %>
+        <p>Pending</p>
+      <% end %>
+    </li>
+  </ul>
+<% end %>
 
 <h4>My upcoming events</h4>
 <ul>
