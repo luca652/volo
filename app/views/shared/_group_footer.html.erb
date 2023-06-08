@@ -1,4 +1,4 @@
-<div class="footer fixed-bottom">
+<div class="container-footer fixed-bottom">
   <div class="footer-links">
     <%= link_to root_path, class: "footer-item" do %>
       <i class="fa-solid fa-house"></i>
@@ -9,6 +9,9 @@
     <%# <a href="#"><i class="fa-solid fa-bell"></i></a> %>
     <%= link_to "#", class: "footer-item" do %>
       <i class="fa-solid fa-user"></i>
+    <% end %>
+    <%= link_to group_chatroom_path(@group.id), class: "footer-item" do %>
+     <i class="fa-regular fa-comment"></i>
     <% end %>
   </div>
 </div>

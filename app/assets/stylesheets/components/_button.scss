@@ -1,0 +1,16 @@
+.btn-success{
+  display: block;
+  color: white;
+  font-size: small;
+  margin-top: 10px;
+  margin-left: 100px;
+  border-color: $our-red;
+  background-color: $our-red;
+  border-radius: 8px;
+  // box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.2);
+}
+
+.btn-add {
+  display: inline-flex;
+  color: $our-grey;
+}
