@@ -6,10 +6,13 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+Booking.destroy_all
 Event.destroy_all
+Request.destroy_all
 Group.destroy_all
-User.destroy_all
+Pin.destroy_all
 Resource.destroy_all
+User.destroy_all
 
 
 user1 = User.create!(first_name: "Sara", last_name: "Carambola", language: "Italian", number_of_children: 2,
@@ -20,12 +23,12 @@ user2 = User.create!(first_name: "Elisabetta", last_name: "Bianchi", language: "
                      email: "elisabetta@me.com", password: "123456")
 user3 = User.create!(first_name: "Jess", last_name: "Ferretti", language: "Italian", number_of_children: 3,
                      childrens_age: "primary", location: "21 Surrey Quays Rd, London SE16 7AR",
-                     email: "elisabetta@me.com", password: "123456")
+                     email: "jess@me.com", password: "123456")
 user4 = User.create!(first_name: "Mario", last_name: "Pastorelli", language: "Italian", number_of_children: 1,
                      childrens_age: "pre-school", location: "10-14, Mercy Terrace, London SE13 7UX",
-                     email: "elisabetta@me.com", password: "123456")
+                     email: "mario@me.com", password: "123456")
 
-
+# GROUPS
 group1 = Group.create!(name: "Bambini di Peckham", location: "Peckham Rye", latitude: 51.46051,
                        longitude: -0.06040, language: "Italian", user_id: user1.id)
 group2 = Group.create!(name: "Brockley Playclub in Italiano", location: "Brockley", latitude: 51.463009,
@@ -45,22 +48,37 @@ group8 = Group.create!(name: "Dulwich Village - Mamme e bambini", location: "Dul
 group9 = Group.create!(name: "Brockwell Park - Estate Ragazzi", location: "Herne Hill", latitude: 51.4510004,
                        longitude: -0.1075706, language: "Italian", user_id: user3.id)
 group10 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "New Cross Gate", latitude: 51.468959,
-                       longitude: -0.044985, language: "Italian", user_id: user4.id)
+                        longitude: -0.044985, language: "Italian", user_id: user4.id)
 
-
+# EVENTS
 event1 = Event.create!(name: "Story-Time in Italiano", location: "Crofton Park Library, 375 Brockley Rd, London SE4 2AG",
-                       category: "Reading", date: "", user_id: user1.id, group_id: group1.id)
+                       category: "Reading", date: "2023-7-2", user_id: user2.id, group_id: group1.id)
 
-event2 = Event.create!(name: "Christmans song!", location: "Crofton Park Library, 375 Brockley Rd, London SE4 2AG",
-                      category: "Activity", date: "", user_id: user1.id, group_id: group1.id)
+event2 = Event.create!(name: "Filastrocche nel parco", location: "Canada Water Library, 21 Surrey Quays Rd, London SE16 7AR",
+                       category: "Activity", date: "2023-7-9", user_id: user3.id, group_id: group1.id)
 
 event3 = Event.create!(name: "Puppet teather", location: "Crofton Park Library, 375 Brockley Rd, London SE4 2AG",
-                      category: "Activity", date: "", user_id: user1.id, group_id: group1.id)
+                       category: "Activity", date: "2023-7-12", user_id: user4.id, group_id: group1.id)
+event4 = Event.create!(name: "Time to sing!", location: "Crofton Park Library, 375 Brockley Rd, London SE4 2AG",
+                       category: "Music", date: "", user_id: user4.id, group_id: group1.id)
+event5 = Event.create!(name: "Sunday Morning Playclub", location: "Crofton Park Library, 375 Brockley Rd, London SE4 2AG",
+                       category: "", date: "", user_id: user3.id, group_id: group1.id)
 
-event4 = Event.create!(name: "Story-Time in Italiano", location: "Crofton Park Library, 375 Brockley Rd, London SE4 2AG",
-                        category: "Reading", date: "", user_id: user1.id, group_id: group1.id)
+event6 = Event.create!(name: "Picnic nel parco", location: "Hilly Fields, 375 Brockley Rd, London SE4 2AG",
+                       category: "Activity", date: "2023-8-12", user_id: user2.id, group_id: group1.id)
 
-resource1 = Resource.create!(title: "FABA - Music and stories in italian", category: "Stories", comment: "Changed my life!",
-                             picture_url: "#", user_id: user1.id)
-resource2 = Resource.create!(title: "Italian cookbooks", category: "Cook book", comment: "Delicious!",
-                             picture_url: "#", user_id: user1.id)
+event7 = Event.create!(name: "Festa di compleanno di Andrea", location: "Crofton Park Library, 375 Brockley Rd, London SE4 2AG",
+                       category: "Activity", date: "2023-7-30", user_id: user4.id, group_id: group1.id)
+
+#  RESOURCES
+resource1 = Resource.create!(title: "FABA - Music and stories in italian", category: "Stories",
+                             comment: "Utilissimo! Each character sings songs or tells a story in Italian. My daughter loves it!",
+                             picture_url: "faba.png", user_id: user2.id)
+resource2 = Resource.create!(title: "Passeggino definitivo", category: "#", comment: "If you're planning to fly to Italy quite a bit, get this. It folds really small and you can take it on the plane",
+                             picture_url: "pram.png", user_id: user3.id)
+resource3 = Resource.create!(title: "Le avventure di Cipollino", category: "reading", comment: "Un classico. I loved it when I was a kid!",
+                             picture_url: "book.png", user_id: user4.id)
+resource4 = Resource.create!(title: "Talia e la valigia della idee", category: "#", comment: "Weekly Italian playgroups in London. Divertentissimo! Ve lo consiglio!",
+                             picture_url: "talia.png", user_id: user2.id)
+resource5 = Resource.create!(title: "Mappa di Torino", category: "#", comment: "Ciao! I bought this map for my daughter when we went to Torino for the weekend. She loved it!",
+                             picture_url: "mappa.png", user_id: user3.id)
