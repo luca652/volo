@@ -35,7 +35,10 @@ user5 = User.create!(first_name: "Laura", last_name: "Martin", language: "Englis
 
 # GROUPS
 group1 = Group.create!(name: "Bambini di Peckham", location: "95A Rye Ln, London SE15 4ST",
-                       language: "Italian", user_id: user1.id, childrens_age: ["pre-school"])
+                       description: "Benvenuti nel gruppo! We meet regularly in the Peckham / Nunhead area.
+                       Peckham Rye if the weather's good (is it ever?!) or Nunhead Library. Have a look at our
+                       upcoming events and RSVP. Ciao!", language: "Italian", user_id: user1.id,
+                       childrens_age: ["pre-school"])
 group2 = Group.create!(name: "Brockley Playclub in Italiano", location: "1 Coulgate St, London SE4 2RW",
                        language: "Italian", user_id: user2.id, childrens_age: ["pre-school", "primary"])
 group3 = Group.create!(name: "Quelli di Hilly Fields", location: "317 Brockley Rd, London SE4 2QZ",

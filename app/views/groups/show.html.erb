@@ -4,12 +4,11 @@
     <div class="group-page-item">
     <div class= "group-members-container">
      <a href="#" class="avatar" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
+      <%= image_path("/avatars/luca.png"), class: "avatar" %>
     </a>
     </div>
   </div>
-    <p> Welcome to our group! We periodically run activities at Crafton Park Library
-        so our children will enjoy play practicing thier italian  </p>
+    <p> <%= @group.description %> </p>
     <p>Language practiced: <strong> <%= @group.language %></strong></p>
     <p>Children age: <strong> primary years</strong></p>
   </div>
