@@ -21,18 +21,18 @@
         <% @events.each do |event| %>
           <div class="event-info-card-body">
               <% @event = event %>
-              <p><strong><%= event.name %></strong></p>
+              <h4><strong><%= event.name @days_left %></strong></h4>
               <% @date = event.date %>
               <p><%= @date.strftime("%b %e, %l:%M %p")%></p>
               <p><%= link_to event.location, "https://www.google.com/maps/search/?api=1&query=#{event.latitude}%2C#{event.longitude}"%></p>
             <% if Booking.where(event: @event, user: current_user).present? %>
-                    <p>You're going!</p>
+                    <p><strong>You're going!</strong></p>
               <% else %>
             <%= simple_form_for [@group, @event, @booking] do |f| %>
                   <%= f.hidden_field :user_id, value: current_user.id %>
                   <%= f.hidden_field :group_id, value: @group.id %>
                   <%= f.hidden_field :event_id, value: @event.id %>
-                  <%= f.submit "Attending!", class: "btn btn-success" %>
+                  <%= f.submit "Count me in!", class: "btn btn-success" %>
                   <% end %>
             <% end %>
           </div>
