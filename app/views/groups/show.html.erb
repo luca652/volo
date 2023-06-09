@@ -23,8 +23,7 @@
               <% @event = event %>
               <p><strong><%= event.name %></strong></p>
               <p><%= event.date %></p>
-              <p><%= event.date %></p>
-              <p><%= event.location %></p>
+              <p><%= link_to event.location, "https://www.google.com/maps/search/?api=1&query=#{event.latitude}%2C#{event.longitude}"%></p>
             <% if Booking.where(event: @event, user: current_user).present? %>
                     <p>You're going!</p>
               <% else %>
