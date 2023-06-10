@@ -13,30 +13,29 @@
     <p>Language practiced: <strong> <%= @group.language %></strong></p>
     <p>Children age: <strong> primary years</strong></p>
   </div>
-  <div class = "group-page-item">
-    <p>Upcoming events <%= link_to "#", class: "btn btn-add" do %>
-     <i class="fa-solid fa-plus"></i>
-    <% end %> </p>
-    <div class= "event-card-container">
+  <div class = "group-page-item" data-controller="dropdown" data-target="dropdown.card">
+    <p>Upcoming events <button data-action="click->dropdown#toggleCard">+</button></p>
+      <div class= "event-card-container" >
         <% @events.each do |event| %>
           <div class="event-info-card-body">
-              <% @event = event %>
-              <p><strong><%= event.name %></strong></p>
-              <p><%= event.date %></p>
-              <p><%= event.date %></p>
-              <p><%= event.location %></p>
-            <% if Booking.where(event: @event, user: current_user).present? %>
-                    <p>You're going!</p>
+            <% @event = event %>
+            <p><strong><%= event.name %></strong></p>
+            <p><%= event.date %></p>
+            <p><%= event.location %></p>
+            <div class = "event-confermation-container">
+              <% if Booking.where(event: @event, user: current_user).present? %>
+                <p>You're going!</p>
               <% else %>
-            <%= simple_form_for [@group, @event, @booking] do |f| %>
-                  <%= f.hidden_field :user_id, value: current_user.id %>
-                  <%= f.hidden_field :group_id, value: @group.id %>
-                  <%= f.hidden_field :event_id, value: @event.id %>
-                  <%= f.submit "Attending!", class: "btn btn-success" %>
-                  <% end %>
-            <% end %>
+              <%= simple_form_for [@group, @event, @booking] do |f| %>
+                <%= f.hidden_field :user_id, value: current_user.id %>
+                <%= f.hidden_field :group_id, value: @group.id %>
+                <%= f.hidden_field :event_id, value: @event.id %>
+                <%= f.submit "Attending!", class: "btn btn-success" %>
+                <% end %>
+              <% end %>
+            </div>
           </div>
         <% end %>
-    </div>
+      </div>
   </div>
 </div>
