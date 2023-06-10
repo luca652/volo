@@ -16,6 +16,7 @@ class GroupsController < ApplicationController
     @events = @group.events
     @booking = Booking.new
     @chatroom = @group.id
+    @members = @group.users
   end
 
   def create_booking

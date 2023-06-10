@@ -3,9 +3,15 @@
     <p class= "title"><strong><%= @group.name %></strong></p>
     <div class="group-page-item">
     <div class= "group-members-container">
-     <a href="#" class="avatar" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <p>
+      Members:
+      <% @members.each do |member| %>
+      <%= member.first_name %>
+      <% end %>
+    </p>
+     <%# <a href="#" class="avatar" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
-    </a>
+    <%# </a> %>
     </div>
   </div>
     <p> <%= @group.description %> </p>
