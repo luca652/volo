@@ -23,7 +23,7 @@
         <h5 class="card-title"><%= resource.title %></h5>
         <p class="card-text card-text-category"><%= resource.category %></p>
         <p class="card-text"><%= resource.comment %></p>
-        <%= image_tag("#{resource.picture_url}") %>
+        <%= image_tag("#{resource.picture_url}", style: 'height: 100px') %>
         <p>Pins: <%= resource.pin_count %></p> <!-- Corrected line -->
         <a href="#" class="pin-button" data-resource-id="<%= resource.id %>">
           <i class="fas fa-thumbtack"></i>
