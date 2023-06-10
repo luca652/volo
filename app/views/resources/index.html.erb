@@ -5,32 +5,24 @@
 
 <div class="container">
   <div class="filter-container">
-    <label for="category-filter">Filter by Category:</label>
-    <select id="category-filter" class="form-control">
-      <option value="">All Categories</option>
-      <% @categories.each do |category| %>
-        <option value="<%= category %>"><%= category %></option>
-      <% end %>
-    </select>
-    <button id="filter-button" class="btn btn-primary">Filter</button>
-    <button id="create-resource-button" class="btn btn-success ml-2">Create Resource</button> <!-- Added create resource button -->
+    <!-- Filter controls... -->
   </div>
 
   <div class="card-container">
-  <% @resources.each do |resource| %>
-    <div class="card" data-category="<%= resource.category %>">
-      <div class="card-body">
-        <h5 class="card-title"><%= resource.title %></h5>
-        <p class="card-text card-text-category"><%= resource.category %></p>
-        <p class="card-text"><%= resource.comment %></p>
-        <p class="card-text"><%= resource.picture_url %></p>
-        <p>Pins: <%= resource.pin_count %></p> <!-- Corrected line -->
-        <a href="#" class="pin-button" data-resource-id="<%= resource.id %>">
-          <i class="fas fa-thumbtack"></i>
-        </a>
+    <% @resources.each do |resource| %>
+      <div class="card" data-category="<%= resource.category %>" data-resource-id="<%= resource.id %>"> <!-- Added data-resource-id attribute -->
+        <div class="card-body">
+          <h5 class="card-title"><%= resource.title %></h5>
+          <p class="card-text card-text-category"><%= resource.category %></p>
+          <p class="card-text"><%= resource.comment %></p>
+          <p class="card-text"><%= resource.picture_url %></p>
+          <p>Pins: <span class="pin-count"><%= resource.pin_count %></span></p> <!-- Updated line -->
+          <a href="#" class="pin-button" data-resource-id="<%= resource.id %>">
+            <i class="fas fa-thumbtack"></i>
+          </a>
+        </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
   </div>
 
   <div class="pins-container">
@@ -40,61 +32,7 @@
 
 <script>
   $(document).ready(function() {
-    // Button click event handler for creating a new resource card
-    $(document).on('click', '#create-resource-button', function() {
-      var title = prompt('Enter resource title:');
-      var category = prompt('Enter resource category:');
-      var comment = prompt('Enter resource comment:');
-      var pictureUrl = prompt('Enter resource picture URL:');
-
-      // Perform validation on the input values (optional)
-      if (!title || !category || !comment || !pictureUrl) {
-        alert('Please fill in all fields.');
-        return;
-      }
-
-      var newResource = {
-        title: title,
-        category: category,
-        comment: comment,
-        picture_url: pictureUrl
-      };
-
-      var newCardHTML = `
-        <div class="card" data-category="${newResource.category}">
-          <div class="card-body">
-            <h5 class="card-title">${newResource.title}</h5>
-            <p class="card-text card-text-category">${newResource.category}</p>
-            <p class="card-text">${newResource.comment}</p>
-            <p class="card-text">${newResource.picture_url}</p>
-            <a href="#" class="pin-button" data-resource-id="123">
-              <i class="fas fa-thumbtack"></i>
-            </a>
-          </div>
-        </div>
-      `;
-
-      $('.card-container').append(newCardHTML);
-    });
-
-    // Filter button click event handler
-    $(document).on('click', '#filter-button', function() {
-      var category = $('#category-filter').val();
-      console.log('Filter by category: ' + category);
-
-      var cards = $('.card');
-
-      for (var i = 0; i < cards.length; i++) {
-        var card = $(cards[i]);
-        var cardCategory = card.data('category');
-
-        if (category === '' || cardCategory === category) {
-          card.show();
-        } else {
-          card.hide();
-        }
-      }
-    });
+    // ...
 
     // Pin button click event handler
     $(document).on('click', '.pin-button', function(e) {
@@ -118,17 +56,16 @@
           } else {
             console.log(response);
 
-            $.ajax({
-              type: 'GET',
-              url: '/resources/' + response.resource_id,
-              dataType: 'html',
-              success: function(cardHTML) {
-                $('.pins-container').append(cardHTML);
-              },
-              error: function(xhr, status, error) {
-                console.log(xhr.responseText);
-              }
-            });
+            // Update the pin count for the corresponding resource card
+            var card = pinButton.closest('.card');
+            var pinCount = card.find('.pin-count');
+
+            // Increment the pin count
+            var currentCount = parseInt(pinCount.text());
+            pinCount.text(currentCount + 1);
+
+            // Disable the pin button
+            pinButton.attr('disabled', true);
           }
         },
         error: function(xhr, status, error) {
