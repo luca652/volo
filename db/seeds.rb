@@ -87,9 +87,9 @@ event7 = Event.create!(name: "Festa di compleanno di Andrea", location: "95 Chur
 
 # BOOKINGS FOR EVENTS
 booking1 = Booking.create!(event_id: event1.id, user_id: user1.id)
-booking2 = Booking.create!(event_id: event5.id, user_id: user1.id)
-booking3 = Booking.create!(event_id: event6.id, user_id: user1.id)
-booking4 = Booking.create!(event_id: event7.id, user_id: user1.id)
+# booking2 = Booking.create!(event_id: event5.id, user_id: user1.id)
+# booking3 = Booking.create!(event_id: event6.id, user_id: user1.id)
+# booking4 = Booking.create!(event_id: event7.id, user_id: user1.id)
 
 #  RESOURCES
 resource1 = Resource.create!(title: "FABA - Music and stories in italian", category: "Stories",
