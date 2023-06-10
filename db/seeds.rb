@@ -62,7 +62,7 @@ group10 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "The Hill
 Chatroom.create!(group_id: group1.id)
 
 # REQUESTS
-request1 = Request.create!(user_id: user1.id, group_id: group1.id, accepted: true)
+request1 = Request.create!(user_id: user1.id, group_id: group2.id, accepted: true)
 request2 = Request.create!(user_id: user2.id, group_id: group1.id, accepted: true)
 request3 = Request.create!(user_id: user3.id, group_id: group1.id, accepted: true)
 request4 = Request.create!(user_id: user4.id, group_id: group1.id, accepted: true)
