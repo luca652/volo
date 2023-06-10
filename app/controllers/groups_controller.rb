@@ -17,6 +17,7 @@ class GroupsController < ApplicationController
     @booking = Booking.new
     @chatroom = @group.id
     @members = @group.users
+    @requests = Request.where(group_id: @group.id)
   end
 
   def create_booking
