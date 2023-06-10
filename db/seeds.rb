@@ -101,7 +101,7 @@ resource2 = Resource.create!(title: "Passeggino definitivo", category: "#",
                              picture_url: "pram.png", user_id: user3.id)
 resource3 = Resource.create!(title: "Le avventure di Cipollino", category: "reading",
                              comment: "Un classico. I loved it when I was a kid!",
-                             picture_url: "resources/book.png", user_id: user4.id)
+                             picture_url: "book.png", user_id: user4.id)
 resource4 = Resource.create!(title: "Talia e la valigia della idee", category: "#",
                              comment: "Weekly Italian playgroups in London. Divertentissimo! Ve lo consiglio!",
                              picture_url: "resources/talia.png", user_id: user2.id)
