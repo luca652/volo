@@ -15,7 +15,7 @@ class RequestsController < ApplicationController
     @request.group = @group
     @request.accepted = true
     @request.save
-    redirect_to profile_path(current_user)
+    redirect_to group_path(@group)
   end
 
   def declined
@@ -24,7 +24,7 @@ class RequestsController < ApplicationController
     @request.group = @group
     @request.declined = true
     @request.save
-    redirect_to profile_path(current_user)
+    redirect_to group_path(@group)
   end
 
   private
