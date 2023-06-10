@@ -58,6 +58,8 @@ group9 = Group.create!(name: "Brockwell Park - Estate Ragazzi", location: "10 Ha
 group10 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "The Hill Station, Kitto Rd, London SE14 5TW",
                         picture_url: "/groups/telegraph.png", language: "Italian", user_id: user4.id, childrens_age: ["primary"])
 
+#CHATROOM FOR GROUP
+Chatroom.create!(group_id: group1.id)
 
 # REQUESTS
 request1 = Request.create!(user_id: user1.id, group_id: group1.id, accepted: true)
