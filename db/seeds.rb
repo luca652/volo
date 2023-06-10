@@ -105,9 +105,9 @@ resource3 = Resource.create!(title: "Le avventure di Cipollino", category: "read
 resource4 = Resource.create!(title: "Talia e la valigia della idee", category: "#",
                              comment: "Weekly Italian playgroups in London. Divertentissimo! Ve lo consiglio!",
                              picture_url: "resources/talia.png", user_id: user2.id)
-resource5 = Resource.create!(title: "Mappa di Torino", category: "#",
-                             comment: "Ciao! I bought this map for my daughter when we went to Torino for the weekend. She loved it!",
-                             picture_url: "resources/mappa.png", user_id: user3.id)
+# resource5 = Resource.create!(title: "Mappa di Torino", category: "#",
+#                              comment: "Ciao! I bought this map for my daughter when we went to Torino for the weekend. She loved it!",
+#                              picture_url: "resources/mappa.png", user_id: user3.id)
 resource6 = Resource.create!(title: "TOPOLINO", category: "reading",
                              comment: "Ho regalato un abbonamento a mio figlio e gli piace un sacco.
                              Utilissimo per imparare parole nuove.", picture_url: "/assets/resources/topolino.png", user_id: user3.id)
