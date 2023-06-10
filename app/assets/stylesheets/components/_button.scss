@@ -3,7 +3,7 @@
   color: white;
   font-size: small;
   margin-top: 15px;
-  margin-left: 200px;
+  margin-left: 20px;
   margin-bottom: 20px;
   border-color: $our-red;
   background-color: $our-red;
@@ -14,4 +14,18 @@
 .btn-add {
   display: inline-flex;
   color: $our-grey;
+}
+
+.btn-ghost {
+  color: #4A4A4A;
+  border: 1px solid #4A4A4A;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.btn-ghost:hover {
+  opacity: 1;
 }
