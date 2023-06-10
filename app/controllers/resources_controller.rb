@@ -10,7 +10,8 @@ class ResourcesController < ApplicationController
   end
 
   def pin
-    @resource = Resource.find(params[:id])
+    @resource = Resource.includes(:pins).find(params[:id])
+    
     current_user.pins.create(resource: @resource)
     # ...
   end
