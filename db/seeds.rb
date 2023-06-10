@@ -35,25 +35,29 @@ user5 = User.create!(first_name: "Laura", last_name: "Martin", language: "Englis
 
 # GROUPS
 group1 = Group.create!(name: "Bambini di Peckham", location: "95A Rye Ln, London SE15 4ST",
-                       picture_url: "/groups/peckham2.png", language: "Italian", user_id: user1.id)
+          description: "Benvenuti nel gruppo! We meet regularly in the Peckham / Nunhead area.
+                       Peckham Rye if the weather's good (is it ever?!) or Nunhead Library. Have a look at our
+                       upcoming events and RSVP. Ciao!", picture_url: "/groups/peckham2.png", language: "Italian", user_id: user1.id,
+                       childrens_age: ["pre-school"])
 group2 = Group.create!(name: "Brockley Playclub in Italiano", location: "1 Coulgate St, London SE4 2RW",
-                       picture_url: "/groups/brockley.png",language: "Italian", user_id: user2.id)
+                       picture_url: "/groups/brockley.png",language: "Italian", user_id: user2.id, childrens_age: ["pre-school", "primary"])
 group3 = Group.create!(name: "Quelli di Hilly Fields", location: "317 Brockley Rd, London SE4 2QZ",
-                       picture_url: "/groups/brockley.png", language: "Italian", user_id: user3.id)
+                       picture_url: "/groups/brockley.png", language: "Italian", user_id: user3.id, childrens_age: ["new-born", "pre-school", "primary"])
 group4 = Group.create!(name: "Horniman Museum - Gruppo italiano", location: "100 London Rd, London SE23 3PQ",
-                       picture_url: "/groups/walrus.png", language: "Italian", user_id: user4.id)
+                       picture_url: "/groups/walrus.png", language: "Italian", user_id: user4.id, childrens_age: ["new-born", "pre-school", "primary"])
 group5 = Group.create!(name: "Biblioteca di Canada Water", location: "21 Surrey Quays Rd, London SE16 7AR",
-                       picture_url: "/groups/canada.png", language: "Italian", user_id: user2.id)
+                       picture_url: "/groups/canada.png", language: "Italian", user_id: user2.id, childrens_age: ["pre-school"])
 group6 = Group.create!(name: "Sydenham - Mayow Park", location: "313-315 Kirkdale, London SE26 4QB",
-                       picture_url: "/groups/peckham.png", language: "Italian", user_id: user3.id)
+                       picture_url: "/groups/peckham.png", language: "Italian", user_id: user3.id, childrens_age: ["new-born", "pre-school", "primary"])
 group7 = Group.create!(name: "I dinosauri di Crystal Palace", location: "95 Church Rd, London SE19 2TA",
-                       picture_url: "/groups/crystalpalace.png", language: "Italian", user_id: user4.id)
+                       picture_url: "/groups/crystalpalace.png", language: "Italian", user_id: user4.id, childrens_age: ["pre-school"])
 group8 = Group.create!(name: "Dulwich Village - Mamme e bambini", location: "116a Lordship Ln, London SE22 8HD",
-                       picture_url: "/groups/dulwich.png", language: "Italian", user_id: user2.id)
+                       picture_url: "/groups/dulwich.png", language: "Italian", user_id: user2.id, childrens_age: ["new-born", "pre-school", "primary"])
 group9 = Group.create!(name: "Brockwell Park - Estate Ragazzi", location: "10 Half Moon Ln, London SE24 9HU",
-                       picture_url: "/groups/brockwell.png", language: "Italian", user_id: user3.id)
+                       picture_url: "/groups/brockwell.png", language: "Italian", user_id: user3.id, childrens_age: ["primary"])
 group10 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "The Hill Station, Kitto Rd, London SE14 5TW",
-                        picture_url: "/groups/telegraph.png", language: "Italian", user_id: user4.id)
+                        picture_url: "/groups/telegraph.png", language: "Italian", user_id: user4.id, childrens_age: ["primary"])
+
 
 # REQUESTS
 request1 = Request.create!(user_id: user1.id, group_id: group1.id, accepted: true)
