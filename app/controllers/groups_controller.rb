@@ -1,6 +1,19 @@
+class FilterForm
+  include ActiveModel::Model
+
+  attr_accessor :language
+
+  def apply_filters(groups)
+    groups = groups.where(language: language) if language.present?
+    groups
+  end
+end
+
 class GroupsController < ApplicationController
   def index
+    @filter_form = FilterForm.new(filter_form_params)
     @groups = Group.all
+    @groups = @filter_form.apply_filters(@groups) if @filter_form.valid?
     @request = Request.new
     @markers = @groups.geocoded.map do |group|
       {
@@ -30,6 +43,10 @@ class GroupsController < ApplicationController
   end
 
   private
+
+  def filter_form_params
+    params.permit(filter_form: [:language])[:filter_form]
+  end
 
   def booking_params
     params.require(:booking).permit(:user_id, :event_id)

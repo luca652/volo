@@ -1,7 +1,14 @@
 <div class= "groups-container">
-  <div style="width: 100%; height: 800px;"
+  <div style="width: 100%; height: 200px;"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
+</div>
+
+<div class= "filter-group-container">
+  <%= simple_form_for @filter_form, url: groups_path, method: :get do |form| %>
+    <%= form.input :language, collection: Group.pluck(:language).uniq, include_blank: 'All' %>
+    <%= form.button :submit, 'Apply Filter' %>
+  <% end %>
 </div>

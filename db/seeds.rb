@@ -40,11 +40,11 @@ group1 = Group.create!(name: "Bambini di Peckham", location: "95A Rye Ln, London
                        upcoming events and RSVP. Ciao!", picture_url: "/groups/peckham2.png", language: "Italian", user_id: user1.id,
                        childrens_age: ["pre-school"])
 group2 = Group.create!(name: "Brockley Playclub in Italiano", location: "1 Coulgate St, London SE4 2RW",
-                       picture_url: "/groups/brockley.png",language: "Italian", user_id: user2.id, childrens_age: ["pre-school", "primary"])
+                       picture_url: "/groups/brockley.png",language: "French", user_id: user2.id, childrens_age: ["pre-school", "primary"])
 group3 = Group.create!(name: "Quelli di Hilly Fields", location: "317 Brockley Rd, London SE4 2QZ",
                        picture_url: "/groups/brockley.png", language: "Italian", user_id: user3.id, childrens_age: ["new-born", "pre-school", "primary"])
 group4 = Group.create!(name: "Horniman Museum - Gruppo italiano", location: "100 London Rd, London SE23 3PQ",
-                       picture_url: "/groups/walrus.png", language: "Italian", user_id: user4.id, childrens_age: ["new-born", "pre-school", "primary"])
+                       picture_url: "/groups/walrus.png", language: "German", user_id: user4.id, childrens_age: ["new-born", "pre-school", "primary"])
 group5 = Group.create!(name: "Biblioteca di Canada Water", location: "21 Surrey Quays Rd, London SE16 7AR",
                        picture_url: "/groups/canada.png", language: "Italian", user_id: user2.id, childrens_age: ["pre-school"])
 group6 = Group.create!(name: "Sydenham - Mayow Park", location: "313-315 Kirkdale, London SE26 4QB",
