@@ -7,6 +7,7 @@ export default class extends Controller {
   static targets = ["messages"]
 
   connect() {
+    console.log('hellooooooooooooooo')
     this.channel = createConsumer().subscriptions.create(
       { channel: "ChatroomChannel", id: this.chatroomIdValue },
       { received: data => this.#insertMessageAndScrollDown(data) }
@@ -21,7 +22,7 @@ export default class extends Controller {
   resetForm(event) {
     event.target.reset()
   }
-  
+
   disconnect() {
     console.log("Unsubscribed from the chatroom")
     this.channel.unsubscribe()
