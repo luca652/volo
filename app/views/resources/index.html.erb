@@ -5,18 +5,26 @@
 
 <div class="container">
   <div class="filter-container">
-    <!-- Filter controls... -->
+    <label for="category-filter">Filter by Category:</label>
+    <select id="category-filter" class="form-control">
+      <option value="">All Categories</option>
+      <% @categories.each do |category| %>
+        <option value="<%= category %>"><%= category %></option>
+      <% end %>
+    </select>
+    <button id="filter-button" class="btn btn-primary">Filter</button>
+    <button id="create-resource-button" class="btn btn-success ml-2">Create Resource</button> <!-- Added create resource button -->
   </div>
 
   <div class="card-container">
     <% @resources.each do |resource| %>
-      <div class="card" data-category="<%= resource.category %>" data-resource-id="<%= resource.id %>"> <!-- Added data-resource-id attribute -->
+      <div class="card" data-category="<%= resource.category %>">
         <div class="card-body">
           <h5 class="card-title"><%= resource.title %></h5>
           <p class="card-text card-text-category"><%= resource.category %></p>
           <p class="card-text"><%= resource.comment %></p>
-         <%= image_tag("#{resource.picture_url}", style: 'height: 100px') %>
-          <p>Pins: <span class="pin-count"><%= resource.pin_count %></span></p> <!-- Updated line -->
+          <%= image_tag("#{resource.picture_url}", style: 'height: 100px') %>
+          <p>Pins: <span class="pin-count"><%= resource.pin_count %></span></p> <!-- Corrected line -->
           <a href="#" class="pin-button" data-resource-id="<%= resource.id %>">
             <i class="fas fa-thumbtack"></i>
           </a>
@@ -32,7 +40,62 @@
 
 <script>
   $(document).ready(function() {
-    // ...
+    // Button click event handler for creating a new resource card
+    $(document).on('click', '#create-resource-button', function() {
+      var title = prompt('Enter resource title:');
+      var category = prompt('Enter resource category:');
+      var comment = prompt('Enter resource comment:');
+      var pictureUrl = prompt('Enter resource picture URL:');
+
+      // Perform validation on the input values (optional)
+      if (!title || !category || !comment || !pictureUrl) {
+        alert('Please fill in all fields.');
+        return;
+      }
+
+      var newResource = {
+        title: title,
+        category: category,
+        comment: comment,
+        picture_url: pictureUrl
+      };
+
+      var newCardHTML = `
+        <div class="card" data-category="${newResource.category}">
+          <div class="card-body">
+            <h5 class="card-title">${newResource.title}</h5>
+            <p class="card-text card-text-category">${newResource.category}</p>
+            <p class="card-text">${newResource.comment}</p>
+            <p class="card-text">${newResource.picture_url}</p>
+            <p>Pins: <span class="pin-count">0</span></p>
+            <a href="#" class="pin-button" data-resource-id="123">
+              <i class="fas fa-thumbtack"></i>
+            </a>
+          </div>
+        </div>
+      `;
+
+      $('.card-container').append(newCardHTML);
+    });
+
+    // Filter button click event handler
+    $(document).on('click', '#filter-button', function() {
+      var category = $('#category-filter').val();
+      console.log('Filter by category: ' + category);
+
+      var cards = $('.card');
+
+      for (var i = 0; i < cards.length; i++) {
+        var card = $(cards[i]);
+        var cardCategory = card.data('category');
+
+        if (category === '' || cardCategory === category) {
+          card.show();
+        } else {
+          card.hide();
+        }
+      }
+    });
 
     // Pin button click event handler
     $(document).on('click', '.pin-button', function(e) {
@@ -59,10 +122,7 @@
             // Update the pin count for the corresponding resource card
             var card = pinButton.closest('.card');
             var pinCount = card.find('.pin-count');
-
-            // Increment the pin count
-            var currentCount = parseInt(pinCount.text());
-            pinCount.text(currentCount + 1);
+            pinCount.text(response.pin_count);
 
             // Disable the pin button
             pinButton.attr('disabled', true);
