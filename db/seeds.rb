@@ -33,13 +33,15 @@ user5 = User.create!(first_name: "Laura", last_name: "Martin", language: "Englis
                       childrens_age: "pre-school", location: "10-14, Mercy Terrace, London SE13 7UX",
                       email: "laura@me.com", password: "123456")
 
+
+# the email variable is used to create unique email addresses dynamycally - the value is incremented each time it loops
 childrens_age = ["newborn", "pre-school", "primary"]
-counter = 1
+email = 1
 100.times do
   User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, language: "English / Italian",
                number_of_children: rand(1..6), childrens_age: childrens_age.sample, location: "10-14, Mercy Terrace, London SE13 7UX",
-               email: "#{counter}@me.com", password: "123456")
-               counter += 1
+               email: "#{email}@me.com", password: "123456")
+  email += 1
 end
 
 # GROUPS
@@ -127,3 +129,50 @@ resource8 = Resource.create!(title: "Mamma Dough Honor Oak", category: "food",
                              comment: "Went here for a birthday party recently. Big place, very welcoming for children.
                              They do a bunny rabbit pizza with ears which kids love.",
                              picture_url: "resources/pizza.png", user_id: user4.id)
+
+
+#PINS
+# method below create pins for resources we have. Every time we do rails:db seed,the ids of all our instances increase.
+# in order to keep file seed dynamic I stored our 5 main users into variables (user1, user2...). Here I am incrementing
+# user5's id by n every time we loop.
+n = 1
+99.times do
+  Pin.create!(user_id: "#{user5.id + n}", resource_id: resource1.id)
+  n += 1
+end
+
+n = 1
+76.times do
+  Pin.create!(user_id: "#{user5.id + n}", resource_id: resource2.id)
+  n += 1
+end
+
+n = 1
+55.times do
+  Pin.create!(user_id: "#{user5.id + n}", resource_id: resource3.id)
+  n += 1
+end
+
+n = 1
+32.times do
+  Pin.create!(user_id: "#{user5.id + n}", resource_id: resource4.id)
+  n += 1
+end
+
+n = 1
+24.times do
+  Pin.create!(user_id: "#{user5.id + n}", resource_id: resource6.id)
+  n += 1
+end
+
+n = 1
+15.times do
+  Pin.create!(user_id: "#{user5.id + n}", resource_id: resource7.id)
+  n += 1
+end
+
+n = 1
+8.times do
+  Pin.create!(user_id: "#{user5.id + n}", resource_id: resource8.id)
+  n += 1
+end
