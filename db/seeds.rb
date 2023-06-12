@@ -17,6 +17,7 @@ Resource.destroy_all
 User.destroy_all
 
 # USERS
+
 user1 = User.create!(first_name: "Sara", last_name: "Carambola", language: "Italian", number_of_children: 2,
                      childrens_age: "primary", location: "27, Plover Way, Canada Water, SE16 7TS",
                      email: "sara@me.com", password: "123456")
