@@ -38,9 +38,9 @@ group1 = Group.create!(name: "Bambini di Peckham", location: "95A Rye Ln, London
           description: "Benvenuti nel gruppo! We meet regularly in the Peckham / Nunhead area.
                        Peckham Rye if the weather's good (is it ever?!) or Nunhead Library. Have a look at our
                        upcoming events and RSVP. Ciao!", picture_url: "/groups/peckham2.png", language: "Italian", user_id: user1.id,
-                       childrens_age: ["pre-school"])
+                       childrens_age: ["3-5"])
 group2 = Group.create!(name: "Brockley Playclub in Italiano", location: "1 Coulgate St, London SE4 2RW",
-                       picture_url: "/groups/brockley.png",language: "French", user_id: user2.id, childrens_age: ["pre-school", "primary"])
+                       picture_url: "/groups/brockley.png",language: "French", user_id: user2.id, childrens_age: ["3-5", "6-8"])
 group3 = Group.create!(name: "Quelli di Hilly Fields", location: "317 Brockley Rd, London SE4 2QZ",
                        picture_url: "/groups/brockley.png", language: "Italian", user_id: user3.id, childrens_age: ["new-born", "pre-school", "primary"])
 group4 = Group.create!(name: "Horniman Museum - Gruppo italiano", location: "100 London Rd, London SE23 3PQ",

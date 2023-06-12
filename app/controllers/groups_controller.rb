@@ -2,9 +2,15 @@ class FilterForm
   include ActiveModel::Model
 
   attr_accessor :language
+  attr_accessor :childrens_age
+
+  def childrens_age=(value)
+    @childrens_age = value.reject(&:blank?)
+  end
 
   def apply_filters(groups)
     groups = groups.where(language: language) if language.present?
+    groups = groups.where("childrens_age && ARRAY[?]::varchar[]") if childrens_age.present?
     groups
   end
 end
@@ -45,7 +51,7 @@ class GroupsController < ApplicationController
   private
 
   def filter_form_params
-    params.permit(filter_form: [:language])[:filter_form]
+    params.require(:filter_form).permit(:language, childrens_age: [])
   end
 
   def booking_params

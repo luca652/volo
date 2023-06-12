@@ -7,8 +7,9 @@
 </div>
 
 <div class= "filter-group-container">
-  <%= simple_form_for @filter_form, url: groups_path, method: :get do |form| %>
-    <%= form.input :language, collection: Group.pluck(:language).uniq, include_blank: 'All' %>
-    <%= form.button :submit, 'Apply Filter' %>
-  <% end %>
+ <%= simple_form_for @filter_form, url: groups_path, method: :get do |form| %>
+  <%= form.input :language, collection: Group.pluck(:language).uniq, include_blank: 'All' %>
+  <%= form.input :childrens_age, collection: ['0-2', '3-5', '6-8', '9+'], include_blank: 'All', multiple: true %>
+  <%= form.button :submit, 'Apply Filter' %>
+<% end %>
 </div>
