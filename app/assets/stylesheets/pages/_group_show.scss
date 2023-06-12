@@ -22,6 +22,17 @@
   border-top: 1.5px solid $our-grey;
 }
 
+#droplist {
+  .event-droplist {
+    display: none;
+  }
+  &.display {
+    .event-droplist {
+      display: flex;
+    }
+  }
+}
+
 .group-members-container .avatar{
   margin-bottom: 20px;
 }

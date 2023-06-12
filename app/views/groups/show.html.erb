@@ -26,11 +26,11 @@
     <p>Language practiced: <strong> <%= @group.language %></strong></p>
     <p>Children age: <strong> primary years</strong></p>
   </div>
-  <div class = "group-page-item" data-controller="dropdown" data-target="dropdown.card">
-    <p>Upcoming events <button data-action="click->dropdown#toggleCard">+</button></p>
-      <div class= "event-card-container" >
+  <div class = "group-page-item" id="droplist" data-controller="dropdown" data-dropdown-display-class="display">
+    <p>Upcoming events <button data-action="click->dropdown#toggle">+</button></p>
+      <div class= "event-droplist" data-dropdown-target="hide">
         <% @events.each do |event| %>
-          <div class="event-info-card-body">
+          <div class="event-info-card-body" class="drop_down_item" >
               <% @event = event %>
               <h4><strong><%= event.name%></strong></h4>
               <% @date = event.date %>

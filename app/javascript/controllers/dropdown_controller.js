@@ -1,17 +1,14 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["event-card-container"];
+  static targets = [ "hide" ]
+  static classes =["display"]
 
   connect() {
-    this.hideCard();
+    console.log("connected")
+    this.hideTarget.classList.add(this.displayClass)
   }
 
-  toggleCard() {
-    this.cardTarget.classList.toggle("hidden");
-  }
-
-  hideCard(event) {
-    this.cardTarget.classList.add("hidden");
-  }
+  toggle(){
+   this.hideTarget.classList.toggle(this.displayClass)}
 }
