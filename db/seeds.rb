@@ -33,6 +33,15 @@ user5 = User.create!(first_name: "Laura", last_name: "Martin", language: "Englis
                       childrens_age: "pre-school", location: "10-14, Mercy Terrace, London SE13 7UX",
                       email: "laura@me.com", password: "123456")
 
+childrens_age = ["newborn", "pre-school", "primary"]
+counter = 1
+100.times do
+  User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, language: "English / Italian",
+               number_of_children: rand(1..6), childrens_age: childrens_age.sample, location: "10-14, Mercy Terrace, London SE13 7UX",
+               email: "#{counter}@me.com", password: "123456")
+               counter += 1
+end
+
 # GROUPS
 group1 = Group.create!(name: "Bambini di Peckham", location: "95A Rye Ln, London SE15 4ST",
           description: "Benvenuti nel gruppo! We meet regularly in the Peckham / Nunhead area.
