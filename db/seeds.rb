@@ -47,12 +47,12 @@ end
 
 # GROUPS
 group1 = Group.create!(name: "Bambini di Peckham", location: "95A Rye Ln, London SE15 4ST",
-          description: "Benvenuti nel gruppo! We meet regularly in the Peckham / Nunhead area.
+                       description: "We meet regularly in the Peckham / Nunhead area.
                        Peckham Rye if the weather's good (is it ever?!) or Nunhead Library. Have a look at our
                        upcoming events and RSVP. Ciao!", picture_url: "/groups/peckham2.png", language: "Italian", user_id: user1.id,
                        childrens_age: ["pre-school"])
 group2 = Group.create!(name: "Brockley Playclub in Italiano", location: "1 Coulgate St, London SE4 2RW",
-                       picture_url: "/groups/brockley.png",language: "Italian", user_id: user2.id, childrens_age: ["pre-school", "primary"])
+                       picture_url: "/groups/brockley.png", language: "Italian", user_id: user2.id, childrens_age: ["pre-school", "primary"])
 group3 = Group.create!(name: "Quelli di Hilly Fields", location: "317 Brockley Rd, London SE4 2QZ",
                        picture_url: "/groups/brockley.png", language: "Italian", user_id: user3.id, childrens_age: ["new-born", "pre-school", "primary"])
 group4 = Group.create!(name: "Horniman Museum - Gruppo italiano", location: "100 London Rd, London SE23 3PQ",
@@ -64,6 +64,9 @@ group6 = Group.create!(name: "Sydenham - Mayow Park", location: "313-315 Kirkdal
 group7 = Group.create!(name: "I dinosauri di Crystal Palace", location: "95 Church Rd, London SE19 2TA",
                        picture_url: "/groups/crystalpalace.png", language: "Italian", user_id: user4.id, childrens_age: ["pre-school"])
 group8 = Group.create!(name: "Dulwich Village - Mamme e bambini", location: "116a Lordship Ln, London SE22 8HD",
+                       description: "We meet regularly in Brockweel Park or at the library in Brixton.
+                       We run regular events with entertainers that focus around singing songs and reading stories.
+                       If you want to join send in a request and tell us a bit a bout yourself and your children!",
                        picture_url: "/groups/dulwich.png", language: "Italian", user_id: user2.id, childrens_age: ["new-born", "pre-school", "primary"])
 group9 = Group.create!(name: "Brockwell Park - Estate Ragazzi", location: "10 Half Moon Ln, London SE24 9HU",
                        picture_url: "/groups/brockwell.png", language: "Italian", user_id: user3.id, childrens_age: ["primary"])
