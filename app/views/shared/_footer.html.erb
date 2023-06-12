@@ -1,12 +1,11 @@
-<div class="footer fixed-bottom">
-  <div class="footer-links">
+<div class="footer fixed-bottom" data-controller="footer">
+  <div class="footer-links" data-target = "footer">
     <%= link_to root_path, class: "footer-item" do %>
       <i class="fa-solid fa-house"></i>
     <% end %>
     <%= link_to resources_path, class: "footer-item" do %>
       <i class="fa-solid fa-folder"></i>
     <% end %>
-    <%# <a href="#"><i class="fa-solid fa-bell"></i></a> %>
     <%= link_to profile_path, class: "footer-item" do %>
       <i class="fa-solid fa-user"></i>
     <% end %>

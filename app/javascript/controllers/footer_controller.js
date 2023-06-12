@@ -3,18 +3,21 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="footer"
 export default class extends Controller {
   connect() {
+    const currentPage = window.location.pathname;
+    const regex = /^\/groups\/(\d+$)/;
+
+    if (regex.test(currentPage)) {
+      const match = regex.exec(currentPage);
+      const newLink = document.createElement('a');
+      const newI = document.createElement('i');
+      newI.classList.add('fa-regular', 'fa-comment');
+      newLink.appendChild(newI);
+      newLink.classList.add("footer-item");
+      newLink.href = '/groups/' + match[1] + '/chatrooms/' + match[1];
+      newLink.target = '_blank';
+
+      const footerLinks = document.querySelector('.footer-links');
+      footerLinks.appendChild(newLink);
+    }
   }
 }
-
-document.addEventListener("DOMContentLoaded", function() {
-  this.currentPage = window.location.pathname; // Get the current page URL
-
-  if (currentPage === "/group/id") { // Replace "/specific-page" with the URL of your specific page
-    this.element = document.createElement("div");
-    this.element.textContent = "Additional content for specific page";
-    element.classList.add("additional-content");
-
-    this.footer = document.querySelector(".footer");
-    footer.appendChild(element);
-  }
-});
