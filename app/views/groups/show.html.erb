@@ -1,31 +1,28 @@
 <div class = "group-page-container">
   <div class = "group-page-info">
     <p class= "title"><strong><%= @group.name %></strong></p>
-    <p>
-      Members:
-      <% @members.each do |member| %>
-      <%= member.first_name %>
-      <% end %>
-    </p>
-    <% @requests.each do |request| %>
-        <% if request.accepted == false && request.declined == false %>
-        <p><%= request.user.first_name %> wants to join</p>
-        <%= link_to "Accept Request", group_request_accepted_path(@group.id, request.id, ), method: "patch", class: "btn btn-success" %>
-        <%= link_to "Decline Request", group_request_declined_path(@group.id, request.id), method: "patch", class: "btn btn-success" %>
+      <div class="group-page-item">
+        <p> <%= @group.description %> </p>
+        <p>Language practiced: <strong> <%= @group.language %></strong></p>
+        <p>Children age: <strong> primary years</strong></p>
+      </div>
+      <div class= "group-members-container">
+        <p> Members:</p>
+        <% @members.each do |member| %>
+        <%# <a href="#" class="avatar" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %><%= member.first_name %>
+        <%# </a> %>
         <% end %>
-      <% end %>
-    <div class="group-page-item">
-    <div class= "group-members-container">
-
-     <%# <a href="#" class="avatar" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
-    <%# </a> %>
-    </div>
-  </div>
-    <p> <%= @group.description %> </p>
-    <p>Language practiced: <strong> <%= @group.language %></strong></p>
-    <p>Children age: <strong> primary years</strong></p>
-  </div>
+      </div>
+       <div class= "group-request-container">
+          <% @requests.each do |request| %>
+            <% if request.accepted == false && request.declined == false %>
+            <p><%= request.user.first_name %> wants to join</p>
+            <%= link_to "Accept Request", group_request_accepted_path(@group.id, request.id, ), method: "patch", class: "btn btn-success" %>
+            <%= link_to "Decline Request", group_request_declined_path(@group.id, request.id), method: "patch", class: "btn btn-success" %>
+            <% end %>
+          <% end %>
+      </div>
   <div class = "group-page-item" id="droplist" data-controller="dropdown" data-dropdown-display-class="display">
     <p>Upcoming events <button data-action="click->dropdown#toggle">+</button></p>
       <div class= "event-droplist" data-dropdown-target="hide">

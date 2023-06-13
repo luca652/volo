@@ -10,5 +10,5 @@ export default class extends Controller {
   }
 
   toggle(){
-   this.hideTarget.classList.toggle(this.displayClass)}
+   this.hideTarget.classList.toggle("display-cards")}
 }
