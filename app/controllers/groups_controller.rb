@@ -1,16 +1,11 @@
 class FilterForm
   include ActiveModel::Model
 
-  attr_accessor :language
   attr_accessor :childrens_age
 
-  def childrens_age=(value)
-    @childrens_age = value.reject(&:blank?)
-  end
-
   def apply_filters(groups)
-    groups = groups.where(language: language) if language.present?
-    groups = groups.where("childrens_age && ARRAY[?]::varchar[]") if childrens_age.present?
+    # groups = groups.filter(childrens_age: childrens_age) if childrens_age.present?
+    groups = groups.filter { |group| group.childrens_age.include?(childrens_age) }
     groups
   end
 end
@@ -19,7 +14,7 @@ class GroupsController < ApplicationController
   def index
     @filter_form = FilterForm.new(filter_form_params)
     @groups = Group.all
-    @groups = @filter_form.apply_filters(@groups) if @filter_form.valid?
+    @groups= @filter_form.apply_filters(@groups) if @filter_form.valid?
     @request = Request.new
     @markers = @groups.geocoded.map do |group|
       {
@@ -51,7 +46,7 @@ class GroupsController < ApplicationController
   private
 
   def filter_form_params
-    params.require(:filter_form).permit(:language, childrens_age: [])
+    params.permit(filter_form: [:childrens_age])[:filter_form]
   end
 
   def booking_params
