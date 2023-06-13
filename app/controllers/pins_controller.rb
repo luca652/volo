@@ -13,12 +13,13 @@ class PinsController < ApplicationController
       pin = current_user.pins.build(resource: @resource)
 
       if pin.save
-        render json: { resource_id: @resource.id }, status: :created
+        render json: { resource_id: @resource.id, pin_count: @resource.pin_count }, status: :created
       else
         render json: { error: pin.errors.full_messages }, status: :unprocessable_entity
       end
     end
   end
+
 
 
 

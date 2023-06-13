@@ -1,10 +1,10 @@
 .container-footer {
   background: $our-light-grey;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   height: 50px;
-  padding: 50px;
+  padding: 30px;
   color: rgba(0,0,0,0.3);
 }
 
@@ -15,12 +15,13 @@
 }
 .footer-item {
   color: black;
+  display: flexbox;
   opacity: 0.15;
   text-decoration: none;
   font-size: 24px;
-  margin-left: 30px;
+  margin-left: 20px;
   margin-right: 20px;
-  padding: 8px 8px 10px;
+  padding: 0px 8px;
 }
 .footer-links a:hover {
   opacity: 1;
