@@ -19,5 +19,5 @@ Rails.application.routes.draw do
   end
   resources :pins, only: [:index, :destroy]
 
-  get "/games", to: "games#index"
+  get "/games", to: "games#quiz"
 end

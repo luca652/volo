@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_09_131334) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_14_135318) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -45,6 +45,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_09_131334) do
     t.float "longitude"
     t.index ["group_id"], name: "index_events_on_group_id"
     t.index ["user_id"], name: "index_events_on_user_id"
+  end
+
+  create_table "games", force: :cascade do |t|
+    t.string "nickname"
+    t.integer "score", default: 0
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_games_on_user_id"
   end
 
   create_table "groups", force: :cascade do |t|
@@ -129,6 +138,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_09_131334) do
   add_foreign_key "chatrooms", "groups"
   add_foreign_key "events", "groups"
   add_foreign_key "events", "users"
+  add_foreign_key "games", "users"
   add_foreign_key "groups", "users"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
