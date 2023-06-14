@@ -1,3 +1,6 @@
+.container-chatroom{
+  height: 700px;
+}
 .chatroom {
   background: white;
   margin-top: 9px;
@@ -16,7 +19,7 @@
   .messages {
     height: 100%;
     overflow: scroll;
-    padding: 1rem;
+    padding: 2rem;
   }
 
   #new_message {
@@ -27,4 +30,4 @@
       margin-bottom: 0;
     }
   }
-}
+ }
