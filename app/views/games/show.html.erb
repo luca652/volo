@@ -1,0 +1,7 @@
+<h1>Il quizzone!</h1>
+<%= @question %>
+
+<%= simple_form_for [@game, @answer] do |f| %>
+<%= f.input :content %>
+<%= f.submit "Submit", class: "btn btn-success"%>
+<% end %>

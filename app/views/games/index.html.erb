@@ -1,0 +1,7 @@
+<h1>Quizzone!</h1>
+
+<%= simple_form_for [@game] do |f| %>
+<%= f.hidden_field :user_id, value: current_user.id%>
+<%= f.input :nickname %>
+<%= f.submit "Let's play!", class: "btn btn-success"%>
+<% end %>
