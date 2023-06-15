@@ -1,11 +1,11 @@
 class FilterForm
   include ActiveModel::Model
 
-  attr_accessor :childrens_age
+  attr_accessor :children_age
 
   def apply_filters(groups)
-    # groups = groups.filter(childrens_age: childrens_age) if childrens_age.present?
-    groups = groups.filter { |group| group.childrens_age.include?(childrens_age) }
+    groups = groups.where(children_age: children_age) if children_age.present?
+    # groups = groups.filter { |group| group.childrens_age.include?(childrens_age) }
     groups
   end
 end
@@ -46,7 +46,7 @@ class GroupsController < ApplicationController
   private
 
   def filter_form_params
-    params.permit(filter_form: [:childrens_age])[:filter_form]
+    params.permit(filter_form: [:children_age])[:filter_form]
   end
 
   def booking_params
