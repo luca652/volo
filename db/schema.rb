@@ -68,6 +68,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_15_191112) do
     t.float "latitude"
     t.float "longitude"
     t.string "childrens_age", default: [], array: true
+    t.string "children_age"
     t.index ["user_id"], name: "index_groups_on_user_id"
   end
 
