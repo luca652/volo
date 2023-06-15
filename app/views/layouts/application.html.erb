@@ -18,8 +18,7 @@
     <%= render "shared/flashes" %>
 
     <%= yield %>
-    <% if action_name == "#" %>
-    <%# I changed it from "show" to "#" because it was creating an error %>
+    <% if action_name == "show" %>
       <%= render "shared/group_footer" %>
     <% else %>
       <%= render "shared/footer" %>

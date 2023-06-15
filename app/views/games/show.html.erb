@@ -1,17 +1,13 @@
 <h1>Il quizzone!</h1>
 
-<% @questions.each do |question| %>
-  <ul>
-    <li> <%= question.content %> </li>
-  </ul>
-<% end %>
+<%= @generated_story %>
 
-
-
-<%= simple_form_for [@game, @answer] do |f| %>
+<%= simple_form_for [@game, @prompt] do |f| %>
 <%= f.input :protagonist %>
 <%= f.input :weapon %>
 <%= f.input :setting %>
+<%= f.input :enemy %>
+<%= f.input :food %>
 <%= f.input :goal %>
 <%= f.submit "Submit", class: "btn btn-success"%>
 <% end %>

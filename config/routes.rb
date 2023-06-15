@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'stories/show'
   devise_for :users
   root to: "pages#home"
   get "profile", to: "pages#profile"
@@ -20,8 +21,11 @@ Rails.application.routes.draw do
   resources :pins, only: [:index, :destroy]
 
   resources :games, only: [:create] do
-    post "answers", to: "games#answer"
+    post "prompts", to: "games#create_prompt"
+    get "story", to: "games#story"
   end
+
+  resources :stories, only: [:show]
   get "games", to: "games#new_game"
   get "/games/:id", to: "games#show", as: "game"
 end

@@ -10,17 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_15_111909) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_15_191112) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "answers", force: :cascade do |t|
-    t.bigint "game_id", null: false
-    t.text "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["game_id"], name: "index_answers_on_game_id"
-  end
 
   create_table "bookings", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -98,12 +90,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_15_111909) do
     t.index ["user_id"], name: "index_pins_on_user_id"
   end
 
-  create_table "questions", force: :cascade do |t|
-    t.text "content"
+  create_table "prompts", force: :cascade do |t|
     t.bigint "game_id", null: false
+    t.string "protagonist"
+    t.string "weapon"
+    t.text "setting"
+    t.string "food"
+    t.text "goal"
+    t.string "enemy"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["game_id"], name: "index_questions_on_game_id"
+    t.index ["game_id"], name: "index_prompts_on_game_id"
   end
 
   create_table "requests", force: :cascade do |t|
@@ -129,6 +126,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_15_111909) do
     t.index ["user_id"], name: "index_resources_on_user_id"
   end
 
+  create_table "stories", force: :cascade do |t|
+    t.text "content"
+    t.bigint "game_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_stories_on_game_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -149,7 +154,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_15_111909) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "answers", "games"
   add_foreign_key "bookings", "events"
   add_foreign_key "bookings", "users"
   add_foreign_key "chatrooms", "groups"
@@ -161,8 +165,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_15_111909) do
   add_foreign_key "messages", "users"
   add_foreign_key "pins", "resources"
   add_foreign_key "pins", "users"
-  add_foreign_key "questions", "games"
+  add_foreign_key "prompts", "games"
   add_foreign_key "requests", "groups"
   add_foreign_key "requests", "users"
   add_foreign_key "resources", "users"
+  add_foreign_key "stories", "games"
 end
