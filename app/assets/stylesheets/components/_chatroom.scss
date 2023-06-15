@@ -1,9 +1,9 @@
-.container-chatroom{
-  height: 700px;
+.container-chatroom {
+  margin-bottom: 70px;
 }
 .chatroom {
   background: white;
-  margin-top: 9px;
+  margin-top: 8px;
   height: calc(100vh - 75px);
   display: flex;
   flex-direction: column;
@@ -30,4 +30,4 @@
       margin-bottom: 0;
     }
   }
- }
+}
