@@ -1,8 +1,7 @@
 class GamesController < ApplicationController
 
-  def index
+  def new_game
     @game = Game.new
-    @answer = Answer.new
   end
 
   def create
@@ -17,18 +16,19 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
-    @openai_client = OpenAI::Client.new
-    prompt = "You are a quiz master. Speak in Italian. Ask me simple questions with a one word answer.
-              Ask me one question at a time. Address me using my #{@game.nickname}"
-    response = @openai_client.chat(
-      parameters: {
-        model:  "gpt-3.5-turbo",
-        messages: [{ role:  "user", content:  prompt}],
-        temperature:  0.7,
-     }
-    )
-    @question = response.dig("choices", 0, "message", "content")
     @answer = Answer.new
+    @answers = Answer.where(game_id: @game.id)
+    @questions = Question.where(game_id: @game.id)
+  end
+
+  def start_game
+    @openai_client = OpenAI::Client.new
+    prompt = "Ask me one question. Address me using my #{@game.nickname}."
+    response = @openai_client.chat(parameters: { model: "gpt-3.5-turbo", messages: [{ role: "user", content: prompt }],
+                                                 temperature: 0.7 })
+    text = response.dig("choices", 0, "message", "content")
+    @question = Question.create!(game_id: @game.id, content: text)
+
   end
 
   def answer
@@ -37,28 +37,22 @@ class GamesController < ApplicationController
     @answer.game = @game
     if @answer.save
       redirect_to game_path(@game)
+      next_question(@answer.content)
     else
       render game_path(@game), status: :unprocessable_entity
     end
   end
 
-
-  # def next_question
-  #   prompt = "You are a quiz master. Speak in Italian. Ask me simple questions with a one word answer. Ask me one question at a time."
-  #   response = @openai_client.chat(
-  #     parameters: {
-  #       model: "gpt-3.5-turbo",
-  #       messages: [{ role: "user", content: prompt}],
-  #       temperature:  0.7,
-  #     }
-  #   )
-
-  #   # Extract the generated text from the response
-  #   @generated_text = response.dig("choices", 0, "message", "content")
-
-  #   # Return the generated text
-  #   # render plain: generated_text
-  # end
+  def next_question(prompt)
+    @openai_client = OpenAI::Client.new
+    response = @openai_client.chat(
+      parameters: { model: "gpt-3.5-turbo", messages: [{ role: "user", content: prompt}],
+                    temperature: 0.7 }
+    )
+    # Extract the generated text from the response
+    text = response.dig("choices", 0, "message", "content")
+    @next_question = Question.create!(game_id: @game.id, content: text)
+  end
 
   private
 

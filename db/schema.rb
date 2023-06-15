@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_14_135642) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_15_111909) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -98,6 +98,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_14_135642) do
     t.index ["user_id"], name: "index_pins_on_user_id"
   end
 
+  create_table "questions", force: :cascade do |t|
+    t.text "content"
+    t.bigint "game_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_questions_on_game_id"
+  end
+
   create_table "requests", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "group_id", null: false
@@ -153,6 +161,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_14_135642) do
   add_foreign_key "messages", "users"
   add_foreign_key "pins", "resources"
   add_foreign_key "pins", "users"
+  add_foreign_key "questions", "games"
   add_foreign_key "requests", "groups"
   add_foreign_key "requests", "users"
   add_foreign_key "resources", "users"

@@ -1,5 +1,12 @@
 <h1>Il quizzone!</h1>
-<%= @question %>
+
+<% @questions.each do |question| %>
+  <ul>
+    <li> <%= question.content %> </li>
+  </ul>
+<% end %>
+
+
 
 <%= simple_form_for [@game, @answer] do |f| %>
 <%= f.input :content %>

@@ -19,8 +19,9 @@ Rails.application.routes.draw do
   end
   resources :pins, only: [:index, :destroy]
 
-  resources :games, only: [:index, :create] do
+  resources :games, only: [:create] do
     post "answers", to: "games#answer"
   end
+  get "games", to: "games#new_game"
   get "/games/:id", to: "games#show", as: "game"
 end
