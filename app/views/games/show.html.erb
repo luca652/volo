@@ -9,6 +9,9 @@
 
 
 <%= simple_form_for [@game, @answer] do |f| %>
-<%= f.input :content %>
+<%= f.input :protagonist %>
+<%= f.input :weapon %>
+<%= f.input :setting %>
+<%= f.input :goal %>
 <%= f.submit "Submit", class: "btn btn-success"%>
 <% end %>
