@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_15_110726) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_15_191112) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -45,6 +45,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_15_110726) do
     t.float "longitude"
     t.index ["group_id"], name: "index_events_on_group_id"
     t.index ["user_id"], name: "index_events_on_user_id"
+  end
+
+  create_table "games", force: :cascade do |t|
+    t.string "nickname"
+    t.integer "score", default: 0
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_games_on_user_id"
   end
 
   create_table "groups", force: :cascade do |t|
@@ -82,6 +91,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_15_110726) do
     t.index ["user_id"], name: "index_pins_on_user_id"
   end
 
+  create_table "prompts", force: :cascade do |t|
+    t.bigint "game_id", null: false
+    t.string "protagonist"
+    t.string "weapon"
+    t.text "setting"
+    t.string "food"
+    t.text "goal"
+    t.string "enemy"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_prompts_on_game_id"
+  end
+
   create_table "requests", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "group_id", null: false
@@ -103,6 +125,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_15_110726) do
     t.datetime "updated_at", null: false
     t.integer "pin_count", default: 0
     t.index ["user_id"], name: "index_resources_on_user_id"
+  end
+
+  create_table "stories", force: :cascade do |t|
+    t.text "content"
+    t.bigint "game_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_stories_on_game_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -130,12 +160,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_15_110726) do
   add_foreign_key "chatrooms", "groups"
   add_foreign_key "events", "groups"
   add_foreign_key "events", "users"
+  add_foreign_key "games", "users"
   add_foreign_key "groups", "users"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
   add_foreign_key "pins", "resources"
   add_foreign_key "pins", "users"
+  add_foreign_key "prompts", "games"
   add_foreign_key "requests", "groups"
   add_foreign_key "requests", "users"
   add_foreign_key "resources", "users"
+  add_foreign_key "stories", "games"
 end
