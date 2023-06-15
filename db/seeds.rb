@@ -17,6 +17,7 @@ Resource.destroy_all
 User.destroy_all
 
 # USERS
+
 user1 = User.create!(first_name: "Sara", last_name: "Carambola", language: "Italian", number_of_children: 2,
                      childrens_age: "primary", location: "27, Plover Way, Canada Water, SE16 7TS",
                      email: "sara@me.com", password: "123456")
@@ -33,14 +34,25 @@ user5 = User.create!(first_name: "Laura", last_name: "Martin", language: "Englis
                       childrens_age: "pre-school", location: "10-14, Mercy Terrace, London SE13 7UX",
                       email: "laura@me.com", password: "123456")
 
+
+# the email variable is used to create unique email addresses dynamycally - the value is incremented each time it loops
+childrens_age = ["newborn", "pre-school", "primary"]
+email = 1
+100.times do
+  User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, language: "English / Italian",
+               number_of_children: rand(1..6), childrens_age: childrens_age.sample, location: "10-14, Mercy Terrace, London SE13 7UX",
+               email: "#{email}@me.com", password: "123456")
+  email += 1
+end
+
 # GROUPS
 group1 = Group.create!(name: "Bambini di Peckham", location: "95A Rye Ln, London SE15 4ST",
-          description: "Benvenuti nel gruppo! We meet regularly in the Peckham / Nunhead area.
+                       description: "We meet regularly in the Peckham / Nunhead area.
                        Peckham Rye if the weather's good (is it ever?!) or Nunhead Library. Have a look at our
-                       upcoming events and RSVP. Ciao!", picture_url: "/groups/peckham2.png", language: "Italian", user_id: user1.id,
+                       upcoming events and RSVP. Ciao!", picture_url: "groups/hands.png", language: "Italian", user_id: user1.id,
                        childrens_age: ["pre-school"])
 group2 = Group.create!(name: "Brockley Playclub in Italiano", location: "1 Coulgate St, London SE4 2RW",
-                       picture_url: "/groups/brockley.png",language: "Italian", user_id: user2.id, childrens_age: ["pre-school", "primary"])
+                       picture_url: "/groups/brockley.png", language: "Italian", user_id: user2.id, childrens_age: ["pre-school", "primary"])
 group3 = Group.create!(name: "Quelli di Hilly Fields", location: "317 Brockley Rd, London SE4 2QZ",
                        picture_url: "/groups/brockley.png", language: "Italian", user_id: user3.id, childrens_age: ["new-born", "pre-school", "primary"])
 group4 = Group.create!(name: "Horniman Museum - Gruppo italiano", location: "100 London Rd, London SE23 3PQ",
@@ -52,9 +64,12 @@ group6 = Group.create!(name: "Sydenham - Mayow Park", location: "313-315 Kirkdal
 group7 = Group.create!(name: "I dinosauri di Crystal Palace", location: "95 Church Rd, London SE19 2TA",
                        picture_url: "/groups/crystalpalace.png", language: "Italian", user_id: user4.id, childrens_age: ["pre-school"])
 group8 = Group.create!(name: "Dulwich Village - Mamme e bambini", location: "116a Lordship Ln, London SE22 8HD",
-                       picture_url: "/groups/dulwich.png", language: "Italian", user_id: user2.id, childrens_age: ["new-born", "pre-school", "primary"])
+                       picture_url: "groups/looking.png", language: "Italian", user_id: user2.id, childrens_age: ["new-born", "pre-school", "primary"])
 group9 = Group.create!(name: "Brockwell Park - Estate Ragazzi", location: "10 Half Moon Ln, London SE24 9HU",
-                       picture_url: "/groups/brockwell.png", language: "Italian", user_id: user3.id, childrens_age: ["primary"])
+                       description: "We meet regularly in Brockweel Park or at the library in Brixton.
+                       We run regular events with entertainers that focus around singing songs and reading stories.
+                       If you want to join send in a request and tell us a bit a bout yourself and your children!",
+                       picture_url: "groups/looking.png", language: "Italian", user_id: user3.id, childrens_age: ["primary"])
 group10 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "The Hill Station, Kitto Rd, London SE14 5TW",
                         picture_url: "/groups/telegraph.png", language: "Italian", user_id: user4.id, childrens_age: ["primary"])
 
@@ -118,3 +133,50 @@ resource8 = Resource.create!(title: "Mamma Dough Honor Oak", category: "food",
                              comment: "Went here for a birthday party recently. Big place, very welcoming for children.
                              They do a bunny rabbit pizza with ears which kids love.",
                              picture_url: "resources/pizza.png", user_id: user4.id)
+
+
+#PINS
+# method below create pins for resources we have. Every time we do rails:db seed,the ids of all our instances increase.
+# in order to keep file seed dynamic I stored our 5 main users into variables (user1, user2...). Here I am incrementing
+# user5's id by n every time we loop.
+n = 1
+99.times do
+  Pin.create!(user_id: "#{user5.id + n}", resource_id: resource1.id)
+  n += 1
+end
+
+n = 1
+76.times do
+  Pin.create!(user_id: "#{user5.id + n}", resource_id: resource2.id)
+  n += 1
+end
+
+n = 1
+55.times do
+  Pin.create!(user_id: "#{user5.id + n}", resource_id: resource3.id)
+  n += 1
+end
+
+n = 1
+32.times do
+  Pin.create!(user_id: "#{user5.id + n}", resource_id: resource4.id)
+  n += 1
+end
+
+n = 1
+24.times do
+  Pin.create!(user_id: "#{user5.id + n}", resource_id: resource6.id)
+  n += 1
+end
+
+n = 1
+15.times do
+  Pin.create!(user_id: "#{user5.id + n}", resource_id: resource7.id)
+  n += 1
+end
+
+n = 1
+8.times do
+  Pin.create!(user_id: "#{user5.id + n}", resource_id: resource8.id)
+  n += 1
+end
