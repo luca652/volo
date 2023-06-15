@@ -1,25 +1,46 @@
-
-.hidden {
-  display: none;
-}
-
 .group-page-container {
   color: $gray;
 }
 
 .group-page-info {
   margin-top: 10px;
-  margin-left: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.group-members-container {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 8px;
+  border-top: 1.5px solid $our-grey;
+}
+
+.group-request-container {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 8px;
+  border-top: 1.5px solid $our-grey;
 }
 
 .group-page-info .title{
   font-size: large;
+  margin-left: 10px;
 }
 
 .group-page-item {
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 8px;
   border-top: 1.5px solid $our-grey;
+}
+
+
+.event-droplist {
+  display: none;
+}
+
+.display-cards {
+  display: block;
 }
 
 .group-members-container .avatar{

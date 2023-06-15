@@ -17,6 +17,7 @@ Resource.destroy_all
 User.destroy_all
 
 # USERS
+
 user1 = User.create!(first_name: "Sara", last_name: "Carambola", language: "Italian", number_of_children: 2,
                      childrens_age: "primary", location: "27, Plover Way, Canada Water, SE16 7TS",
                      email: "sara@me.com", password: "123456")
@@ -32,6 +33,17 @@ user4 = User.create!(first_name: "Mario", last_name: "Pastorelli", language: "It
 user5 = User.create!(first_name: "Laura", last_name: "Martin", language: "English / Italian", number_of_children: 1,
                       childrens_age: "pre-school", location: "10-14, Mercy Terrace, London SE13 7UX",
                       email: "laura@me.com", password: "123456")
+
+
+# the email variable is used to create unique email addresses dynamycally - the value is incremented each time it loops
+childrens_age = ["newborn", "pre-school", "primary"]
+email = 1
+100.times do
+  User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, language: "English / Italian",
+               number_of_children: rand(1..6), childrens_age: childrens_age.sample, location: "10-14, Mercy Terrace, London SE13 7UX",
+               email: "#{email}@me.com", password: "123456")
+  email += 1
+end
 
 # GROUPS
 group1 = Group.create!(name: "Bambini di Peckham", location: "95A Rye Ln, London SE15 4ST",
@@ -115,27 +127,74 @@ booking1 = Booking.create!(event_id: event1.id, user_id: user1.id)
 #  RESOURCES
 resource1 = Resource.create!(title: "FABA - Music and stories in italian", category: "Stories",
                              comment: "Utilissimo! Each character sings songs or tells a story in Italian. My daughter loves it!",
-                             picture_url: "/assets/resources/faba.png", user_id: user2.id)
+                             picture_url: "resources/pizza.png", user_id: user2.id)
 resource2 = Resource.create!(title: "Passeggino definitivo", category: "#",
                              comment: "If you're planning to fly to Italy quite a bit, get this. It folds really small
                              and you can take it on the plane",
-                             picture_url: "/assets/resources/pram.png", user_id: user3.id)
+                             picture_url: "resources/pram.png", user_id: user3.id)
 resource3 = Resource.create!(title: "Le avventure di Cipollino", category: "reading",
                              comment: "Un classico. I loved it when I was a kid!",
-                             picture_url: "/assets/resources/book.png", user_id: user4.id)
+                             picture_url: "resources/book.png", user_id: user4.id)
 resource4 = Resource.create!(title: "Talia e la valigia della idee", category: "#",
                              comment: "Weekly Italian playgroups in London. Divertentissimo! Ve lo consiglio!",
-                             picture_url: "/assets/resources/talia.png", user_id: user2.id)
-resource5 = Resource.create!(title: "Mappa di Torino", category: "#",
-                             comment: "Ciao! I bought this map for my daughter when we went to Torino for the weekend. She loved it!",
-                             picture_url: "/assets/resources/mappa.png", user_id: user3.id)
+                             picture_url: "resources/talia.png", user_id: user2.id)
+# resource5 = Resource.create!(title: "Mappa di Torino", category: "#",
+#                              comment: "Ciao! I bought this map for my daughter when we went to Torino for the weekend. She loved it!",
+#                              picture_url: "resources/mappa.png", user_id: user3.id)
 resource6 = Resource.create!(title: "TOPOLINO", category: "reading",
                              comment: "Ho regalato un abbonamento a mio figlio e gli piace un sacco.
                              Utilissimo per imparare parole nuove.", picture_url: "/assets/resources/topolino.png", user_id: user3.id)
 resource7 = Resource.create!(title: "Nascondini", category: "food",
                              comment: "Biscotti ecceziunali. The CostCutter near Brockley station stocks them.",
-                             picture_url: "/assets/resources/biscotti.png", user_id: user4.id)
+                             picture_url: "resources/biscotti.png", user_id: user4.id)
 resource8 = Resource.create!(title: "Mamma Dough Honor Oak", category: "food",
                              comment: "Went here for a birthday party recently. Big place, very welcoming for children.
                              They do a bunny rabbit pizza with ears which kids love.",
-                             picture_url: "/assets/resources/pizza.png", user_id: user4.id)
+                             picture_url: "resources/pizza.png", user_id: user4.id)
+
+
+#PINS
+# method below create pins for resources we have. Every time we do rails:db seed,the ids of all our instances increase.
+# in order to keep file seed dynamic I stored our 5 main users into variables (user1, user2...). Here I am incrementing
+# user5's id by n every time we loop.
+n = 1
+99.times do
+  Pin.create!(user_id: "#{user5.id + n}", resource_id: resource1.id)
+  n += 1
+end
+
+n = 1
+76.times do
+  Pin.create!(user_id: "#{user5.id + n}", resource_id: resource2.id)
+  n += 1
+end
+
+n = 1
+55.times do
+  Pin.create!(user_id: "#{user5.id + n}", resource_id: resource3.id)
+  n += 1
+end
+
+n = 1
+32.times do
+  Pin.create!(user_id: "#{user5.id + n}", resource_id: resource4.id)
+  n += 1
+end
+
+n = 1
+24.times do
+  Pin.create!(user_id: "#{user5.id + n}", resource_id: resource6.id)
+  n += 1
+end
+
+n = 1
+15.times do
+  Pin.create!(user_id: "#{user5.id + n}", resource_id: resource7.id)
+  n += 1
+end
+
+n = 1
+8.times do
+  Pin.create!(user_id: "#{user5.id + n}", resource_id: resource8.id)
+  n += 1
+end
