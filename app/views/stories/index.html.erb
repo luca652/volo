@@ -1,0 +1,11 @@
+<h1>Let me tell you a story...</h1>
+
+<%= simple_form_for [@prompt] do |f| %>
+<%= f.input :protagonist %>
+<%= f.input :weapon %>
+<%= f.input :setting %>
+<%= f.input :enemy %>
+<%= f.input :food %>
+<%= f.input :goal %>
+<%= f.submit "Submit", class: "btn btn-success"%>
+<% end %>

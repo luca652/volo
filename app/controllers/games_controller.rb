@@ -1,21 +1,7 @@
 class GamesController < ApplicationController
 
-  def new_game
-    @game = Game.new
-  end
 
-  def create
-    @game = Game.new(game_params)
-    @game.user = current_user
-    if @game.save
-      redirect_to game_path(@game)
-    else
-      render :new, status: :unprocessable_entity
-    end
-  end
-
-  def show
-    @game = Game.find(params[:id])
+  def index
     @prompt = Prompt.new
   end
 

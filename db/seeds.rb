@@ -12,6 +12,9 @@ Request.destroy_all
 Message.destroy_all
 Chatroom.destroy_all
 Group.destroy_all
+Game.destroy_all
+Prompt.destroy_all
+Story.destroy_all
 Pin.destroy_all
 Resource.destroy_all
 User.destroy_all
