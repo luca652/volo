@@ -2,6 +2,8 @@ class StoriesController < ApplicationController
 
   def index
     @prompt = Prompt.new
+    @user = current_user
+    @prompt.user = @user
   end
 
   def show
@@ -20,7 +22,7 @@ class StoriesController < ApplicationController
       response = @openai_client.chat(parameters: { model: "gpt-3.5-turbo", messages: [{ role: "user", content: request }],
                                                     temperature: 0.7 })
       generated_story = response.dig("choices", 0, "message", "content")
-      @story = Story.create!(game_id: @game.id, content: generated_story)
+      @story = Story.create!(user_id: @user.id, content: generated_story)
       redirect_to story_path(@story)
     else
       render :index, status: :unprocessable_entity
