@@ -1,5 +1,6 @@
 .group-page-container {
   color: $gray;
+  margin-bottom: 80px;
 }
 
 .banner {
@@ -92,9 +93,12 @@
   margin-bottom: 20px;
   display: block;
   overflow: hidden;
-  height: 120px;
   background: $our-light-yellow;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.event-info-card-body h4 {
+  color: $our-red;
 }
 
 .event-info-card-body p {
@@ -111,4 +115,13 @@
   margin-left: 200px;
   margin-bottom: 20px;
   padding-bottom: 20px;
+}
+
+.btn-event {
+  margin-left: 60%;
+}
+
+.confermation {
+  margin-bottom: 20px;
+  color: $our-blue;
 }
