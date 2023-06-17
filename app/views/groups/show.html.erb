@@ -12,9 +12,9 @@
       <div class= "group-members-container">
         <p> Members:</p>
         <% @members.each do |member| %>
-        <%# <a href="#" class="avatar" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %><%= member.first_name %>
-        <%# </a> %>
+        <a href="#" class="avatar" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%= image_tag "avatars/laura.png", class: "avatar" %><%= member.first_name %>
+        </a>
         <% end %>
       </div>
        <div class= "group-request-container">
