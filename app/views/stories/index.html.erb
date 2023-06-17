@@ -1,8 +1,6 @@
-<h1>Il quizzone!</h1>
+<h1>Let me tell you a story...</h1>
 
-<%= @generated_story %>
-
-<%= simple_form_for [@game, @prompt] do |f| %>
+<%= simple_form_for [@prompt] do |f| %>
 <%= f.input :protagonist %>
 <%= f.input :weapon %>
 <%= f.input :setting %>

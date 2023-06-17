@@ -20,12 +20,7 @@ Rails.application.routes.draw do
   end
   resources :pins, only: [:index, :destroy]
 
-  resources :games, only: [:create] do
-    post "prompts", to: "games#create_prompt"
-    get "story", to: "games#story"
-  end
-
-  resources :stories, only: [:show]
-  get "games", to: "games#new_game"
-  get "/games/:id", to: "games#show", as: "game"
+  resources :stories, only: [:index]
+  get "stories/:id", to: "stories#show_story", as: :story
+  post "prompts", to: "stories#create_prompt"
 end
