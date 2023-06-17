@@ -1,18 +1,16 @@
 .footer {
   background: $our-light-grey;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   height: 50px;
-  padding: 0px 50px;
+  padding: 30px;
   color: rgba(0,0,0,0.3);
 }
 .footer-links {
-  display: grid;
-  width: 414px;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
+  display: block;
   align-items: center;
+  width: 400px;
 }
 .footer-item {
   color: $our-blue;
@@ -20,7 +18,9 @@
   margin-left: 8px;
   text-decoration: none;
   font-size: 24px;
-  padding: 0px 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 0px 8px;
 }
 .footer-links a:hover {
   color: blue
