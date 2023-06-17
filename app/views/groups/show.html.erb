@@ -1,25 +1,30 @@
+<div class="banner container">
+  <%= image_tag(@group.picture_url, class: "banner") %>
+  <div class= "title"><strong><%= @group.name %></strong></div>
+</div>
 <div class = "group-page-container">
   <div class = "group-page-info">
-    <p class= "title"><strong><%= @group.name %></strong></p>
-      <div class="group-page-item">
+      <div class="group-page-description">
         <p> <%= @group.description %> </p>
         <p>Language practiced: <strong> <%= @group.language %></strong></p>
-        <p>Children age: <strong> primary years</strong></p>
+        <p>Children age: <strong> <%= @group.children_age %> years</strong></p>
       </div>
       <div class= "group-members-container">
         <p> Members:</p>
-        <% @members.each do |member| %>
-        <%# <a href="#" class="avatar" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %><%= member.first_name %>
-        <%# </a> %>
-        <% end %>
+          <%# <%@members.each do |member|%>
+          <%= image_tag "avatars/vittoria.png", class: "avatar avatar-member" %>
+
+          <%= image_tag "avatars/luca.png", class: "avatar avatar-member" %>
+
+          <%= image_tag "avatars/sara.png", class: "avatar avatar-member" %>
+          <%# <%end%>
       </div>
        <div class= "group-request-container">
           <% @requests.each do |request| %>
             <% if request.accepted == false && request.declined == false %>
             <p><%= request.user.first_name %> wants to join</p>
-            <%= link_to "Accept Request", group_request_accepted_path(@group.id, request.id, ), method: "patch", class: "btn btn-success" %>
-            <%= link_to "Decline Request", group_request_declined_path(@group.id, request.id), method: "patch", class: "btn btn-success" %>
+            <%= link_to "Accept Request", group_request_accepted_path(@group.id, request.id, ), method: "patch", class: "btn btn-success btn-request" %>
+            <%= link_to "Decline Request", group_request_declined_path(@group.id, request.id), method: "patch", class: "btn btn-success btn-request" %>
             <% end %>
           <% end %>
       </div>
@@ -34,13 +39,13 @@
               <p><%= @date.strftime("%b %e, %l:%M %p")%></p>
               <p><%= link_to event.location, "https://www.google.com/maps/search/?api=1&query=#{event.latitude}%2C#{event.longitude}"%></p>
             <% if Booking.where(event: @event, user: current_user).present? %>
-                    <p><strong>You're going!</strong></p>
+                    <div class="confermation"><strong>You're going!</strong></div>
               <% else %>
             <%= simple_form_for [@group, @event, @booking] do |f| %>
                   <%= f.hidden_field :user_id, value: current_user.id %>
                   <%= f.hidden_field :group_id, value: @group.id %>
                   <%= f.hidden_field :event_id, value: @event.id %>
-                  <%= f.submit "Count me in!", class: "btn btn-success" %>
+                  <%= f.submit "Count me in!", class: "btn btn-success btn-event" %>
                   <% end %>
             <% end %>
           </div>

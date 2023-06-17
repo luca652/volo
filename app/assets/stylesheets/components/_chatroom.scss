@@ -1,7 +1,7 @@
 .container-chatroom {
   background: white;
   margin-bottom: 70px;
-  margin-top: 8px;
+  margin-top: 50px;
   height: calc(100vh - 75px);
   display: flex;
   flex-direction: column;
@@ -23,6 +23,7 @@
 
   #new_message {
     border-top: 1px solid white;
+    border-radius: 10px;
     padding: 1rem;
     background-color: white;
     border-top: transparent;

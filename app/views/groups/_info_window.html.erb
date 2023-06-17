@@ -1,7 +1,7 @@
 
   <div class="card">
     <div class="card-group-image">
-      <%= image_tag("#{group.picture_url}") %>
+      <%= image_tag(group.picture_url) %>
     </div>
       <div class="card-body">
         <% if current_user.id == group.user_id %>
@@ -9,6 +9,9 @@
             <%= link_to group.name, group_path(group)%>
             <p><%= group.description %></p>
           </h5>
+          <p><%= group.description %></p>
+        <% elsif Request.where(group: group, user: current_user, accepted: true).present? %>
+          <%= link_to group.name, group_path(group)%>
           <p><%= group.description %></p>
         <% elsif Request.where(group: group, user: current_user).present? %>
           <h5 class="card-title"><%= group.name %></h5>

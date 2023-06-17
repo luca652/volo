@@ -1,5 +1,5 @@
 # This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
+# The data can then be loaded with the bingroup_images/rails db:seed command (or created alongside the database with db:setup).
 #
 # Examples:
 #
@@ -34,7 +34,7 @@ user3 = User.create!(first_name: "Jess", last_name: "Ferretti", language: "Itali
 user4 = User.create!(first_name: "Mario", last_name: "Pastorelli", language: "Italian", number_of_children: 1,
                      childrens_age: "pre-school", location: "10-14, Mercy Terrace, London SE13 7UX",
                      email: "mario@me.com", password: "123456")
-user5 = User.create!(first_name: "Laura", last_name: "Martin", language: "English / Italian", number_of_children: 1,
+user5 = User.create!(first_name: "Laura", last_name: "Martin", language: "English group_images/ Italian", number_of_children: 1,
                       childrens_age: "pre-school", location: "10-14, Mercy Terrace, London SE13 7UX",
                       email: "laura@me.com", password: "123456")
 
@@ -42,57 +42,57 @@ user5 = User.create!(first_name: "Laura", last_name: "Martin", language: "Englis
 childrens_age = ["newborn", "pre-school", "primary"]
 email = 1
 100.times do
-  User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, language: "English / Italian",
+  User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, language: "English group_images/ Italian",
                number_of_children: rand(1..6), childrens_age: childrens_age.sample, location: "10-14, Mercy Terrace, London SE13 7UX",
                email: "#{email}@me.com", password: "123456")
   email += 1
 end
 puts "#{User.all.length} users created."
 
-# GROUPS
+# group_images
 group1 = Group.create!(name: "Bambini di Peckham", location: "95A Rye Ln, London SE15 4ST",
-          description: "Our activities focus on readings, music and artcraft", picture_url: "/groups/peckham2.png", language: "Italian", user_id: user1.id,
+          description: "Our activities focus on readings, music and artcraft", picture_url: "group_images/bambini_peckam.png", language: "Italian", user_id: user1.id,
                        children_age: "3-5")
 group2 = Group.create!(name: "Brockley Playclub in Italiano", location: "1 Coulgate St, London SE4 2RW", description: "We like to play football in the park!",
-                       picture_url: "/groups/brockley.png",language: "Italian", user_id: user2.id, children_age: "6-8")
+                       picture_url: "group_images/brockley.png",language: "Italian", user_id: user2.id, children_age: "6-8")
 group3 = Group.create!(name: "Quelli di Hilly Fields", location: "317 Brockley Rd, London SE4 2QZ",
-                       picture_url: "/groups/brockley.png", language: "Italian", user_id: user3.id, children_age: "3-5")
+                       picture_url: "group_images/brockley.png", language: "Italian", user_id: user3.id, children_age: "3-5")
 group4 = Group.create!(name: "Horniman Museum - Gruppo italiano", location: "100 London Rd, London SE23 3PQ", description: "We organize treasure hunts based on the Horniman exhibitions",
-                       picture_url: "/groups/walrus.png", language: "Italian", user_id: user4.id, children_age: "3-5")
+                       picture_url: "group_images/walrus.png", language: "Italian", user_id: user4.id, children_age: "3-5")
 group5 = Group.create!(name: "Biblioteca di Canada Water", location: "21 Surrey Quays Rd, London SE16 7AR", description: "Join our story-telling group!",
-                       picture_url: "/groups/canada.png", language: "Italian", user_id: user2.id, children_age: "3-5")
+                       picture_url: "group_images/canada.png", language: "Italian", user_id: user2.id, children_age: "3-5")
 group6 = Group.create!(name: "Sydenham - Mayow Park", location: "313-315 Kirkdale, London SE26 4QB", description: "Join our small tennis team!",
-                       picture_url: "/groups/peckham.png", language: "Italian", user_id: user3.id, children_age: "5-8")
+                       picture_url: "group_images/peckham.png", language: "Italian", user_id: user3.id, children_age: "5-8")
 group7 = Group.create!(name: "I dinosauri di Crystal Palace", location: "95 Church Rd, London SE19 2TA", description: "We organise dino-themes activities!",
-                       picture_url: "/groups/crystalpalace.png", language: "Italian", user_id: user4.id, children_age: "3-5")
+                       picture_url: "group_images/crystalpalace.png", language: "Italian", user_id: user4.id, children_age: "3-5")
 group8 = Group.create!(name: "Dulwich Village - Mamme e bambini", location: "116a Lordship Ln, London SE22 8HD", description: "Join our baby-yoga sessions in the park!",
-                       picture_url: "/groups/dulwich.png", language: "Italian", user_id: user2.id, children_age: "3-5")
+                       picture_url: "group_images/dulwich.png", language: "Italian", user_id: user2.id, children_age: "3-5")
 group9 = Group.create!(name: "Brockwell Park - Estate Ragazzi", location: "10 Half Moon Ln, London SE24 9HU", description: "We organise a wide range of outdoor activities trought all the summer!",
-                       picture_url: "/groups/brockwell.png", language: "Italian", user_id: user3.id, children_age: "7-13")
+                       picture_url: "group_images/brockwell.png", language: "Italian", user_id: user3.id, children_age: "7-13")
 group10 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "The Hill Station, Kitto Rd, London SE14 5TW", description: "We organise sessions to help children with thier homework",
-                        picture_url: "/groups/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
+                        picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
 
 group11 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "The Old Sessions House, 22 Clerkenwell Grn, London EC1R 0NA", description: "We organise sessions to help children with thier homework",
-                        picture_url: "/groups/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
+                        picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
 group12 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "First Floor, 2 Percy St, London W1T 1DD", description: "We organise sessions to help children with thier homework",
-                        picture_url: "/groups/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
+                        picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
 group13 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "18 Soho Square, London W1D 3QL", description: "We organise sessions to help children with thier homework",
-                        picture_url: "/groups/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
+                        picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
 group14 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "70-71 Shelton St, London WC2H 9JQ", description: "We organise sessions to help children with thier homework",
-                        picture_url: "/groups/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
+                        picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
 group15 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "88 Masbro Rd, Brook Grn, London W14 0LR", description: "We organise sessions to help children with thier homework",
-                        picture_url: "/groups/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
+                        picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
 group16 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "22-28 Broadway, London SW1H 0BH", description: "We organise sessions to help children with thier homework",
-                        picture_url: "/groups/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
+                        picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
 group17 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "101 Wood Ln, London W12 7FR", description: "We organise sessions to help children with thier homework",
-                        picture_url: "/groups/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
+                        picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
 group18 = Group.create!(name: "Telegraph Hill - Doposcuola", location: " 94 Waterford Rd, London SW6 2HA", description: "We organise sessions to help children with thier homework",
-                        picture_url: "/groups/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
+                        picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
 group19 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "13-15 West St, London WC2H 9NE", description: "We organise sessions to help children with thier homework",
-                        picture_url: "/groups/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
+                        picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
 group20 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "104 Chepstow Rd, London W2 5QS", description: "We organise sessions to help children with thier homework",
-                        picture_url: "/groups/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
-puts "#{Group.all.length} groups created."
+                        picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
+puts "#{Group.all.length} group_images created."
 
 #CHATROOM FOR GROUP
 Chatroom.create!(group_id: group1.id)
@@ -133,30 +133,30 @@ puts "#{Booking.all.length} booking created."
 #  RESOURCES
 resource1 = Resource.create!(title: "FABA - Music and stories in italian", category: "Stories",
                              comment: "Utilissimo! Each character sings songs or tells a story in Italian. My daughter loves it!",
-                             picture_url: "resources/pizza.png", user_id: user2.id)
+                             picture_url: "resourcesgroup_images/pizza.png", user_id: user2.id)
 resource2 = Resource.create!(title: "Passeggino definitivo", category: "#",
                              comment: "If you're planning to fly to Italy quite a bit, get this. It folds really small
                              and you can take it on the plane",
-                             picture_url: "resources/pram.png", user_id: user3.id)
+                             picture_url: "resourcesgroup_images/pram.png", user_id: user3.id)
 resource3 = Resource.create!(title: "Le avventure di Cipollino", category: "reading",
                              comment: "Un classico. I loved it when I was a kid!",
-                             picture_url: "resources/book.png", user_id: user4.id)
+                             picture_url: "resourcesgroup_images/book.png", user_id: user4.id)
 resource4 = Resource.create!(title: "Talia e la valigia della idee", category: "#",
-                             comment: "Weekly Italian playgroups in London. Divertentissimo! Ve lo consiglio!",
-                             picture_url: "resources/talia.png", user_id: user2.id)
+                             comment: "Weekly Italian playgroup_images in London. Divertentissimo! Ve lo consiglio!",
+                             picture_url: "resourcesgroup_images/talia.png", user_id: user2.id)
 # resource5 = Resource.create!(title: "Mappa di Torino", category: "#",
 #                              comment: "Ciao! I bought this map for my daughter when we went to Torino for the weekend. She loved it!",
-#                              picture_url: "resources/mappa.png", user_id: user3.id)
+#                              picture_url: "resourcesgroup_images/mappa.png", user_id: user3.id)
 resource6 = Resource.create!(title: "TOPOLINO", category: "reading",
                              comment: "Ho regalato un abbonamento a mio figlio e gli piace un sacco.
-                             Utilissimo per imparare parole nuove.", picture_url: "/assets/resources/topolino.png", user_id: user3.id)
+                             Utilissimo per imparare parole nuove.", picture_url: "group_images/assetsgroup_images/resourcesgroup_images/topolino.png", user_id: user3.id)
 resource7 = Resource.create!(title: "Nascondini", category: "food",
                              comment: "Biscotti ecceziunali. The CostCutter near Brockley station stocks them.",
-                             picture_url: "resources/biscotti.png", user_id: user4.id)
+                             picture_url: "resourcesgroup_images/biscotti.png", user_id: user4.id)
 resource8 = Resource.create!(title: "Mamma Dough Honor Oak", category: "food",
                              comment: "Went here for a birthday party recently. Big place, very welcoming for children.
                              They do a bunny rabbit pizza with ears which kids love.",
-                             picture_url: "resources/pizza.png", user_id: user4.id)
+                             picture_url: "resourcesgroup_images/pizza.png", user_id: user4.id)
 puts "#{Resource.all.length} resources created."
 
 #PINS
