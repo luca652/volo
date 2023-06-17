@@ -1,7 +1,32 @@
-.card-container {
+.content {
+
+  text-align: center;
+  margin: auto;
+
+}
+
+.card-product-infos p {
+  margin-bottom: 4px;
+}
+
+.card-product-infos {
+  display: flex;
+  font-size: 8px;
+  justify-content: space-between;
+  padding-right: 40px;
+}
+
+.card-product {
   margin-top: 20px;
   margin-bottom: 20px;
   padding: 2px 16px;
+
+}
+
+.card-product img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
 }
 
 .card {
@@ -21,6 +46,7 @@
 /* Add some padding inside the card container */
 .container {
   padding: 2px 16px;
+  padding-top: 120px;
 }
 
 .pin-button {
@@ -65,4 +91,3 @@
 .filter-container button:hover {
   background-color: #0056b3;
 }
-
