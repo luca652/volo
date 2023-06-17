@@ -6,7 +6,7 @@ class StoriesController < ApplicationController
     @prompt.user = @user
   end
 
-  def show
+  def show_story
     @story = Story.find(params[:id])
   end
 

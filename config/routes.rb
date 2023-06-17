@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   end
   resources :pins, only: [:index, :destroy]
 
-  resources :stories, only: [:index, :show]
+  resources :stories, only: [:index]
+  get "stories/:id", to: "stories#show_story", as: :story
   post "prompts", to: "stories#create_prompt"
 end
