@@ -21,8 +21,8 @@
           <% @requests.each do |request| %>
             <% if request.accepted == false && request.declined == false %>
             <p><%= request.user.first_name %> wants to join</p>
-            <%= link_to "Accept Request", group_request_accepted_path(@group.id, request.id, ), method: "patch", class: "btn btn-success" %>
-            <%= link_to "Decline Request", group_request_declined_path(@group.id, request.id), method: "patch", class: "btn btn-success" %>
+            <%= link_to "Accept Request", group_request_accepted_path(@group.id, request.id, ), method: "patch", class: "btn btn-success btn-request" %>
+            <%= link_to "Decline Request", group_request_declined_path(@group.id, request.id), method: "patch", class: "btn btn-success btn-request" %>
             <% end %>
           <% end %>
       </div>
