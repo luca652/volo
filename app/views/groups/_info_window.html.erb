@@ -10,6 +10,9 @@
             <p><%= group.description %></p>
           </h5>
           <p><%= group.description %></p>
+        <% elsif Request.where(group: group, user: current_user, accepted: true).present? %>
+          <%= link_to group.name, group_path(group)%>
+          <p><%= group.description %></p>
         <% elsif Request.where(group: group, user: current_user).present? %>
           <h5 class="card-title"><%= group.name %></h5>
           <p> <%= group.description %></p>
