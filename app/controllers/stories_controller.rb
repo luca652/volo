@@ -19,7 +19,7 @@ class StoriesController < ApplicationController
       request = "Tell me a brief story in Italian. The protagonist is #{@prompt.protagonist},
       and the story is set in #{@prompt.setting}. The protagonistwants to #{@prompt.goal}.
       His mortal enemy is #{@prompt.enemy}, and his favorite food is #{@prompt.food}.
-      Start with a title, something like 'Arturo e la foresta oscura'. Put a # at the end of the title. "
+      Start with a title, something like 'Arturo e la foresta oscura'. Put a # at the end of the title."
       response = @openai_client.chat(parameters: { model: "gpt-3.5-turbo", messages: [{ role: "user", content: request }],
                                                     temperature: 0.7 })
       generated_story = response.dig("choices", 0, "message", "content")
