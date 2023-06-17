@@ -8,16 +8,18 @@
   color: rgba(0,0,0,0.3);
 }
 .footer-links {
+  display: grid;
+  width: 414px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
   align-items: center;
-  width: 400px;
 }
 .footer-item {
   color: $our-blue;
   display: flexbox;
+  margin-left: 8px;
   text-decoration: none;
   font-size: 24px;
-  margin-left: 50%;
-  margin-right: 50%;
   padding: 0px 10px;
 }
 .footer-links a:hover {
