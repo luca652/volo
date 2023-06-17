@@ -6,15 +6,19 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+puts "Clearing database"
 Booking.destroy_all
 Event.destroy_all
 Request.destroy_all
 Message.destroy_all
 Chatroom.destroy_all
 Group.destroy_all
+Prompt.destroy_all
+Story.destroy_all
 Pin.destroy_all
 Resource.destroy_all
 User.destroy_all
+puts "Database cleared"
 
 # USERS
 
@@ -34,7 +38,6 @@ user5 = User.create!(first_name: "Laura", last_name: "Martin", language: "Englis
                       childrens_age: "pre-school", location: "10-14, Mercy Terrace, London SE13 7UX",
                       email: "laura@me.com", password: "123456")
 
-
 # the email variable is used to create unique email addresses dynamycally - the value is incremented each time it loops
 childrens_age = ["newborn", "pre-school", "primary"]
 email = 1
@@ -44,6 +47,7 @@ email = 1
                email: "#{email}@me.com", password: "123456")
   email += 1
 end
+puts "#{User.all.length} users created."
 
 
 
@@ -89,8 +93,8 @@ group18 = Group.create!(name: "Telegraph Hill - Doposcuola", location: " 94 Wate
 group19 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "13-15 West St, London WC2H 9NE", description: "We organise sessions to help children with thier homework",
                         picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
 group20 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "104 Chepstow Rd, London W2 5QS", description: "We organise sessions to help children with thier homework",
-                        picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
-
+                        picture_url: "/groups/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
+puts "#{Group.all.length} groups created."
 
 #CHATROOM FOR GROUP
 Chatroom.create!(group_id: group1.id)
@@ -102,7 +106,7 @@ request2 = Request.create!(user_id: user2.id, group_id: group1.id, accepted: tru
 request3 = Request.create!(user_id: user3.id, group_id: group1.id, accepted: true)
 request4 = Request.create!(user_id: user4.id, group_id: group1.id, accepted: true)
 request5 = Request.create!(user_id: user5.id, group_id: group1.id)
-puts "resquest created"
+puts "#{Request.all.length} requests created."
 
 # EVENTS
 event1 = Event.create!(name: "Story-Time in Italiano", location: "Crofton Park Library, 375 Brockley Rd, London SE4 2AG",
@@ -119,12 +123,14 @@ event6 = Event.create!(name: "Picnic nel parco", location: "Hilly Fields, 375 Br
                        category: "Activity", date: "2023-8-12, 4:30PM", user_id: user2.id, group_id: group1.id)
 event7 = Event.create!(name: "Festa di compleanno di Andrea", location: "95 Church Rd, London SE19 2TA",
                        category: "Activity", date: "2023-7-30, 10:00AM", user_id: user4.id, group_id: group1.id)
+puts "#{Event.all.length} events created."
 
 # BOOKINGS FOR EVENTS
 booking1 = Booking.create!(event_id: event1.id, user_id: user1.id)
 # booking2 = Booking.create!(event_id: event5.id, user_id: user1.id)
 # booking3 = Booking.create!(event_id: event6.id, user_id: user1.id)
 # booking4 = Booking.create!(event_id: event7.id, user_id: user1.id)
+puts "#{Booking.all.length} booking created."
 
 #  RESOURCES
 resource1 = Resource.create!(title: "FABA - Music and stories in italian", category: "Stories",
@@ -153,7 +159,7 @@ resource8 = Resource.create!(title: "Mamma Dough Honor Oak", category: "food",
                              comment: "Went here for a birthday party recently. Big place, very welcoming for children.
                              They do a bunny rabbit pizza with ears which kids love.",
                              picture_url: "resources/pizza.png", user_id: user4.id)
-
+puts "#{Resource.all.length} resources created."
 
 #PINS
 # method below create pins for resources we have. Every time we do rails:db seed,the ids of all our instances increase.
@@ -200,3 +206,4 @@ n = 1
   Pin.create!(user_id: "#{user5.id + n}", resource_id: resource8.id)
   n += 1
 end
+puts "#{Pin.all.length} pins created."

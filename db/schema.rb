@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_15_110726) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_17_111245) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -82,6 +82,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_15_110726) do
     t.index ["user_id"], name: "index_pins_on_user_id"
   end
 
+  create_table "prompts", force: :cascade do |t|
+    t.string "protagonist"
+    t.string "weapon"
+    t.text "setting"
+    t.string "enemy"
+    t.string "food"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "goal"
+    t.index ["user_id"], name: "index_prompts_on_user_id"
+  end
+
   create_table "requests", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "group_id", null: false
@@ -103,6 +116,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_15_110726) do
     t.datetime "updated_at", null: false
     t.integer "pin_count", default: 0
     t.index ["user_id"], name: "index_resources_on_user_id"
+  end
+
+  create_table "stories", force: :cascade do |t|
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_stories_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -135,7 +156,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_15_110726) do
   add_foreign_key "messages", "users"
   add_foreign_key "pins", "resources"
   add_foreign_key "pins", "users"
+  add_foreign_key "prompts", "users"
   add_foreign_key "requests", "groups"
   add_foreign_key "requests", "users"
   add_foreign_key "resources", "users"
+  add_foreign_key "stories", "users"
 end
