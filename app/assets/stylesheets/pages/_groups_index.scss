@@ -4,10 +4,16 @@
 }
 
 .filter-group-container{
+  border-radius: 10px;
   text-align: justify;
-  width: 150px;
+  margin-top: 20px;
+  margin-right: 10px;
   position: absolute;
-  top: 120px;
-  left: 16px;
+  top: 80px;
+  left: 14px;
 
+}
+
+.filter-form-children-age{
+  margin-left: 20px;
 }

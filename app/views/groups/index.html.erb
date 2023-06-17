@@ -8,7 +8,7 @@
 
 <div class= "filter-group-container">
  <%= simple_form_for @filter_form, url: groups_path, method: :get do |form| %>
-  <%= form.input :children_age, collection: Group.pluck(:children_age).uniq, include_blank: 'All', class: "input", placeholder: "Select age group"%>
+  <%= form.input :children_age, collection: Group.pluck(:children_age).uniq, include_blank: 'All', :prompt => "-- Select group age --"%>
   <%= form.button :submit, 'Apply Filter', class: "btn btn-success" %>
   <%= @groups_all %>
 <% end %>
