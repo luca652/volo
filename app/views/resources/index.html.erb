@@ -16,20 +16,28 @@
     <button id="create-resource-button" class="btn btn-success ml-2">Create Resource</button> <!-- Added create resource button -->
   </div>
 
-  <div class="card-container">
+  <div class="card-product">
     <% @resources.each do |resource| %>
       <div class="card" data-category="<%= resource.category %>">
-        <div class="card-body">
-          <h5 class="card-title"><%= resource.title %></h5>
-          <p class="card-text card-text-category"><%= resource.category %></p>
-          <p class="card-text"><%= resource.comment %></p>
-          <%= image_tag("#{resource.picture_url}", style: 'height: 100px') %>
-          <p> <small><span class="pin-count"><%= resource.pin_count %> pins!</small></span></p> <!-- Corrected line -->
+        <div class="card-product-infos">
+         <%= image_tag("#{resource.picture_url}", style: 'height: 100px') %>
+        <div class="content">
+          <p class="title"><%= resource.title %></p>
+          <p><%= resource.category %></p>
+
+          <p><%= resource.comment %>          <p> <small><span class="pin-count"><%= resource.pin_count %> pins!</small></span></p> <!-- Corrected line -->
+</p>
+</div>
+    </div>
+
+
+
           <a href="#" class="pin-button" data-resource-id="<%= resource.id %>">
             <i class="fas fa-thumbtack"></i>
+
           </a>
         </div>
-      </div>
+
     <% end %>
   </div>
 
