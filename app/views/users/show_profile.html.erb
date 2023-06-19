@@ -1,47 +1,82 @@
-<h2>Ciao <%= @user.first_name %>!</h2>
-<h4>Groups</h4>
-<ul>
-  <li>
-    <% @groups_admin.each do |group| %>
-      <%= group.name %>
-      <p>Admin</p>
-      <% group.requests.each do |request| %>
-        <% if request.accepted == false && request.declined == false %>
-        <p><%= request.user.first_name %> wants to join</p>
-        <%= link_to "Accept Request", group_request_accepted_path(group.id, request.id, ), method: "patch", class: "btn btn-success" %>
-        <%= link_to "Decline Request", group_request_declined_path(group.id, request.id), method: "patch", class: "btn btn-success" %>
-        <% end %>
-      <% end %>
-    <% end %>
-  </li>
-</ul>
 
-<ul>
-  <li>
-    <% @groups_member.each do |group| %>
-      <%= group.name %>
-      <p>Member</p>
-    <% end %>
-  </li>
-</ul>
+<div class="show-profile-container">
+  <h2>Ciao <%= @user.first_name %>!</h2>
+  <p><%= link_to "Edit profile", user_path(current_user) %></p>
 
-<% unless @groups_pending.empty? %>
+<!-- Tab links -->
+  <div class="profile-tab">
+    <button class="profile-tablinks" onclick="openTab(event, 'Groups')">Groups</button>
+    <button class="profile-tablinks" onclick="openTab(event, 'Events')">Events</button>
+    <button class="profile-tablinks" onclick="openTab(event, 'Pins')">Pins</button>
+  </div>
+
+
+<!-- Tab content -->
+<div id="profile-groups" class="profile-tabcontent">
   <ul>
     <li>
-      <% @groups_pending.each do |group| %>
+      <% @groups_admin.each do |group| %>
         <%= group.name %>
-        <p>Pending</p>
+        <p>Admin</p>
+        <% group.requests.each do |request| %>
+          <% if request.accepted == false && request.declined == false %>
+          <p><%= request.user.first_name %> wants to join</p>
+          <%= link_to "Accept Request", group_request_accepted_path(group.id, request.id, ), method: "patch", class: "btn btn-success" %>
+          <%= link_to "Decline Request", group_request_declined_path(group.id, request.id), method: "patch", class: "btn btn-success" %>
+          <% end %>
+        <% end %>
       <% end %>
     </li>
   </ul>
-<% end %>
 
-<h4>My upcoming events</h4>
-<ul>
-  <li>
-    <% @my_events.each do |event| %>
-    <p><%= event.name %></p>
-    <p><%= event.date %></p>
-    <% end %>
-  </li>
-</ul>
+  <ul>
+    <li>
+      <% @groups_member.each do |group| %>
+        <%= group.name %>
+        <p>Member</p>
+      <% end %>
+    </li>
+  </ul>
+
+  <% unless @groups_pending.empty? %>
+    <ul>
+      <li>
+        <% @groups_pending.each do |group| %>
+          <%= group.name %>
+          <p>Pending</p>
+        <% end %>
+      </li>
+    </ul>
+  <% end %>
+</div>
+
+<div id="profile-events" class="profile-tabcontent">
+  <h4>My upcoming events</h4>
+  <ul>
+    <li>
+      <% @my_events.each do |event| %>
+      <p><%= event.name %></p>
+      <p><%= event.date %></p>
+      <% end %>
+    </li>
+  </ul>
+</div>
+
+<div id="profile-pins" class="profile-tabcontent">
+  <h4>My pins</h4>
+  <% @my_pins.each do |pin| %>
+  <div class="pin-card card" data-pin-id="<%= pin.id %>" data-category="<%= pin.resource.category %>">
+    <div class="card-body">
+      <h3 class="card-title"><%= pin.resource.title %></h3>
+      <p class="card-text card-text-category"><%= pin.resource.category %></p>
+      <p class="card-text"><%= pin.resource.comment %></p>
+      <p class="card-text"><%= pin.resource.picture_url %></p>
+    </div>
+  </div>
+   <% end %>
+</div>
+
+
+
+
+</div>

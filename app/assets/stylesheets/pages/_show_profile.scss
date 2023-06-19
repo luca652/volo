@@ -1,0 +1,35 @@
+.show-profile-container {
+  color: $gray;
+  margin: 70px 20px 80px 20px;
+}
+
+.profile-tab {
+  overflow: hidden;
+}
+
+.profile-tab button {
+  background-color: $red;
+  border: 0px;
+  color: white;
+  font-size: small;
+  padding: 3px 6px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.profile-tab button:hover {
+  background-color: rgb(185, 110, 110);
+}
+
+.profile-tab button.active {
+  background-color: white;
+  color: $red;
+  border: solid 1px $red;
+}
+
+.profile-tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}

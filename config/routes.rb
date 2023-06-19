@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   get 'users/show_profile'
   get 'stories/show'
   devise_for :users
-  get "profile", to: "users#show_profile", as: "user_profile"
   get "users/:id", to: "users#show_profile", as: "user"
   root to: "pages#home"
 
