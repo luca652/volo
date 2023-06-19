@@ -5,14 +5,14 @@
 
 <!-- Tab links -->
   <div class="profile-tab">
-    <button class="profile-tablinks" onclick="openTab(event, 'Groups')">Groups</button>
-    <button class="profile-tablinks" onclick="openTab(event, 'Events')">Events</button>
-    <button class="profile-tablinks" onclick="openTab(event, 'Pins')">Pins</button>
+    <button class="tablinks" onclick="openTab(event, 'Groups')">Groups</button>
+    <button class="tablinks" onclick="openTab(event, 'Events')">Events</button>
+    <button class="tablinks" onclick="openTab(event, 'Pins')">Pins</button>
   </div>
 
 
 <!-- Tab content -->
-<div id="profile-groups" class="profile-tabcontent">
+<div id="Groups" class="tabcontent">
   <ul>
     <li>
       <% @groups_admin.each do |group| %>
@@ -50,7 +50,7 @@
   <% end %>
 </div>
 
-<div id="profile-events" class="profile-tabcontent">
+<div id="Events" class="tabcontent">
   <h4>My upcoming events</h4>
   <ul>
     <li>
@@ -62,7 +62,7 @@
   </ul>
 </div>
 
-<div id="profile-pins" class="profile-tabcontent">
+<div id="Pins" class="tabcontent">
   <h4>My pins</h4>
   <% @my_pins.each do |pin| %>
   <div class="pin-card card" data-pin-id="<%= pin.id %>" data-category="<%= pin.resource.category %>">
@@ -80,3 +80,6 @@
 
 
 </div>
+
+
+<%= javascript_include_tag 'show_profile' %>
