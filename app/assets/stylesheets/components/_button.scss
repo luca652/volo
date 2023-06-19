@@ -38,7 +38,7 @@
   margin-left: 60%;
 }
 
-.btn-apply {
+.btn-filter{
   display: inline-flex;
   height: 37px;
   margin-top: 32px;
@@ -47,4 +47,23 @@
   margin-left: 8px;
   border-radius: 20px;
   box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.2);
+}
+
+.btn-apply {
+  display: inline-flex;
+  height: 37px;
+  margin-top: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: 8px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.2);
+}
+
+.btn-submit {
+  background-color: $our-blue;
+  margin-left: 40%;
+  font-size: larger;
+  border-color: $our-blue;
+
 }

@@ -2,15 +2,17 @@
   max-width: 150px;
 }
 
-.mapboxgl-popup-content {
+.mapboxgl-popup {
   text-align: center;
+  background-color: transparent;
   font-family: $body-font;
   overflow: hidden;
-  background: white;
-  padding: 0;
-  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.2);
-  pointer-events: auto;
-  border-radius: 10px;
+  .mapboxgl-popup-content {
+    padding: 0;
+    margin-left: 8px;
+    margin-right: 8px;
+    pointer-events: auto;
+  }
 }
 
 .mapboxgl-ctrl-geocoder.mapboxgl-ctrl {

@@ -16,10 +16,10 @@
         <% else %>
           <h5><%= group.name %></h5>
           <p><%= group.description %></p>
-          <%= simple_form_for [group, @request] do |f| %>
+          <%= simple_form_for [group, @request], html: { data: { controller: 'join-form', target: 'join-form.form' } } do |f| %>
           <%= f.hidden_field :user_id, value: current_user.id %>
           <%= f.hidden_field :group_id, value: group.id %>
-          <%= f.submit "Ask to join", class: "btn btn-success btn-apply" %>
+          <%= f.submit "Ask to join", class: "btn btn-success btn-apply", data: {target: 'join-form.form', action: 'click->join-form#submit' }%>
           <% end %>
         <% end %>
       </div>
