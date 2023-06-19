@@ -3,11 +3,28 @@
   margin: 70px 20px 80px 20px;
 }
 
-.profile-tab {
-  overflow: hidden;
+.show-profile-headers {
+  display: flex;
+  width: 100%;
 }
 
-.profile-tab button {
+.header-left {
+  flex: 1;
+}
+
+.header-right {
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.profile-tab {
+  overflow: hidden;
+  display: flex;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.profile-tab .tablinks {
   background-color: $red;
   border: 0px;
   color: white;
@@ -15,6 +32,7 @@
   margin-right: 5px;
   padding: 3px 6px;
   border-radius: 10px;
+  flex: 1;
   transition: 0.3s;
 }
 
@@ -33,4 +51,21 @@
   padding: 6px 12px;
   border: 1px solid #ccc;
   border-top: none;
+}
+
+.profile-group-item {
+  list-style-type: none;
+}
+
+.profile-group-list {
+  padding: 0px 0px;
+}
+
+.card-profile-group {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border-radius: 10px;
+  position: relative;
+  margin-bottom: 20px;
+  padding: 2px 16px;
 }

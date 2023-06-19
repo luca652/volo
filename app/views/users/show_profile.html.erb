@@ -1,8 +1,13 @@
 
 <div class="show-profile-container">
-  <h2>Ciao <%= @user.first_name %>!</h2>
-  <p><%= link_to "Edit profile", user_path(current_user) %></p>
-
+  <div class="show-profile-headers">
+    <div class="header-left">
+      <h1>Ciao <%= @user.first_name %>!</h1>
+    </div>
+    <div class="header-right">
+      <p><%= link_to "Edit profile", user_path(current_user) %></p>
+    </div>
+</div>
 <!-- Tab links -->
   <div class="profile-tab">
     <button class="tablinks" onclick="openTab(event, 'Groups')">Groups</button>
@@ -12,19 +17,21 @@
 
 
 <!-- Tab content -->
-<div id="Groups" class="tabcontent">
-  <ul>
-    <li>
+<div id="Groups" class="tabcontent card-product">
+  <ul class="profile-group-list">
+    <li class="profile-group-item">
       <% @groups_admin.each do |group| %>
-        <%= group.name %>
+      <div class="card-profile-group">
+        <h4><%= group.name.upcase %></h4>
         <p>Admin</p>
         <% group.requests.each do |request| %>
           <% if request.accepted == false && request.declined == false %>
-          <p><%= request.user.first_name %> wants to join</p>
+          <p><%= link_to request.user.first_name, "#" %> wants to join</p>
           <%= link_to "Accept Request", group_request_accepted_path(group.id, request.id, ), method: "patch", class: "btn btn-success" %>
           <%= link_to "Decline Request", group_request_declined_path(group.id, request.id), method: "patch", class: "btn btn-success" %>
           <% end %>
         <% end %>
+      </div>
       <% end %>
     </li>
   </ul>
@@ -32,8 +39,10 @@
   <ul>
     <li>
       <% @groups_member.each do |group| %>
-        <%= group.name %>
-        <p>Member</p>
+        <div class="card-profile-group">
+          <%= group.name %>
+          <p>Member</p>
+        </div>
       <% end %>
     </li>
   </ul>
@@ -56,7 +65,7 @@
     <li>
       <% @my_events.each do |event| %>
       <p><%= event.name %></p>
-      <p><%= event.date %></p>
+      <p><%= event.date.strftime("%b %e, %l:%M %p") %></p>
       <% end %>
     </li>
   </ul>
