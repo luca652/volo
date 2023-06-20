@@ -1,0 +1,23 @@
+.map-groups-container {
+  margin-top: 55px;
+  position: relative;
+}
+
+.filter-group-container{
+  color: transparent;
+  border-radius: 10px;
+  text-align: justify;
+  margin-top: 20px;
+  margin-right: 10px;
+  position: absolute;
+  top: 80px;
+  left: 14px;
+  #new_filter_form {
+    display: inline-flex;
+  }
+  #filter_form_children_age{
+    background-color: white;
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+  }
+}

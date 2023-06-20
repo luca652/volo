@@ -7,14 +7,20 @@ import { application } from "./application"
 import ChatroomSubscriptionController from "./chatroom_subscription_controller"
 application.register("chatroom-subscription", ChatroomSubscriptionController)
 
+import DropdownController from "./dropdown_controller"
+application.register("dropdown", DropdownController)
+
 import FooterController from "./footer_controller"
 application.register("footer", FooterController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import JoinFormController from "./join_form_controller"
+application.register("join-form", JoinFormController)
+
 import MapController from "./map_controller"
 application.register("map", MapController)
 
-import DropdownController from "./dropdown_controller"
-application.register("dropdown", DropdownController)
+import ResourcesController from "./resources_controller"
+application.register("resources", ResourcesController)
