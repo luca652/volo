@@ -1,12 +1,18 @@
-<div class="questionaire-container">
+<div class="questionaire-container" data-controller="oval">
   <h1>Let me tell you a story...</h1>
 
-  <%= simple_form_for [@prompt] do |f| %>
+  <%= simple_form_for [@prompt], html: { data: { oval_target: "container" } } do |f| %>
   <%= f.input :protagonist%>
   <%= f.input :setting %>
   <%= f.input :enemy %>
   <%= f.input :food %>
   <%= f.input :goal %>
-  <%= f.submit "Submit", class: "btn btn-success btn-submit"%>
+  <%= f.submit "Submit", class: "btn btn-success btn-submit", data: { action:"click->oval#loading" }%>
   <% end %>
+
+
+
+<div id="oval-container" data-oval-target="spinner" class="hidden-content center-position">
+  <%= image_tag "oval.svg"%>
+</div>
 </div>

@@ -2,10 +2,23 @@
   margin-top: 70px;
   margin-left: 20px;
   margin-right: 20px;
+  margin-bottom: 70px;
   font-family: $body-font;
   text-align: justify;
   h1 {
     color: $our-blue;
     text-align: center;
   }
+}
+
+.hidden-content {
+  display: none;
+}
+
+.display-spinner {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
