@@ -36,6 +36,9 @@
   border-radius: 10px; /* Add rounded borders */
   position: relative;
   margin-bottom: 20px;
+  max-height: 200px; /* Adjust the desired height for the card */
+  overflow: hidden;
+
 }
 
 /* On mouse-over, add a deeper shadow */
@@ -51,7 +54,7 @@
 
 .pin-button {
   position: absolute;
-  top: 10px;
+  top: 80px;
   right: 10px;
   padding: 5px;
 }
@@ -90,4 +93,17 @@
 
 .filter-container button:hover {
   background-color: #0056b3;
+}
+
+h2 {
+  font-size: 24px; /* Adjust the desired font size for the title */
+  line-height: 1.2; /* Adjust the desired line height for the title */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 3.6em;
+}
+
+.content p {
+  font-size: 10px;
 }
