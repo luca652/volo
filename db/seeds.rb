@@ -131,7 +131,7 @@ booking1 = Booking.create!(event_id: event1.id, user_id: user1.id)
 puts "#{Booking.all.length} booking created."
 
 #  RESOURCES
-resource1 = Resource.create!(title: "FABA - Music and stories in italian", category: "Stories",
+resource1 = Resource.create!(title: "FABA - Music and stories", category: "Stories",
                              comment: "Utilissimo! Each character sings songs or tells a story in Italian. My daughter loves it!",
                              picture_url: "resources/pizza.png", user_id: user2.id)
 resource2 = Resource.create!(title: "Passeggino definitivo", category: "#",
