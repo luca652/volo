@@ -65,7 +65,16 @@
     <li>
       <% @my_events.each do |event| %>
       <p><%= event.name %></p>
-      <p><%= event.date.strftime("%b %e, %l:%M %p") %></p>
+      <% difference = (event.date.to_date - Date.today).to_i %>
+        <% if difference == 7 %>
+        <p>in a week!</p>
+        <% elsif difference < 7 && difference > 1 %>
+        <p><%= "In #{difference} days!"%></p>
+        <% elsif difference == 1 %>
+        <p>Tomorrow!</p>
+        <% else %>
+        <p><%= event.date.strftime("%b %e, %l:%M %p") %></p>
+        <% end %>
       <% end %>
     </li>
   </ul>
