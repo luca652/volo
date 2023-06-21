@@ -22,6 +22,8 @@
   display: flex;
   width: 80%;
   margin: 0 auto;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .profile-tab .tablinks {
@@ -53,7 +55,7 @@
   border-top: none;
 }
 
-.profile-group-item {
+li {
   list-style-type: none;
 }
 
@@ -68,4 +70,19 @@
   position: relative;
   margin-bottom: 20px;
   padding: 2px 16px;
+}
+
+.profile-card-link {
+text-decoration: none;
+color: inherit;
+}
+
+.request-count {
+  background-color: $red;
+  border: 0px;
+  color: white;
+  font-size: small;
+  margin-right: 5px;
+  padding: 3px 6px;
+  border-radius: 10px;
 }

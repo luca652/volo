@@ -21,28 +21,30 @@
   <ul class="profile-group-list">
     <li class="profile-group-item">
       <% @groups_admin.each do |group| %>
-      <div class="card-profile-group">
-        <h4><%= group.name.upcase %></h4>
-        <p>Admin</p>
-        <% group.requests.each do |request| %>
-          <% if request.accepted == false && request.declined == false %>
-          <p><%= link_to request.user.first_name, "#" %> wants to join</p>
-          <%= link_to "Accept Request", group_request_accepted_path(group.id, request.id, ), method: "patch", class: "btn btn-success" %>
-          <%= link_to "Decline Request", group_request_declined_path(group.id, request.id), method: "patch", class: "btn btn-success" %>
-          <% end %>
+        <%= link_to group_path(group), class: 'profile-card-link' do %>
+          <div class="card-profile-group">
+            <div class="profile-group-title">
+              <h4><%= group.name.upcase %></h4>
+              <p>Admin
+              <%= link_to "#{pluralize(group.requests.where(accepted: false, declined: false).length, 'request')} pending", group_path(group), class: "request-count" %></p>
+            </div>
+          </div>
         <% end %>
-      </div>
       <% end %>
     </li>
   </ul>
 
-  <ul>
-    <li>
+  <ul class="profile-group-list">
+    <li class="profile-group-item">
       <% @groups_member.each do |group| %>
-        <div class="card-profile-group">
-          <%= group.name %>
-          <p>Member</p>
-        </div>
+        <%= link_to group_path(group), class: 'profile-card-link' do %>
+          <div class="card-profile-group">
+            <div class="profile-group-title">
+              <h4><%= group.name.upcase %></h4>
+              <p>Member</p>
+            </div>
+          </div>
+        <% end %>
       <% end %>
     </li>
   </ul>
@@ -51,8 +53,14 @@
     <ul>
       <li>
         <% @groups_pending.each do |group| %>
-          <%= group.name %>
-          <p>Pending</p>
+          <%= link_to group_path(group), class: 'profile-card-link' do %>
+            <div class="card-profile-group">
+              <div class="profile-group-title">
+                <h4><%= group.name.upcase %></h4>
+                <p>Pending</p>
+              </div>
+            </div>
+          <% end %>
         <% end %>
       </li>
     </ul>
@@ -63,19 +71,23 @@
   <h4>My upcoming events</h4>
   <ul>
     <li>
-      <% @my_events.each do |event| %>
-      <p><%= event.name %></p>
-      <% difference = (event.date.to_date - Date.today).to_i %>
-        <% if difference == 7 %>
-        <p>in a week!</p>
-        <% elsif difference < 7 && difference > 1 %>
-        <p><%= "In #{difference} days!"%></p>
-        <% elsif difference == 1 %>
-        <p>Tomorrow!</p>
-        <% else %>
-        <p><%= event.date.strftime("%b %e, %l:%M %p") %></p>
+      <div class="event-info-card-body" class="drop_down_item" >
+        <% @my_events.each do |event| %>
+        <%= link_to group_path(event.group), class: 'profile-card-link' do %>
+          <h4><strong><%= event.name%></strong></h4>
+          <% difference = (event.date.to_date - Date.today).to_i %>
+            <% if difference == 7 %>
+            <p>in a week!</p>
+            <% elsif difference < 7 && difference > 1 %>
+            <p><%= "In #{difference} days!"%></p>
+            <% elsif difference == 1 %>
+            <p>Tomorrow!</p>
+            <% else %>
+            <p><%= event.date.strftime("%b %e, %l:%M %p") %></p>
+            <% end %>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
     </li>
   </ul>
 </div>
