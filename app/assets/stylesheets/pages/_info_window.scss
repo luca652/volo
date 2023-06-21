@@ -1,9 +1,15 @@
-.card-title-admin {
-  text-decoration: none;
-  border-color: transparent;
+.card-group-image > img {
+  height: 100px;
+  width: 100%;
+  margin-bottom: 10px;
+  object-fit: cover;
 }
 
-.card-group-image > img {
-  width: 100%;
-  border-radius: 10px;
+.card-body h5 {
+  color: $our-blue;
+}
+
+.card-body {
+  margin-left: 10px;
+  margin-right: 10px;
 }

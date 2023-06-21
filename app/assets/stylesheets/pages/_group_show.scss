@@ -1,47 +1,28 @@
 .group-page-container {
-  color: $gray;
   margin-bottom: 80px;
 }
 
 .banner {
   width: 100%;
   max-width: 414px;
-  height: auto;
-  opacity: 0.9;
-  margin-top: 20px;
+  height: 200px;
+  opacity: 1;
+  margin-top: 5px;
   margin-bottom: 5px;
   background-size: cover;
   background-position: center;
-  position: relative;
-  text-align: center;
   padding-left: 0;
   padding-right: 0;
 }
 
-.title {
-  font-family: $headers-font;
-  color: white;
-  font-size: 35px;
-  -webkit-text-stroke: 1px $our-blue;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.banner h1 {
-  margin: 0;
-  color: white;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 32px;
-  font-weight: bold;
-  text-align: center;
-}
-
 .group-page-info {
-  margin-top: 8px;
+  margin-top: 25px;
   margin-left: 10px;
   margin-right: 10px;
+  .h1 {
+    color: $our-blue;
+    text-align: center;
+  }
 }
 
 .group-members-container {
@@ -58,8 +39,6 @@
   }
 }
 
-
-
 .group-request-container {
   margin-left: 10px;
   margin-right: 10px;
@@ -71,6 +50,10 @@
   margin-left: 10px;
   margin-right: 10px;
   margin-top: 8px;
+  h1{
+    color: $our-blue;
+    text-align: center;
+  }
 }
 
 .group-page-item {
@@ -105,6 +88,7 @@
   overflow: hidden;
   background: $our-light-yellow;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 10px;
 }
 
 .event-info-card-body h4 {
@@ -114,6 +98,7 @@
 .event-info-card-body p {
   color: $gray;
   font-size: 12px;
+  font-family: $body-font;
   line-height: 1;
   opacity: .7;
   margin-bottom: 8px;

@@ -1,30 +1,25 @@
 
-  <div class="card">
     <div class="card-group-image">
       <%= image_tag(group.picture_url) %>
     </div>
       <div class="card-body">
         <% if current_user.id == group.user_id %>
-          <h5 class= "card-title-admin">
-            <%= link_to group.name, group_path(group)%>
+          <h5><%= link_to group.name, group_path(group)%></h5>
             <p><%= group.description %></p>
-          </h5>
-          <p><%= group.description %></p>
         <% elsif Request.where(group: group, user: current_user, accepted: true).present? %>
           <%= link_to group.name, group_path(group)%>
           <p><%= group.description %></p>
         <% elsif Request.where(group: group, user: current_user).present? %>
-          <h5 class="card-title"><%= group.name %></h5>
+          <h5><%= group.name %></h5>
           <p> <%= group.description %></p>
           <p>Pending approval</p>
         <% else %>
-          <h5 class="card-title"><%= group.name %></h5>
+          <h5><%= group.name %></h5>
           <p><%= group.description %></p>
-          <%= simple_form_for [group, @request] do |f| %>
+          <%= simple_form_for [group, @request], html: { data: { controller: 'join-form', target: 'join-form.form' } } do |f| %>
           <%= f.hidden_field :user_id, value: current_user.id %>
           <%= f.hidden_field :group_id, value: group.id %>
-          <%= f.submit "Ask to join", class: "btn btn-success" %>
+          <%= f.submit "Ask to join", class: "btn btn-success btn-apply", data: {target: 'join-form.form', action: 'click->join-form#submit' }%>
           <% end %>
         <% end %>
       </div>
-  </div>

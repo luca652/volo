@@ -16,16 +16,18 @@
     <button id="create-resource-button" class="btn btn-success ml-2">Create Resource</button> <!-- Added create resource button -->
   </div>
 
-  <div class="card-product">
-    <% @resources.each do |resource| %>
-      <div class="card" data-category="<%= resource.category %>">
-        <div class="card-product-infos">
-         <%= image_tag("#{resource.picture_url}", style: 'height: 100px') %>
-        <div class="content">
-          <p class="title"><%= resource.title %></p>
-          <p><%= resource.category %></p>
+    <div class="card-product">
+      <% @resources.each do |resource| %>
+        <div class="card" data-category="<%= resource.category %>">
+          <div class="card-product-infos">
+          <%= image_tag("#{resource.picture_url}", style: 'height: 100px') %>
+          <div class="content">
+            <h2><%= resource.title %></h2 >
+            <p><%= resource.category %></p>
 
-          <p><%= resource.comment %>          <p> <small><span class="pin-count"><%= resource.pin_count %> pins!</small></span></p> <!-- Corrected line -->
+            <p><%= resource.comment %>
+    <p> <small><span class="pin-count"><%= resource.pin_count %> pins!</small></span></p>
+    <!-- Corrected line -->
 </p>
 </div>
     </div>
