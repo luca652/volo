@@ -98,7 +98,10 @@ color: inherit;
   justify-content: space-between;
 }
 
-.profile-pin-title > p > button {
+.profile-title-buttons {
+  display:flex;
+}
+.profile-pin-title > div > p > button {
   color: $red;
   border: solid 1px $red;
   font-size: small;
@@ -111,6 +114,7 @@ color: inherit;
   flex: 1;
   display: flex;
   justify-content: center;
+  align-items: flex-start;
 }
 
 .profile-pin-img img {
@@ -118,4 +122,10 @@ color: inherit;
   max-height: 100%;
   object-fit: contain;
   border-radius: 5px;
+  margin-right: 10px;
+}
+
+.profile-pin-img p {
+  max-height: 100%;
+  font-size: 14px;
 }
