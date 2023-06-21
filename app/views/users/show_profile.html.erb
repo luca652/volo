@@ -95,14 +95,18 @@
 <div id="Pins" class="tabcontent">
   <h4>My pins</h4>
   <% @my_pins.each do |pin| %>
-  <div class="pin-card card" data-pin-id="<%= pin.id %>" data-category="<%= pin.resource.category %>">
-    <div class="card-body">
-      <h3 class="card-title"><%= pin.resource.title %></h3>
-      <p class="card-text card-text-category"><%= pin.resource.category %></p>
-      <p class="card-text"><%= pin.resource.comment %></p>
-      <p class="card-text"><%= pin.resource.picture_url %></p>
+    <div class="profile-pin-card card" data-pin-id="<%= pin.id %>" data-category="<%= pin.resource.category %>">
+      <div class="card-body">
+        <div class="profile-pin-title">
+          <h3 class="card-title"><%= pin.resource.title %></h3>
+          <p><button><%= pin.resource.category %></button></p>
+        </div>
+        <div class="profile-pin-img">
+          <%= image_tag pin.resource.picture_url %>
+          <p class="card-text"><%= pin.resource.comment %></p>
+        </div>
+      </div>
     </div>
-  </div>
    <% end %>
 </div>
 
