@@ -34,7 +34,7 @@ user3 = User.create!(first_name: "Jess", last_name: "Ferretti", language: "Itali
 user4 = User.create!(first_name: "Mario", last_name: "Pastorelli", language: "Italian", number_of_children: 1,
                      childrens_age: "pre-school", location: "10-14, Mercy Terrace, London SE13 7UX",
                      email: "mario@me.com", password: "123456")
-user5 = User.create!(first_name: "Laura", last_name: "Martin", language: "English group_images/ Italian", number_of_children: 1,
+user5 = User.create!(first_name: "Laura", last_name: "Martin", language: "English group_images/ Italian", number_of_children: 2,
                       childrens_age: "pre-school", location: "10-14, Mercy Terrace, London SE13 7UX",
                       email: "laura@me.com", password: "123456")
 
@@ -51,7 +51,7 @@ puts "#{User.all.length} users created."
 
 # group_images
 group1 = Group.create!(name: "Bambini di Peckham", location: "95A Rye Ln, London SE15 4ST",
-          description: "Our activities focus on readings, music and artcraft", picture_url: "group_images/bambini_peckam.png", language: "Italian", user_id: user1.id,
+                       description: "Our activities focus on readings, music and artcraft", picture_url: "group_images/bambini_peckam.png", language: "Italian", user_id: user1.id,
                        children_age: "3-5")
 group2 = Group.create!(name: "Brockley Playclub in Italiano", location: "1 Coulgate St, London SE4 2RW", description: "We like to play football in the park!",
                        picture_url: "group_images/brockley.png",language: "Italian", user_id: user2.id, children_age: "6-8")

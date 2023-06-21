@@ -46,6 +46,16 @@
   border-top: 1.5px solid $our-grey;
 }
 
+.group-request-container .btn-request {
+  color: white;
+  background-color: $red;
+  border: solid 1px white;
+  font-size: small;
+  margin-right: 5px;
+  padding: 0px 6px;
+  border-radius: 10px;
+}
+
 .group-page-description {
   margin-left: 10px;
   margin-right: 10px;
