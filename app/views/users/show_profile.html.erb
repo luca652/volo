@@ -1,5 +1,7 @@
 
 <div class="show-profile-container">
+
+  <% if @user == current_user  %>
   <div class="show-profile-headers">
     <div class="header-left">
       <h1>Ciao <%= @user.first_name %>!</h1>
@@ -7,111 +9,118 @@
     <div class="header-right">
       <p><%= link_to "Edit profile", user_path(current_user) %></p>
     </div>
-</div>
-<!-- Tab links -->
-  <div class="profile-tab">
-    <button class="tablinks" id="tablink-groups">Groups</button>
-    <button class="tablinks" id="tablink-events">Events</button>
-    <button class="tablinks" id="tablink-pins">Pins</button>
   </div>
 
+    <!-- Tab links -->
+    <div class="profile-tab">
+      <button class="tablinks" id="tablink-groups">Groups</button>
+      <button class="tablinks" id="tablink-events">Events</button>
+      <button class="tablinks" id="tablink-pins">Pins</button>
+    </div>
 
-<!-- Tab content -->
-<div id="Groups" class="tabcontent card-product">
-  <ul class="profile-group-list">
-    <li class="profile-group-item">
-      <% @groups_admin.each do |group| %>
-        <%= link_to group_path(group), class: 'profile-card-link' do %>
-          <div class="card-profile-group">
-            <div class="profile-group-title">
-              <h4><%= group.name.upcase %></h4>
-              <p>Admin
-              <%= link_to "#{pluralize(group.requests.where(accepted: false, declined: false).length, 'request')} pending", group_path(group), class: "request-count" %></p>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
-    </li>
-  </ul>
 
-  <ul class="profile-group-list">
-    <li class="profile-group-item">
-      <% @groups_member.each do |group| %>
-        <%= link_to group_path(group), class: 'profile-card-link' do %>
-          <div class="card-profile-group">
-            <div class="profile-group-title">
-              <h4><%= group.name.upcase %></h4>
-              <p>Member</p>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
-    </li>
-  </ul>
-
-  <% unless @groups_pending.empty? %>
-    <ul>
-      <li>
-        <% @groups_pending.each do |group| %>
-          <%= link_to group_path(group), class: 'profile-card-link' do %>
-            <div class="card-profile-group">
-              <div class="profile-group-title">
-                <h4><%= group.name.upcase %></h4>
-                <p>Pending</p>
+    <!-- Tab content -->
+    <div id="Groups" class="tabcontent card-product">
+      <ul class="profile-group-list">
+        <li class="profile-group-item">
+          <% @groups_admin.each do |group| %>
+            <%= link_to group_path(group), class: 'profile-card-link' do %>
+              <div class="card-profile-group">
+                <div class="profile-group-title">
+                  <h4><%= group.name.upcase %></h4>
+                  <p>Admin
+                  <%= link_to "#{pluralize(group.requests.where(accepted: false, declined: false).length, 'request')} pending", group_path(group), class: "request-count" %></p>
+                </div>
               </div>
-            </div>
-          <% end %>
-        <% end %>
-      </li>
-    </ul>
-  <% end %>
-</div>
-
-<div id="Events" class="tabcontent">
-  <h4>My upcoming events</h4>
-  <ul>
-    <li>
-      <div class="event-info-card-body" class="drop_down_item" >
-        <% @my_events.each do |event| %>
-        <%= link_to group_path(event.group), class: 'profile-card-link' do %>
-          <h4><strong><%= event.name%></strong></h4>
-          <% difference = (event.date.to_date - Date.today).to_i %>
-            <% if difference == 7 %>
-            <p>in a week!</p>
-            <% elsif difference < 7 && difference > 1 %>
-            <p><%= "In #{difference} days!"%></p>
-            <% elsif difference == 1 %>
-            <p>Tomorrow!</p>
-            <% else %>
-            <p><%= event.date.strftime("%b %e, %l:%M %p") %></p>
             <% end %>
           <% end %>
-        <% end %>
-      </div>
-    </li>
-  </ul>
-</div>
+        </li>
+      </ul>
 
-<div id="Pins" class="tabcontent">
-  <h4>My pins</h4>
-  <% @my_pins.each do |pin| %>
-    <div class="profile-pin-card card" data-pin-id="<%= pin.id %>" data-category="<%= pin.resource.category %>">
-      <div class="card-body">
-        <div class="profile-pin-title">
-          <h3 class="card-title"><%= pin.resource.title %></h3>
-          <p><button><%= pin.resource.category %></button></p>
-        </div>
-        <div class="profile-pin-img">
-          <%= image_tag pin.resource.picture_url %>
-          <p class="card-text"><%= pin.resource.comment %></p>
-        </div>
-      </div>
+      <ul class="profile-group-list">
+        <li class="profile-group-item">
+          <% @groups_member.each do |group| %>
+            <%= link_to group_path(group), class: 'profile-card-link' do %>
+              <div class="card-profile-group">
+                <div class="profile-group-title">
+                  <h4><%= group.name.upcase %></h4>
+                  <p>Member</p>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        </li>
+      </ul>
+
+      <% unless @groups_pending.empty? %>
+        <ul>
+          <li>
+            <% @groups_pending.each do |group| %>
+              <%= link_to group_path(group), class: 'profile-card-link' do %>
+                <div class="card-profile-group">
+                  <div class="profile-group-title">
+                    <h4><%= group.name.upcase %></h4>
+                    <p>Pending</p>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          </li>
+        </ul>
+      <% end %>
     </div>
-   <% end %>
-</div>
 
+    <div id="Events" class="tabcontent">
+      <h4>My upcoming events</h4>
+      <ul>
+        <li>
+          <div class="event-info-card-body" class="drop_down_item" >
+            <% @my_events.each do |event| %>
+            <%= link_to group_path(event.group), class: 'profile-card-link' do %>
+              <h4><strong><%= event.name%></strong></h4>
+              <% difference = (event.date.to_date - Date.today).to_i %>
+                <% if difference == 7 %>
+                <p>in a week!</p>
+                <% elsif difference < 7 && difference > 1 %>
+                <p><%= "In #{difference} days!"%></p>
+                <% elsif difference == 1 %>
+                <p>Tomorrow!</p>
+                <% else %>
+                <p><%= event.date.strftime("%b %e, %l:%M %p") %></p>
+                <% end %>
+              <% end %>
+            <% end %>
+          </div>
+        </li>
+      </ul>
+    </div>
 
+    <div id="Pins" class="tabcontent">
+      <h4>My pins</h4>
+      <% @my_pins.each do |pin| %>
+        <div class="profile-pin-card card" data-pin-id="<%= pin.id %>" data-category="<%= pin.resource.category %>">
+          <div class="card-body">
+            <div class="profile-pin-title">
+              <h3 class="card-title"><%= pin.resource.title %></h3>
+              <p><button><%= pin.resource.category %></button></p>
+            </div>
+            <div class="profile-pin-img">
+              <%= image_tag pin.resource.picture_url %>
+              <p class="card-text"><%= pin.resource.comment %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
 
+  <% else %>
+  <h1><%= @user.first_name  %></h1>
+  <p><%= "Ciao a tutti! Mi chiamo #{@user.first_name} e ho #{@user.number_of_children} bambini.
+          Mi sono trasferita da Pesaro due anni fa e sono alla ricerca di altri genitori di
+          bambini italiani per socializzare e parlare italiano. Abito vicino a #{@user.location} e sono
+          libera tutte le mattine durante la settimana." %></p>
+
+  <% end %>
 
 </div>
 

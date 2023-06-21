@@ -25,7 +25,7 @@ puts "Database cleared"
 user1 = User.create!(first_name: "Sara", last_name: "Carambola", language: "Italian", number_of_children: 2,
                      childrens_age: "primary", location: "27, Plover Way, Canada Water, SE16 7TS",
                      email: "sara@me.com", password: "123456")
-user2 = User.create!(first_name: "Elisabetta", last_name: "Bianchi", language: "Italian", number_of_children: 1,
+user2 = User.create!(first_name: "Elisabetta", last_name: "Bianchi", language: "Italian", number_of_children: 2,
                      childrens_age: "primary", location: "5-6 Coulgate St, London SE4 2RW",
                      email: "elisabetta@me.com", password: "123456")
 user3 = User.create!(first_name: "Jess", last_name: "Ferretti", language: "Italian", number_of_children: 3,
