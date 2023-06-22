@@ -22,5 +22,8 @@ application.register("join-form", JoinFormController)
 import MapController from "./map_controller"
 application.register("map", MapController)
 
+import OvalController from "./oval_controller"
+application.register("oval", OvalController)
+
 import ResourcesController from "./resources_controller"
 application.register("resources", ResourcesController)

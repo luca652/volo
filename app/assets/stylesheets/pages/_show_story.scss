@@ -2,10 +2,27 @@
   margin-top: 70px;
   margin-left: 20px;
   margin-right: 20px;
+  margin-bottom: 70px;
+  padding: 25px 25px 25px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
   font-family: $body-font;
   text-align: justify;
+  border-radius: 20px;
   h1 {
     color: $our-blue;
     text-align: center;
   }
+}
+
+.hidden-content {
+  display: none;
+}
+
+.display-spinner {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
