@@ -133,27 +133,27 @@ puts "#{Booking.all.length} booking created."
 #  RESOURCES
 resource1 = Resource.create!(title: "FABA - Music and stories", category: "Stories",
                              comment: "Utilissimo! Each character sings songs or tells a story in Italian. My daughter loves it!",
-                             picture_url: "resources/pizza.png", user_id: user2.id)
-resource2 = Resource.create!(title: "Passeggino definitivo", category: "#",
+                             picture_url: "resources/faba.png", user_id: user2.id)
+resource2 = Resource.create!(title: "Passeggino definitivo", category: "General",
                              comment: "If you're planning to fly to Italy quite a bit, get this. It folds really small
                              and you can take it on the plane",
                              picture_url: "resources/pram.png", user_id: user3.id)
-resource3 = Resource.create!(title: "Le avventure di Cipollino", category: "reading",
+resource3 = Resource.create!(title: "Favole al telefono", category: "Stories",
                              comment: "Un classico. I loved it when I was a kid!",
-                             picture_url: "resources/book.png", user_id: user4.id)
+                             picture_url: "resources/rodari.png", user_id: user4.id)
 resource4 = Resource.create!(title: "Talia e la valigia della idee", category: "#",
                              comment: "Weekly Italian playgroup_images in London. Divertentissimo! Ve lo consiglio!",
                              picture_url: "resources/talia.png", user_id: user2.id)
-# resource5 = Resource.create!(title: "Mappa di Torino", category: "#",
-#                              comment: "Ciao! I bought this map for my daughter when we went to Torino for the weekend. She loved it!",
-#                              picture_url: "resources/mappa.png", user_id: user3.id)
-resource6 = Resource.create!(title: "TOPOLINO", category: "reading",
+resource5 = Resource.create!(title: "Il libro degli errori", category: "Stories",
+                             comment: "Ciao! I bought this map for my daughter when we went to Torino for the weekend. She loved it!",
+                             picture_url: "resources/rodari2.png", user_id: user3.id)
+resource6 = Resource.create!(title: "Topolino", category: "Stories",
                              comment: "Ho regalato un abbonamento a mio figlio e gli piace un sacco.
                              Utilissimo per imparare parole nuove.", picture_url: "resources/topolino.png", user_id: user3.id)
-resource7 = Resource.create!(title: "Nascondini", category: "food",
-                             comment: "Biscotti ecceziunali. The CostCutter near Brockley station stocks them.",
-                             picture_url: "resources/biscotti.png", user_id: user4.id)
-resource8 = Resource.create!(title: "Mamma Dough Honor Oak", category: "food",
+resource7 = Resource.create!(title: "Indagatore dell'incubo", category: "Stories",
+                             comment: "Non per bambini ma per ragazzi/ragazze. Io ce li avevo tutti!",
+                             picture_url: "resources/dylandog.png", user_id: user4.id)
+resource8 = Resource.create!(title: "Mamma Dough Honor Oak", category: "Food",
                              comment: "Went here for a birthday party recently. Big place, very welcoming for children.
                              They do a bunny rabbit pizza with ears.",
                              picture_url: "resources/pizza.png", user_id: user4.id)
@@ -163,6 +163,10 @@ puts "#{Resource.all.length} resources created."
 # method below create pins for resources we have. Every time we do rails:db seed,the ids of all our instances increase.
 # in order to keep file seed dynamic I stored our 5 main users into variables (user1, user2...). Here I am incrementing
 # user5's id by n every time we loop.
+Pin.create!(user_id: user1.id, resource_id: resource1.id)
+Pin.create!(user_id: user1.id, resource_id: resource3.id)
+Pin.create!(user_id: user1.id, resource_id: resource6.id)
+
 n = 1
 99.times do
   Pin.create!(user_id: "#{user5.id + n}", resource_id: resource1.id)

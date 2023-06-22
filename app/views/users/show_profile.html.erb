@@ -71,7 +71,6 @@
     </div>
 
     <div id="Events" class="tabcontent">
-      <h4>My upcoming events</h4>
       <ul>
         <li>
           <div class="event-info-card-body" class="drop_down_item" >
@@ -96,25 +95,25 @@
     </div>
 
     <div id="Pins" class="tabcontent">
-      <h4>My pins</h4>
       <% @my_pins.each do |pin| %>
-        <div class="profile-pin-card card" data-pin-id="<%= pin.id %>" data-category="<%= pin.resource.category %>">
-          <div class="card-body">
-            <div class="profile-pin-title">
-              <h3 class="card-title"><%= pin.resource.title %></h3>
-              <div class="profile-title-buttons">
-                <p><button><%= pin.resource.pins.length %> <small><i class="fas fa-thumbtack"></i></small></button></p>
-                <p><button><%= pin.resource.category %></button></p>
-              </div>
-            </div>
-            <div class="profile-pin-img">
-              <%= image_tag pin.resource.picture_url %>
-              <p class="card-text"><%= pin.resource.comment %></p>
+        <div class="profile-pin-card">
+          <%= image_tag pin.resource.picture_url, class: "profile-pin-image" %>
+          <div class="profile-pin-infos">
+            <h2><%= pin.resource.title %></h2>
+            <p class="profile-pin-text"><%= pin.resource.comment %></p>
+            <div class="profile-pins-category">
+              <button><%= pin.resource.pins.length %><i class="fas fa-thumbtack"></i></button>
+              <button><%= pin.resource.category %></button>
             </div>
           </div>
         </div>
       <% end %>
     </div>
+
+
+
+
+
 
   <% else %>
   <h1><%= @user.first_name  %></h1>
