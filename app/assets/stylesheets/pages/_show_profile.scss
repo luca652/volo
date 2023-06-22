@@ -18,8 +18,7 @@
 }
 
 .header-link {
-  justify-content: flex-end;
-  align-items: center;
+  text-decoration: none;
 
   a {
     text-decoration: none;
@@ -90,14 +89,36 @@
   background: white;
   transition: 0.3s;
   border-radius: 10px;
-  margin-bottom: 20px;
-  padding: 2px 16px;
+  margin: 10px 10px;
 
-  img {
-    height: 200px;
+  h4 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  p {
+    font-size: 12px;
+    opacity: .7;
+    margin: 0;
+  }
+
+  .profile-group-image {
+    height: 100px;
     width: 100%;
     object-fit: cover;
   }
+
+  .profile-group-info {
+    padding: 8px;
+    position: relative;
+  }
+}
+
+.profile-group-info .request-count {
+  position: absolute;
+  right: 6px;
+  top: 6px;
 }
 
 .profile-card-link {
@@ -109,7 +130,7 @@ color: inherit;
   background-color: $red;
   border: 0px;
   color: white;
-  font-size: small;
+  font-size: 10px;
   margin-right: 5px;
   padding: 3px 6px;
   border-radius: 10px;
@@ -123,7 +144,7 @@ color: inherit;
     display: flex;
     align-items: center;
     border-radius: 10px;
-    margin-bottom: 15px;
+    margin: 10px 10px;
 }
 
 .profile-pin-card img {

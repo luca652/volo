@@ -104,6 +104,7 @@ request2 = Request.create!(user_id: user2.id, group_id: group1.id, accepted: tru
 request3 = Request.create!(user_id: user3.id, group_id: group1.id, accepted: true)
 request4 = Request.create!(user_id: user4.id, group_id: group1.id, accepted: true)
 request5 = Request.create!(user_id: user5.id, group_id: group1.id)
+request6 = Request.create!(user_id: user1.id, group_id: group3.id, accepted: true)
 puts "#{Request.all.length} requests created."
 
 # EVENTS
@@ -139,8 +140,8 @@ resource2 = Resource.create!(title: "Passeggino definitivo", category: "General"
                              and you can take it on the plane",
                              picture_url: "resources/pram.png", user_id: user3.id)
 resource3 = Resource.create!(title: "Favole al telefono", category: "Stories",
-                             comment: "Un classico. L'ho letto quando andavo alle elementari! Ho cominciato a leggerlo
-                             a mia figlia e le piace molto!", picture_url: "resources/rodari.png", user_id: user4.id)
+                             comment: "Un classico. L'ho letto quando andavo alle elementari! Ora lo sto leggendo a mia
+                             figlia!", picture_url: "resources/rodari.png", user_id: user4.id)
 resource4 = Resource.create!(title: "Talia e la valigia della idee", category: "#",
                              comment: "Weekly Italian playgroup in London. I bambini lo adorano e ci vogliono andare
                              tutte le settimane. Ve lo consiglio!", picture_url: "resources/talia.png", user_id: user2.id)
