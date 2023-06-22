@@ -155,7 +155,7 @@ resource7 = Resource.create!(title: "Nascondini", category: "food",
                              picture_url: "resources/biscotti.png", user_id: user4.id)
 resource8 = Resource.create!(title: "Mamma Dough Honor Oak", category: "food",
                              comment: "Went here for a birthday party recently. Big place, very welcoming for children.
-                             They do a bunny rabbit pizza with ears which kids love.",
+                             They do a bunny rabbit pizza with ears.",
                              picture_url: "resources/pizza.png", user_id: user4.id)
 puts "#{Resource.all.length} resources created."
 
