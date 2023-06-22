@@ -6,6 +6,19 @@
 .show-profile-headers {
   display: flex;
   width: 100%;
+  padding: 10px 20px;
+  align-items: center;
+}
+
+.header-right > button {
+  background-color: $blue;
+  border: 0px;
+  color: white;
+  font-size: small;
+  padding: 3px 6px;
+  border-radius: 10px;
+  flex: 1;
+  transition: 0.3s;
 }
 
 .header-left {
@@ -96,7 +109,6 @@ color: inherit;
     align-items: center;
     border-radius: 10px;
     margin-bottom: 15px;
-    position: relative;
 }
 
 .profile-pin-card img {
@@ -109,31 +121,29 @@ color: inherit;
   font-size: 16px;
   font-weight: bold;
   margin: 0;
+  display:flex;
 }
 
 .profile-pin-card p {
   font-size: 12px;
   line-height: 1.4;
   opacity: .7;
-  margin-bottom: 0;
-  margin-bottom: 8px;
+  margin-bottom: 5px;
+  margin-top: 5px;
 }
 
 .profile-pin-card .profile-pin-infos {
   padding: 16px;
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
 .profile-pins-category {
   display: flex;
+  justify-content: flex-end;
 }
 
 .profile-pins-category > button {
   font-size: 10px;
-  justify-content: flex-end;
+  align-items: flex-end;
   color: $red;
   background-color: white;
   border: solid 1px $red;
@@ -141,46 +151,3 @@ color: inherit;
   padding: 0px 6px;
   border-radius: 10px;
 }
-
-.profile-pin-card .profile-pin-infos .profile-pins-category {
-  position: absolute;
-  bottom: 16px;
-  right: 16px;
-}
-
-// .profile-pin-title {
-//   display:flex;
-//   justify-content: space-between;
-// }
-
-// .profile-title-buttons {
-//   display:flex;
-// }
-// .profile-pin-title > div > p > button {
-//   color: $red;
-//   border: solid 1px $red;
-//   font-size: small;
-//   margin-right: 5px;
-//   padding: 0px 6px;
-//   border-radius: 10px;
-// }
-
-// .profile-pin-img {
-//   flex: 1;
-//   display: flex;
-//   justify-content: center;
-//   align-items: flex-start;
-// }
-
-// .profile-pin-img img {
-//   max-width: 30%;
-//   max-height: 100%;
-//   object-fit: contain;
-//   border-radius: 5px;
-//   margin-right: 10px;
-// }
-
-// .profile-pin-img p {
-//   max-height: 100%;
-//   font-size: 14px;
-// }

@@ -7,9 +7,11 @@
       <h1>Ciao <%= @user.first_name %>!</h1>
     </div>
     <div class="header-right">
-      <p><%= link_to "Edit profile", user_path(current_user) %></p>
+      <button><% link_to user_path(current_user) %>Edit Profile</button>
     </div>
   </div>
+
+  <%# <p>Here you can find your groups, your upcoming events and your pinned resources.</p> %>
 
     <!-- Tab links -->
     <div class="profile-tab">
