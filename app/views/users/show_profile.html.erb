@@ -89,6 +89,10 @@
                 <% else %>
                 <p><%= event.date.strftime("%b %e, %l:%M %p") %></p>
                 <% end %>
+                <p><%= link_to event.location.partition(",").first,
+                  "https://www.google.com/maps/search/?api=1&query=#{event.latitude}%2C#{event.longitude}"%>
+                  <i class="fa-sharp fa-solid fa-location-dot" style="color: #eda0a0;"></i>
+                </p>
               <% end %>
             <% end %>
           </div>
@@ -104,7 +108,7 @@
             <h2><%= pin.resource.title %></h2>
             <p class="profile-pin-text"><%= pin.resource.comment %></p>
             <div class="profile-pins-category">
-              <button><%= pin.resource.pins.length %><i class="fas fa-thumbtack"></i></button>
+              <button><%= pin.resource.pins.length %> <i class="fas fa-thumbtack"></i></button>
               <button><%= pin.resource.category %></button>
             </div>
           </div>

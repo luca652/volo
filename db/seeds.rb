@@ -120,12 +120,12 @@ event5 = Event.create!(name: "Sunday Morning Playclub", location: "317 Brockley 
 event6 = Event.create!(name: "Picnic nel parco", location: "Hilly Fields, 375 Brockley Rd, London SE4 2AG",
                        category: "Activity", date: "2023-8-12, 4:30PM", user_id: user2.id, group_id: group1.id)
 event7 = Event.create!(name: "Festa di compleanno di Andrea", location: "95 Church Rd, London SE19 2TA",
-                       category: "Activity", date: "2023-7-30, 10:00AM", user_id: user4.id, group_id: group1.id)
+                       category: "Activity", date: "2023-7-24, 10:00AM", user_id: user4.id, group_id: group1.id)
 puts "#{Event.all.length} events created."
 
 # BOOKINGS FOR EVENTS
 booking1 = Booking.create!(event_id: event1.id, user_id: user1.id)
-# booking2 = Booking.create!(event_id: event5.id, user_id: user1.id)
+booking2 = Booking.create!(event_id: event7.id, user_id: user1.id)
 # booking3 = Booking.create!(event_id: event6.id, user_id: user1.id)
 # booking4 = Booking.create!(event_id: event7.id, user_id: user1.id)
 puts "#{Booking.all.length} booking created."
