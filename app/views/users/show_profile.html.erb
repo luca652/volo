@@ -3,15 +3,9 @@
 
   <% if @user == current_user  %>
   <div class="show-profile-headers">
-    <div class="header-left">
-      <h1>Ciao <%= @user.first_name %>!</h1>
-    </div>
-    <div class="header-right">
-      <button><% link_to user_path(current_user) %>Edit Profile</button>
-    </div>
+    <h1 class="header-title">Ciao <%= @user.first_name %>!</h1>
+    <%= link_to "Edit Profile", user_path(current_user), class: "header-link" %>
   </div>
-
-  <%# <p>Here you can find your groups, your upcoming events and your pinned resources.</p> %>
 
     <!-- Tab links -->
     <div class="profile-tab">

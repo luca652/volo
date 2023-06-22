@@ -5,30 +5,38 @@
 
 .show-profile-headers {
   display: flex;
+  flex-direction: column;
   width: 100%;
-  padding: 10px 20px;
+  padding: 0px 20px;
   align-items: center;
 }
 
-.header-right > button {
-  background-color: $blue;
-  border: 0px;
-  color: white;
-  font-size: small;
-  padding: 3px 6px;
-  border-radius: 10px;
+.header-title {
   flex: 1;
-  transition: 0.3s;
+  align-items: center;
+  margin-bottom: 0px;
 }
 
-.header-left {
-  flex: 1;
-}
-
-.header-right {
+.header-link {
   justify-content: flex-end;
   align-items: center;
+
+  a {
+    text-decoration: none;
+    font-size: 14px;
+  }
 }
+
+// .header-bottom > button {
+//   background-color: $blue;
+//   border: 0px;
+//   color: white;
+//   font-size: small;
+//   padding: 3px 6px;
+//   border-radius: 10px;
+//   flex: 1;
+//   transition: 0.3s;
+// }
 
 .profile-tab {
   overflow: hidden;
@@ -45,6 +53,7 @@
   font-size: small;
   margin-right: 5px;
   padding: 3px 6px;
+  border: 0px;
   border-radius: 10px;
   flex: 1;
   transition: 0.3s;
