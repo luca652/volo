@@ -76,21 +76,28 @@
   border-top: none;
 }
 
-li {
-  list-style-type: none;
-}
-
 .profile-group-list {
   padding: 0px 0px;
+
+  li {
+    list-style-type: none;
+  }
 }
 
 .card-profile-group {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  overflow: hidden;
+  background: white;
   transition: 0.3s;
   border-radius: 10px;
-  position: relative;
   margin-bottom: 20px;
   padding: 2px 16px;
+
+  img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+  }
 }
 
 .profile-card-link {

@@ -22,10 +22,11 @@
           <% @groups_admin.each do |group| %>
             <%= link_to group_path(group), class: 'profile-card-link' do %>
               <div class="card-profile-group">
-                <div class="profile-group-title">
+                <% image_tag group.picture_url, class: "profile-group-image" %>
+                <div class="profile-group-info">
                   <h4><%= group.name.upcase %></h4>
-                  <p>Admin
-                  <%= link_to "#{pluralize(group.requests.where(accepted: false, declined: false).length, 'request')} pending", group_path(group), class: "request-count" %></p>
+                  <p>Admin</p>
+                  <%= link_to "#{pluralize(group.requests.where(accepted: false, declined: false).length, 'request')} pending", group_path(group), class: "request-count" %>
                 </div>
               </div>
             <% end %>
@@ -38,6 +39,7 @@
           <% @groups_member.each do |group| %>
             <%= link_to group_path(group), class: 'profile-card-link' do %>
               <div class="card-profile-group">
+                <% image_tag group.picture_url, class: "profile-group-image" %>
                 <div class="profile-group-title">
                   <h4><%= group.name.upcase %></h4>
                   <p>Member</p>
@@ -54,6 +56,7 @@
             <% @groups_pending.each do |group| %>
               <%= link_to group_path(group), class: 'profile-card-link' do %>
                 <div class="card-profile-group">
+                <% image_tag group.picture_url, class: "profile-group-image" %>
                   <div class="profile-group-title">
                     <h4><%= group.name.upcase %></h4>
                     <p>Pending</p>
