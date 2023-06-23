@@ -9,16 +9,16 @@
 
     <!-- Tab links -->
     <div class="profile-tab">
-      <button class="tablinks" id="tablink-groups">Groups</button>
-      <button class="tablinks" id="tablink-events">Events</button>
-      <button class="tablinks" id="tablink-pins">Pins</button>
+      <button class="tablinks" id="tablink-groups">My groups</button>
+      <button class="tablinks" id="tablink-events">My events</button>
+      <button class="tablinks" id="tablink-pins">My pins</button>
     </div>
 
 
     <!-- Tab content -->
     <div id="Groups" class="tabcontent card-product">
-      <ul class="profile-group-list">
-        <li class="profile-group-item">
+      <ul class="profile-list">
+        <li class="profile-item">
           <% @groups_admin.each do |group| %>
             <%= link_to group_path(group), class: 'profile-card-link' do %>
               <div class="card-profile-group">
@@ -38,8 +38,8 @@
         </li>
       </ul>
 
-      <ul class="profile-group-list">
-        <li class="profile-group-item">
+      <ul class="profile-list">
+        <li class="profile-item">
           <% @groups_member.each do |group| %>
             <%= link_to group_path(group), class: 'profile-card-link' do %>
               <div class="card-profile-group">
@@ -56,8 +56,8 @@
       </ul>
 
       <% unless @groups_pending.empty? %>
-        <ul>
-          <li>
+        <ul class="profile-list">
+          <li class="profile-item">
             <% @groups_pending.each do |group| %>
               <%= link_to group_path(group), class: 'profile-card-link' do %>
                 <div class="card-profile-group">
@@ -76,29 +76,35 @@
     </div>
 
     <div id="Events" class="tabcontent">
-      <ul>
-        <li>
-          <div class="event-info-card-body" class="drop_down_item" >
-            <% @my_events.each do |event| %>
-            <%= link_to group_path(event.group), class: 'profile-card-link' do %>
+      <ul class="profile-list">
+        <li class="profile-item">
+          <% @my_events.each do |event| %>
+          <%= link_to group_path(event.group), class: 'profile-card-link' do %>
+            <div class="event-info-card-body profile-event-card" class="drop_down_item" >
               <h4><strong><%= event.name%></strong></h4>
-              <% difference = (event.date.to_date - Date.today).to_i %>
+                <p><%= link_to event.group.name, group_path(event.group) %></p>
+                <p> Organised by <%= link_to event.user.first_name, user_path(event.user) %><p>
+                <p><%= "#{pluralize(event.bookings.length, "person")} going!"%></p>
+                <div class="profile-event-time-place">
+                <% difference = (event.date.to_date - Date.today).to_i %>
                 <% if difference == 7 %>
-                <p>in a week!</p>
+                  <p><strong>in a week!</strong></p>
                 <% elsif difference < 7 && difference > 1 %>
-                <p><%= "In #{difference} days!"%></p>
+                  <p><strong><%= "In #{difference} days!"%></strong></p>
                 <% elsif difference == 1 %>
-                <p>Tomorrow!</p>
+                  <p><strong>Tomorrow</strong></p>
                 <% else %>
-                <p><%= event.date.strftime("%b %e, %l:%M %p") %></p>
+                 <p><strong><%= event.date.strftime("%b %e, %l:%M %p") %></strong></p>
                 <% end %>
                 <p><%= link_to event.location.partition(",").first,
                   "https://www.google.com/maps/search/?api=1&query=#{event.latitude}%2C#{event.longitude}"%>
                   <i class="fa-sharp fa-solid fa-location-dot" style="color: #eda0a0;"></i>
                 </p>
-              <% end %>
+              </div>
+              <button class="profile-event-button"><%= event.category %></button>
+            </div>
             <% end %>
-          </div>
+          <% end %>
         </li>
       </ul>
     </div>

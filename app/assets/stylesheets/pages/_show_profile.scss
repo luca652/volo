@@ -75,7 +75,7 @@
   border-top: none;
 }
 
-.profile-group-list {
+.profile-list {
   padding: 0px 0px;
 
   li {
@@ -194,4 +194,39 @@ color: inherit;
   margin-right: 5px;
   padding: 0px 6px;
   border-radius: 10px;
+}
+
+.profile-event-card {
+  position: relative;
+
+    .profile-event-button {
+    font-size: 10px;
+    align-items: flex-end;
+    color: $red;
+    background-color: white;
+    border: solid 1px $red;
+    margin-right: 5px;
+    padding: 0px 6px;
+    border-radius: 10px;
+    position: absolute;
+    right: 14px;
+    top: 16px;
+  }
+}
+
+.profile-event-time-place {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 5px;
+  border-top: 1px solid rgb(189, 189, 189);
+
+  i {
+    margin-left: 5px;
+  }
+}
+
+.profile-event-time-place p {
+  margin: 0;
+  display: flex;
+  align-items: center;
 }

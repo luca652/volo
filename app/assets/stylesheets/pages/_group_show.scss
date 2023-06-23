@@ -87,18 +87,20 @@
 
 .event-info-card-body {
   align-items: center;
-  padding-top: 10px;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 10px 20px;
   margin-top: 20px;
   margin-left: 20px;
   margin-right: 20px;
   margin-bottom: 20px;
   display: block;
   overflow: hidden;
-  background: $our-light-yellow;
+  background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 10px;
+
+  a {
+    text-decoration: none;
+  }
 }
 
 .event-info-card-body h4 {
