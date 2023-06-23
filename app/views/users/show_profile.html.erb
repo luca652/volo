@@ -5,6 +5,7 @@
   <div class="show-profile-headers">
     <h1 class="header-title">Ciao <%= @user.first_name %>!</h1>
     <%= link_to "Edit Profile", user_path(current_user), class: "header-link" %>
+    <%= link_to "Story generator", stories_path, class: "header-link" %>
   </div>
 
     <!-- Tab links -->
