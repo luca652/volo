@@ -42,8 +42,8 @@
   display: flex;
   width: 80%;
   margin: 0 auto;
+  margin-top: 15px;
   margin-bottom: 20px;
-  margin-top: 20px;
 }
 
 .profile-tab .tablinks {
@@ -98,7 +98,7 @@
   }
 
   p {
-    font-size: 12px;
+    font-size: 10px;
     opacity: .7;
     margin: 0;
   }
@@ -115,6 +115,12 @@
   }
 }
 
+// .profile-group-name-role {
+//     display: flex;
+//     justify-content: flex-start;
+
+//   }
+
 .profile-group-logo {
   width: 20px;
   position: absolute;
@@ -123,10 +129,24 @@
   border-radius: 3px
 }
 
+.profile-group-role {
+  background-color: $red;
+  border: 0px;
+  color: white;
+  padding: 3px 6px;
+  border-radius: 10px;
+  font-size: 10px;
+  font-weight: bold;
+  position: absolute;
+  left: 296px;
+  top: -14px;
+}
+
 .profile-group-info .request-count {
   position: absolute;
   right: 6px;
-  top: 22px;
+  top: 24px;
+  text-decoration: none;
 }
 
 .profile-card-link {
@@ -135,13 +155,10 @@ color: inherit;
 }
 
 .request-count {
-  background-color: $red;
-  border: 0px;
-  color: white;
+  color: $red;
   font-size: 10px;
   margin-right: 5px;
   padding: 3px 6px;
-  border-radius: 10px;
 }
 
 .profile-pin-card {

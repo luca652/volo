@@ -24,8 +24,11 @@
               <div class="card-profile-group">
                 <%= image_tag group.picture_url, class: "profile-group-image" %>
                 <div class="profile-group-info">
-                  <h4><%= group.name.upcase %></h4>
-                  <p>Admin</p>
+                  <div class="profile-group-name">
+                    <h4><%= group.name %></h4>
+                    <button class="profile-group-role">Admin</button>
+                  </div>
+                  <p><%= pluralize(group.users.length, 'member') %></p>
                   <%= image_tag 'logo.png', class: "profile-group-logo" %>
                   <% requests = group.requests.where(accepted: false, declined: false)  %>
                   <% unless requests.empty?  %>
@@ -45,8 +48,11 @@
               <div class="card-profile-group">
                 <%= image_tag group.picture_url, class: "profile-group-image" %>
                 <div class="profile-group-info">
-                  <h4><%= group.name.upcase %></h4>
-                  <p>Member</p>
+                  <div class="profile-group-name">
+                    <h4><%= group.name %></h4>
+                    <button class="profile-group-role">Member</button>
+                  </div>
+                  <p><%= pluralize(group.users.length, 'member') %></p>
                   <%= image_tag 'logo.png', class: "profile-group-logo" %>
                 </div>
               </div>
@@ -63,8 +69,11 @@
                 <div class="card-profile-group">
                 <%= image_tag group.picture_url, class: "profile-group-image" %>
                   <div class="profile-group-info">
-                    <h4><%= group.name.upcase %></h4>
-                    <p>Pending</p>
+                    <div class="profile-group-name">
+                    <h4><%= group.name %></h4>
+                    <span class="profile-group-role">Pending</span>
+                  </div>
+                    <p><%= pluralize(group.users.length, 'member') %></p>
                     <%= image_tag 'logo.png', class: "profile-group-logo" %>
                   </div>
                 </div>
@@ -86,21 +95,21 @@
                 <p> Organised by <%= link_to event.user.first_name, user_path(event.user) %><p>
                 <p><%= "#{pluralize(event.bookings.length, "person")} going!"%></p>
                 <div class="profile-event-time-place">
-                <% difference = (event.date.to_date - Date.today).to_i %>
-                <% if difference == 7 %>
-                  <p><strong>in a week!</strong></p>
-                <% elsif difference < 7 && difference > 1 %>
-                  <p><strong><%= "In #{difference} days!"%></strong></p>
-                <% elsif difference == 1 %>
-                  <p><strong>Tomorrow</strong></p>
-                <% else %>
-                 <p><strong><%= event.date.strftime("%b %e, %l:%M %p") %></strong></p>
-                <% end %>
-                <p><%= link_to event.location.partition(",").first,
-                  "https://www.google.com/maps/search/?api=1&query=#{event.latitude}%2C#{event.longitude}"%>
-                  <i class="fa-sharp fa-solid fa-location-dot" style="color: #eda0a0;"></i>
-                </p>
-              </div>
+                  <% difference = (event.date.to_date - Date.today).to_i %>
+                  <% if difference == 7 %>
+                    <p><strong>in a week!</strong></p>
+                  <% elsif difference < 7 && difference > 1 %>
+                    <p><strong><%= "In #{difference} days!"%></strong></p>
+                  <% elsif difference == 1 %>
+                    <p><strong>Tomorrow</strong></p>
+                  <% else %>
+                  <p><strong><%= event.date.strftime("%b %e, %l:%M %p") %></strong></p>
+                  <% end %>
+                  <p><%= link_to event.location.partition(",").first,
+                    "https://www.google.com/maps/search/?api=1&query=#{event.latitude}%2C#{event.longitude}"%>
+                    <i class="fa-sharp fa-solid fa-location-dot" style="color: #eda0a0;"></i>
+                  </p>
+                </div>
               <button class="profile-event-button"><%= event.category %></button>
             </div>
             <% end %>
