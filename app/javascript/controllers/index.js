@@ -4,14 +4,14 @@
 
 import { application } from "./application"
 
+import AvatarController from "./avatar_controller"
+application.register("avatar", AvatarController)
+
 import ChatroomSubscriptionController from "./chatroom_subscription_controller"
 application.register("chatroom-subscription", ChatroomSubscriptionController)
 
 import DropdownController from "./dropdown_controller"
 application.register("dropdown", DropdownController)
-
-import FooterController from "./footer_controller"
-application.register("footer", FooterController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)

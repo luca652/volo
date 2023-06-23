@@ -9,23 +9,23 @@
         <p>Language practiced: <strong> <%= @group.language %></strong></p>
         <p>Children age: <strong> <%= @group.children_age %> years</strong></p>
       </div>
-      <div class= "group-members-container">
-        <p> Members:</p>
-          <%# <%@members.each do |member|%>
-            <%= image_tag "avatars/silvia.png", class: "avatar avatar-member" %>
-            <%= image_tag "avatars/luca.png", class: "avatar avatar-member" %>
-            <%= image_tag "avatars/sara.png", class: "avatar avatar-member" %>
-          <%# <%end%>
-      </div>
-       <div class= "group-request-container">
-          <% @requests.each do |request| %>
-            <% if request.accepted == false && request.declined == false %>
-            <p><%= request.user.first_name %> wants to join</p>
-            <%= link_to "Accept Request", group_request_accepted_path(@group.id, request.id, ), method: "patch", class: "btn btn-success btn-request" %>
-            <%= link_to "Decline Request", group_request_declined_path(@group.id, request.id), method: "patch", class: "btn btn-success btn-request" %>
-            <% end %>
-          <% end %>
-      </div>
+
+  <div class= "group-members-container">
+    <p> Members:</p>
+    <%@members.each do |member|%>
+      <%= image_tag (member.picture_url), class: "avatar avatar-member" %>
+    <%end%>
+  </div>
+  <div class= "group-request-container">
+    <% @requests.each do |request| %>
+      <% if request.accepted == false && request.declined == false %>
+        <p><%= request.user.first_name %> wants to join</p>
+        <%= link_to "Accept Request", group_request_accepted_path(@group.id, request.id, ), method: "patch", class: "btn btn-success btn-request"%>
+        <%= link_to "Decline Request", group_request_declined_path(@group.id, request.id), method: "patch", class: "btn btn-success btn-request" %>
+        <% end %>
+      <% end %>
+  </div>
+
   <div class = "group-page-item" id="droplist" data-controller="dropdown" data-dropdown-display-class="display">
     <p>Upcoming events <button data-action="click->dropdown#toggle">+</button></p>
       <div class= "event-droplist" data-dropdown-target="hide">
