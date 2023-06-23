@@ -26,6 +26,7 @@
                 <div class="profile-group-info">
                   <h4><%= group.name.upcase %></h4>
                   <p>Admin</p>
+                  <%= image_tag 'logo.png', class: "profile-group-logo" %>
                   <% requests = group.requests.where(accepted: false, declined: false)  %>
                   <% unless requests.empty?  %>
                   <%= link_to "#{pluralize(requests.length, 'request')} pending", group_path(group), class: "request-count" %>
