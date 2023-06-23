@@ -47,6 +47,7 @@
                 <div class="profile-group-info">
                   <h4><%= group.name.upcase %></h4>
                   <p>Member</p>
+                  <%= image_tag 'logo.png', class: "profile-group-logo" %>
                 </div>
               </div>
             <% end %>
@@ -64,6 +65,7 @@
                   <div class="profile-group-info">
                     <h4><%= group.name.upcase %></h4>
                     <p>Pending</p>
+                    <%= image_tag 'logo.png', class: "profile-group-logo" %>
                   </div>
                 </div>
               <% end %>
