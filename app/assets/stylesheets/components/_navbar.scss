@@ -1,7 +1,12 @@
 .navbar-volo {
-  display: flexbox;
+  display: flex;
   justify-content: space-between;
+  align-items: center;
   background: $our-red;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 
@@ -10,10 +15,12 @@
 }
 
 .navbar-volo .navbar-brand img {
-  width: 30px;
+  width: 40px;
 }
 
-.navbar-title{
-  color: $our-light-yellow;
-  justify-content: space-between;
+.navbar-volo h1{
+  display: flex;
+  font-size: 45px;
+  color: white;
+  align-items: center;
 }
