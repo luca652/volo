@@ -1,5 +1,5 @@
 
-<div class="show-profile-container">
+<div class="show-profile-container" data-controller="user-show-menu">
 
   <% if @user == current_user  %>
   <div class="show-profile-headers">
@@ -10,14 +10,14 @@
 
     <!-- Tab links -->
     <div class="profile-tab">
-      <button class="tablinks" id="tablink-groups">My groups</button>
-      <button class="tablinks" id="tablink-events">My events</button>
-      <button class="tablinks" id="tablink-pins">My pins</button>
+      <button class="tablinks active" id="groups" data-user-show-menu-target="groupsButton" data-action="click->user-show-menu#activateMenu">My groups</button>
+      <button class="tablinks" id="events" data-user-show-menu-target="eventsButton" data-action="click->user-show-menu#activateMenu">My events</button>
+      <button class="tablinks" id="pins" data-user-show-menu-target="pinsButton" data-action="click->user-show-menu#activateMenu">My pins</button>
     </div>
 
 
     <!-- Tab content -->
-    <div id="Groups" class="tabcontent card-product">
+    <div id="groups-content" data-user-show-menu-target="groupsContent" class="tabcontent card-product">
       <ul class="profile-list">
         <li class="profile-item">
           <% @groups_admin.each do |group| %>
@@ -30,7 +30,6 @@
                     <button class="profile-group-role">Admin</button>
                   </div>
                   <p><%= pluralize(group.users.length, 'member') %></p>
-                  <%= image_tag 'logo.png', class: "profile-group-logo" %>
                   <% requests = group.requests.where(accepted: false, declined: false)  %>
                   <% unless requests.empty?  %>
                   <%= link_to "#{pluralize(requests.length, 'request')} pending", group_path(group), class: "request-count" %>
@@ -51,10 +50,8 @@
                 <div class="profile-group-info">
                   <div class="profile-group-name">
                     <h4><%= group.name %></h4>
-                    <button class="profile-group-role">Member</button>
                   </div>
                   <p><%= pluralize(group.users.length, 'member') %></p>
-                  <%= image_tag 'logo.png', class: "profile-group-logo" %>
                 </div>
               </div>
             <% end %>
@@ -72,10 +69,8 @@
                   <div class="profile-group-info">
                     <div class="profile-group-name">
                     <h4><%= group.name %></h4>
-                    <span class="profile-group-role">Pending</span>
                   </div>
                     <p><%= pluralize(group.users.length, 'member') %></p>
-                    <%= image_tag 'logo.png', class: "profile-group-logo" %>
                   </div>
                 </div>
               <% end %>
@@ -85,7 +80,7 @@
       <% end %>
     </div>
 
-    <div id="Events" class="tabcontent">
+    <div id="events-content" data-user-show-menu-target="eventsContent" class="tabcontent d-none">
       <ul class="profile-list">
         <li class="profile-item">
           <% @my_events.each do |event| %>
@@ -108,10 +103,10 @@
                   <% end %>
                   <p><%= link_to event.location.partition(",").first,
                     "https://www.google.com/maps/search/?api=1&query=#{event.latitude}%2C#{event.longitude}"%>
-                    <i class="fa-sharp fa-solid fa-location-dot" style="color: #eda0a0;"></i>
+                    <i class="fa-sharp fa-solid fa-location-dot" style="color: #fd1015;"></i>
                   </p>
                 </div>
-              <button class="profile-event-button"><%= event.category %></button>
+              <button class="profile-event-tag"><%= event.category %></button>
             </div>
             <% end %>
           <% end %>
@@ -119,7 +114,7 @@
       </ul>
     </div>
 
-    <div id="Pins" class="tabcontent">
+    <div id="pins-content" data-user-show-menu-target="pinsContent" class="tabcontent d-none">
       <% @my_pins.each do |pin| %>
         <div class="profile-pin-card">
           <%= image_tag pin.resource.picture_url, class: "profile-pin-image" %>
