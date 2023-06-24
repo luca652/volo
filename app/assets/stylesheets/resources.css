@@ -13,7 +13,7 @@
   display: flex;
   font-size: 8px;
   justify-content: space-between;
-  padding-right: 40px;
+  padding-right: 0px;
 }
 
 .card-product {
@@ -31,16 +31,36 @@
 
 .card {
   /* Add shadows to create the "card" effect */
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  transition: 0.3s;
-  border-radius: 10px; /* Add rounded borders */
-  position: relative;
-  margin-bottom: 20px;
-  max-height: 200px; /* Adjust the desired height for the card */
   overflow: hidden;
-
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  margin: 10px 10px;
 }
 
+.card p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.card h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  display:flex;
+}
+
+.card img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
 /* On mouse-over, add a deeper shadow */
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
@@ -54,9 +74,10 @@
 
 .pin-button {
   position: absolute;
-  top: 80px;
+  top: 0px;
   right: 10px;
-  padding: 5px;
+  padding: 0px;
+  color:red;
 }
 
 .resource-link {
@@ -106,4 +127,62 @@ h2 {
 
 .content p {
   font-size: 10px;
+}
+
+.profile-pin-card {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  margin: 10px 10px;
+}
+
+.profile-pin-card img {
+height: 100%;
+width: 120px;
+object-fit: cover;
+}
+
+.profile-pin-card h2 {
+font-size: 16px;
+font-weight: bold;
+margin: 0;
+display:flex;
+}
+
+.profile-pin-card p {
+font-size: 12px;
+line-height: 1.4;
+opacity: .7;
+margin-bottom: 5px;
+margin-top: 5px;
+}
+
+.profile-pin-card .profile-pin-infos {
+padding: 16px;
+}
+
+.profile-pins-category {
+display: flex;
+justify-content: flex-end;
+}
+
+.profile-pins-category > button {
+font-size: 10px;
+align-items: flex-end;
+color: $red;
+background-color: white;
+border: solid 1px $red;
+margin-right: 5px;
+padding: 0px 6px;
+border-radius: 10px;
+}
+
+
+.pin-button.clicked {
+  background-color: white;
+  border: 1px solid red;
 }
