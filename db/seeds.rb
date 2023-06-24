@@ -34,9 +34,9 @@ user3 = User.create!(first_name: "Jess", last_name: "Ferretti", language: "Itali
 user4 = User.create!(first_name: "Luca", last_name: "Pastorelli", language: "Italian", number_of_children: 1,
                      childrens_age: "4 yrs", location: "10-14, Mercy Terrace, London SE13 7UX",
                      email: "mario@me.com", password: "123456", picture_url: "avatars/luca.png")
-user5 = User.create!(first_name: "Zack", last_name: "Martin", language: "English group_images/ Italian", number_of_children: 1,
+user5 = User.create!(first_name: "Laura", last_name: "Martin", language: "English group_images/ Italian", number_of_children: 1,
                       childrens_age: "4yrs", location: "10-14, Mercy Terrace, London SE13 7UX",
-                      email: "zak@me.com", password: "123456", picture_url: "avatars/sara.png")
+                      email: "laura@me.com", password: "123456", picture_url: "avatars/sara.png")
 
 # the email variable is used to create unique email addresses dynamycally - the value is incremented each time it loops
 childrens_age = ["newborn", "pre-school", "primary"]
