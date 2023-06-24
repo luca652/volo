@@ -1,5 +1,5 @@
 .container-group-footer {
-  background: $our-light-grey;
+  background: $our-red;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -16,12 +16,12 @@
   width: 400px;
 }
 .group-footer-item {
-  color: $our-blue;
+  color: white;
   text-decoration: none;
   margin-left: 8px;
   font-size: 24px;
   padding: 0px 8px;
 }
 .group-footer-links a:hover {
-  color: blue;
+  color: $our-blue;
 }
