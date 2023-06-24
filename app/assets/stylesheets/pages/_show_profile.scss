@@ -23,6 +23,7 @@
   a {
     text-decoration: none;
     font-size: 14px;
+    color: $our-blue
   }
 }
 
@@ -130,7 +131,7 @@
 }
 
 .profile-group-role {
-  background-color: $red;
+  background-color: $our-blue;
   border: 0px;
   color: white;
   padding: 3px 6px;
@@ -155,7 +156,7 @@ color: inherit;
 }
 
 .request-count {
-  color: $red;
+  color: $our-blue;
   font-size: 10px;
   margin-right: 5px;
   padding: 3px 6px;
