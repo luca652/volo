@@ -16,32 +16,26 @@
     <button id="create-resource-button" class="btn btn-success ml-2">Create Resource</button> <!-- Added create resource button -->
   </div>
 
-    <div class="card-product">
+    <div class="Pins">
       <% @resources.each do |resource| %>
         <div class="card" data-category="<%= resource.category %>">
           <div class="card-product-infos">
-          <%= image_tag("#{resource.picture_url}", style: 'height: 100px') %>
-          <div class="content">
-            <h2><%= resource.title %></h2 >
-            <p><%= resource.category %></p>
-
-            <p><%= resource.comment %>
-    <p> <small><span class="pin-count"><%= resource.pin_count %> pins!</small></span></p>
-    <!-- Corrected line -->
-</p>
-</div>
-    </div>
-
-
-
+            <%= image_tag("#{resource.picture_url}",  class: "profile-pin-image") %>
+            <div class="content">
+              <h2><%= resource.title %></h2>
+              <p class="profile-pin-text"><%= resource.comment %></p>
+              <p class="profile-pins-category">
+                <button class="float-right"><small><span class="pin-count"><%= resource.pin_count %> <i class="fas fa-thumbtack"></i></span></small></button>
+                <button class="float-right"><%= resource.category %></button>
+              </p>
+            </div>
+          </div>
           <a href="#" class="pin-button" data-resource-id="<%= resource.id %>">
             <i class="fas fa-thumbtack"></i>
-
           </a>
         </div>
-
-    <% end %>
-  </div>
+      <% end %>
+    </div>
 
   <div class="pins-container">
     <!-- Placeholder for pin cards -->
@@ -134,6 +128,8 @@
             var pinCount = card.find('.pin-count');
             pinCount.text(response.pin_count);
 
+            // Toggle the clicked class
+            pinButton.toggleClass('clicked');
             // Disable the pin button
             pinButton.attr('disabled', true);
           }
