@@ -13,6 +13,7 @@
   <div class= "group-members-container">
     <p> Members:</p>
     <%@members.each do |member|%>
+      <% next if member.picture_url.nil?  %>
       <%= image_tag (member.picture_url), class: "avatar avatar-member" %>
     <%end%>
   </div>
