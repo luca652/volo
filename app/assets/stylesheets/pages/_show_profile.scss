@@ -5,16 +5,31 @@
 
 .show-profile-headers {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   width: 100%;
   padding: 0px 20px;
   align-items: center;
+  justify-content: center;
+
+  a {
+    margin-left: 10px;
+  }
 }
 
 .header-title {
-  flex: 1;
   align-items: center;
   margin-bottom: 0px;
+}
+
+.profile-edit-button {
+  background-color: $our-red;
+  color: white;
+  font-size: small;
+  margin-right: 5px;
+  padding: 4px 4px;
+  border: 0px;
+  border-radius: 50%;
+  flex: 1;
 }
 
 .header-link {
@@ -48,7 +63,7 @@
 }
 
 .profile-tab .tablinks {
-  background-color: $red;
+  background-color: $our-red;
   color: white;
   font-size: small;
   margin-right: 5px;
@@ -65,8 +80,8 @@
 
 .profile-tab button.active {
   background-color: white;
-  color: $red;
-  border: solid 1px $red;
+  color: $our-red;
+  border: solid 1px $our-red;
 }
 
 .profile-tabcontent {
