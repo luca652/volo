@@ -1,12 +1,10 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-volo fixed-top">
-  <div class="container-fluid">
+  <%# <div class="container-fluid"> %>
    <%= link_to "#", class: "navbar-brand" do %>
       <%= image_tag "logo.png" %>
     <% end %>
 
-    <div class = "navbar-title">
     <h1>Volo</h1>
-    </div>
 
       <% if user_signed_in? %>
        <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -24,5 +22,5 @@
           <%= link_to "Login", new_user_session_path, class: "nav-link" %>
         </div>
       <% end %>
-  </div>
+  <%# </div> %>
 </div>
