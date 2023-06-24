@@ -1,5 +1,8 @@
 <div class="container-group-footer fixed-bottom">
   <div class="group-footer-links">
+    <%= link_to :back, class: "footer-item"  do %>
+      <i class="fa-solid fa-chevron-left"></i>
+    <% end %>
     <%= link_to groups_path, class: "group-footer-item" do %>
      <i class="fa-solid fa-map-location-dot"></i>
     <% end %>
