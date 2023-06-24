@@ -1,0 +1,155 @@
+
+<div class="show-profile-container">
+
+  <% if @user == current_user  %>
+  <div class="show-profile-headers">
+    <h1 class="header-title">Ciao <%= @user.first_name %>!</h1>
+    <%= link_to "Edit Profile", user_path(current_user), class: "header-link" %>
+    <%= link_to "Story generator", stories_path, class: "header-link" %>
+  </div>
+
+    <!-- Tab links -->
+    <div class="profile-tab">
+      <button class="tablinks" id="tablink-groups">My groups</button>
+      <button class="tablinks" id="tablink-events">My events</button>
+      <button class="tablinks" id="tablink-pins">My pins</button>
+    </div>
+
+
+    <!-- Tab content -->
+    <div id="Groups" class="tabcontent card-product">
+      <ul class="profile-list">
+        <li class="profile-item">
+          <% @groups_admin.each do |group| %>
+            <%= link_to group_path(group), class: 'profile-card-link' do %>
+              <div class="card-profile-group">
+                <%= image_tag group.picture_url, class: "profile-group-image" %>
+                <div class="profile-group-info">
+                  <div class="profile-group-name">
+                    <h4><%= group.name %></h4>
+                    <button class="profile-group-role">Admin</button>
+                  </div>
+                  <p><%= pluralize(group.users.length, 'member') %></p>
+                  <%= image_tag 'logo.png', class: "profile-group-logo" %>
+                  <% requests = group.requests.where(accepted: false, declined: false)  %>
+                  <% unless requests.empty?  %>
+                  <%= link_to "#{pluralize(requests.length, 'request')} pending", group_path(group), class: "request-count" %>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        </li>
+      </ul>
+
+      <ul class="profile-list">
+        <li class="profile-item">
+          <% @groups_member.each do |group| %>
+            <%= link_to group_path(group), class: 'profile-card-link' do %>
+              <div class="card-profile-group">
+                <%= image_tag group.picture_url, class: "profile-group-image" %>
+                <div class="profile-group-info">
+                  <div class="profile-group-name">
+                    <h4><%= group.name %></h4>
+                    <button class="profile-group-role">Member</button>
+                  </div>
+                  <p><%= pluralize(group.users.length, 'member') %></p>
+                  <%= image_tag 'logo.png', class: "profile-group-logo" %>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        </li>
+      </ul>
+
+      <% unless @groups_pending.empty? %>
+        <ul class="profile-list">
+          <li class="profile-item">
+            <% @groups_pending.each do |group| %>
+              <%= link_to group_path(group), class: 'profile-card-link' do %>
+                <div class="card-profile-group">
+                <%= image_tag group.picture_url, class: "profile-group-image" %>
+                  <div class="profile-group-info">
+                    <div class="profile-group-name">
+                    <h4><%= group.name %></h4>
+                    <span class="profile-group-role">Pending</span>
+                  </div>
+                    <p><%= pluralize(group.users.length, 'member') %></p>
+                    <%= image_tag 'logo.png', class: "profile-group-logo" %>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          </li>
+        </ul>
+      <% end %>
+    </div>
+
+    <div id="Events" class="tabcontent">
+      <ul class="profile-list">
+        <li class="profile-item">
+          <% @my_events.each do |event| %>
+          <%= link_to group_path(event.group), class: 'profile-card-link' do %>
+            <div class="event-info-card-body profile-event-card" class="drop_down_item" >
+              <h4><strong><%= event.name%></strong></h4>
+                <p><%= link_to event.group.name, group_path(event.group) %></p>
+                <p> Organised by <%= link_to event.user.first_name, user_path(event.user) %><p>
+                <p><%= "#{pluralize(event.bookings.length, "person")} going!"%></p>
+                <div class="profile-event-time-place">
+                  <% difference = (event.date.to_date - Date.today).to_i %>
+                  <% if difference == 7 %>
+                    <p><strong>in a week!</strong></p>
+                  <% elsif difference < 7 && difference > 1 %>
+                    <p><strong><%= "In #{difference} days!"%></strong></p>
+                  <% elsif difference == 1 %>
+                    <p><strong>Tomorrow</strong></p>
+                  <% else %>
+                  <p><strong><%= event.date.strftime("%b %e, %l:%M %p") %></strong></p>
+                  <% end %>
+                  <p><%= link_to event.location.partition(",").first,
+                    "https://www.google.com/maps/search/?api=1&query=#{event.latitude}%2C#{event.longitude}"%>
+                    <i class="fa-sharp fa-solid fa-location-dot" style="color: #eda0a0;"></i>
+                  </p>
+                </div>
+              <button class="profile-event-button"><%= event.category %></button>
+            </div>
+            <% end %>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+
+    <div id="Pins" class="tabcontent">
+      <% @my_pins.each do |pin| %>
+        <div class="profile-pin-card">
+          <%= image_tag pin.resource.picture_url, class: "profile-pin-image" %>
+          <div class="profile-pin-infos">
+            <h2><%= pin.resource.title %></h2>
+            <p class="profile-pin-text"><%= pin.resource.comment %></p>
+            <div class="profile-pins-category">
+              <button><%= pin.resource.pins.length %> <i class="fas fa-thumbtack"></i></button>
+              <button><%= pin.resource.category %></button>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+
+
+
+
+
+  <% else %>
+  <h1><%= @user.first_name  %></h1>
+  <p><%= "Ciao a tutti! Mi chiamo #{@user.first_name} e ho #{@user.number_of_children} bambini.
+          Mi sono trasferita da Pesaro due anni fa e sono alla ricerca di altri genitori di
+          bambini italiani per socializzare e parlare italiano. Abito vicino a Nunhead e sono
+          libera tutte le mattine durante la settimana." %></p>
+
+  <% end %>
+
+</div>
+
+
+<%= javascript_include_tag 'show_profile' %>

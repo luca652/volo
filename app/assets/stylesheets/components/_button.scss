@@ -67,3 +67,14 @@
   border-color: $our-blue;
 
 }
+
+.btn-red-small {
+  font-size: 10px;
+  align-items: flex-end;
+  color: $red;
+  background-color: white;
+  border: solid 1px $red;
+  margin-right: 5px;
+  padding: 0px 6px;
+  border-radius: 10px;
+}
