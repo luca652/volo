@@ -22,21 +22,21 @@ puts "Database cleared"
 
 # USERS
 
-user1 = User.create!(first_name: "Sara", last_name: "Carambola", language: "Italian", number_of_children: 2,
-                     childrens_age: "primary", location: "27, Plover Way, Canada Water, SE16 7TS",
-                     email: "sara@me.com", password: "123456")
-user2 = User.create!(first_name: "Elisabetta", last_name: "Bianchi", language: "Italian", number_of_children: 2,
+user1 = User.create!(first_name: "Vittoria", last_name: "Carambola", language: "Italian", number_of_children: 1,
+                     childrens_age: "3 yrs", location: "27, Plover Way, Canada Water, SE16 7TS",
+                     email: "vittoria@me.com", password: "123456", picture_url: "avatars/silvia.png")
+user2 = User.create!(first_name: "Elisabetta", last_name: "Bianchi", language: "Italian", number_of_children: 1,
                      childrens_age: "primary", location: "5-6 Coulgate St, London SE4 2RW",
-                     email: "elisabetta@me.com", password: "123456")
+                     email: "elisabetta@me.com", password: "123456", picture_url: "")
 user3 = User.create!(first_name: "Jess", last_name: "Ferretti", language: "Italian", number_of_children: 3,
                      childrens_age: "primary", location: "21 Surrey Quays Rd, London SE16 7AR",
-                     email: "jess@me.com", password: "123456")
-user4 = User.create!(first_name: "Mario", last_name: "Pastorelli", language: "Italian", number_of_children: 1,
-                     childrens_age: "pre-school", location: "10-14, Mercy Terrace, London SE13 7UX",
-                     email: "mario@me.com", password: "123456")
-user5 = User.create!(first_name: "Laura", last_name: "Martin", language: "English group_images/ Italian", number_of_children: 2,
-                      childrens_age: "pre-school", location: "10-14, Mercy Terrace, London SE13 7UX",
-                      email: "laura@me.com", password: "123456")
+                     email: "jess@me.com", password: "123456", picture_url: "")
+user4 = User.create!(first_name: "Luca", last_name: "Pastorelli", language: "Italian", number_of_children: 1,
+                     childrens_age: "4 yrs", location: "10-14, Mercy Terrace, London SE13 7UX",
+                     email: "mario@me.com", password: "123456", picture_url: "avatars/luca.png")
+user5 = User.create!(first_name: "Zack", last_name: "Martin", language: "English group_images/ Italian", number_of_children: 1,
+                      childrens_age: "4yrs", location: "10-14, Mercy Terrace, London SE13 7UX",
+                      email: "zak@me.com", password: "123456", picture_url: "avatars/sara.png")
 
 # the email variable is used to create unique email addresses dynamycally - the value is incremented each time it loops
 childrens_age = ["newborn", "pre-school", "primary"]
@@ -99,7 +99,7 @@ Chatroom.create!(group_id: group1.id)
 puts "chatroom created"
 
 # REQUESTS
-request1 = Request.create!(user_id: user1.id, group_id: group2.id, accepted: true)
+request1 = Request.create!(user_id: user1.id, group_id: group1.id, accepted: true)
 request2 = Request.create!(user_id: user2.id, group_id: group1.id, accepted: true)
 request3 = Request.create!(user_id: user3.id, group_id: group1.id, accepted: true)
 request4 = Request.create!(user_id: user4.id, group_id: group1.id, accepted: true)

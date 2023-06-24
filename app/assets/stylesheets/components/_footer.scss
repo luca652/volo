@@ -1,5 +1,5 @@
 .footer {
-  background: $our-light-grey;
+  background: $our-red;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -13,7 +13,7 @@
   width: 400px;
 }
 .footer-item {
-  color: $our-blue;
+  color: white;
   display: flexbox;
   margin-left: 8px;
   text-decoration: none;
@@ -23,5 +23,5 @@
   padding: 0px 8px;
 }
 .footer-links a:hover {
-  color: blue
+  color: $our-blue
 }
