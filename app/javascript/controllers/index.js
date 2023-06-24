@@ -4,9 +4,6 @@
 
 import { application } from "./application"
 
-import AvatarController from "./avatar_controller"
-application.register("avatar", AvatarController)
-
 import ChatroomSubscriptionController from "./chatroom_subscription_controller"
 application.register("chatroom-subscription", ChatroomSubscriptionController)
 
@@ -27,3 +24,6 @@ application.register("oval", OvalController)
 
 import ResourcesController from "./resources_controller"
 application.register("resources", ResourcesController)
+
+import UserShowMenuController from "./user_show_menu_controller"
+application.register("user-show-menu", UserShowMenuController)
