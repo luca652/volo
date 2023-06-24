@@ -1,0 +1,253 @@
+.show-profile-container {
+  color: $gray;
+  margin: 70px 20px 80px 20px;
+}
+
+.show-profile-headers {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0px 20px;
+  align-items: center;
+}
+
+.header-title {
+  flex: 1;
+  align-items: center;
+  margin-bottom: 0px;
+}
+
+.header-link {
+  text-decoration: none;
+
+  a {
+    text-decoration: none;
+    font-size: 14px;
+  }
+}
+
+// .header-bottom > button {
+//   background-color: $blue;
+//   border: 0px;
+//   color: white;
+//   font-size: small;
+//   padding: 3px 6px;
+//   border-radius: 10px;
+//   flex: 1;
+//   transition: 0.3s;
+// }
+
+.profile-tab {
+  overflow: hidden;
+  display: flex;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+
+.profile-tab .tablinks {
+  background-color: $red;
+  color: white;
+  font-size: small;
+  margin-right: 5px;
+  padding: 3px 6px;
+  border: 0px;
+  border-radius: 10px;
+  flex: 1;
+  transition: 0.3s;
+}
+
+.profile-tab button:hover {
+  background-color: rgb(185, 110, 110);
+}
+
+.profile-tab button.active {
+  background-color: white;
+  color: $red;
+  border: solid 1px $red;
+}
+
+.profile-tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+.profile-list {
+  padding: 0px 0px;
+
+  li {
+    list-style-type: none;
+  }
+}
+
+.card-profile-group {
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  overflow: hidden;
+  background: white;
+  transition: 0.3s;
+  border-radius: 10px;
+  margin: 10px 10px;
+
+  h4 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  p {
+    font-size: 10px;
+    opacity: .7;
+    margin: 0;
+  }
+
+  .profile-group-image {
+    height: 100px;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .profile-group-info {
+    padding: 8px;
+    position: relative;
+  }
+}
+
+// .profile-group-name-role {
+//     display: flex;
+//     justify-content: flex-start;
+
+//   }
+
+.profile-group-logo {
+  width: 20px;
+  position: absolute;
+  left: 10px;
+  top: -92px;
+  border-radius: 3px
+}
+
+.profile-group-role {
+  background-color: $red;
+  border: 0px;
+  color: white;
+  padding: 3px 6px;
+  border-radius: 10px;
+  font-size: 10px;
+  font-weight: bold;
+  position: absolute;
+  left: 296px;
+  top: -14px;
+}
+
+.profile-group-info .request-count {
+  position: absolute;
+  right: 6px;
+  top: 24px;
+  text-decoration: none;
+}
+
+.profile-card-link {
+text-decoration: none;
+color: inherit;
+}
+
+.request-count {
+  color: $red;
+  font-size: 10px;
+  margin-right: 5px;
+  padding: 3px 6px;
+}
+
+.profile-pin-card {
+    overflow: hidden;
+    height: 120px;
+    background: white;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    margin: 10px 10px;
+}
+
+.profile-pin-card img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
+
+.profile-pin-card h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  display:flex;
+}
+
+.profile-pin-card p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.profile-pin-card .profile-pin-infos {
+  padding: 16px;
+}
+
+.profile-pins-category {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.profile-pins-category > button {
+  font-size: 10px;
+  align-items: flex-end;
+  color: $red;
+  background-color: white;
+  border: solid 1px $red;
+  margin-right: 5px;
+  padding: 0px 6px;
+  border-radius: 10px;
+}
+
+.profile-event-card {
+  position: relative;
+
+    .profile-event-button {
+    font-size: 10px;
+    align-items: flex-end;
+    color: $red;
+    background-color: white;
+    border: solid 1px $red;
+    margin-right: 5px;
+    padding: 0px 6px;
+    border-radius: 10px;
+    position: absolute;
+    right: 14px;
+    top: 16px;
+  }
+
+  p {
+    margin-left: 6px;
+  }
+}
+
+.profile-event-time-place {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 8px;
+  border-top: 1px solid rgb(189, 189, 189);
+
+  i {
+    margin-left: 5px;
+  }
+}
+
+.profile-event-time-place p {
+  margin: 0;
+  display: flex;
+  align-items: center;
+}

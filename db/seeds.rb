@@ -51,12 +51,12 @@ puts "#{User.all.length} users created."
 
 # group_images
 group1 = Group.create!(name: "Bambini di Peckham", location: "95A Rye Ln, London SE15 4ST",
-          description: "Our activities focus on readings, music and artcraft", picture_url: "group_images/bambini_peckam.png", language: "Italian", user_id: user1.id,
+                       description: "Our activities focus on readings, music and artcraft", picture_url: "group_images/bambini_peckam.png", language: "Italian", user_id: user1.id,
                        children_age: "3-5")
 group2 = Group.create!(name: "Brockley Playclub in Italiano", location: "1 Coulgate St, London SE4 2RW", description: "We like to play football in the park!",
                        picture_url: "group_images/brockley.png",language: "Italian", user_id: user2.id, children_age: "6-8")
 group3 = Group.create!(name: "Quelli di Hilly Fields", location: "317 Brockley Rd, London SE4 2QZ",
-                       picture_url: "group_images/brockley.png", language: "Italian", user_id: user3.id, children_age: "3-5")
+                       picture_url: "group_images/hands.png", language: "Italian", user_id: user3.id, children_age: "3-5")
 group4 = Group.create!(name: "Horniman Museum - Gruppo italiano", location: "100 London Rd, London SE23 3PQ", description: "We organize treasure hunts based on the Horniman exhibitions",
                        picture_url: "group_images/walrus.png", language: "Italian", user_id: user4.id, children_age: "3-5")
 group5 = Group.create!(name: "Biblioteca di Canada Water", location: "21 Surrey Quays Rd, London SE16 7AR", description: "Join our story-telling group!",
@@ -104,6 +104,7 @@ request2 = Request.create!(user_id: user2.id, group_id: group1.id, accepted: tru
 request3 = Request.create!(user_id: user3.id, group_id: group1.id, accepted: true)
 request4 = Request.create!(user_id: user4.id, group_id: group1.id, accepted: true)
 request5 = Request.create!(user_id: user5.id, group_id: group1.id)
+request6 = Request.create!(user_id: user1.id, group_id: group3.id, accepted: true)
 puts "#{Request.all.length} requests created."
 
 # EVENTS
@@ -120,42 +121,45 @@ event5 = Event.create!(name: "Sunday Morning Playclub", location: "317 Brockley 
 event6 = Event.create!(name: "Picnic nel parco", location: "Hilly Fields, 375 Brockley Rd, London SE4 2AG",
                        category: "Activity", date: "2023-8-12, 4:30PM", user_id: user2.id, group_id: group1.id)
 event7 = Event.create!(name: "Festa di compleanno di Andrea", location: "95 Church Rd, London SE19 2TA",
-                       category: "Activity", date: "2023-7-30, 10:00AM", user_id: user4.id, group_id: group1.id)
+                       category: "Party", date: "2023-6-24, 10:00AM", user_id: user4.id, group_id: group1.id)
 puts "#{Event.all.length} events created."
 
 # BOOKINGS FOR EVENTS
 booking1 = Booking.create!(event_id: event1.id, user_id: user1.id)
-# booking2 = Booking.create!(event_id: event5.id, user_id: user1.id)
-# booking3 = Booking.create!(event_id: event6.id, user_id: user1.id)
-# booking4 = Booking.create!(event_id: event7.id, user_id: user1.id)
+booking2 = Booking.create!(event_id: event7.id, user_id: user1.id)
+booking3 = Booking.create!(event_id: event7.id, user_id: user2.id)
+booking4 = Booking.create!(event_id: event7.id, user_id: user3.id)
+booking5 = Booking.create!(event_id: event7.id, user_id: user4.id)
+booking6 = Booking.create!(event_id: event7.id, user_id: user5.id)
+booking7 = Booking.create!(event_id: event7.id, user_id: User.last.id)
 puts "#{Booking.all.length} booking created."
 
 #  RESOURCES
 resource1 = Resource.create!(title: "FABA - Music and stories", category: "Stories",
                              comment: "Utilissimo! Each character sings songs or tells a story in Italian. My daughter loves it!",
-                             picture_url: "resources/pizza.png", user_id: user2.id)
-resource2 = Resource.create!(title: "Passeggino definitivo", category: "#",
+                             picture_url: "resources/faba.png", user_id: user2.id)
+resource2 = Resource.create!(title: "Passeggino definitivo", category: "General",
                              comment: "If you're planning to fly to Italy quite a bit, get this. It folds really small
                              and you can take it on the plane",
                              picture_url: "resources/pram.png", user_id: user3.id)
-resource3 = Resource.create!(title: "Le avventure di Cipollino", category: "reading",
-                             comment: "Un classico. I loved it when I was a kid!",
-                             picture_url: "resources/book.png", user_id: user4.id)
+resource3 = Resource.create!(title: "Favole al telefono", category: "Stories",
+                             comment: "Un classico. L'ho letto quando andavo alle elementari! Ora lo sto leggendo a mia
+                             figlia!", picture_url: "resources/rodari.png", user_id: user4.id)
 resource4 = Resource.create!(title: "Talia e la valigia della idee", category: "#",
-                             comment: "Weekly Italian playgroup_images in London. Divertentissimo! Ve lo consiglio!",
-                             picture_url: "resources/talia.png", user_id: user2.id)
-# resource5 = Resource.create!(title: "Mappa di Torino", category: "#",
-#                              comment: "Ciao! I bought this map for my daughter when we went to Torino for the weekend. She loved it!",
-#                              picture_url: "resources/mappa.png", user_id: user3.id)
-resource6 = Resource.create!(title: "TOPOLINO", category: "reading",
+                             comment: "Weekly Italian playgroup in London. I bambini lo adorano e ci vogliono andare
+                             tutte le settimane. Ve lo consiglio!", picture_url: "resources/talia.png", user_id: user2.id)
+resource5 = Resource.create!(title: "Il libro degli errori", category: "Stories",
+                             comment: "Ciao! Ho letto tutto Gianni Rodari quando ero piccola e adesso li sto
+                             comprando anche ai bambini. Poi sono piemontese...", picture_url: "resources/rodari2.png", user_id: user3.id)
+resource6 = Resource.create!(title: "Topolino", category: "Stories",
                              comment: "Ho regalato un abbonamento a mio figlio e gli piace un sacco.
                              Utilissimo per imparare parole nuove.", picture_url: "resources/topolino.png", user_id: user3.id)
-resource7 = Resource.create!(title: "Nascondini", category: "food",
-                             comment: "Biscotti ecceziunali. The CostCutter near Brockley station stocks them.",
-                             picture_url: "resources/biscotti.png", user_id: user4.id)
-resource8 = Resource.create!(title: "Mamma Dough Honor Oak", category: "food",
+resource7 = Resource.create!(title: "Indagatore dell'incubo", category: "Stories",
+                             comment: "Non per bambini ma per ragazzi/ragazze. Io ce li avevo tutti! È ambientato a Londra,
+                             cosa che ai miei figli piace molto!", picture_url: "resources/dylandog.png", user_id: user4.id)
+resource8 = Resource.create!(title: "Mamma Dough Honor Oak", category: "Food",
                              comment: "Went here for a birthday party recently. Big place, very welcoming for children.
-                             They do a bunny rabbit pizza with ears which kids love.",
+                             They do a bunny rabbit pizza with ears.",
                              picture_url: "resources/pizza.png", user_id: user4.id)
 puts "#{Resource.all.length} resources created."
 
@@ -163,6 +167,10 @@ puts "#{Resource.all.length} resources created."
 # method below create pins for resources we have. Every time we do rails:db seed,the ids of all our instances increase.
 # in order to keep file seed dynamic I stored our 5 main users into variables (user1, user2...). Here I am incrementing
 # user5's id by n every time we loop.
+Pin.create!(user_id: user1.id, resource_id: resource1.id)
+Pin.create!(user_id: user1.id, resource_id: resource3.id)
+Pin.create!(user_id: user1.id, resource_id: resource6.id)
+
 n = 1
 99.times do
   Pin.create!(user_id: "#{user5.id + n}", resource_id: resource1.id)

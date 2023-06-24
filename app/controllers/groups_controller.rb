@@ -30,7 +30,7 @@ class GroupsController < ApplicationController
     @events = @group.events
     @booking = Booking.new
     @chatroom = @group.id
-    @members = @group.users.joins(:requests).where(requests: { accepted: true })
+    @members = @group.users.joins(:requests).where(requests: { accepted: true }).uniq
     @requests = Request.where(group_id: @group.id)
   end
 

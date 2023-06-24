@@ -19,9 +19,9 @@
   <div class= "group-request-container">
     <% @requests.each do |request| %>
       <% if request.accepted == false && request.declined == false %>
-        <p><%= request.user.first_name %> wants to join</p>
-        <%= link_to "Accept Request", group_request_accepted_path(@group.id, request.id, ), method: "patch", class: "btn btn-success btn-request"%>
-        <%= link_to "Decline Request", group_request_declined_path(@group.id, request.id), method: "patch", class: "btn btn-success btn-request" %>
+        <p><%= link_to request.user.first_name, user_path(request.user) %> wants to join</p>
+        <%= link_to "Accept", group_request_accepted_path(@group.id, request.id, ), method: "patch", class: "btn btn-request"%>
+        <%= link_to "Decline", group_request_declined_path(@group.id, request.id), method: "patch", class: "btn btn-request" %>
         <% end %>
       <% end %>
   </div>
@@ -35,7 +35,10 @@
               <h4><strong><%= event.name%></strong></h4>
               <% @date = event.date %>
               <p><%= @date.strftime("%b %e, %l:%M %p")%></p>
-              <p><%= link_to event.location, "https://www.google.com/maps/search/?api=1&query=#{event.latitude}%2C#{event.longitude}"%></p>
+              <p><%= link_to event.location.partition(",").first,
+                "https://www.google.com/maps/search/?api=1&query=#{event.latitude}%2C#{event.longitude}"%>
+                <i class="fa-sharp fa-solid fa-location-dot" style="color: #eda0a0;"></i>
+              </p>
             <% if Booking.where(event: @event, user: current_user).present? %>
                     <div class="confermation"><strong>You're going!</strong></div>
               <% else %>
