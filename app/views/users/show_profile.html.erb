@@ -103,10 +103,10 @@
                   <% end %>
                   <p><%= link_to event.location.partition(",").first,
                     "https://www.google.com/maps/search/?api=1&query=#{event.latitude}%2C#{event.longitude}"%>
-                    <i class="fa-sharp fa-solid fa-location-dot" style="color: #eda0a0;"></i>
+                    <i class="fa-sharp fa-solid fa-location-dot" style="color: #fd1015;"></i>
                   </p>
                 </div>
-              <button class="profile-event-button"><%= event.category %></button>
+              <button class="profile-event-tag"><%= event.category %></button>
             </div>
             <% end %>
           <% end %>

@@ -206,9 +206,9 @@ color: inherit;
 .profile-pins-category > button {
   font-size: 10px;
   align-items: flex-end;
-  color: $red;
+  color: $our-blue;
   background-color: white;
-  border: solid 1px $red;
+  border: solid 1px $our-blue;
   margin-right: 5px;
   padding: 0px 6px;
   border-radius: 10px;
@@ -217,12 +217,12 @@ color: inherit;
 .profile-event-card {
   position: relative;
 
-    .profile-event-button {
+    .profile-event-tag {
     font-size: 10px;
     align-items: flex-end;
-    color: $red;
+    color: $our-blue;
     background-color: white;
-    border: solid 1px $red;
+    border: solid 1px $our-blue;
     margin-right: 5px;
     padding: 0px 6px;
     border-radius: 10px;
@@ -244,6 +244,10 @@ color: inherit;
 
   i {
     margin-left: 5px;
+  }
+
+  a {
+    color: $our-blue
   }
 }
 
