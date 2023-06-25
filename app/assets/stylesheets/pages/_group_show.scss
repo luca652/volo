@@ -52,6 +52,8 @@
 .group-headers {
   margin-top: 8px;
   margin-bottom: 8px;
+  display: flex;
+  justify-content: center;
 }
 
 .group-show-tags {
@@ -104,16 +106,21 @@
   }
 }
 
-.group-request-container .button-request-accept {
+.button-request-accept {
   color: white;
   background-color: $red;
   font-size: small;
   padding: 2px 8px;
   border-radius: 10px;
   text-decoration: none;
+  border: none;
 }
 
-.group-request-container .button-request-decline {
+.button-request-less {
+  margin-left: 5px;
+}
+
+.button-request-decline {
   color: $our-red;
   background-color: white;
   border: 1px solid $our-red;
