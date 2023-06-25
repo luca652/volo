@@ -12,20 +12,27 @@
       </div>
 
   <div class= "group-members-container">
-    <p> Members:</p>
-    <%@members.each do |member|%>
-      <% next if member.picture_url.nil?  %>
-      <%= image_tag (member.picture_url), class: "avatar avatar-member" %>
-    <%end%>
+    <p class="group-headers"> <strong>Members</strong></p>
+    <div>
+      <%@members.each do |member|%>
+        <% next if member.picture_url.nil?  %>
+        <%= image_tag (member.picture_url), class: "avatar avatar-member" %>
+      <%end%>
+    </div>
   </div>
   <div class= "group-request-container">
-    <% @requests.each do |request| %>
+  <p class="group-headers"> <strong>Requests</strong></p>
+    <div class="group-request-item">
+      <% @requests.each do |request| %>
       <% if request.accepted == false && request.declined == false %>
-        <p><%= link_to request.user.first_name, user_path(request.user) %> wants to join</p>
-        <%= link_to "Accept", group_request_accepted_path(@group.id, request.id, ), method: "patch", class: "btn btn-request"%>
-        <%= link_to "Decline", group_request_declined_path(@group.id, request.id), method: "patch", class: "btn btn-request" %>
+        <span><%= link_to request.user.first_name, user_path(request.user), id: "request-user" %> wants to join!</span>
+        <div>
+          <%= link_to "Accept", group_request_accepted_path(@group.id, request.id, ), method: "patch", class: "button-request-accept"%>
+          <%= link_to "Decline", group_request_declined_path(@group.id, request.id), method: "patch", class: "button-request-decline" %>
+        </div>
         <% end %>
       <% end %>
+    </div>
   </div>
 
   <div class = "group-page-item" id="droplist" data-controller="dropdown" data-dropdown-display-class="display">
