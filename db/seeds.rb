@@ -51,13 +51,14 @@ puts "#{User.all.length} users created."
 
 # group_images
 group1 = Group.create!(name: "Bambini di Peckham", location: "95A Rye Ln, London SE15 4ST",
-                       description: "Our activities focus on readings, music and artcraft", picture_url: "group_images/bambini_peckam.png", language: "Italian", user_id: user1.id,
-                       children_age: "3-5")
+                       description: "We like to read stories and sing songs together. We also draw, paint and enjoy getting creative!",
+                       picture_url: "group_images/bambini_peckam.png", language: "Italian", user_id: user1.id, children_age: "3-5")
 group2 = Group.create!(name: "Brockley Playclub in Italiano", location: "1 Coulgate St, London SE4 2RW", description: "We like to play football in the park!",
                        picture_url: "group_images/brockley.png",language: "Italian", user_id: user2.id, children_age: "6-8")
 group3 = Group.create!(name: "Quelli di Hilly Fields", location: "317 Brockley Rd, London SE4 2QZ",
                        picture_url: "group_images/hands.png", language: "Italian", user_id: user3.id, children_age: "3-5")
-group4 = Group.create!(name: "Horniman Museum - Gruppo italiano", location: "100 London Rd, London SE23 3PQ", description: "We organize treasure hunts based on the Horniman exhibitions",
+group4 = Group.create!(name: "Museo Horniman", location: "100 London Rd, London SE23 3PQ", description: "We love spending time at the
+                       museum with the camel, the bees and il tricheco. We run treasure hunts in the park",
                        picture_url: "group_images/walrus.png", language: "Italian", user_id: user4.id, children_age: "3-5")
 group5 = Group.create!(name: "Biblioteca di Canada Water", location: "21 Surrey Quays Rd, London SE16 7AR", description: "Join our story-telling group!",
                        picture_url: "group_images/canada.png", language: "Italian", user_id: user2.id, children_age: "3-5")

@@ -1,17 +1,65 @@
 .card-group-image > img {
   height: 100px;
   width: 100%;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   object-fit: cover;
   border-radius: 10px 10px 0px 0px;
 }
 
-.card-body h5 a {
-  color: $our-blue;
+.card-body h5  {
+  margin-bottom: 0px;
+
+  a {
+  color: #808080;
   text-decoration: none;
+  }
 }
 
 .card-body {
   margin-left: 10px;
   margin-right: 10px;
+  position: relative;
+
+  p {
+    margin-bottom: 4px;
+  }
+
+}
+
+.card-members-requests {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+  border-top: 1px solid rgb(189, 189, 189);
+  padding-top: 2px;
+
+  .card-members-number {
+    margin-bottom: 0px;
+  }
+
+  .card-requests-number {
+    text-decoration: none;
+    color: $our-blue;
+    font-size: 12px;
+    margin-right: 0px 0px;
+    padding: 0px 0px;
+  }
+}
+
+.info-window-group-role {
+  background-color: $our-blue;
+  border: 0px;
+  color: white;
+  padding: 0px 4px;
+  border-radius: 10px;
+  font-size: 8px;
+  font-weight: bold;
+  position: absolute;
+  left: 160px;
+  top: -19px;
+}
+
+.approval-pending {
+  color: $our-blue;
 }
