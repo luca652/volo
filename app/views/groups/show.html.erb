@@ -1,13 +1,14 @@
-<div class="banner container">
-  <%= image_tag(@group.picture_url, class: "banner") %>
-</div>
+
 <div class = "group-page-container">
+  <%= image_tag(@group.picture_url, class: "banner") %>
   <div class = "group-page-info">
-      <div class="group-page-description">
+      <div class="group-showpage-description">
         <h1><strong><%= @group.name %></strong></h1>
+        <div class="group-show-tags">
+          <p class="group-show-tag"><strong> <%= @group.language %></strong></p>
+          <p class="group-show-tag"><strong> <%= @group.children_age %> years</strong></p>
+        </div>
         <p> <%= @group.description %> </p>
-        <p>Language practiced: <strong> <%= @group.language %></strong></p>
-        <p>Children age: <strong> <%= @group.children_age %> years</strong></p>
       </div>
 
   <div class= "group-members-container">
