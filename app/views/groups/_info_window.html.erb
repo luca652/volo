@@ -4,22 +4,110 @@
     </div>
       <div class="card-body">
         <% if current_user.id == group.user_id %>
+          <%= link_to group_path(group), class: 'profile-card-link' do %>
           <h5><%= link_to group.name, group_path(group)%></h5>
-            <p><%= group.description %></p>
+          <p><%= group.description %></p>
+          <p class="info-window-group-role">Admin</p>
+          <div class="card-members-requests">
+            <p class="card-members-number"><%= pluralize(group.users.length, 'member') %></p>
+            <% requests = group.requests.where(accepted: false, declined: false)  %>
+            <% unless requests.empty? %>
+            <p class="card-requests-number"><%="#{pluralize(requests.length, 'request')} pending"%></p>
+            <% end %>
+          </div>
+        <% end %>
         <% elsif Request.where(group: group, user: current_user, accepted: true).present? %>
           <%= link_to group.name, group_path(group)%>
           <p><%= group.description %></p>
+          <div class="card-members-requests">
+            <p><%= pluralize(group.users.length, 'member') %></p>
+            <p><%= "" %></p>
+          </div>
         <% elsif Request.where(group: group, user: current_user).present? %>
           <h5><%= group.name %></h5>
           <p> <%= group.description %></p>
-          <p>Pending approval</p>
+          <div class="card-members-requests">
+            <p><%= pluralize(group.users.length, 'member') %></p>
+            <p class="approval-pending">Pending approval</p>
+          </div>
+
         <% else %>
           <h5><%= group.name %></h5>
           <p><%= group.description %></p>
-          <%= simple_form_for [group, @request], html: { data: { controller: 'join-form', target: 'join-form.form' } } do |f| %>
-          <%= f.hidden_field :user_id, value: current_user.id %>
-          <%= f.hidden_field :group_id, value: group.id %>
-          <%= f.submit "Ask to join", class: "btn btn-success btn-apply", data: {target: 'join-form.form', action: 'click->join-form#submit' }%>
-          <% end %>
+          <div class="card-members-requests">
+            <p class="card-members-number"><%= pluralize(group.users.length, 'member') %></p>
+            <%= simple_form_for [group, @request], html: { data: { controller: 'join-form', target: 'join-form.form' } } do |f| %>
+            <%= f.hidden_field :user_id, value: current_user.id %>
+            <%= f.hidden_field :group_id, value: group.id %>
+            <%= f.submit "Ask to join", class: "button-primary-small", data: {target: 'join-form.form', action: 'click->join-form#submit' }%>
+            <% end %>
+          </div>
+
         <% end %>
       </div>
+
+<!--
+    <div class="card-body">
+      <% if current_user.id == group.user_id %>
+        <%= link_to group_path(group), class: 'profile-card-link' do %>
+          <div class="card-profile-group">
+            <%= image_tag group.picture_url, class: "profile-group-image" %>
+            <div class="profile-group-info">
+              <div class="profile-group-name">
+                <h4><%= group.name %></h4>
+                <p><%= group.description %></p>
+                <button class="info-window-group-role">Admin</button>
+              </div>
+              <p><%= pluralize(group.users.length, 'member') %></p>
+              <% requests = group.requests.where(accepted: false, declined: false)  %>
+              <% unless requests.empty? %>
+              <%= link_to "#{pluralize(requests.length, 'request')} pending", group_path(group), class: "request-count" %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+        <% elsif Request.where(group: group, user: current_user, accepted: true).present? %>
+          <%= link_to group_path(group), class: 'profile-card-link' do %>
+            <div class="card-profile-group">
+              <%= image_tag group.picture_url, class: "profile-group-image" %>
+              <div class="profile-group-info">
+                <div class="profile-group-name">
+                  <h4><%= group.name %></h4>
+                  <p><%= group.description %></p>
+                </div>
+                <p><%= pluralize(group.users.length, 'member') %></p>
+              </div>
+            </div>
+          <% end %>
+        <% elsif Request.where(group: group, user: current_user).present? %>
+          <div class="card-profile-group">
+            <%= image_tag group.picture_url, class: "profile-group-image" %>
+            <div class="profile-group-info">
+              <div class="profile-group-name">
+                <h4><%= group.name %></h4>
+                <p><%= group.description %></p>
+              </div>
+              <p><%= pluralize(group.users.length, 'member') %></p>
+            </div>
+            <p class="approval-pending">Pending approval</p>
+          </div>
+        <% else %>
+          <div class="card-profile-group">
+            <%= image_tag group.picture_url, class: "profile-group-image" %>
+            <div class="profile-group-info">
+              <div class="profile-group-name">
+                <h4><%= group.name %></h4>
+                <p><%= group.description %></p>
+                <p class="approval-pending">Pending approval</p>
+              </div>
+              <p><%= pluralize(group.users.length, 'member') %></p>
+            </div>
+            <%= simple_form_for [group, @request], html: { data: { controller: 'join-form', target: 'join-form.form' } } do |f| %>
+            <%= f.hidden_field :user_id, value: current_user.id %>
+            <%= f.hidden_field :group_id, value: group.id %>
+            <%= f.submit "Ask to join", class: "btn btn-success btn-apply", data: {target: 'join-form.form', action: 'click->join-form#submit' }%>
+            <% end %>
+          </div>
+      <% end %>
+    </div>
+-->

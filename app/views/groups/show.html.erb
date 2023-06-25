@@ -1,53 +1,74 @@
-<div class="banner container">
-  <%= image_tag(@group.picture_url, class: "banner") %>
-</div>
+
 <div class = "group-page-container">
+  <%= image_tag(@group.picture_url, class: "banner") %>
   <div class = "group-page-info">
-      <div class="group-page-description">
+      <div class="group-showpage-description">
         <h1><strong><%= @group.name %></strong></h1>
+        <div class="group-show-tags">
+          <p class="group-show-tag"><strong> <%= @group.language %></strong></p>
+          <p class="group-show-tag"><strong> <%= @group.children_age %> years</strong></p>
+        </div>
         <p> <%= @group.description %> </p>
-        <p>Language practiced: <strong> <%= @group.language %></strong></p>
-        <p>Children age: <strong> <%= @group.children_age %> years</strong></p>
       </div>
 
   <div class= "group-members-container">
-    <p> Members:</p>
-    <%@members.each do |member|%>
-      <% next if member.picture_url.nil?  %>
-      <%= image_tag (member.picture_url), class: "avatar avatar-member" %>
-    <%end%>
+    <p class="group-headers"> <strong>Members</strong></p>
+    <div>
+      <%@members.each do |member|%>
+        <% next if member.picture_url.nil?  %>
+        <%= image_tag (member.picture_url), class: "avatar avatar-member" %>
+      <%end%>
+    </div>
   </div>
   <div class= "group-request-container">
-    <% @requests.each do |request| %>
+  <p class="group-headers"> <strong>Requests</strong></p>
+    <div class="group-request-item">
+      <% @requests.each do |request| %>
       <% if request.accepted == false && request.declined == false %>
-        <p><%= link_to request.user.first_name, user_path(request.user) %> wants to join</p>
-        <%= link_to "Accept", group_request_accepted_path(@group.id, request.id, ), method: "patch", class: "btn btn-request"%>
-        <%= link_to "Decline", group_request_declined_path(@group.id, request.id), method: "patch", class: "btn btn-request" %>
+        <span><%= link_to request.user.first_name, user_path(request.user), id: "request-user" %> wants to join!</span>
+        <div>
+          <%= link_to "Accept", group_request_accepted_path(@group.id, request.id, ), method: "patch", class: "button-request-accept"%>
+          <%= link_to "Decline", group_request_declined_path(@group.id, request.id), method: "patch", class: "button-request-decline" %>
+        </div>
         <% end %>
       <% end %>
+    </div>
   </div>
 
   <div class = "group-page-item" id="droplist" data-controller="dropdown" data-dropdown-display-class="display">
-    <p>Upcoming events <button data-action="click->dropdown#toggle">+</button></p>
+    <p class="group-headers"><strong>Upcoming events</strong> <button class="button-request-accept button-request-less" data-action="click->dropdown#toggle">less</button></p>
       <div class= "event-droplist" data-dropdown-target="hide">
         <% @events.each do |event| %>
           <div class="event-info-card-body" class="drop_down_item" >
               <% @event = event %>
               <h4><strong><%= event.name%></strong></h4>
-              <% @date = event.date %>
-              <p><%= @date.strftime("%b %e, %l:%M %p")%></p>
-              <p><%= link_to event.location.partition(",").first,
-                "https://www.google.com/maps/search/?api=1&query=#{event.latitude}%2C#{event.longitude}"%>
-                <i class="fa-sharp fa-solid fa-location-dot" style="color: #eda0a0;"></i>
-              </p>
+              <p><%= link_to event.group.name, group_path(event.group) %></p>
+              <p> Organised by <%= link_to event.user.first_name, user_path(event.user) %><p>
+              <p><%= "#{pluralize(event.bookings.length, "person")} going!"%></p>
+              <div class="profile-event-time-place">
+                  <% difference = (event.date.to_date - Date.today).to_i %>
+                  <% if difference == 7 %>
+                    <p><strong>in a week!</strong></p>
+                  <% elsif difference < 7 && difference > 1 %>
+                    <p><strong><%= "In #{difference} days!"%></strong></p>
+                  <% elsif difference == 1 %>
+                    <p><strong>Tomorrow</strong></p>
+                  <% else %>
+                  <p><strong><%= event.date.strftime("%b %e, %l:%M %p") %></strong></p>
+                  <% end %>
+                  <p><%= link_to event.location.partition(",").first,
+                    "https://www.google.com/maps/search/?api=1&query=#{event.latitude}%2C#{event.longitude}"%>
+                    <i class="fa-sharp fa-solid fa-location-dot" style="color: #fd1015;"></i>
+                  </p>
+                </div>
             <% if Booking.where(event: @event, user: current_user).present? %>
-                    <div class="confermation"><strong>You're going!</strong></div>
+                    <div class="tag-confirm-going top-corner-right"><strong>Going!</strong></div>
               <% else %>
             <%= simple_form_for [@group, @event, @booking] do |f| %>
                   <%= f.hidden_field :user_id, value: current_user.id %>
                   <%= f.hidden_field :group_id, value: @group.id %>
                   <%= f.hidden_field :event_id, value: @event.id %>
-                  <%= f.submit "Count me in!", class: "btn btn-success btn-event" %>
+                  <%= f.submit "RSVP", class: "button-request-accept top-corner-right" %>
                   <% end %>
             <% end %>
           </div>

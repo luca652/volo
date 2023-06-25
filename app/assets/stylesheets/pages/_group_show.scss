@@ -1,11 +1,15 @@
 .group-page-container {
   margin-bottom: 80px;
+  position: relative;
+}
+
+.group-showpage-description .h1 {
+  color: white;
 }
 
 .banner {
   width: 100%;
   max-width: 414px;
-  height: 200px;
   opacity: 1;
   margin-top: 5px;
   margin-bottom: 5px;
@@ -16,43 +20,131 @@
 }
 
 .group-page-info {
-  margin-top: 25px;
   margin-left: 10px;
   margin-right: 10px;
-  .h1 {
+
+  h1 {
+    position: absolute;
+    color:white;
+    background-color: $our-red;
+    border-radius: 10px;
+    padding: 2px 6px 2px 2px;
+    top: 204px;
+    left: 88px;
+  }
+
+  > p {
+    padding-right: 5px;
+    padding-left: 5px;
+  }
+
+  #request-user {
+    text-decoration: none;
     color: $our-blue;
-    text-align: center;
+    font-weight: bold;
+  }
+
+  span {
+    margin-right: 10px;
+  }
+}
+
+.group-headers {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: center;
+}
+
+.group-show-tags {
+  display: flex;
+  justify-content: center;
+
+  .group-show-tag {
+    font-size: 12px;
+    align-items: flex-end;
+    color: $our-blue;
+    border: solid 1px $our-blue;
+    margin-right: 5px;
+    padding: 0px 6px;
+    border-radius: 10px;
+    margin-bottom: 16px;
   }
 }
 
 .group-members-container {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-left: 8px;
   margin-right: 10px;
   margin-top: 8px;
   border-top: 1.5px solid $our-grey;
   padding-left: 0;
+
   .avatar {
+    width: 30px;
     margin-right: 8px;
     margin-left: 8px;
-    margin-top: 25px;
+    margin-bottom: 0px;
   }
 }
 
 .group-request-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-left: 10px;
   margin-right: 10px;
   margin-top: 8px;
+  border-top: 1px solid $our-grey;
+
+  .group-request-item {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
 }
 
-.group-request-container .btn-request {
+.button-request-accept {
   color: white;
   background-color: $red;
-  border: solid 1px white;
   font-size: small;
-  margin-right: 5px;
-  padding: 0px 6px;
+  padding: 2px 8px;
   border-radius: 10px;
+  text-decoration: none;
+  border: none;
+}
+
+.button-request-less {
+  margin-left: 5px;
+}
+
+.button-request-decline {
+  color: $our-red;
+  background-color: white;
+  border: 1px solid $our-red;
+  font-size: small;
+  padding: 2px 8px;
+  border-radius: 10px;
+  text-decoration: none;
+}
+
+.tag-confirm-going {
+  color: $our-blue;
+  background-color: white;
+  border: 1px solid $our-blue;
+  font-size: small;
+  padding: 2px 8px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.top-corner-right {
+  position: absolute;
+  top: 12px;
+  right: 20px;
 }
 
 .group-page-description {
@@ -80,10 +172,6 @@
   display: block;
 }
 
-.group-members-container .avatar{
-  margin-bottom: 20px;
-}
-
 .event-info-card-body {
   align-items: center;
   padding: 10px 20px;
@@ -96,9 +184,14 @@
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 10px;
+  position: relative;
 
   a {
     text-decoration: none;
+  }
+
+  p {
+    margin-left: 6px;
   }
 }
 
@@ -123,7 +216,7 @@
   padding-bottom: 20px;
 }
 
-.confermation {
+.confirmation {
   margin-bottom: 20px;
   color: $our-blue;
 }

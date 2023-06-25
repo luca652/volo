@@ -3,24 +3,34 @@
   justify-content: space-between;
   align-items: center;
   background: $our-red;
-  padding-left: 8px;
-  padding-right: 8px;
   padding-top: 0;
   padding-bottom: 0;
+  height: 50px;
+  margin-left: 0px;
+
+  .avatar {
+    margin-right: 8px;
+    width: 35px;
+  }
+
+  h1{
+    display: flex;
+    align-items: center;
+    font-size: 45px;
+    color: white;
+    padding: 0px 0px;
+    margin: 0px;
+    margin-left: 0px;
+  }
 }
 
-
-.navbar-volo .navbar-collapse {
-  flex-grow: 0;
-}
-
-.navbar-volo .navbar-brand img {
+.navbar-brand > img {
   width: 40px;
+  padding-left: 8px;
 }
 
-.navbar-volo h1{
-  display: flex;
-  font-size: 45px;
-  color: white;
-  align-items: center;
-}
+
+// .navbar-volo img {
+//   width: 40px;
+//   padding-left: 8px;
+// }
