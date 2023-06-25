@@ -130,6 +130,23 @@
   text-decoration: none;
 }
 
+.tag-confirm-going {
+  color: $our-blue;
+  background-color: white;
+  border: 1px solid $our-blue;
+  font-size: small;
+  padding: 2px 8px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.top-corner-right {
+  position: absolute;
+  top: 12px;
+  right: 20px;
+}
+
 .group-page-description {
   margin-left: 10px;
   margin-right: 10px;
@@ -167,9 +184,14 @@
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 10px;
+  position: relative;
 
   a {
     text-decoration: none;
+  }
+
+  p {
+    margin-left: 6px;
   }
 }
 
@@ -194,7 +216,7 @@
   padding-bottom: 20px;
 }
 
-.confermation {
+.confirmation {
   margin-bottom: 20px;
   color: $our-blue;
 }
