@@ -4,24 +4,25 @@
   justify-content: space-between;
   align-items: center;
   height: 50px;
-  padding: 30px 30px;
   color: rgba(0,0,0,0.3);
 }
 
 .group-footer-links {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-gap: 16px;
-  justify-content: center;
-  width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 .group-footer-item {
   color: white;
-  text-decoration: none;
   margin-left: 8px;
+  text-decoration: none;
   font-size: 24px;
+  margin-left: 10px;
+  margin-right: 10px;
   padding: 0px 8px;
 }
+
 .group-footer-links a:hover {
   color: $our-blue;
 }
