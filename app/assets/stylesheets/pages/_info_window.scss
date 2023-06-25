@@ -3,10 +3,12 @@
   width: 100%;
   margin-bottom: 10px;
   object-fit: cover;
+  border-radius: 10px 10px 0px 0px;
 }
 
-.card-body h5 {
+.card-body h5 a {
   color: $our-blue;
+  text-decoration: none;
 }
 
 .card-body {
