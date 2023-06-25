@@ -15,7 +15,7 @@
     <% end %>
   </div>
 
-  <div class="message-form ">
+  <div class="message-form">
     <%= simple_form_for [@group, @chatroom, @message],
       html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex
       " } do |f|
