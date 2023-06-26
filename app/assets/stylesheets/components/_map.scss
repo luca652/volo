@@ -17,8 +17,24 @@
   }
 }
 
+.mapboxgl-ctrl-top-right {
+  margin-top: 50px;
+}
+
 .mapboxgl-ctrl-geocoder.mapboxgl-ctrl {
-  width: 390px;
+  margin-top: 90px;
+  width: 355px;
+  height: 45px;
+  padding-bottom: 8px;
   border-radius: 25px;
   box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.2);
+  .mapboxgl-ctrl-geocoder--input {
+    margin: -3px;
+    margin-left: 6px;
+  }
+  .mapboxgl-ctrl-geocoder--icon-search {
+    margin: -3px;
+    margin-left: 6px;
+  }
+
 }
