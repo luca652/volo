@@ -148,7 +148,7 @@ resource3 = Resource.create!(title: "Favole al telefono", category: "Stories",
                              figlia!", picture_url: "resources/rodari.png", user_id: user4.id)
 resource4 = Resource.create!(title: "Talia e la valigia della idee", category: "#",
                              comment: "Weekly Italian playgroup in London. I bambini lo adorano e ci vogliono andare
-                             tutte le settimane. Ve lo consiglio!", picture_url: "resources/talia.png", user_id: user2.id)
+                             tutte le settimane.", picture_url: "resources/talia.png", user_id: user2.id)
 resource5 = Resource.create!(title: "Il libro degli errori", category: "Stories",
                              comment: "Ciao! Ho letto tutto Gianni Rodari quando ero piccola e adesso li sto
                              comprando anche ai bambini. Poi sono piemontese...", picture_url: "resources/rodari2.png", user_id: user3.id)
