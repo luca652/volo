@@ -1,7 +1,7 @@
 <div class="questionaire-container" data-controller="oval">
   <div class="stories-title-icon">
     <h1>Story generator</h1>
-    <i class="fa-solid fa-robot" style="color: #0096ff;"></i>
+    <i class="fa-solid fa-robot"></i>
     <p>Ciao! Please answer my questions so I can generate an original story for you.</p>
   </div>
 
@@ -11,7 +11,7 @@
   <%= f.input :food, label: "What food do they love?" %>
   <%= f.input :setting, label: "Where is your story set?" %>
   <%= f.input :enemy, label: "Who is the baddie?" %>
-  <%= f.input :goal, label: "What does your protagonist fear?" %>
+  <%= f.input :goal, label: "What is your protagonist's goal?" %>
   <%= f.submit "Submit", class: "button-request-accept button-large", data: { action:"click->oval#loading" }%>
   <% end %>
 </div>

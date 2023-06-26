@@ -4,8 +4,11 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 <div class="container">
+  <div class="resources-header-title">
+    <h1>Resources</h1>
+  </div>
+
   <div class="filter-container">
-    <label for="category-filter">Filter by Category:</label>
     <select id="category-filter" class="form-control">
       <option value="">All Categories</option>
       <% @categories.each do |category| %>
@@ -13,7 +16,7 @@
       <% end %>
     </select>
     <button id="filter-button" class="btn btn-primary">Filter</button>
-    <button id="create-resource-button" class="btn btn-success ml-2">Create Resource</button> <!-- Added create resource button -->
+
   </div>
 
     <div class="Pins">
