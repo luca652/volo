@@ -6,11 +6,17 @@ export default class extends Controller {
 
   connect() {
     console.log("connected")
-    // this.displayTarget.classList.add(this.hideClass)
   }
 
   toggle(){
-  //  this.hideClass.classList.toggle("display-cards")
   this.displayTarget.classList.toggle(this.hideClass);
+
+  const button = this.element.querySelector(".button-request-less");
+
+    if (this.displayTarget.classList.contains(this.hideClass)) {
+      button.textContent = "more";
+    } else {
+      button.textContent = "less";
+    }
   }
 }
