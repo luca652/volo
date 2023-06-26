@@ -7,10 +7,10 @@
 
 <div class="stories-form">
   <%= simple_form_for [@prompt], html: { data: { oval_target: "container" }, class: "stories-form" } do |f| %>
-  <%= f.input :protagonist, label: "What's the name of your protagonist?" %>
+  <%= f.input :protagonist, label: "What's the protagonist's name?" %>
+  <%= f.input :food, label: "What food do they love?" %>
   <%= f.input :setting, label: "Where is your story set?" %>
   <%= f.input :enemy, label: "Who is the baddie?" %>
-  <%= f.input :food, label: "What food does your protagonist love?" %>
   <%= f.input :goal, label: "What does your protagonist fear?" %>
   <%= f.submit "Submit", class: "button-request-accept button-large", data: { action:"click->oval#loading" }%>
   <% end %>

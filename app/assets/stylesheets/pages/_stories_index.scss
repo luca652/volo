@@ -28,8 +28,16 @@
   align-items: center;
 
   .fa-robot {
-    margin-bottom: 8px;
+    padding-top: 4px;
+    padding-bottom: 8px;
   }
+
+  p {
+    border-bottom: 1px solid $our-grey;
+    padding-bottom: 8px;
+  }
+
+
 }
 
 .form-label {
