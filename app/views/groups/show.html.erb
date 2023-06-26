@@ -36,11 +36,11 @@
     </div>
   </div>
 
-  <div class = "group-page-item" id="droplist" data-controller="dropdown" data-dropdown-display-class="display">
+  <div class = "group-page-item" id="droplist" data-controller="dropdown" data-dropdown-hide-class="hide">
     <p class="group-headers"><strong>Upcoming events</strong> <button class="button-request-accept button-request-less" data-action="click->dropdown#toggle">less</button></p>
-      <div class= "event-droplist" data-dropdown-target="hide">
+      <div class= "event-droplist" data-dropdown-target="display">
         <% @events.each do |event| %>
-          <div class="event-info-card-body" class="drop_down_item" >
+          <div class="event-info-card-body drop_down_item" >
               <% @event = event %>
               <h4><strong><%= event.name%></strong></h4>
               <p><%= link_to event.group.name, group_path(event.group) %></p>

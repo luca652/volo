@@ -1,5 +1,5 @@
 .map-groups-container {
-  margin-top: 55px;
+  margin-top: 0px;
   position: relative;
 }
 
@@ -7,15 +7,19 @@
   color: transparent;
   border-radius: 10px;
   text-align: justify;
-  margin-top: 20px;
+  //margin-top to move the filter bar and the btn closer to the top of the page
+  margin-top: 455px;
   margin-right: 10px;
   position: absolute;
   top: 80px;
   left: 14px;
   #new_filter_form {
     display: inline-flex;
+
   }
-  #filter_form_children_age{
+  .form-select.select.optional{
+    // width is related to the filter bar
+    width: 275px;
     background-color: white;
     box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.2);
     border-radius: 20px;
