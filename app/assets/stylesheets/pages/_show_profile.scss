@@ -271,3 +271,24 @@ color: inherit;
   display: flex;
   align-items: center;
 }
+
+.laura-presentation {
+  margin-top: 85px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 70px;
+  padding: 40px 25px 25px;
+  height: 500px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  font-family: $body-font;
+  text-align: justify;
+  border-radius: 20px;
+  h1 {
+    color: $our-red;
+    text-align: center;
+  }
+  .strong {
+    color: $our-blue;
+  }
+}
