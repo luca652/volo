@@ -136,12 +136,14 @@
 
 
   <% else %>
-  <h1><%= @user.first_name  %></h1>
-  <p><%= "Ciao a tutti! Mi chiamo #{@user.first_name} e ho #{@user.number_of_children} bambini.
-          Mi sono trasferita da Pesaro due anni fa e sono alla ricerca di altri genitori di
-          bambini italiani per socializzare e parlare italiano. Abito vicino a Nunhead e sono
-          libera tutte le mattine durante la settimana." %></p>
-
+    <div class = "laura-presentation">
+      <h1><%= @user.first_name  %></h1>
+      <p><%= "Ciao a tutti! Mi chiamo #{@user.first_name}. Mi sono trasferita da Bari due anni fa con mio marito e mio figlio. Al momento
+      vivo a Honor Oak e sono alla ricerca di altre famiglie italiane per socializzare e aiutare mio figlio a non dimenticare l'italiano." %></p>
+      <p> No of children:<strong class ="strong"> 1</strong></p>
+      <p> Age: <strong class ="strong">4</strong> </p>
+      <p> Child interests: <strong class ="strong">books and trains.</strong> </p>
+    </div>
   <% end %>
 
 </div>
