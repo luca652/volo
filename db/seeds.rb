@@ -160,15 +160,15 @@ puts "#{Request.all.length} requests created."
 event1 = Event.create!(name: "Story-Time in Italiano", location: "Crofton Park Library, 375 Brockley Rd, London SE4 2AG",
                        category: "Reading", date: "2023-7-2, 10:00AM", user_id: user2.id, group_id: group1.id)
 event2 = Event.create!(name: "Filastrocche nel parco", location: "Canada Water Library, 21 Surrey Quays Rd, London SE16 7AR",
-                       category: "Activity", date: "2023-7-9, 4:00PM", user_id: user3.id, group_id: group1.id)
+                       category: "Music", date: "2023-7-9, 4:00PM", user_id: user3.id, group_id: group1.id)
 event3 = Event.create!(name: "Puppet teather", location: "95A Rye Ln, London SE15 4ST",
-                       category: "Activity", date: "2023-7-12, 12:00PM", user_id: user4.id, group_id: group1.id)
+                       category: "Stories", date: "2023-7-12, 12:00PM", user_id: user4.id, group_id: group1.id)
 event4 = Event.create!(name: "Time to sing!", location: "1 Coulgate St, London SE4 2RW",
                        category: "Music", date: "2023-8-15, 2:00PM", user_id: user4.id, group_id: group1.id)
 event5 = Event.create!(name: "Sunday Morning Playclub", location: "317 Brockley Rd, London SE4 2QZG",
-                       category: "", date: "2023-7-20, 9:00AM", user_id: user3.id, group_id: group1.id)
+                       category: "Games", date: "2023-7-20, 9:00AM", user_id: user3.id, group_id: group1.id)
 event6 = Event.create!(name: "Picnic nel parco", location: "Hilly Fields, 375 Brockley Rd, London SE4 2AG",
-                       category: "Activity", date: "2023-8-12, 4:30PM", user_id: user2.id, group_id: group1.id)
+                       category: "Food", date: "2023-8-12, 4:30PM", user_id: user2.id, group_id: group1.id)
 event7 = Event.create!(name: "Festa di Andrea", location: "95 Church Rd, London SE19 2TA",
                        category: "Party", date: "2023-6-24, 10:00AM", user_id: user4.id, group_id: group1.id)
 puts "#{Event.all.length} events created."
