@@ -6,17 +6,17 @@
     <%= link_to groups_path, class: "group-footer-item" do %>
      <i class="fa-solid fa-map-location-dot"></i>
     <% end %>
-    <%= link_to resources_path, class: "group-footer-item" do %>
-      <i class="fa-solid fa-folder"></i>
-    <% end %>
     <%= link_to user_path(current_user), class: "group-footer-item" do %>
       <i class="fa-solid fa-user"></i>
     <% end %>
-    <%= link_to stories_path, class: "group-footer-item" do %>
-      <i class="fa-solid fa-book"></i>
+    <%= link_to resources_path, class: "group-footer-item" do %>
+      <i class="fa-solid fa-folder"></i>
     <% end %>
     <%= link_to group_chatroom_path(@group.id), class: "group-footer-item" do %>
-     <i class="fa-regular fa-comment"></i>
+      <i class="fa-regular fa-comment"></i>
+    <% end %>
+    <%= link_to stories_path, class: "group-footer-item" do %>
+     <i class="fa-solid fa-robot"></i>
     <% end %>
   </div>
 </div>

@@ -1,8 +1,35 @@
+.container {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 60px;
+
+}
 .content {
-
-  text-align: center;
   margin: auto;
+}
 
+.resources-header-title {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    color: #808080;
+  }
+}
+
+.button-create-resource {
+  background-color: #eb1d36;
+  color: white;
+  font-size: 20px;
+  margin-left: 12px;
+  width: 30px;
+  height: 30px;
+  padding: 0px 9px;
+  border: 0px;
+  border-radius: 50%;
 }
 
 .card-product-infos p {
@@ -66,18 +93,13 @@
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
-/* Add some padding inside the card container */
-.container {
-  padding: 2px 16px;
-  padding-top: 120px;
-}
 
-.pin-button {
+.resources-pin-button {
   position: absolute;
   top: 0px;
-  right: 10px;
+  right: 0px;
   padding: 0px;
-  color:red;
+  color: $our-red;
 }
 
 .resource-link {
@@ -89,8 +111,9 @@
 .filter-container {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 20px;
+  gap: 0px;
+  margin-top: 8px;
+  margin-bottom: 0px;
 }
 
 .filter-container label {
@@ -98,17 +121,18 @@
 }
 
 .filter-container select {
-  padding: 8px;
+  padding: 8px 20px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 10px 0px 0px 10px;
+  color: #808080;
 }
 
 .filter-container button {
-  padding: 8px 15px;
-  background-color: #007bff;
+  padding: 7px 15px;
+  background-color: $our-blue;
   color: #fff;
   border: none;
-  border-radius: 4px;
+  border-radius: 0px 10px 10px 0px;
   cursor: pointer;
 }
 
@@ -129,7 +153,7 @@ h2 {
   font-size: 10px;
 }
 
-.profile-pin-card {
+.resources-pin-card {
   overflow: hidden;
   height: 120px;
   background: white;
@@ -138,22 +162,23 @@ h2 {
   align-items: center;
   border-radius: 10px;
   margin: 10px 10px;
+  position: relative;
 }
 
-.profile-pin-card img {
+.resources-pin-card img {
 height: 100%;
 width: 120px;
 object-fit: cover;
 }
 
-.profile-pin-card h2 {
+.resources-pin-card h2 {
 font-size: 16px;
 font-weight: bold;
 margin: 0;
 display:flex;
 }
 
-.profile-pin-card p {
+.resources-pin-card p {
 font-size: 12px;
 line-height: 1.4;
 opacity: .7;
@@ -161,21 +186,21 @@ margin-bottom: 5px;
 margin-top: 5px;
 }
 
-.profile-pin-card .profile-pin-infos {
+.resources-pin-card .resources-pin-infos {
 padding: 16px;
 }
 
-.profile-pins-category {
+.resources-pins-category {
 display: flex;
 justify-content: flex-end;
 }
 
-.profile-pins-category > button {
+.resources-pins-category > button {
 font-size: 10px;
 align-items: flex-end;
-color: $our-red;
+color: $our-blue;
 background-color: white;
-border: solid 1px $red;
+border: solid 1px $our-blue;
 margin-right: 5px;
 padding: 0px 6px;
 border-radius: 10px;
