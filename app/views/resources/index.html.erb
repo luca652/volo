@@ -3,9 +3,12 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<div class="container">
-  <div class="resources-header-title">
-    <h1>Resources</h1>
+<div class="show-profile-container">
+  <div class="resources-headers">
+    <h1 class="resources-header-title">Resources</h1>
+    <%= link_to "#" do %>
+      <i class="fa-solid fa-plus resources-new-button"></i>
+    <% end %>
   </div>
 
   <div class="filter-container">
