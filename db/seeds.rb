@@ -142,7 +142,7 @@ Chatroom.create!(group_id: group1.id)
 puts "chatroom created"
 
 # REQUESTS
-request1 = Request.create!(user_id: user1.id, group_id: group1.id, accepted: true)
+# request1 = Request.create!(user_id: user1.id, group_id: group1.id, accepted: true)
 request2 = Request.create!(user_id: user2.id, group_id: group1.id, accepted: true)
 request3 = Request.create!(user_id: user3.id, group_id: group1.id, accepted: true)
 request4 = Request.create!(user_id: user4.id, group_id: group1.id, accepted: true)
