@@ -170,7 +170,7 @@ event5 = Event.create!(name: "Sunday Morning Playclub", location: "317 Brockley 
 event6 = Event.create!(name: "Picnic nel parco", location: "Hilly Fields, 375 Brockley Rd, London SE4 2AG",
                        category: "Activity", date: "2023-8-12, 4:30PM", user_id: user2.id, group_id: group1.id)
 event7 = Event.create!(name: "Festa di Andrea", location: "95 Church Rd, London SE19 2TA",
-                       category: "Party", date: "2023-6-24, 10:00AM", user_id: user4.id, group_id: group1.id)
+                       category: "Party", date: "2023-7-24, 10:00AM", user_id: user4.id, group_id: group1.id)
 puts "#{Event.all.length} events created."
 
 # BOOKINGS FOR EVENTS
@@ -199,7 +199,7 @@ resource4 = Resource.create!(title: "Talia e la valigia della idee", category: "
                              tutte le settimane.", picture_url: "resources/talia.png", user_id: user2.id)
 resource5 = Resource.create!(title: "Il libro degli errori", category: "Stories",
                              comment: "Ciao! Ho letto tutto Gianni Rodari quando ero piccola e adesso li sto
-                             comprando anche ai bambini. Poi sono piemontese...", picture_url: "resources/rodari2.png", user_id: user3.id)
+                             comprando anche ai bambini.", picture_url: "resources/rodari2.png", user_id: user3.id)
 resource6 = Resource.create!(title: "Topolino", category: "Stories",
                              comment: "Ho regalato un abbonamento a mio figlio e gli piace un sacco.
                              Utilissimo per imparare parole nuove.", picture_url: "resources/topolino.png", user_id: user3.id)

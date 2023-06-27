@@ -15,11 +15,14 @@
   <div class= "group-members-container">
     <p class="group-headers"> <strong>Members</strong></p>
     <div>
+      <%= image_tag (@group.user.picture_url), class: "avatar avatar-member" %>
       <%@members.each do |member|%>
         <% next if member.picture_url.nil?  %>
         <%= image_tag (member.picture_url), class: "avatar avatar-member" %>
       <%end%>
+      
     </div>
+
   </div>
   <div class= "group-request-container">
   <p class="group-headers"> <strong>Requests</strong></p>
