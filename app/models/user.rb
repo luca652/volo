@@ -12,7 +12,7 @@ class User < ApplicationRecord
   has_many :bookings
   # has_many :events, through: :bookings
   has_many :messages
-  has_many :prompts
+  # has_many :prompts
   has_many :stories
   validates :first_name, :last_name, presence: true
 

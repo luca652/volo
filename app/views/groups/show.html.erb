@@ -20,18 +20,18 @@
         <% next if member.picture_url.nil?  %>
         <%= image_tag (member.picture_url), class: "avatar avatar-member" %>
       <%end%>
-      
+
     </div>
 
   </div>
-  <div class= "group-request-container">
+  <div class= "group-request-container" data-controller="group-requests">
   <p class="group-headers"> <strong>Requests</strong></p>
     <div class="group-request-item">
       <% @requests.each do |request| %>
       <% if request.accepted == false && request.declined == false %>
         <span><%= link_to request.user.first_name, user_path(request.user), id: "request-user" %> wants to join!</span>
         <div>
-          <%= link_to "Accept", group_request_accepted_path(@group.id, request.id, ), method: "patch", class: "button-request-accept"%>
+          <%= link_to "Accept", group_request_accepted_path(@group.id, request.id, ), method: "patch", class: "button-request-accept" data: { action: "click->group-requests#hideContainer", target: "group-requests.container" }%>
           <%= link_to "Decline", group_request_declined_path(@group.id, request.id), method: "patch", class: "button-request-decline" %>
         </div>
         <% end %>
