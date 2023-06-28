@@ -216,6 +216,10 @@ color: inherit;
 .profile-pins-category {
   display: flex;
   justify-content: flex-end;
+
+  .fa-map-pin {
+    margin-left: 4px;
+  }
 }
 
 .profile-pins-category > button {

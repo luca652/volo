@@ -18,8 +18,8 @@
       </select>
       <button id="filter-button" class="btn button-primary">Filter</button>
     </div>
-    <%= link_to "pin it!" do %>
-      <i class="fa-solid fa-plus resources-new-button"></i>
+    <%= link_to "#" do %>
+      <p class="resources-new-button">New</p>
     <% end %>
   </div>
 
@@ -31,7 +31,7 @@
               <h2><%= resource.title %></h2>
               <p class="resources-pin-text"><%= resource.comment %></p>
               <div class="resources-pins-category">
-                <button><%= resource.pins.length %> <i class="fa-solid fa-map-pin"></i></button>
+                <button class="pin-count"><%= resource.pins.length %><i class="fa-solid fa-map-pin"></i></button>
                 <button><%= resource.category %></button>
               </div>
             </div>
@@ -88,7 +88,7 @@
       var category = $('#category-filter').val();
       console.log('Filter by category: ' + category);
 
-      var cards = $('.card');
+      var cards = $('.resources-pin-card');
 
       for (var i = 0; i < cards.length; i++) {
         var card = $(cards[i]);
@@ -103,7 +103,7 @@
     });
 
     // Pin button click event handler
-    $(document).on('click', '.pin-button', function(e) {
+    $(document).on('click', '.resources-pin-button', function(e) {
       e.preventDefault();
       var pinButton = $(this);
       var resourceId = pinButton.data('resource-id');
@@ -125,12 +125,20 @@
             console.log(response);
 
             // Update the pin count for the corresponding resource card
-            var card = pinButton.closest('.card');
+            var card = pinButton.closest('.resources-pin-card');
             var pinCount = card.find('.pin-count');
             pinCount.text(response.pin_count);
 
+            pinCount.siblings('button').show();
+
             // Toggle the clicked class
             pinButton.toggleClass('clicked');
+
+            if (pinButton.hasClass('clicked')) {
+              pinButton.find('i').addClass('clicked');
+            } else {
+              pinButton.find('i').removeClass('clicked');
+            }
             // Disable the pin button
             pinButton.attr('disabled', true);
           }

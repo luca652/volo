@@ -21,25 +21,32 @@
   }
 }
 
+.resources-explainer {
+  font-size: 16px;
+  color: #808080;
+}
 .resources-header-title {
   align-items: center;
   margin-bottom: 0px;
 }
 .resources-filter-new {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+
+  a {
+    text-decoration: none;
+  }
 }
 
 .resources-new-button {
   background-color: $our-red;
   color: white;
-  font-size: small;
-  margin-right: 5px;
-  padding: 4px 4px;
+  font-size: 14px;
+  margin: 0 0 0 0;
+  padding: 4px 6px;
   border: 0px;
-  border-radius: 50%;
-  margin-top: 4px;
+  border-radius: 10px;
 }
 
 // .card-product-infos p {
@@ -132,11 +139,17 @@
   display: flex;
   align-items: center;
   gap: 0px;
-  margin-top: 8px;
+  margin-top: 0px;
   margin-bottom: 0px;
 
   .form-control {
-    width: 40%;
+    width: fit-content;
+    height: fit-content;
+    background-color: white;
+  }
+
+  .a {
+    text-decoration: none;
   }
 
 }
@@ -146,20 +159,21 @@
 // }
 
 .filter-container select {
-  padding: 8px 20px;
-  border: 1px solid #ccc;
+  padding: 2px 8px;
+  // border: 1px solid #ccc;
   border-radius: 10px 0px 0px 10px;
-  color: #808080;
+  color: #b2a2a2;
+  font-size: 14px;
 }
 
 .filter-container button {
-  padding: 3px 6px;
+  padding: 3px 8px;
   background-color: $our-red;
   color: #fff;
   border: none;
   border-radius: 0px 10px 10px 0px;
   cursor: pointer;
-  font-size: small;
+  font-size: 14px;
   font-family: $body-font;
 }
 
@@ -221,6 +235,10 @@ padding: 16px;
 .resources-pins-category {
 display: flex;
 justify-content: flex-end;
+
+  .fa-map-pin {
+    margin-left: 4px;
+  }
 }
 
 .resources-pins-category > button {
@@ -235,7 +253,6 @@ border-radius: 10px;
 }
 
 
-.pin-button.clicked {
-  background-color: white;
-  border: 1px solid $our-red;
+.clicked {
+  color: $our-blue;
 }
