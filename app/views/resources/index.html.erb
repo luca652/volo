@@ -5,8 +5,16 @@
 
 <div class="show-resources-container">
   <div class="resources-headers">
-    <h1 class="resources-header-title">Resources</h1>
-    <p>Bits of advice from the Volo community</p>
+    <div class="resources-h1-create">
+      <h1 class="resources-header-title">Resources</h1>
+        <%= link_to "#" do %>
+          <p class="resources-new-button">New</p>
+        <% end %>
+      </div>
+    <p>
+      Bits of advice from the Volo community! Browse our selection of recommentations and tips to get your kids speaking Italian!
+      <%= image_tag "resources/italy.png", class: "resources-italian-flag"%>
+    </p>
   </div>
 
   <div class="resources-filter-new">
@@ -19,9 +27,6 @@
       </select>
       <button id="filter-button" class="btn button-primary">Filter</button>
     </div>
-    <%= link_to "#" do %>
-      <p class="resources-new-button">New</p>
-    <% end %>
   </div>
 
     <div class="Pins">
