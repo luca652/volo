@@ -1,15 +1,16 @@
 .show-resources-container {
   color: $gray;
-  margin: 60px 20px 80px 20px;
+  margin: 70px 20px 80px 20px;
 }
 
 .resources-headers {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   width: 100%;
   padding: 0px 20px;
   align-items: center;
   justify-content: center;
+  margin-bottom: 20px;
 
   a {
     margin-left: 10px;
@@ -17,29 +18,49 @@
 
   h1 {
     font-size: 32px;
-    color: #808080;
+    background-color: #0096FF;
+    padding: 0px 8px;
+    color: white;
+    border-radius: 10px;
+    margin-bottom: 8px;
+  }
+
+  > p {
+    font-size: 12px;
+    color: #0096FF;
+    font-weight: bold;
+    background-color: white;
+    border-radius: 10px;
+    padding: 2px 8px;
   }
 }
 
+.resources-explainer {
+  font-size: 16px;
+  color: #808080;
+}
 .resources-header-title {
   align-items: center;
   margin-bottom: 0px;
 }
 .resources-filter-new {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+
+  a {
+    text-decoration: none;
+  }
 }
 
 .resources-new-button {
   background-color: $our-red;
   color: white;
-  font-size: small;
-  margin-right: 5px;
-  padding: 4px 4px;
+  font-size: 14px;
+  margin: 0 0 0 0;
+  padding: 4px 6px;
   border: 0px;
-  border-radius: 50%;
-  margin-top: 4px;
+  border-radius: 10px;
 }
 
 // .card-product-infos p {
@@ -132,11 +153,17 @@
   display: flex;
   align-items: center;
   gap: 0px;
-  margin-top: 8px;
+  margin-top: 0px;
   margin-bottom: 0px;
 
   .form-control {
-    width: 40%;
+    width: fit-content;
+    height: fit-content;
+    background-color: white;
+  }
+
+  .a {
+    text-decoration: none;
   }
 
 }
@@ -146,20 +173,21 @@
 // }
 
 .filter-container select {
-  padding: 8px 20px;
-  border: 1px solid #ccc;
+  padding: 2px 8px;
+  // border: 1px solid #ccc;
   border-radius: 10px 0px 0px 10px;
-  color: #808080;
+  color: #b2a2a2;
+  font-size: 14px;
 }
 
 .filter-container button {
-  padding: 3px 6px;
+  padding: 3px 8px;
   background-color: $our-red;
   color: #fff;
   border: none;
   border-radius: 0px 10px 10px 0px;
   cursor: pointer;
-  font-size: small;
+  font-size: 14px;
   font-family: $body-font;
 }
 
@@ -184,7 +212,7 @@
   overflow: hidden;
   height: 120px;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
   border-radius: 10px;
@@ -221,6 +249,10 @@ padding: 16px;
 .resources-pins-category {
 display: flex;
 justify-content: flex-end;
+
+  .fa-map-pin {
+    margin-left: 4px;
+  }
 }
 
 .resources-pins-category > button {
@@ -235,7 +267,6 @@ border-radius: 10px;
 }
 
 
-.pin-button.clicked {
-  background-color: white;
-  border: 1px solid $our-red;
+.clicked {
+  color: $our-blue;
 }

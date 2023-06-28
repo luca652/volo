@@ -1,11 +1,12 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<%# <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> %>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 <div class="show-resources-container">
   <div class="resources-headers">
     <h1 class="resources-header-title">Resources</h1>
+    <p>Bits of advice from the Volo community</p>
   </div>
 
   <div class="resources-filter-new">
@@ -19,7 +20,7 @@
       <button id="filter-button" class="btn button-primary">Filter</button>
     </div>
     <%= link_to "#" do %>
-      <i class="fa-solid fa-plus resources-new-button"></i>
+      <p class="resources-new-button">New</p>
     <% end %>
   </div>
 
@@ -31,12 +32,12 @@
               <h2><%= resource.title %></h2>
               <p class="resources-pin-text"><%= resource.comment %></p>
               <div class="resources-pins-category">
-                <button><%= resource.pins.length %> <i class="fas fa-thumbtack"></i></button>
+                <button class="pin-count"><%= resource.pins.length %><i class="fa-solid fa-map-pin"></i></button>
                 <button><%= resource.category %></button>
               </div>
             </div>
             <a href="#" class="resources-pin-button" data-resource-id="<%= resource.id %>">
-              <i class="fas fa-thumbtack"></i>
+             <i class="fa-solid fa-map-pin"></i>
             </a>
        </div>
       <% end %>
@@ -88,7 +89,7 @@
       var category = $('#category-filter').val();
       console.log('Filter by category: ' + category);
 
-      var cards = $('.card');
+      var cards = $('.resources-pin-card');
 
       for (var i = 0; i < cards.length; i++) {
         var card = $(cards[i]);
@@ -103,7 +104,7 @@
     });
 
     // Pin button click event handler
-    $(document).on('click', '.pin-button', function(e) {
+    $(document).on('click', '.resources-pin-button', function(e) {
       e.preventDefault();
       var pinButton = $(this);
       var resourceId = pinButton.data('resource-id');
@@ -125,11 +126,20 @@
             console.log(response);
 
             // Update the pin count for the corresponding resource card
-            var card = pinButton.closest('.card');
+            var card = pinButton.closest('.resources-pin-card');
             var pinCount = card.find('.pin-count');
             pinCount.text(response.pin_count);
 
+            pinCount.siblings('button').show();
+
             // Toggle the clicked class
+
+            if (pinButton.hasClass('clicked')) {
+              pinButton.find('i').addClass('clicked');
+            } else {
+              pinButton.find('i').removeClass('clicked');
+            }
+
             pinButton.toggleClass('clicked');
             // Disable the pin button
             pinButton.attr('disabled', true);
