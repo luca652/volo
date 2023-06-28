@@ -6,6 +6,7 @@
 <div class="show-resources-container">
   <div class="resources-headers">
     <h1 class="resources-header-title">Resources</h1>
+    <p>Bits of advice from the Volo community</p>
   </div>
 
   <div class="resources-filter-new">
@@ -132,13 +133,14 @@
             pinCount.siblings('button').show();
 
             // Toggle the clicked class
-            pinButton.toggleClass('clicked');
 
             if (pinButton.hasClass('clicked')) {
               pinButton.find('i').addClass('clicked');
             } else {
               pinButton.find('i').removeClass('clicked');
             }
+
+            pinButton.toggleClass('clicked');
             // Disable the pin button
             pinButton.attr('disabled', true);
           }

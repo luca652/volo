@@ -5,11 +5,12 @@
 
 .resources-headers {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   width: 100%;
   padding: 0px 20px;
   align-items: center;
   justify-content: center;
+  margin-bottom: 20px;
 
   a {
     margin-left: 10px;
@@ -17,7 +18,20 @@
 
   h1 {
     font-size: 32px;
-    color: #808080;
+    background-color: #0096FF;
+    padding: 0px 8px;
+    color: white;
+    border-radius: 10px;
+    margin-bottom: 8px;
+  }
+
+  > p {
+    font-size: 12px;
+    color: #0096FF;
+    font-weight: bold;
+    background-color: white;
+    border-radius: 10px;
+    padding: 2px 8px;
   }
 }
 
