@@ -174,7 +174,7 @@ event5 = Event.create!(name: "Sunday Morning Playclub", location: "317 Brockley 
 event6 = Event.create!(name: "Picnic nel parco", location: "Hilly Fields, 375 Brockley Rd, London SE4 2AG",
                        category: "Food", date: "2023-8-12, 4:30PM", user_id: user2.id, group_id: group1.id)
 event7 = Event.create!(name: "Festa di Andrea", location: "95 Church Rd, London SE19 2TA",
-                       category: "Party", date: "2023-6-24, 10:00AM", user_id: user4.id, group_id: group1.id)
+                       category: "Party", date: "2023-7-4, 10:00AM", user_id: user4.id, group_id: group1.id)
 puts "#{Event.all.length} events created."
 
 # BOOKINGS FOR EVENTS
