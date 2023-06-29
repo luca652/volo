@@ -147,13 +147,14 @@ request2 = Request.create!(user_id: user2.id, group_id: group1.id, accepted: tru
 request3 = Request.create!(user_id: user3.id, group_id: group1.id, accepted: true)
 request4 = Request.create!(user_id: user4.id, group_id: group1.id, accepted: true)
 request5 = Request.create!(user_id: user5.id, group_id: group1.id)
+request11 = Request.create!(user_id: user6.id, group_id: group1.id)
 
 request6 = Request.create!(user_id: user1.id, group_id: group3.id, accepted: true)
 
 request7 = Request.create!(user_id: user2.id, group_id: group4.id, accepted: true)
 request8 = Request.create!(user_id: user3.id, group_id: group4.id, accepted: true)
 request9 = Request.create!(user_id: user4.id, group_id: group4.id, accepted: true)
-request5 = Request.create!(user_id: user5.id, group_id: group4.id, accepted: true)
+request10 = Request.create!(user_id: user5.id, group_id: group4.id, accepted: true)
 puts "#{Request.all.length} requests created."
 
 # EVENTS

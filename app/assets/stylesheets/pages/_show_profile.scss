@@ -186,6 +186,7 @@ color: inherit;
     align-items: center;
     border-radius: 10px;
     margin: 10px 0px;
+    position: relative;
 }
 
 .profile-pin-card img {
@@ -231,6 +232,15 @@ color: inherit;
   margin-right: 5px;
   padding: 0px 6px;
   border-radius: 10px;
+}
+
+.profile-icon-pin {
+  position: absolute;
+  top: 8px;
+  right: 14px;
+  padding: 0px;
+  color: $our-blue;
+  font-size: 14px;
 }
 
 .profile-event-card {
@@ -281,18 +291,48 @@ color: inherit;
   margin-left: 20px;
   margin-right: 20px;
   margin-bottom: 70px;
-  padding: 40px 25px 25px;
-  height: 500px;
+  padding: 20px 25px 20px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   font-family: $body-font;
   text-align: justify;
   border-radius: 20px;
-  h1 {
-    color: $our-red;
-    text-align: center;
-  }
+
+
+
   .strong {
     color: $our-blue;
+  }
+
+  .profile-message {
+    border-top: 1px solid #c5bfbf;
+    border-bottom: 1px solid #c5bfbf;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  .profile-children-info {
+    margin-bottom: 0px;
+  }
+}
+
+.profile-otheruser-headers {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  padding: 0px 8px;
+
+  h1 {
+    font-size: 34px;
+    color: $our-red;
+    text-align: center;
+    margin-bottom: 0px;
+  }
+
+  .profile-otheruser-avatar {
+    width: 30px;
+    border-radius: 50%;
   }
 }

@@ -126,6 +126,7 @@
               <button><%= pin.resource.category %></button>
             </div>
           </div>
+          <i class="fa-solid fa-map-pin profile-icon-pin"></i>
         </div>
       <% end %>
     </div>
@@ -137,12 +138,15 @@
 
   <% else %>
     <div class = "laura-presentation">
-      <h1><%= @user.first_name  %></h1>
-      <p><%= "Ciao a tutti! Mi chiamo #{@user.first_name}. Mi sono trasferita da Bari due anni fa con mio marito e mio figlio. Al momento
+      <div class="profile-otheruser-headers">
+        <h1><%= @user.first_name  %></h1>
+        <span><%= image_tag @user.picture_url, class: "profile-otheruser-avatar" %></span>
+      </div>
+      <p class="profile-message"><%= "Ciao a tutti! Mi chiamo #{@user.first_name}. Mi sono trasferita da Bari due anni fa con mio marito e mio figlio. Al momento
       vivo a Honor Oak e sono alla ricerca di altre famiglie italiane per socializzare e aiutare mio figlio a non dimenticare l'italiano." %></p>
-      <p> No of children:<strong class ="strong"> 1</strong></p>
-      <p> Age: <strong class ="strong">4</strong> </p>
-      <p> Child interests: <strong class ="strong">books and trains.</strong> </p>
+      <p class="profile-children-info"> No of children:<strong class ="strong"> 1</strong></p>
+      <p class="profile-children-info"> Age: <strong class ="strong">4</strong> </p>
+      <p class="profile-children-info"> Child interests: <strong class ="strong">books and trains.</strong> </p>
     </div>
   <% end %>
 
