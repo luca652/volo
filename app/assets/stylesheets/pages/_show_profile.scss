@@ -186,6 +186,7 @@ color: inherit;
     align-items: center;
     border-radius: 10px;
     margin: 10px 0px;
+    position: relative;
 }
 
 .profile-pin-card img {
@@ -231,6 +232,15 @@ color: inherit;
   margin-right: 5px;
   padding: 0px 6px;
   border-radius: 10px;
+}
+
+.profile-icon-pin {
+  position: absolute;
+  top: 8px;
+  right: 14px;
+  padding: 0px;
+  color: $our-red;
+  font-size: 14px;
 }
 
 .profile-event-card {
