@@ -154,12 +154,6 @@
   font-size: 14px;
 }
 
-// .resource-link {
-//   display: block;
-//   margin-top: 10px;
-// }
-
-
 .filter-container {
   display: flex;
   align-items: center;
@@ -178,10 +172,6 @@
   }
 
 }
-
-// .filter-container label {
-//   font-weight: bold;
-// }
 
 .filter-container select {
   padding: 2px 8px;
@@ -202,22 +192,12 @@
   font-family: $body-font;
 }
 
-// .filter-container button:hover {
-//   background-color: #0056b3;
-// }
-
-// h2 {
-//   font-size: 24px; /* Adjust the desired font size for the title */
-//   line-height: 1.2; /* Adjust the desired line height for the title */
-//   white-space: nowrap;
-//   overflow: hidden;
-//   text-overflow: ellipsis;
-//   max-height: 3.6em;
-// }
-
-// .content p {
-//   font-size: 10px;
-// }
+.filter-container button:hover {
+  padding: 2px 8px;
+  background-color: white;
+  border: 1px solid $our-red;
+  color: $our-red;
+}
 
 .resources-pin-card {
   overflow: hidden;
