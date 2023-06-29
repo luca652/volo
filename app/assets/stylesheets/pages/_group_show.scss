@@ -106,9 +106,16 @@
 
   .group-request-item {
     display: flex;
+    flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
   }
+}
+
+.group-request-name-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .button-request-accept {
