@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'stories/show'
   devise_for :users
   get "users/:id", to: "users#show_profile", as: "user"
-  root to: "pages#home"
+  root to: "groups#index"
 
   resources :groups, only: [:index, :show] do
     resources :requests, only: [:create] do
