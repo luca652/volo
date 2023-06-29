@@ -291,7 +291,7 @@ color: inherit;
   margin-left: 20px;
   margin-right: 20px;
   margin-bottom: 70px;
-  padding: 25px 25px 25px;
+  padding: 20px 25px 20px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   font-family: $body-font;
@@ -318,16 +318,21 @@ color: inherit;
 
 .profile-otheruser-headers {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
+  margin-bottom: 8px;
+  padding: 0px 8px;
 
   h1 {
+    font-size: 34px;
     color: $our-red;
     text-align: center;
+    margin-bottom: 0px;
   }
 
   .profile-otheruser-avatar {
-    width: 40px;
+    width: 30px;
     border-radius: 50%;
   }
 }
