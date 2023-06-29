@@ -133,9 +133,7 @@
             // Update the pin count for the corresponding resource card
             var card = pinButton.closest('.resources-pin-card');
             var pinCount = card.find('.pin-count');
-            pinCount.text(response.pin_count);
-
-            // pinCount.siblings('fa-map-pin').show();
+            pinCount.html(response.pin_count + '<i class="fa-solid fa-map-pin"></i>');
 
             // Toggle the clicked class
 
