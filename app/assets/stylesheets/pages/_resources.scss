@@ -10,28 +10,45 @@
   padding: 0px 20px;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 8px;
 
   a {
-    margin-left: 10px;
+    margin-left: 8px;
+    text-decoration: none;
   }
 
   h1 {
     font-size: 32px;
-    background-color: #0096FF;
-    padding: 0px 8px;
-    color: white;
-    border-radius: 10px;
+    color: #0096FF;
     margin-bottom: 8px;
   }
 
   > p {
-    font-size: 12px;
-    color: #0096FF;
-    font-weight: bold;
-    background-color: white;
+    font-size: 14px;
+    color: #808080;
+    font-weight: normal;
+    width: 96%;
+    margin-bottom: 8px;
+  }
+}
+
+.resources-italian-flag {
+  width: 18px;
+  padding-bottom: 4px;
+}
+.resources-h1-create {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  .resources-new-button {
+    background-color: $our-red;
+    color: white;
+    font-size: 14px;
+    margin: 0 0 0 0;
+    padding: 4px 6px;
+    border: 0px;
     border-radius: 10px;
-    padding: 2px 8px;
   }
 }
 
@@ -43,6 +60,8 @@
   align-items: center;
   margin-bottom: 0px;
 }
+
+
 .resources-filter-new {
   display: flex;
   justify-content: center;
@@ -53,15 +72,7 @@
   }
 }
 
-.resources-new-button {
-  background-color: $our-red;
-  color: white;
-  font-size: 14px;
-  margin: 0 0 0 0;
-  padding: 4px 6px;
-  border: 0px;
-  border-radius: 10px;
-}
+
 
 // .card-product-infos p {
 //   margin-bottom: 4px;
@@ -143,12 +154,6 @@
   font-size: 14px;
 }
 
-// .resource-link {
-//   display: block;
-//   margin-top: 10px;
-// }
-
-
 .filter-container {
   display: flex;
   align-items: center;
@@ -167,10 +172,6 @@
   }
 
 }
-
-// .filter-container label {
-//   font-weight: bold;
-// }
 
 .filter-container select {
   padding: 2px 8px;
@@ -191,22 +192,12 @@
   font-family: $body-font;
 }
 
-// .filter-container button:hover {
-//   background-color: #0056b3;
-// }
-
-// h2 {
-//   font-size: 24px; /* Adjust the desired font size for the title */
-//   line-height: 1.2; /* Adjust the desired line height for the title */
-//   white-space: nowrap;
-//   overflow: hidden;
-//   text-overflow: ellipsis;
-//   max-height: 3.6em;
-// }
-
-// .content p {
-//   font-size: 10px;
-// }
+.filter-container button:hover {
+  padding: 2px 8px;
+  background-color: white;
+  border: 1px solid $our-red;
+  color: $our-red;
+}
 
 .resources-pin-card {
   overflow: hidden;
