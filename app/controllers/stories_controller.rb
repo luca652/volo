@@ -16,12 +16,11 @@ class StoriesController < ApplicationController
     @prompt.user = @user
     if @prompt.save
       @openai_client = OpenAI::Client.new
-      request = "Tell me a brief story in Italian. The protagonist is #{@prompt.protagonist},
-      and the story is set in #{@prompt.setting}. The protagonist wants to #{@prompt.goal}.
-      His mortal enemy is #{@prompt.enemy}, and his/her favorite food is #{@prompt.food}.
+      request = "Tell me a story of maximum 250 words in #{@prompt.language}. The protagonist is #{@prompt.protagonist},
+      and the story is set in #{@prompt.setting}. His mortal enemy is #{@prompt.enemy}, and his/her favorite food is #{@prompt.food}.
       Start with a title, something like 'Arturo e la foresta oscura'. Put a # at the end of the title."
       response = @openai_client.chat(parameters: { model: "gpt-3.5-turbo", messages: [{ role: "user", content: request }],
-                                                    temperature: 0.7 })
+                                                   temperature: 0.7 })
       generated_story = response.dig("choices", 0, "message", "content")
       @story = Story.create!(user_id: @user.id, title: generated_story.partition("#").first.strip,
                              content: generated_story.partition("#").last.strip)
@@ -38,6 +37,6 @@ class StoriesController < ApplicationController
   end
 
   def prompt_params
-    params.require(:prompt).permit(:protagonist, :goal, :weapon, :setting, :food, :enemy, :game_id)
+    params.require(:prompt).permit(:protagonist, :language, :weapon, :setting, :food, :enemy, :game_id)
   end
 end

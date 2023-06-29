@@ -1,42 +1,50 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<%# <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> %>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<div class="container">
-  <div class="resources-header-title">
-    <h1>Resources</h1>
+<div class="show-resources-container">
+  <div class="resources-headers">
+    <div class="resources-h1-create">
+      <h1 class="resources-header-title">Resources</h1>
+        <%= link_to "#" do %>
+          <p class="resources-new-button">New</p>
+        <% end %>
+      </div>
+    <p>
+      Bits of advice from the Volo community! Browse our selection of recommendations and tips to get your kids speaking Italian!
+      <%= image_tag "resources/italy.png", class: "resources-italian-flag"%>
+    </p>
   </div>
 
-  <div class="filter-container">
-    <select id="category-filter" class="form-control">
-      <option value="">All Categories</option>
-      <% @categories.each do |category| %>
-        <option value="<%= category %>"><%= category %></option>
-      <% end %>
-    </select>
-    <button id="filter-button" class="btn btn-primary">Filter</button>
-
+  <div class="resources-filter-new">
+    <div class="filter-container">
+      <select id="category-filter" class="form-control">
+        <option value="">Categories</option>
+        <% @categories.each do |category| %>
+          <option value="<%= category %>"><%= category %></option>
+        <% end %>
+      </select>
+      <button id="filter-button" class="btn button-primary">Filter</button>
+    </div>
   </div>
 
     <div class="Pins">
       <% @resources.each do |resource| %>
-        <div class="card" data-category="<%= resource.category %>">
-          <div class="card-product-infos">
-            <%= image_tag("#{resource.picture_url}",  class: "profile-pin-image") %>
-            <div class="content">
+        <div class="resources-pin-card" data-category="<%= resource.category %>">
+          <%= image_tag("#{resource.picture_url}",  class: "profile-pin-image") %>
+            <div class="resources-pin-infos">
               <h2><%= resource.title %></h2>
-              <p class="profile-pin-text"><%= resource.comment %></p>
-              <p class="profile-pins-category">
-                <button class="float-right"><small><span class="pin-count"><%= resource.pin_count %> <i class="fas fa-thumbtack"></i></span></small></button>
-                <button class="float-right"><%= resource.category %></button>
-              </p>
+              <p class="resources-pin-text"><%= resource.comment %></p>
+              <div class="resources-pins-category">
+                <button class="pin-count"><%= resource.pins.length %><i class="fa-solid fa-map-pin"></i></button>
+                <button><%= resource.category %></button>
+              </div>
             </div>
-          </div>
-          <a href="#" class="pin-button" data-resource-id="<%= resource.id %>">
-            <i class="fas fa-thumbtack"></i>
-          </a>
-        </div>
+            <a href="#" class="resources-pin-button" data-resource-id="<%= resource.id %>">
+             <i class="fa-solid fa-map-pin"></i>
+            </a>
+       </div>
       <% end %>
     </div>
 </div>
@@ -86,7 +94,7 @@
       var category = $('#category-filter').val();
       console.log('Filter by category: ' + category);
 
-      var cards = $('.card');
+      var cards = $('.resources-pin-card');
 
       for (var i = 0; i < cards.length; i++) {
         var card = $(cards[i]);
@@ -101,7 +109,7 @@
     });
 
     // Pin button click event handler
-    $(document).on('click', '.pin-button', function(e) {
+    $(document).on('click', '.resources-pin-button', function(e) {
       e.preventDefault();
       var pinButton = $(this);
       var resourceId = pinButton.data('resource-id');
@@ -123,11 +131,18 @@
             console.log(response);
 
             // Update the pin count for the corresponding resource card
-            var card = pinButton.closest('.card');
+            var card = pinButton.closest('.resources-pin-card');
             var pinCount = card.find('.pin-count');
-            pinCount.text(response.pin_count);
+            pinCount.html(response.pin_count + '<i class="fa-solid fa-map-pin"></i>');
 
             // Toggle the clicked class
+
+            if (pinButton.hasClass('clicked')) {
+              pinButton.find('i').addClass('clicked');
+            } else {
+              pinButton.find('i').removeClass('clicked');
+            }
+
             pinButton.toggleClass('clicked');
             // Disable the pin button
             pinButton.attr('disabled', true);

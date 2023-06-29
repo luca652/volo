@@ -34,9 +34,12 @@ user3 = User.create!(first_name: "Jess", last_name: "Ferretti", language: "Itali
 user4 = User.create!(first_name: "Luca", last_name: "Pastorelli", language: "Italian", number_of_children: 1,
                      childrens_age: "4 yrs", location: "10-14, Mercy Terrace, London SE13 7UX",
                      email: "mario@me.com", password: "123456", picture_url: "avatars/luca.png")
-user5 = User.create!(first_name: "Laura", last_name: "Martin", language: "English group_images/ Italian", number_of_children: 1,
-                      childrens_age: "4yrs", location: "10-14, Mercy Terrace, London SE13 7UX",
-                      email: "laura@me.com", password: "123456", picture_url: "avatars/sara.png")
+user5 = User.create!(first_name: "Laura", last_name: "Martin", language: "English / Italian", number_of_children: 1,
+                     childrens_age: "4yrs", location: "10-14, Mercy Terrace, London SE13 7UX",
+                     email: "laura@me.com", password: "123456", picture_url: "avatars/sara.png")
+user6 = User.create!(first_name: "Mario", last_name: "Lolli", language: "English / Italian", number_of_children: 1,
+                     childrens_age: "4yrs", location: "10-14, Mercy Terrace, London SE13 7UX",
+                     email: "luigi@me.com", password: "123456", picture_url: "avatars/luigi.png")
 
 # the email variable is used to create unique email addresses dynamycally - the value is incremented each time it loops
 childrens_age = ["newborn", "pre-school", "primary"]
@@ -147,30 +150,31 @@ request2 = Request.create!(user_id: user2.id, group_id: group1.id, accepted: tru
 request3 = Request.create!(user_id: user3.id, group_id: group1.id, accepted: true)
 request4 = Request.create!(user_id: user4.id, group_id: group1.id, accepted: true)
 request5 = Request.create!(user_id: user5.id, group_id: group1.id)
+request11 = Request.create!(user_id: user6.id, group_id: group1.id)
 
 request6 = Request.create!(user_id: user1.id, group_id: group3.id, accepted: true)
 
 request7 = Request.create!(user_id: user2.id, group_id: group4.id, accepted: true)
 request8 = Request.create!(user_id: user3.id, group_id: group4.id, accepted: true)
 request9 = Request.create!(user_id: user4.id, group_id: group4.id, accepted: true)
-request5 = Request.create!(user_id: user5.id, group_id: group4.id, accepted: true)
+request10 = Request.create!(user_id: user5.id, group_id: group4.id, accepted: true)
 puts "#{Request.all.length} requests created."
 
 # EVENTS
 event1 = Event.create!(name: "Story-Time in Italiano", location: "Crofton Park Library, 375 Brockley Rd, London SE4 2AG",
                        category: "Reading", date: "2023-7-2, 10:00AM", user_id: user2.id, group_id: group1.id)
 event2 = Event.create!(name: "Filastrocche nel parco", location: "Canada Water Library, 21 Surrey Quays Rd, London SE16 7AR",
-                       category: "Activity", date: "2023-7-9, 4:00PM", user_id: user3.id, group_id: group1.id)
+                       category: "Music", date: "2023-7-9, 4:00PM", user_id: user3.id, group_id: group1.id)
 event3 = Event.create!(name: "Puppet teather", location: "95A Rye Ln, London SE15 4ST",
-                       category: "Activity", date: "2023-7-12, 12:00PM", user_id: user4.id, group_id: group1.id)
+                       category: "Stories", date: "2023-7-12, 12:00PM", user_id: user4.id, group_id: group1.id)
 event4 = Event.create!(name: "Time to sing!", location: "1 Coulgate St, London SE4 2RW",
                        category: "Music", date: "2023-8-15, 2:00PM", user_id: user4.id, group_id: group1.id)
 event5 = Event.create!(name: "Sunday Morning Playclub", location: "317 Brockley Rd, London SE4 2QZG",
-                       category: "", date: "2023-7-20, 9:00AM", user_id: user3.id, group_id: group1.id)
+                       category: "Games", date: "2023-7-20, 9:00AM", user_id: user3.id, group_id: group1.id)
 event6 = Event.create!(name: "Picnic nel parco", location: "Hilly Fields, 375 Brockley Rd, London SE4 2AG",
-                       category: "Activity", date: "2023-8-12, 4:30PM", user_id: user2.id, group_id: group1.id)
+                       category: "Food", date: "2023-8-12, 4:30PM", user_id: user2.id, group_id: group1.id)
 event7 = Event.create!(name: "Festa di Andrea", location: "95 Church Rd, London SE19 2TA",
-                       category: "Party", date: "2023-7-24, 10:00AM", user_id: user4.id, group_id: group1.id)
+                       category: "Party", date: "2023-7-4, 10:00AM", user_id: user4.id, group_id: group1.id)
 puts "#{Event.all.length} events created."
 
 # BOOKINGS FOR EVENTS
@@ -188,27 +192,25 @@ resource1 = Resource.create!(title: "FABA - Music and stories", category: "Stori
                              comment: "Utilissimo! Each character sings songs or tells a story in Italian. My daughter loves it!",
                              picture_url: "resources/faba.png", user_id: user2.id)
 resource2 = Resource.create!(title: "Passeggino definitivo", category: "General",
-                             comment: "If you're planning to fly to Italy quite a bit, get this. It folds really small
-                             and you can take it on the plane",
+                             comment: "If you're planning to fly to Italy quite a bit, get this. It folds really really small!",
                              picture_url: "resources/pram.png", user_id: user3.id)
 resource3 = Resource.create!(title: "Favole al telefono", category: "Stories",
-                             comment: "Un classico. L'ho letto quando andavo alle elementari! Ora lo sto leggendo a mia
-                             figlia!", picture_url: "resources/rodari.png", user_id: user4.id)
+                             comment: "Un classico. L'ho letto quando andavo alle elementari! Ora lo sto leggendo a mia figlia!",
+                             picture_url: "resources/rodari.png", user_id: user4.id)
 resource4 = Resource.create!(title: "Talia e la valigia della idee", category: "#",
-                             comment: "Weekly Italian playgroup in London. I bambini lo adorano e ci vogliono andare
-                             tutte le settimane.", picture_url: "resources/talia.png", user_id: user2.id)
+                             comment: "Weekly Italian playgroup in London. I bambini lo adorano e ci vogliono andare sempre.",
+                             picture_url: "resources/talia.png", user_id: user2.id)
 resource5 = Resource.create!(title: "Il libro degli errori", category: "Stories",
-                             comment: "Ciao! Ho letto tutto Gianni Rodari quando ero piccola e adesso li sto
-                             comprando anche ai bambini.", picture_url: "resources/rodari2.png", user_id: user3.id)
+                             comment: "Ciao! Ho letto tutto Gianni Rodari quando ero piccola e adesso li sto leggo ai bambini.",
+                             picture_url: "resources/rodari2.png", user_id: user3.id)
 resource6 = Resource.create!(title: "Topolino", category: "Stories",
-                             comment: "Ho regalato un abbonamento a mio figlio e gli piace un sacco.
-                             Utilissimo per imparare parole nuove.", picture_url: "resources/topolino.png", user_id: user3.id)
+                             comment: "Ho regalato un abbonamento a mio figlio e gli piace un sacco. Utilissimo per parole nuove.",
+                             picture_url: "resources/topolino.png", user_id: user3.id)
 resource7 = Resource.create!(title: "Indagatore dell'incubo", category: "Stories",
-                             comment: "Non per bambini ma per ragazzi/ragazze. Io ce li avevo tutti! È ambientato a Londra,
-                             cosa che ai miei figli piace molto!", picture_url: "resources/dylandog.png", user_id: user4.id)
+                             comment: "Non per bambini ma per ragazzi/ragazze. Io ce li avevo tutti! È ambientato a Londra!",
+                             picture_url: "resources/dylandog.png", user_id: user4.id)
 resource8 = Resource.create!(title: "Mamma Dough Honor Oak", category: "Food",
-                             comment: "Went here for a birthday party recently. Big place, very welcoming for children.
-                             They do a bunny rabbit pizza with ears.",
+                             comment: "Went here for a birthday party recently. They do a bunny rabbit pizza with ears.",
                              picture_url: "resources/pizza.png", user_id: user4.id)
 puts "#{Resource.all.length} resources created."
 

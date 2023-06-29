@@ -5,17 +5,18 @@
     <%# <p>Ciao! Please answer my questions so I can generate an original story for you.</p> %>
   </div>
 
-  <div class="stories-form">
-    <%= simple_form_for [@prompt], html: { data: { oval_target: "container" }, class: "stories-form" } do |f| %>
-    <p>Ciao! Please answer my questions so I can generate an original story for you.</p>
-    <%= f.input :protagonist, label: "What's the protagonist's name?" %>
-    <%= f.input :food, label: "What food do they love?" %>
-    <%= f.input :setting, label: "Where is your story set?" %>
-    <%= f.input :enemy, label: "Who is the baddie?" %>
-    <%= f.input :goal, label: "What is your protagonist's goal?" %>
-    <%= f.submit "Submit", class: "button-request-accept button-large", data: { action:"click->oval#loading" }%>
-    <% end %>
-  </div>
+<div class="stories-form">
+  <%= simple_form_for [@prompt], html: { data: { oval_target: "container" }, class: "stories-form" } do |f| %>
+  <%= f.input :protagonist, label: "What's the protagonist's name?" %>
+  <%= f.input :food, label: "What food do they love?" %>
+  <%= f.input :setting, label: "Where is your story set?" %>
+  <%= f.input :enemy, label: "Who is the baddie?" %>
+  <%= f.input :language, label: "What language should I use?" %>
+<div class="submit-button-container">
+  <%= f.submit "Submit", class: "button-request-accept button-large", data: { action:"click->oval#loading" }%>
+</div>
+  <% end %>
+</div>
 
 
   <div id="oval-container" data-oval-target="spinner" class="hidden-content center-position spinner">

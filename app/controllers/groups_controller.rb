@@ -28,6 +28,7 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
+    @admin = @group.user
     @events = @group.events
     @booking = Booking.new
     @chatroom = @group.id

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_23_204844) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_27_181147) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -80,6 +80,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_23_204844) do
     t.datetime "updated_at", null: false
     t.index ["resource_id"], name: "index_pins_on_resource_id"
     t.index ["user_id"], name: "index_pins_on_user_id"
+  end
+
+  create_table "prompts", force: :cascade do |t|
+    t.string "protagonist"
+    t.string "weapon"
+    t.text "setting"
+    t.string "enemy"
+    t.string "food"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "language"
+    t.index ["user_id"], name: "index_prompts_on_user_id"
   end
 
   create_table "requests", force: :cascade do |t|
