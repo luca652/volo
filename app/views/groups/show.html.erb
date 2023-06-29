@@ -15,6 +15,7 @@
   <div class= "group-members-container">
     <p class="group-headers"> <strong>Members</strong></p>
     <div>
+      <%= image_tag @admin.picture_url, class: "avatar avatar-member avatar-admin" %>
       <%@members.each do |member|%>
         <% next if member.picture_url.nil?  %>
         <%= image_tag (member.picture_url), class: "avatar avatar-member" %>
