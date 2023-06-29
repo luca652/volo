@@ -1,5 +1,5 @@
 meta_product_name: "Volo"
 meta_title: "Volo - Get your kids to speak your lingua madre"
 meta_description: "Volo helps you find a community of bilingual family to help your children practice your mother tongue."
-meta_image: "logo.png" # should exist in `app/assets/images/`
+meta_image: "logo-fb.png" # should exist in `app/assets/images/`
 twitter_account: "@product_twitter_account"   # required for Twitter Cards
