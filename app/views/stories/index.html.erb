@@ -12,7 +12,9 @@
   <%= f.input :setting, label: "Where is your story set?" %>
   <%= f.input :enemy, label: "Who is the baddie?" %>
   <%= f.input :language, label: "What language should I use?" %>
+<div class="submit-button-container">
   <%= f.submit "Submit", class: "button-request-accept button-large", data: { action:"click->oval#loading" }%>
+</div>
   <% end %>
 </div>
 

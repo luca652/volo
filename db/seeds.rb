@@ -34,9 +34,12 @@ user3 = User.create!(first_name: "Jess", last_name: "Ferretti", language: "Itali
 user4 = User.create!(first_name: "Luca", last_name: "Pastorelli", language: "Italian", number_of_children: 1,
                      childrens_age: "4 yrs", location: "10-14, Mercy Terrace, London SE13 7UX",
                      email: "mario@me.com", password: "123456", picture_url: "avatars/luca.png")
-user5 = User.create!(first_name: "Laura", last_name: "Martin", language: "English group_images/ Italian", number_of_children: 1,
-                      childrens_age: "4yrs", location: "10-14, Mercy Terrace, London SE13 7UX",
-                      email: "laura@me.com", password: "123456", picture_url: "avatars/sara.png")
+user5 = User.create!(first_name: "Laura", last_name: "Martin", language: "English / Italian", number_of_children: 1,
+                     childrens_age: "4yrs", location: "10-14, Mercy Terrace, London SE13 7UX",
+                     email: "laura@me.com", password: "123456", picture_url: "avatars/sara.png")
+user6 = User.create!(first_name: "Mario", last_name: "Lolli", language: "English / Italian", number_of_children: 1,
+                     childrens_age: "4yrs", location: "10-14, Mercy Terrace, London SE13 7UX",
+                     email: "luigi@me.com", password: "123456", picture_url: "avatars/luigi.png")
 
 # the email variable is used to create unique email addresses dynamycally - the value is incremented each time it loops
 childrens_age = ["newborn", "pre-school", "primary"]
@@ -171,7 +174,7 @@ event5 = Event.create!(name: "Sunday Morning Playclub", location: "317 Brockley 
 event6 = Event.create!(name: "Picnic nel parco", location: "Hilly Fields, 375 Brockley Rd, London SE4 2AG",
                        category: "Food", date: "2023-8-12, 4:30PM", user_id: user2.id, group_id: group1.id)
 event7 = Event.create!(name: "Festa di Andrea", location: "95 Church Rd, London SE19 2TA",
-                       category: "Party", date: "2023-6-24, 10:00AM", user_id: user4.id, group_id: group1.id)
+                       category: "Party", date: "2023-7-4, 10:00AM", user_id: user4.id, group_id: group1.id)
 puts "#{Event.all.length} events created."
 
 # BOOKINGS FOR EVENTS
