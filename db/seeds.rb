@@ -220,7 +220,7 @@ puts "#{Resource.all.length} resources created."
 # user5's id by n every time we loop.
 Pin.create!(user_id: user1.id, resource_id: resource1.id)
 Pin.create!(user_id: user1.id, resource_id: resource3.id)
-Pin.create!(user_id: user1.id, resource_id: resource6.id)
+Pin.create!(user_id: user1.id, resource_id: resource5.id)
 
 n = 1
 99.times do
