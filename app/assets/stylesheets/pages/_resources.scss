@@ -24,6 +24,8 @@
   }
 
   > p {
+    display: block;
+    text-align: center;
     font-size: 14px;
     color: #808080;
     font-weight: normal;
@@ -174,7 +176,7 @@
 }
 
 .filter-container select {
-  padding: 2px 8px;
+  padding: 2px 20px;
   // border: 1px solid #ccc;
   border-radius: 10px 0px 0px 10px;
   color: #b2a2a2;
@@ -190,6 +192,7 @@
   cursor: pointer;
   font-size: 14px;
   font-family: $body-font;
+  maring-right: 0px;
 }
 
 .filter-container button:hover {
