@@ -191,9 +191,9 @@ puts "#{Booking.all.length} booking created."
 resource1 = Resource.create!(title: "FABA - Music and stories", category: "Stories",
                              comment: "Utilissimo! Each character sings songs or tells a story in Italian. My daughter loves it!",
                              picture_url: "resources/faba.png", user_id: user2.id)
-resource2 = Resource.create!(title: "Passeggino definitivo", category: "General",
-                             comment: "If you're planning to fly to Italy quite a bit, get this. It folds really really small!",
-                             picture_url: "resources/pram.png", user_id: user3.id)
+resource2 = Resource.create!(title: "Mamma Dough Honor Oak", category: "Food",
+                             comment: "Went here for a birthday party recently. They do a bunny rabbit pizza with ears.",
+                             picture_url: "resources/pizza.png", user_id: user4.id)
 resource3 = Resource.create!(title: "Favole al telefono", category: "Stories",
                              comment: "Un classico. L'ho letto quando andavo alle elementari! Ora lo sto leggendo a mia figlia!",
                              picture_url: "resources/rodari.png", user_id: user4.id)
@@ -209,9 +209,9 @@ resource6 = Resource.create!(title: "Topolino", category: "Stories",
 resource7 = Resource.create!(title: "Indagatore dell'incubo", category: "Stories",
                              comment: "Non per bambini ma per ragazzi/ragazze. Io ce li avevo tutti! È ambientato a Londra!",
                              picture_url: "resources/dylandog.png", user_id: user4.id)
-resource8 = Resource.create!(title: "Mamma Dough Honor Oak", category: "Food",
-                             comment: "Went here for a birthday party recently. They do a bunny rabbit pizza with ears.",
-                             picture_url: "resources/pizza.png", user_id: user4.id)
+resource8 = Resource.create!(title: "Passeggino definitivo", category: "General",
+                             comment: "If you're planning to fly to Italy quite a bit, get this. It folds really really small!",
+                             picture_url: "resources/pram.png", user_id: user3.id)
 puts "#{Resource.all.length} resources created."
 
 #PINS
