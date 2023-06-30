@@ -194,7 +194,7 @@ resource1 = Resource.create!(title: "FABA - Music and stories", category: "Stori
 resource2 = Resource.create!(title: "Favole al telefono", category: "Stories",
                              comment: "Un classico. L'ho letto quando andavo alle elementari! Ora lo sto leggendo a mia figlia!",
                              picture_url: "resources/rodari.png", user_id: user4.id)
-resource3 = Resource.create!(title: "Talia e la valigia della idee", category: "#",
+resource3 = Resource.create!(title: "Talia e la valigia della idee", category: "Songs",
                              comment: "Weekly Italian playgroup in London. I bambini lo adorano e ci vogliono andare sempre.",
                              picture_url: "resources/talia.png", user_id: user2.id)
 resource4 = Resource.create!(title: "Il libro degli errori", category: "Stories",
