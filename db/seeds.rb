@@ -191,24 +191,24 @@ puts "#{Booking.all.length} booking created."
 resource1 = Resource.create!(title: "FABA - Music and stories", category: "Stories",
                              comment: "Utilissimo! Each character sings songs or tells a story in Italian. My daughter loves it!",
                              picture_url: "resources/faba.png", user_id: user2.id)
-resource2 = Resource.create!(title: "Mamma Dough Honor Oak", category: "Food",
-                             comment: "Went here for a birthday party recently. They do a bunny rabbit pizza with ears.",
-                             picture_url: "resources/pizza.png", user_id: user4.id)
-resource3 = Resource.create!(title: "Favole al telefono", category: "Stories",
+resource2 = Resource.create!(title: "Favole al telefono", category: "Stories",
                              comment: "Un classico. L'ho letto quando andavo alle elementari! Ora lo sto leggendo a mia figlia!",
                              picture_url: "resources/rodari.png", user_id: user4.id)
-resource4 = Resource.create!(title: "Talia e la valigia della idee", category: "#",
+resource3 = Resource.create!(title: "Talia e la valigia della idee", category: "#",
                              comment: "Weekly Italian playgroup in London. I bambini lo adorano e ci vogliono andare sempre.",
                              picture_url: "resources/talia.png", user_id: user2.id)
-resource5 = Resource.create!(title: "Il libro degli errori", category: "Stories",
+resource4 = Resource.create!(title: "Il libro degli errori", category: "Stories",
                              comment: "Ciao! Ho letto tutto Gianni Rodari quando ero piccola e adesso li sto leggo ai bambini.",
                              picture_url: "resources/rodari2.png", user_id: user3.id)
-resource6 = Resource.create!(title: "Topolino", category: "Stories",
+resource5 = Resource.create!(title: "Topolino", category: "Stories",
                              comment: "Ho regalato un abbonamento a mio figlio e gli piace un sacco. Utilissimo per parole nuove.",
                              picture_url: "resources/topolino.png", user_id: user3.id)
-resource7 = Resource.create!(title: "Indagatore dell'incubo", category: "Stories",
+resource6 = Resource.create!(title: "Indagatore dell'incubo", category: "Stories",
                              comment: "Non per bambini ma per ragazzi/ragazze. Io ce li avevo tutti! È ambientato a Londra!",
                              picture_url: "resources/dylandog.png", user_id: user4.id)
+resource7 = Resource.create!(title: "Mamma Dough Honor Oak", category: "Food",
+                             comment: "Went here for a birthday party recently. They do a bunny rabbit pizza with ears.",
+                             picture_url: "resources/pizza.png", user_id: user4.id)
 resource8 = Resource.create!(title: "Passeggino definitivo", category: "General",
                              comment: "If you're planning to fly to Italy quite a bit, get this. It folds really really small!",
                              picture_url: "resources/pram.png", user_id: user3.id)
