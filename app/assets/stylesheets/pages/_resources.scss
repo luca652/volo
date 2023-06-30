@@ -20,15 +20,17 @@
   h1 {
     font-size: 32px;
     color: #0096FF;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
   }
 
   > p {
+    display: block;
+    text-align: center;
     font-size: 14px;
     color: #808080;
     font-weight: normal;
     width: 96%;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
   }
 }
 
@@ -46,7 +48,7 @@
     color: white;
     font-size: 14px;
     margin: 0 0 0 0;
-    padding: 4px 6px;
+    padding: 3px 8px;
     border: 0px;
     border-radius: 10px;
   }
@@ -174,7 +176,7 @@
 }
 
 .filter-container select {
-  padding: 2px 8px;
+  padding: 2px 20px;
   // border: 1px solid #ccc;
   border-radius: 10px 0px 0px 10px;
   color: #b2a2a2;
@@ -190,6 +192,7 @@
   cursor: pointer;
   font-size: 14px;
   font-family: $body-font;
+  margin-right: 0px;
 }
 
 .filter-container button:hover {

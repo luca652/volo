@@ -105,7 +105,7 @@
   background: white;
   transition: 0.3s;
   border-radius: 10px;
-  margin: 10px 10px;
+  margin: 10px 20px;
 
   h4 {
     font-size: 16px;
@@ -154,7 +154,7 @@
   font-size: 10px;
   font-weight: bold;
   position: absolute;
-  left: 258px;
+  left: 238px;
   top: -14px;
 }
 
@@ -281,7 +281,8 @@ color: inherit;
 }
 
 .profile-event-time-place p {
-  margin: 0;
+  margin: 0px;
+  margin-left: 2px;
   display: flex;
   align-items: center;
 }
@@ -307,8 +308,11 @@ color: inherit;
   .profile-message {
     border-top: 1px solid #c5bfbf;
     border-bottom: 1px solid #c5bfbf;
-    padding-top: 8px;
-    padding-bottom: 8px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 12px;
+    padding-left: 8px;
+    padding-right: 8px;
   }
 
   .profile-children-info {
@@ -334,5 +338,20 @@ color: inherit;
   .profile-otheruser-avatar {
     width: 30px;
     border-radius: 50%;
+  }
+}
+
+.profile-tags {
+  display: flex;
+  justify-content: space-around;
+
+  .profile-blue-tag {
+    font-size: 12px;
+    align-items: flex-end;
+    color: $our-blue;
+    border: solid 1px $our-blue;
+    padding: 0px 6px;
+    border-radius: 10px;
+    margin-bottom: 0px;
   }
 }
