@@ -10,6 +10,9 @@ application.register("chatroom-subscription", ChatroomSubscriptionController)
 import DropdownController from "./dropdown_controller"
 application.register("dropdown", DropdownController)
 
+import GroupRequestController from "./group_request_controller"
+application.register("group-request", GroupRequestController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
