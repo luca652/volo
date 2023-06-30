@@ -307,8 +307,11 @@ color: inherit;
   .profile-message {
     border-top: 1px solid #c5bfbf;
     border-bottom: 1px solid #c5bfbf;
-    padding-top: 8px;
-    padding-bottom: 8px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 12px;
+    padding-left: 8px;
+    padding-right: 8px;
   }
 
   .profile-children-info {
@@ -334,5 +337,20 @@ color: inherit;
   .profile-otheruser-avatar {
     width: 30px;
     border-radius: 50%;
+  }
+}
+
+.profile-tags {
+  display: flex;
+  justify-content: space-around;
+
+  .profile-blue-tag {
+    font-size: 12px;
+    align-items: flex-end;
+    color: $our-blue;
+    border: solid 1px $our-blue;
+    padding: 0px 6px;
+    border-radius: 10px;
+    margin-bottom: 0px;
   }
 }
