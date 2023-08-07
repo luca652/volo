@@ -17,6 +17,5 @@ Users can see resources posted by other users and pin them to the pins section o
 <img width="386" alt="Screenshot 2023-08-07 at 20 05 02" src="https://github.com/luca652/volo/assets/116643436/8fcbea97-fbb9-465e-bb3d-326d3508119d">
 
 
-In the kids' section, children can use the "Story Generator". 
-When they enter prompts for a story, the app creates and sends a request to the ChatGPT API, which sends back a story based on the prompts. 
+In the kids' section, children can use the "Story Generator". When they enter prompts for a story, the app creates and sends a request to the ChatGPT API, which sends back a title and a story based on the prompts entered. 
 <img width="383" alt="Screenshot 2023-08-07 at 20 05 33" src="https://github.com/luca652/volo/assets/116643436/34ddd9cb-33bc-4ace-80a7-3c7470b97daf">
