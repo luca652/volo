@@ -7,7 +7,7 @@ export default class extends Controller {
   connect() {  console.log("group-request connected")
   }
 
-  hideContainer(event) {
+  hideGroupRequestContainer(event) {
     event.preventDefault()
     this.containerTarget.classList.add("hidden")
   }
