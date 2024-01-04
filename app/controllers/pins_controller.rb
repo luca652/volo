@@ -29,4 +29,17 @@ class PinsController < ApplicationController
     @pin.destroy
     redirect_to pins_path, notice: 'Pin removed successfully!'
   end
+
+# trying to create a method that pins unpinned resrouces and unpins pinned ones.
+  def pin_unpin
+    @resource = Resource.find(params[:resource_id])
+
+    if current_user.has_pinned?(@resource)
+      @pin = current_user.pins.find_by(resource: @resource)
+      @pin.destroy
+    else
+      @pin = Pin.new(user_id: current_user, resource: @resource)
+      @pin.save
+    end
+  end
 end
