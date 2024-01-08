@@ -1,8 +1,4 @@
 
-<%# <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<%# <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> %>
-<%# <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> %>
-
 <div class="show-resources-container">
   <div class="resources-headers">
     <div class="resources-h1-create">
@@ -41,117 +37,11 @@
                 <button><%= resource.category %></button>
               </div>
             </div>
-            <a href="#" class="resources-pin-button" data-resource-id="<%= resource.id %>">
+
+            <%= link_to resource_pin_unpin_path(resource), method: :post do %>
              <i class="fa-solid fa-map-pin"></i>
-            </a>
+            <% end %>
        </div>
       <% end %>
     </div>
 </div>
-<%#
-<script>
-  $(document).ready(function() {
-    // Button click event handler for creating a new resource card
-    $(document).on('click', '#create-resource-button', function() {
-      var title = prompt('Enter resource title:');
-      var category = prompt('Enter resource category:');
-      var comment = prompt('Enter resource comment:');
-      var pictureUrl = prompt('Enter resource picture URL:');
-
-      // Perform validation on the input values (optional)
-      if (!title || !category || !comment || !pictureUrl) {
-        alert('Please fill in all fields.');
-        return;
-      }
-
-      var newResource = {
-        title: title,
-        category: category,
-        comment: comment,
-        picture_url: pictureUrl
-      };
-
-      var newCardHTML = `
-        <div class="card" data-category="${newResource.category}">
-          <div class="card-body">
-            <h5 class="card-title">${newResource.title}</h5>
-            <p class="card-text card-text-category">${newResource.category}</p>
-            <p class="card-text">${newResource.comment}</p>
-            <p class="card-text">${newResource.picture_url}</p>
-            <p>Pins: <span class="pin-count">0</span></p>
-            <a href="#" class="pin-button" data-resource-id="123">
-              <i class="fas fa-thumbtack"></i>
-            </a>
-          </div>
-        </div>
-      `;
-
-      $('.card-container').append(newCardHTML);
-    });
-
-    // Filter button click event handler
-    $(document).on('click', '#filter-button', function() {
-      var category = $('#category-filter').val();
-      console.log('Filter by category: ' + category);
-
-      var cards = $('.resources-pin-card');
-
-      for (var i = 0; i < cards.length; i++) {
-        var card = $(cards[i]);
-        var cardCategory = card.data('category');
-
-        if (category === '' || cardCategory === category) {
-          card.show();
-        } else {
-          card.hide();
-        }
-      }
-    });
-
-    // Pin button click event handler
-    $(document).on('click', '.resources-pin-button', function(e) {
-      e.preventDefault();
-      var pinButton = $(this);
-      var resourceId = pinButton.data('resource-id');
-
-      $.ajaxSetup({
-        headers: {
-          'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
-        }
-      });
-
-      $.ajax({
-        type: 'POST',
-        url: '/resources/' + resourceId + '/pins',
-        dataType: 'json',
-        success: function(response) {
-          if (response.error) {
-            alert(response.error);
-          } else {
-            console.log(response);
-
-            // Update the pin count for the corresponding resource card
-            var card = pinButton.closest('.resources-pin-card');
-            var pinCount = card.find('.pin-count');
-            pinCount.html(response.pin_count + '<i class="fa-solid fa-map-pin"></i>');
-
-            // Toggle the clicked class
-
-            if (pinButton.hasClass('clicked')) {
-              pinButton.find('i').addClass('clicked');
-            } else {
-              pinButton.find('i').removeClass('clicked');
-            }
-
-            pinButton.toggleClass('clicked');
-            // Disable the pin button
-            pinButton.attr('disabled', true);
-          }
-        },
-        error: function(xhr, status, error) {
-          console.log(xhr.responseText);
-        }
-      });
-    });
-  });
-</script> %>

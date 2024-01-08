@@ -4,21 +4,21 @@ class PinsController < ApplicationController
     @pins = current_user.pins.includes(:resource)
   end
 
-  def create
-    @resource = Resource.find(params[:resource_id])
+  # def create
+  #   @resource = Resource.find(params[:resource_id])
 
-    if current_user.has_pinned?(@resource)
-      render json: { error: 'Resource already pinned' }, status: :unprocessable_entity
-    else
-      pin = current_user.pins.build(resource: @resource)
+  #   if current_user.has_pinned?(@resource)
+  #     render json: { error: 'Resource already pinned' }, status: :unprocessable_entity
+  #   else
+  #     pin = current_user.pins.build(resource: @resource)
 
-      if pin.save
-        render json: { resource_id: @resource.id, pin_count: @resource.pin_count }, status: :created
-      else
-        render json: { error: pin.errors.full_messages }, status: :unprocessable_entity
-      end
-    end
-  end
+  #     if pin.save
+  #       render json: { resource_id: @resource.id, pin_count: @resource.pin_count }, status: :created
+  #     else
+  #       render json: { error: pin.errors.full_messages }, status: :unprocessable_entity
+  #     end
+  #   end
+  # end
 
 
 
@@ -38,7 +38,7 @@ class PinsController < ApplicationController
       @pin = current_user.pins.find_by(resource: @resource)
       @pin.destroy
     else
-      @pin = Pin.new(user_id: current_user, resource: @resource)
+      @pin = Pin.new(user: current_user, resource: @resource)
       @pin.save
     end
   end

@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   resources :resources, only: [:index, :show] do
     resources :pins, only: [:create]
+    post :pin_unpin, to: "pins#pin_unpin"
   end
   resources :pins, only: [:index, :destroy]
 
