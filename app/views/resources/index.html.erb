@@ -33,8 +33,7 @@
               <h2><%= resource.title %></h2>
               <p class="resources-pin-text"><%= resource.comment %></p>
               <div class="resources-pins-category">
-                <%= render "resources/pin_count", resource: resource %>
-                <%# <button class="pin-count"><%= resource.pin_count <i class="fa-solid fa-map-pin"></i></button> %>
+                <button class="pin-count"><%= resource.pin_count %> <i class="fa-solid fa-map-pin"></i></button>
                 <button><%= resource.category %></button>
               </div>
             </div>
