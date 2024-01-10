@@ -4,5 +4,7 @@
     <h1>New resource</h1>
   </div>
 
-  <%= render "form", resource: @resource %>
+  <%= turbo_frame_tag "second_frame" do %>
+    <%= render "form", resource: @resource %>
+  <% end %>
 </main>

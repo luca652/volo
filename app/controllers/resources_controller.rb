@@ -18,7 +18,7 @@ class ResourcesController < ApplicationController
     if @resource.save
       redirect_to resources_path, notice: "Resource was successfully created."
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
