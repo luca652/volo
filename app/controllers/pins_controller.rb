@@ -39,7 +39,11 @@ class PinsController < ApplicationController
       @pin.destroy
     else
       @pin = Pin.new(user: current_user, resource: @resource)
-      @pin.save
+      if @pin.save
+        render json: { resource_id: @resource.id, pin_count: @resource.pin_count }, status: :created
+      else
+        render json: { error: pin.errors.full_messages }, status: :unprocessable_entity
+      end
     end
   end
 end
