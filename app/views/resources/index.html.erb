@@ -25,23 +25,7 @@
     </div>
   </div>
 
-    <div class="Pins">
-      <% @resources.each do |resource| %>
-        <div class="resources-pin-card" data-category="<%= resource.category %>">
-          <%= image_tag("#{resource.picture_url}",  class: "profile-pin-image") %>
-            <div class="resources-pin-infos">
-              <h2><%= resource.title %></h2>
-              <p class="resources-pin-text"><%= resource.comment %></p>
-              <div class="resources-pins-category">
-                <button class="pin-count"><%= resource.pin_count %> <i class="fa-solid fa-map-pin"></i></button>
-                <button><%= resource.category %></button>
-              </div>
-            </div>
-
-            <%= link_to resource_pin_unpin_path(resource), class: "resources-pin-button", method: :post do %>
-             <i class="fa-solid fa-map-pin"></i>
-            <% end %>
-       </div>
-      <% end %>
+    <div class="Resources">
+      <%= render @resources %>
     </div>
 </div>
