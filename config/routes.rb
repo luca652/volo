@@ -19,7 +19,6 @@ Rails.application.routes.draw do
   resources :resources, only: [:index, :show] do
     post :pin_unpin, to: "pins#pin_unpin"
   end
-  resources :pins, only: [:index, :destroy]
 
   resources :stories, only: [:index]
   get "stories/:id", to: "stories#show_story", as: :story
