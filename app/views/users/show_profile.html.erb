@@ -31,52 +31,13 @@
     <div id="events-content" data-user-show-menu-target="eventsContent" class="tabcontent d-none">
       <ul class="profile-list">
         <li class="profile-item">
-          <% @my_events.each do |event| %>
-          <%= link_to group_path(event.group), class: 'profile-card-link' do %>
-            <div class="event-info-card-body profile-event-card" class="drop_down_item" >
-              <h4><strong><%= event.name%></strong></h4>
-                <p><%= link_to event.group.name, group_path(event.group) %></p>
-                <p> Organised by <%= link_to event.user.first_name, user_path(event.user) %><p>
-                <p><%= "#{pluralize(event.bookings.length, "person")} going!"%></p>
-                <div class="profile-event-time-place">
-                  <% difference = (event.date.to_date - Date.today).to_i %>
-                  <% if difference == 7 %>
-                    <p><strong>in a week!</strong></p>
-                  <% elsif difference < 7 && difference > 1 %>
-                    <p><strong><%= "In #{difference} days!"%></strong></p>
-                  <% elsif difference == 1 %>
-                    <p><strong>Tomorrow</strong></p>
-                  <% else %>
-                  <p><strong><%= event.date.strftime("%b %e, %l:%M %p") %></strong></p>
-                  <% end %>
-                  <p><%= link_to event.location.partition(",").first,
-                    "https://www.google.com/maps/search/?api=1&query=#{event.latitude}%2C#{event.longitude}"%>
-                    <i class="fa-sharp fa-solid fa-location-dot" style="color: #fd1015;"></i>
-                  </p>
-                </div>
-              <button class="profile-event-tag"><%= event.category %></button>
-            </div>
-            <% end %>
-          <% end %>
+          <%= render @events %>
         </li>
       </ul>
     </div>
 
     <div id="pins-content" data-user-show-menu-target="pinsContent" class="tabcontent d-none">
-      <% @my_pins.each do |pin| %>
-        <div class="profile-pin-card">
-          <%= image_tag pin.resource.picture_url, class: "profile-pin-image" %>
-          <div class="profile-pin-infos">
-            <h2><%= pin.resource.title %></h2>
-            <p class="profile-pin-text"><%= pin.resource.comment %></p>
-            <div class="profile-pins-category">
-              <button><%= pin.resource.pins.length %><i class="fa-solid fa-map-pin"></i></button>
-              <button><%= pin.resource.category %></button>
-            </div>
-          </div>
-          <i class="fa-solid fa-map-pin profile-icon-pin"></i>
-        </div>
-      <% end %>
+      <%= render @pins %>
     </div>
 
 

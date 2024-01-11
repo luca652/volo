@@ -1,0 +1,13 @@
+
+<div class="profile-pin-card">
+  <%= image_tag pin.resource.picture_url, class: "profile-pin-image" %>
+  <div class="profile-pin-infos">
+    <h2><%= pin.resource.title %></h2>
+    <p class="profile-pin-text"><%= pin.resource.comment %></p>
+    <div class="profile-pins-category">
+      <button><%= pin.resource.pins.length %><i class="fa-solid fa-map-pin"></i></button>
+      <button><%= pin.resource.category %></button>
+    </div>
+  </div>
+  <i class="fa-solid fa-map-pin profile-icon-pin"></i>
+</div>
