@@ -1,5 +1,5 @@
 
-<div class="show-profile-container" data-controller="user-show-menu">
+<div class="show-profile-container container justify-content-center" data-controller="user-show-menu">
 
   <% if @user == current_user  %>
   <div class="show-profile-headers">
@@ -9,75 +9,23 @@
     <% end %>
   </div>
     <!-- Tab links -->
-    <div class="profile-tab">
-      <button class="tablinks active" id="groups" data-user-show-menu-target="groupsButton" data-action="click->user-show-menu#activateMenu">My groups</button>
-      <button class="tablinks" id="events" data-user-show-menu-target="eventsButton" data-action="click->user-show-menu#activateMenu">My events</button>
-      <button class="tablinks" id="pins" data-user-show-menu-target="pinsButton" data-action="click->user-show-menu#activateMenu">My pins</button>
+    <div class="row justify-content-center">
+      <div class="col-sm-12 col-md-8 col-lg-8">
+        <div class="profile-tab">
+          <button class="tablinks active" id="groups" data-user-show-menu-target="groupsButton" data-action="click->user-show-menu#activateMenu">My groups</button>
+          <button class="tablinks" id="events" data-user-show-menu-target="eventsButton" data-action="click->user-show-menu#activateMenu">My events</button>
+          <button class="tablinks" id="pins" data-user-show-menu-target="pinsButton" data-action="click->user-show-menu#activateMenu">My pins</button>
+        </div>
+      </div>
     </div>
-
 
     <!-- Tab content -->
     <div id="groups-content" data-user-show-menu-target="groupsContent" class="tabcontent card-product">
       <ul class="profile-list">
         <li class="profile-item">
-          <% @groups_admin.each do |group| %>
-            <%= link_to group_path(group), class: 'profile-card-link' do %>
-              <div class="card-profile-group">
-                <%= image_tag group.picture_url, class: "profile-group-image" %>
-                <div class="profile-group-info">
-                  <div class="profile-group-name">
-                    <h4><%= group.name %></h4>
-                    <button class="profile-group-role">Admin</button>
-                  </div>
-                  <p><%= pluralize(group.users.length, 'member') %></p>
-                  <% requests = group.requests.where(accepted: false, declined: false)  %>
-                  <% unless requests.empty?  %>
-                  <%= link_to "#{pluralize(requests.length, 'request')} pending", group_path(group), class: "request-count" %>
-                  <% end %>
-                </div>
-              </div>
-            <% end %>
-          <% end %>
+          <%= render @groups %>
         </li>
       </ul>
-
-      <ul class="profile-list">
-        <li class="profile-item">
-          <% @groups_member.each do |group| %>
-            <%= link_to group_path(group), class: 'profile-card-link' do %>
-              <div class="card-profile-group">
-                <%= image_tag group.picture_url, class: "profile-group-image" %>
-                <div class="profile-group-info">
-                  <div class="profile-group-name">
-                    <h4><%= group.name %></h4>
-                  </div>
-                  <p><%= pluralize(group.users.length, 'member') %></p>
-                </div>
-              </div>
-            <% end %>
-          <% end %>
-        </li>
-      </ul>
-
-      <% unless @groups_pending.empty? %>
-        <ul class="profile-list">
-          <li class="profile-item">
-            <% @groups_pending.each do |group| %>
-              <%= link_to group_path(group), class: 'profile-card-link' do %>
-                <div class="card-profile-group">
-                <%= image_tag group.picture_url, class: "profile-group-image" %>
-                  <div class="profile-group-info">
-                    <div class="profile-group-name">
-                    <h4><%= group.name %></h4>
-                  </div>
-                    <p><%= pluralize(group.users.length, 'member') %></p>
-                  </div>
-                </div>
-              <% end %>
-            <% end %>
-          </li>
-        </ul>
-      <% end %>
     </div>
 
     <div id="events-content" data-user-show-menu-target="eventsContent" class="tabcontent d-none">

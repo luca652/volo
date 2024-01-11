@@ -24,5 +24,8 @@ class User < ApplicationRecord
     pins.exists?(resource: resource)
   end
 
+  def group_admin?(group)
+    self.id == group.user_id
+  end
 
 end
