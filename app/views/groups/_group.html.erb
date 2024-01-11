@@ -1,0 +1,11 @@
+<%= link_to group_path(group), class: 'profile-card-link' do %>
+  <div class="card-profile-group">
+    <%= image_tag group.picture_url, class: "profile-group-image" %>
+    <div class="profile-group-info">
+      <div class="profile-group-name">
+        <h4><%= group.name %></h4>
+      </div>
+      <p><%= pluralize(group.users.length, 'member') %></p>
+    </div>
+  </div>
+<% end %>
