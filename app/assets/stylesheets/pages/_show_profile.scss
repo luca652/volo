@@ -42,17 +42,6 @@
   }
 }
 
-// .header-bottom > button {
-//   background-color: $blue;
-//   border: 0px;
-//   color: white;
-//   font-size: small;
-//   padding: 3px 6px;
-//   border-radius: 10px;
-//   flex: 1;
-//   transition: 0.3s;
-// }
-
 .profile-tab {
   overflow: hidden;
   display: flex;
@@ -126,30 +115,17 @@
   }
 
   .profile-group-image {
-    height: 100px;
+    height: 150px;
     width: 100%;
     object-fit: cover;
   }
 
   .profile-group-info {
-    padding: 8px;
+    padding: 1rem;
     position: relative;
   }
 }
 
-// .profile-group-name-role {
-//     display: flex;
-//     justify-content: flex-start;
-
-//   }
-
-.profile-group-logo {
-  width: 20px;
-  position: absolute;
-  left: 10px;
-  top: -92px;
-  border-radius: 3px
-}
 
 .profile-group-role {
   background-color: $our-blue;
@@ -160,8 +136,8 @@
   font-size: 10px;
   font-weight: bold;
   position: absolute;
-  left: 238px;
-  top: -14px;
+  right: 3rem;
+  top: 0.8rem;
 }
 
 .profile-group-info .request-count {
