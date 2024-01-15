@@ -5,7 +5,7 @@
       <div class="resources-h1-create">
         <h1 class="resources-header-title">Resources</h1>
         <%= link_to new_resource_path, data: { turbo_frame: "second_frame" } do %>
-          <p class="resources-new-button">New</p>
+          <p class="button-primary">New</p>
         <% end %>
       </div>
     <% end %>
@@ -22,7 +22,7 @@
           <option value="<%= category %>"><%= category %></option>
         <% end %>
       </select>
-      <button id="filter-button" class="btn button-primary">Filter</button>
+      <button id="filter-button" class="button-primary">Filter</button>
     </div>
   </div>
 

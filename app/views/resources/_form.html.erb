@@ -1,15 +1,19 @@
-<%= simple_form_for resource, html: { class: "resource form" } do |f| %>
-  <% if resource.errors.any? %>
-    <div class="error-message">
-      <%= resource.errors.full_messages.to_sentence.capitalize %>
+<div class="container">
+  <%= simple_form_for resource, html: { class: "resource_form" } do |f| %>
+    <% if resource.errors.any? %>
+      <div class="error-message">
+        <%= resource.errors.full_messages.to_sentence.capitalize %>
+      </div>
+    <% end %>
+
+    <%= f.input :title, input_html: { autofocus: true } %>
+    <%= f.input :category %>
+    <%= f.input :comment %>
+    <%= f.input :picture_url %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+
+    <div style="text-align: center;">
+      <%= f.submit class: "btn button-primary" %>
     </div>
   <% end %>
-
-  <%= f.input :title, input_html: { autofocus: true } %>
-  <%= f.input :category %>
-  <%= f.input :comment %>
-  <%= f.input :picture_url %>
-  <%= f.hidden_field :user_id, value: current_user.id %>
-
-  <%= f.submit class: "btn btn-primary" %>
-<% end %>
+</div>
