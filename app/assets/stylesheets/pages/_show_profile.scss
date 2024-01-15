@@ -1,6 +1,6 @@
 .show-profile-container {
   color: $gray;
-  margin-top: 70px;
+  margin: 70px auto;
 }
 
 .show-profile-headers {
@@ -51,12 +51,6 @@
   margin-bottom: 20px;
 }
 
-@media (min-width:990px) {
-  .profile-tab {
-    width: 60%;
-  }
-}
-
 .profile-tab .tablinks {
   background-color: $our-red;
   color: white;
@@ -86,11 +80,17 @@
   border-top: none;
 }
 
-.profile-list {
-  padding: 0px 0px;
+.profile-card-container {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-gap: 24px;
+}
 
-  li {
-    list-style-type: none;
+@media (min-width: 769px) {
+  .profile-card-container {
+    grid-template-columns: repeat(2, 360px);
+    place-items: center;
   }
 }
 
@@ -101,6 +101,7 @@
   transition: 0.3s;
   border-radius: 10px;
   margin: 10px 20px;
+  width: 320px;
 
   h4 {
     font-size: 16px;
@@ -115,17 +116,24 @@
   }
 
   .profile-group-image {
-    height: 150px;
+    height: 120px;
     width: 100%;
     object-fit: cover;
   }
 
   .profile-group-info {
-    padding: 1rem;
+    padding: 8px;
     position: relative;
   }
 }
 
+.profile-group-logo {
+  width: 20px;
+  position: absolute;
+  left: 10px;
+  top: -92px;
+  border-radius: 3px
+}
 
 .profile-group-role {
   background-color: $our-blue;
@@ -136,8 +144,8 @@
   font-size: 10px;
   font-weight: bold;
   position: absolute;
-  right: 3rem;
-  top: 0.8rem;
+  left: 238px;
+  top: -14px;
 }
 
 .profile-group-info .request-count {

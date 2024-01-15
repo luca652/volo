@@ -1,23 +1,22 @@
 
-  <div class="col-sm-12 col-md-4 col-lg-4">
-    <%= link_to group_path(group), class: 'profile-card-link' do %>
-      <div class="card-profile-group">
-        <%= image_tag group.picture_url, class: "profile-group-image" %>
-        <div class="profile-group-info">
-          <div class="profile-group-name">
-            <h4><%= group.name %></h4>
-            <% if current_user.group_admin?(group) %>
-              <button class="profile-group-role">Admin</button>
-            <% end %>
-          </div>
-          <p><%= pluralize(group.users.length, 'member') %></p>
-          <% if current_user.group_admin?(group) %>
-            <% requests = group.requests.where(accepted: false, declined: false)  %>
-            <% unless requests.empty?  %>
-            <%= link_to "#{pluralize(requests.length, 'request')} pending", group_path(group), class: "request-count" %>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
+
+<div class="card-profile-group">
+  <%= link_to group_path(group), class: 'profile-card-link' do %>
+  <%= image_tag group.picture_url, class: "profile-group-image" %>
+  <div class="profile-group-info">
+    <div class="profile-group-name">
+      <h4><%= group.name %></h4>
+      <% if current_user.group_admin?(group) %>
+        <button class="profile-group-role">Admin</button>
+      <% end %>
+    </div>
+    <p><%= pluralize(group.users.length, 'member') %></p>
+    <% if current_user.group_admin?(group) %>
+      <% requests = group.requests.where(accepted: false, declined: false)  %>
+      <% unless requests.empty?  %>
+      <%= link_to "#{pluralize(requests.length, 'request')} pending", group_path(group), class: "request-count" %>
+      <% end %>
     <% end %>
   </div>
+  <% end %>
+</div>
