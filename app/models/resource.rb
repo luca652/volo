@@ -1,6 +1,6 @@
 class Resource < ApplicationRecord
+  belongs_to :user
   has_many :pins, dependent: :destroy
-  has_many :users, through: :pins
 
   validates :title, presence: true
 

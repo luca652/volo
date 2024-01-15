@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :groups
   has_many :requests
   has_many :resources
-  has_many :pins
+  has_many :pins, dependent: :destroy
   # has_many :pinned_resources, through: :pins, source: :resource
   has_many :events
   has_many :bookings

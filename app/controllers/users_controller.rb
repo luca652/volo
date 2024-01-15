@@ -27,7 +27,7 @@ class UsersController < ApplicationController
       @events.push(booking.event)
     end
 
-    # PINS
+    # PINS & RESOURCES
     @pins = Pin.where(user_id: @user.id)
     @resources = []
     @pins.each do |pin|
