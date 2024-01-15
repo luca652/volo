@@ -80,15 +80,16 @@
   border-top: none;
 }
 
-.profile-card-container {
+.profile-cards-container {
   display: grid;
   justify-content: center;
   align-items: center;
   grid-gap: 24px;
+  margin-top: 24px;
 }
 
 @media (min-width: 769px) {
-  .profile-card-container {
+  .profile-cards-container {
     grid-template-columns: repeat(2, 360px);
     place-items: center;
   }
@@ -100,7 +101,6 @@
   background: white;
   transition: 0.3s;
   border-radius: 10px;
-  margin: 10px 20px;
   width: 320px;
 
   h4 {

@@ -20,16 +20,12 @@
     </div>
 
     <!-- Tab content -->
-    <div id="groups-content" data-user-show-menu-target="groupsContent" class="tabcontent card-product profile-card-container">
+    <div id="groups-content" data-user-show-menu-target="groupsContent" class="tabcontent card-product profile-cards-container">
       <%= render @groups %>
     </div>
 
-    <div id="events-content" data-user-show-menu-target="eventsContent" class="tabcontent d-none">
-      <ul class="profile-list d-flex justify-content-center">
-        <li class="profile-item">
-          <%= render @events %>
-        </li>
-      </ul>
+    <div id="events-content" data-user-show-menu-target="eventsContent" class="tabcontent d-none profile-cards-container">
+      <%= render @events %>
     </div>
 
     <div id="pins-content" data-user-show-menu-target="pinsContent" class="tabcontent d-none">
