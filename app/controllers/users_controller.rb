@@ -29,5 +29,9 @@ class UsersController < ApplicationController
 
     # PINS
     @pins = Pin.where(user_id: @user.id)
+    @resources = []
+    @pins.each do |pin|
+      @resources << pin.resource
+    end
   end
 end

@@ -1,0 +1,66 @@
+.resources-pin-button {
+  position: absolute;
+  top: 8px;
+  right: 14px;
+  padding: 0px;
+  color: $our-red;
+  font-size: 14px;
+}
+
+.resources-pin-card {
+  overflow: hidden;
+  height: 120px;
+  width: 340px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  position: relative;
+}
+
+.resources-pin-card img {
+height: 100%;
+width: 120px;
+object-fit: cover;
+}
+
+.resources-pin-card h2 {
+font-size: 16px;
+font-weight: bold;
+margin: 0;
+display:flex;
+}
+
+.resources-pin-card p {
+font-size: 12px;
+line-height: 1.4;
+opacity: .7;
+margin-bottom: 5px;
+margin-top: 5px;
+font-family: $body-font;
+}
+
+.resources-pin-card .resources-pin-infos {
+padding: 16px;
+}
+
+.resources-pins-category {
+display: flex;
+justify-content: flex-end;
+
+  .fa-map-pin {
+    margin-left: 4px;
+  }
+}
+
+.resources-pins-category > button {
+font-size: 10px;
+align-items: flex-end;
+color: $our-blue;
+background-color: white;
+border: solid 1px $our-blue;
+margin-right: 5px;
+padding: 0px 6px;
+border-radius: 10px;
+}
