@@ -233,50 +233,6 @@ color: inherit;
   font-size: 14px;
 }
 
-.profile-event-card {
-  position: relative;
-
-    .profile-event-tag {
-    font-size: 10px;
-    align-items: flex-end;
-    color: $our-blue;
-    background-color: white;
-    border: solid 1px $our-blue;
-    margin-right: 5px;
-    padding: 0px 6px;
-    border-radius: 10px;
-    position: absolute;
-    right: 14px;
-    top: 16px;
-  }
-
-  p {
-    margin-left: 6px;
-  }
-}
-
-.profile-event-time-place {
-  display: flex;
-  justify-content: space-between;
-  padding-top: 8px;
-  border-top: 1px solid rgb(189, 189, 189);
-
-  i {
-    margin-left: 5px;
-  }
-
-  a {
-    color: $our-blue
-  }
-}
-
-.profile-event-time-place p {
-  margin: 0px;
-  margin-left: 2px;
-  display: flex;
-  align-items: center;
-}
-
 .laura-presentation {
   margin-top: 85px;
   margin-left: 20px;
