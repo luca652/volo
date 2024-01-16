@@ -2,7 +2,7 @@ class ResourcesController < ApplicationController
   before_action :set_resource, only: [:show, :destroy, :edit, :update]
 
   def index
-    @resources = Resource.all
+    @resources = Resource.order(created_at: :desc).all
     @categories = Resource.distinct.pluck(:category)
   end
 
