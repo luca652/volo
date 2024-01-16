@@ -1,3 +1,9 @@
-<div class="cards-container">
+<div class="card-container">
   <%= render @resource %>
+  <div class="resource-show-buttons">
+    <%= link_to "Edit Resource", edit_resource_path(@resource),
+        class: "button-secondary" %>
+    <%= link_to "Delete", resource_path(@resource),
+        data: { turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "button-primary" %>
+  </div>
 </div>

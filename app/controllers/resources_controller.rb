@@ -28,8 +28,8 @@ class ResourcesController < ApplicationController
   end
 
   def update
-    if @resource.update(venue_params)
-      redirect_to admin_path
+    if @resource.update(resource_params)
+      redirect_to resources_path
     else
       render :edit, status: :unprocessable_entity
     end
