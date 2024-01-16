@@ -28,4 +28,11 @@ class User < ApplicationRecord
     self.id == group.user_id
   end
 
+  def event_creator?(event)
+    self.id == event.user_id
+  end
+
+  def resource_creator?(resource)
+    self.id == resource.user_id
+  end
 end
