@@ -41,11 +41,14 @@
 
       <%= yield %>
 
-      <% if controller_name == "groups" && action_name == "show" %>
-        <%= render "shared/group_footer" %>
-      <% else %>
-        <%= render "shared/footer" %>
-      <% end %>
+      <div class="floating-button-bar">
+        <%= render "shared/footer_links" %>
+      </div>
+
+      <div class="footer fixed-bottom">
+        <%= render "shared/footer_links" %>
+      </div>
+
     </div>
   </body>
 </html>
