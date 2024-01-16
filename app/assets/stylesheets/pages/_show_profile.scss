@@ -80,7 +80,7 @@
   border-top: none;
 }
 
-.profile-cards-container {
+.cards-container {
   display: grid;
   justify-content: center;
   align-items: center;
@@ -88,7 +88,7 @@
 }
 
 @media (min-width: 769px) {
-  .profile-cards-container {
+  .cards-container {
     grid-template-columns: repeat(2, 340px);
     place-items: center;
     margin-top: 24px;

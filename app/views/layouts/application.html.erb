@@ -35,15 +35,17 @@
   </head>
 
   <body>
+    <div id="content-wrapper">
+      <%= render "shared/navbar" %>
+      <%= render "shared/flashes" %>
 
-    <%= render "shared/navbar" %>
-    <%= render "shared/flashes" %>
+      <%= yield %>
 
-    <%= yield %>
-    <% if controller_name == "groups" && action_name == "show" %>
-      <%= render "shared/group_footer" %>
-    <% else %>
-      <%= render "shared/footer" %>
-    <% end %>
+      <% if controller_name == "groups" && action_name == "show" %>
+        <%= render "shared/group_footer" %>
+      <% else %>
+        <%= render "shared/footer" %>
+      <% end %>
+    </div>
   </body>
 </html>
