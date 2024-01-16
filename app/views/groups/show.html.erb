@@ -43,10 +43,8 @@
 
   <div class = "group-page-item" id="droplist" data-controller="dropdown" data-dropdown-hide-class="hide">
     <p class="group-headers"><strong>Upcoming events</strong> <button class="button-request-accept button-request-less" data-action="click->dropdown#toggle">less</button></p>
-      <div class="container-sm">
-        <div class= "event-droplist" data-dropdown-target="display">
-          <%= render @events %>
-        </div>
+      <div class= "event-droplist cards-container" data-dropdown-target="display">
+        <%= render @events %>
       </div>
   </div>
 </div>
