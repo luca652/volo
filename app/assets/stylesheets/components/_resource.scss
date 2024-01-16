@@ -1,13 +1,5 @@
-.resources-pin-button {
-  position: absolute;
-  top: 8px;
-  right: 14px;
-  padding: 0px;
-  color: $our-red;
-  font-size: 14px;
-}
 
-.resources-pin-card {
+.resource-card {
   overflow: hidden;
   height: 120px;
   width: 340px;
@@ -19,20 +11,20 @@
   position: relative;
 }
 
-.resources-pin-card img {
+.resource-card img {
 height: 100%;
 width: 120px;
 object-fit: cover;
 }
 
-.resources-pin-card h2 {
+.resource-card h2 {
 font-size: 16px;
 font-weight: bold;
 margin: 0;
 display:flex;
 }
 
-.resources-pin-card p {
+.resource-card p {
 font-size: 12px;
 line-height: 1.4;
 opacity: .7;
@@ -41,11 +33,11 @@ margin-top: 5px;
 font-family: $body-font;
 }
 
-.resources-pin-card .resources-pin-infos {
+.resource-card .resource-info {
 padding: 16px;
 }
 
-.resources-pins-category {
+.resource-category {
 display: flex;
 justify-content: flex-end;
 
@@ -54,7 +46,7 @@ justify-content: flex-end;
   }
 }
 
-.resources-pins-category > button {
+.resource-category > button {
 font-size: 10px;
 align-items: flex-end;
 color: $our-blue;
@@ -63,4 +55,13 @@ border: solid 1px $our-blue;
 margin-right: 5px;
 padding: 0px 6px;
 border-radius: 10px;
+}
+
+.resource-pin-button {
+  position: absolute;
+  top: 8px;
+  right: 14px;
+  padding: 0px;
+  color: $our-red;
+  font-size: 14px;
 }
