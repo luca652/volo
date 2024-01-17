@@ -13,17 +13,19 @@
   #new_filter_form {
     display: flex;
     align-items: center;
-    margin-bottom: 0px !important;
   }
   .form-select.select.optional{
     // width is related to the filter bar
     width: 275px;
     background-color: white;
     border-radius: 20px;
-    margin-bottom: 0px !important;
   }
 
   .map-filter-label {
     display: none;
+  }
+
+  .filter_form_children_age {
+    margin-bottom: 0 !important;
   }
 }
