@@ -2,30 +2,3 @@
   margin-top: 0px;
   position: relative;
 }
-
-.filter-group-container{
-  color: transparent;
-  border-radius: 10px;
-  position: absolute;
-  top: 84%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  #new_filter_form {
-    display: flex;
-    align-items: center;
-  }
-  .form-select.select.optional{
-    // width is related to the filter bar
-    width: 275px;
-    background-color: white;
-    border-radius: 20px;
-  }
-
-  .map-filter-label {
-    display: none;
-  }
-
-  .filter_form_children_age {
-    margin-bottom: 0 !important;
-  }
-}

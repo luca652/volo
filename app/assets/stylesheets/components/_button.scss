@@ -37,10 +37,11 @@
 
 .btn-filter{
   display: inline-flex;
-  height: 37px;
+  height: 32px;
   padding-left: 15px;
   padding-right: 15px;
-  border-radius: 20px;
+  border-radius: 0 20px 20px 0;
+  // font-size: 16px;
 }
 
 .btn-apply {
