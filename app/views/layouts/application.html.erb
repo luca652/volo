@@ -41,13 +41,15 @@
 
       <%= yield %>
 
-      <div class="floating-button-bar">
-        <%= render "shared/footer_links" %>
-      </div>
+      <% if user_signed_in? %>
+        <div class="floating-button-bar">
+          <%= render "shared/footer_links" %>
+        </div>
 
-      <div class="footer fixed-bottom">
-        <%= render "shared/footer_links" %>
-      </div>
+        <div class="footer fixed-bottom">
+          <%= render "shared/footer_links" %>
+        </div>
+      <% end %>
 
     </div>
   </body>
