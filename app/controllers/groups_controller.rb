@@ -29,11 +29,14 @@ class GroupsController < ApplicationController
   def show
     @group = Group.find(params[:id])
     @admin = @group.user
+    # REQUESTS & MEMBERS
+    @requests = Request.where(group_id: @group.id)
+    @members = @group.users.joins(:requests).where(requests: { accepted: true }).uniq
+    # EVENTS AND EVENT BOOKINGS (RSVPs)
     @events = @group.events
     @booking = Booking.new
+
     @chatroom = @group.id
-    @members = @group.users.joins(:requests).where(requests: { accepted: true }).uniq
-    @requests = Request.where(group_id: @group.id)
   end
 
   private
