@@ -20,7 +20,9 @@
       </p>
     </div>
   <% if Booking.where(event: event, user: current_user).present? %>
-        <div class="tag-confirm-going top-corner-right"><strong>Going!</strong></div>
+    <%# <%= link_to bookings_destroy_path(group_id: @group, event_id: event), data: { turbo_method: :delete, turbo_confirm: "Are you sure?"} do %> %>
+      <div class="tag-confirm-going top-corner-right"><strong>Going!</strong></div>
+    <%# <% end %>
   <% else %>
   <%= simple_form_for [@group, event, @booking] do |f| %>
       <%= f.hidden_field :user_id, value: current_user.id %>

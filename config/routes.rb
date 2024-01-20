@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       resources :messages, only: [:create]
     end
   end
+  delete "events/:event_id/bookings/:id", to: "bookings#destroy", as: :bookings_destroy
 
   resources :resources do
     post :pin_unpin, to: "pins#pin_unpin"
