@@ -9,12 +9,13 @@ class BookingsController < ApplicationController
     end
   end
 
-  # def destroy
-  #   @group = Group.find(params[:id])
-  #   @event = Event.find(params[:event_id])
-  #   @booking = Booking.find_by(event: @event, user: current_user)
-  #   @booking.destroy
-  # end
+  def destroy
+    @group = Group.find(params[:id])
+    @event = Event.find(params[:event_id])
+    @booking = Booking.find_by(event: @event, user: current_user)
+    @booking.destroy
+    redirect_to group_path(@group)
+  end
 
   private
 
