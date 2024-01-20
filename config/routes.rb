@@ -10,7 +10,7 @@ Rails.application.routes.draw do
       patch :accepted
       patch :declined
     end
-    post "events/:event_id/bookings", to: "groups#create_booking", as: :event_bookings
+    post "events/:event_id/bookings", to: "bookings#create", as: :event_bookings
     resources :chatrooms, only: [:show] do
       resources :messages, only: [:create]
     end
