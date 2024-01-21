@@ -25,3 +25,9 @@
 .footer-links a:hover {
   color: $our-blue
 }
+
+@media (min-width: 768px) {
+  .footer {
+    display: none;
+  }
+}

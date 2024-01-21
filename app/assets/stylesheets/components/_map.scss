@@ -17,24 +17,76 @@
   }
 }
 
+
+
+// LOCATION SEARCH
 .mapboxgl-ctrl-top-right {
-  margin-top: 50px;
+  position: absolute;
+  top: 1% !important;
+  right: 50% !important;
+  transform: translate(50%, 50%);
+
+  .mapboxgl-ctrl {
+    margin: 0 0 !important;
+  }
 }
 
 .mapboxgl-ctrl-geocoder.mapboxgl-ctrl {
-  margin-top: 90px;
   width: 355px;
-  height: 45px;
-  padding-bottom: 8px;
-  border-radius: 25px;
-  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.2);
-  .mapboxgl-ctrl-geocoder--input {
-    margin: -3px;
-    margin-left: 6px;
-  }
+  height: 32px;
+  border-radius: 20px;
+  display: flex !important;
+  align-items: center !important;
+  padding-left: 10px;
+
+
   .mapboxgl-ctrl-geocoder--icon-search {
-    margin: -3px;
+    margin: 0;
     margin-left: 6px;
   }
 
+}
+
+// AGE FILTER
+.filter-group-container{
+  color: transparent;
+  border-radius: 10px;
+  position: absolute;
+  top: 9.5%;
+  left: 90%;
+  transform: translate(-50%, -50%);
+  #new_filter_form {
+    display: flex;
+    align-items: center;
+  }
+  .form-select.select.optional{
+    // width is related to the filter bar
+    width: 80px;
+    height: 32px;
+    background-color: white;
+    border-radius: 20px 0 0 20px;
+    margin: 0px !important;
+    font-size: small;
+  }
+
+  .map-filter-label {
+    display: none;
+  }
+
+  .filter_form_children_age {
+    margin-bottom: 0 !important;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .mapboxgl-ctrl-top-right {
+    position: absolute;
+    top: 0% !important;
+  }
+
+  .filter-group-container{
+    top: 88%;
+    left: 75%;
+  }
 }

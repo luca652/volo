@@ -1,0 +1,21 @@
+<div class="resource-card" data-category="<%= resource.category %>">
+  <%= image_tag("#{resource.picture_url}",  class: "profile-pin-image") %>
+  <div class="resource-info">
+    <% if current_user.resource_creator?(resource) %>
+      <h2><%= link_to resource.title, resource_path(resource), data: { turbo: false } %></h2>
+    <% else %>
+      <h2><%= resource.title %></h2>
+    <% end %>
+    <p><%= resource.comment %></p>
+    <div class="resource-category">
+      <button><%= resource.pin_count %> <i class="fa-solid fa-map-pin"></i></button>
+      <button><%= resource.category %></button>
+    </div>
+  </div>
+
+  <%= link_to resource_pin_unpin_path(resource),
+              class: "resource-pin-button",
+              method: :post do %>
+    <i class="fa-solid fa-map-pin"></i>
+  <% end %>
+</div>

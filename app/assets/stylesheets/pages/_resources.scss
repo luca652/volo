@@ -74,88 +74,6 @@
   }
 }
 
-
-
-// .card-product-infos p {
-//   margin-bottom: 4px;
-// }
-
-// .card-product-infos {
-//   display: flex;
-//   font-size: 8px;
-//   justify-content: space-between;
-//   padding-right: 0px;
-// }
-
-// .card-product {
-//   margin-top: 20px;
-//   margin-bottom: 20px;
-//   padding: 2px 16px;
-
-// }
-
-// .card-product img {
-//   height: 100%;
-//   width: 120px;
-//   object-fit: cover;
-// }
-
-// .card {
-//   /* Add shadows to create the "card" effect */
-//   overflow: hidden;
-//   height: 120px;
-//   background: white;
-//   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-//   display: flex;
-//   align-items: center;
-//   border-radius: 10px;
-//   margin: 10px 10px;
-// }
-
-// .card p {
-//   font-size: 12px;
-//   line-height: 1.4;
-//   opacity: .7;
-//   margin-bottom: 5px;
-//   margin-top: 5px;
-// }
-
-// .card h2 {
-//   font-size: 16px;
-//   font-weight: bold;
-//   margin: 0;
-//   display:flex;
-// }
-
-// .card img {
-//   height: 100%;
-//   width: 120px;
-//   object-fit: cover;
-// }
-// /* On mouse-over, add a deeper shadow */
-// .card:hover {
-//   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-// }
-
-// TRY THIS LATER!!
-
-.profile-list {
-  padding: 0px 0px;
-
-  li {
-    list-style-type: none;
-  }
-}
-
-.resources-pin-button {
-  position: absolute;
-  top: 8px;
-  right: 14px;
-  padding: 0px;
-  color: $our-red;
-  font-size: 14px;
-}
-
 .filter-container {
   display: flex;
   align-items: center;
@@ -177,7 +95,6 @@
 
 .filter-container select {
   padding: 2px 20px;
-  // border: 1px solid #ccc;
   border-radius: 10px 0px 0px 10px;
   color: #b2a2a2;
   font-size: 14px;
@@ -202,65 +119,19 @@
   color: $our-red;
 }
 
-.resources-pin-card {
-  overflow: hidden;
-  height: 120px;
-  background: white;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  display: flex;
+.resource-cards-container {
+  display: grid;
+  text-decoration: none;
+  justify-content: center;
   align-items: center;
-  border-radius: 10px;
-  margin: 10px 0px;
-  position: relative;
+  grid-gap: 24px;
+  margin-top: 24px;
 }
 
-.resources-pin-card img {
-height: 100%;
-width: 120px;
-object-fit: cover;
-}
-
-.resources-pin-card h2 {
-font-size: 16px;
-font-weight: bold;
-margin: 0;
-display:flex;
-}
-
-.resources-pin-card p {
-font-size: 12px;
-line-height: 1.4;
-opacity: .7;
-margin-bottom: 5px;
-margin-top: 5px;
-font-family: $body-font;
-}
-
-.resources-pin-card .resources-pin-infos {
-padding: 16px;
-}
-
-.resources-pins-category {
-display: flex;
-justify-content: flex-end;
-
-  .fa-map-pin {
-    margin-left: 4px;
+@media (min-width: 769px) {
+  .resource-cards-container {
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    place-items: center;
+    margin-top: 24px;
   }
-}
-
-.resources-pins-category > button {
-font-size: 10px;
-align-items: flex-end;
-color: $our-blue;
-background-color: white;
-border: solid 1px $our-blue;
-margin-right: 5px;
-padding: 0px 6px;
-border-radius: 10px;
-}
-
-
-.clicked {
-  color: $our-blue;
 }

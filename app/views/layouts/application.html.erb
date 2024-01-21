@@ -35,15 +35,22 @@
   </head>
 
   <body>
+    <div id="content-wrapper">
+      <%= render "shared/navbar" %>
+      <%= render "shared/flashes" %>
 
-    <%= render "shared/navbar" %>
-    <%= render "shared/flashes" %>
+      <%= yield %>
 
-    <%= yield %>
-    <% if action_name == "show" %>
-      <%= render "shared/group_footer" %>
-    <% else %>
-      <%= render "shared/footer" %>
-    <% end %>
+      <% if user_signed_in? %>
+        <div class="floating-button-bar">
+          <%= render "shared/footer_links" %>
+        </div>
+
+        <div class="footer fixed-bottom">
+          <%= render "shared/footer_links" %>
+        </div>
+      <% end %>
+
+    </div>
   </body>
 </html>

@@ -1,5 +1,5 @@
 .group-page-container {
-  margin-bottom: 80px;
+  margin-bottom: 100px;
   position: relative;
 }
 
@@ -183,50 +183,6 @@
 
 .display-cards {
   display: block;
-}
-
-.event-info-card-body {
-  align-items: center;
-  padding: 10px 20px;
-  margin-top: 20px;
-  margin-left: 20px;
-  margin-right: 20px;
-  margin-bottom: 20px;
-  display: block;
-  overflow: hidden;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  border-radius: 10px;
-  position: relative;
-
-  a {
-    text-decoration: none;
-  }
-
-  p {
-    margin-left: 6px;
-  }
-}
-
-.event-info-card-body h4 {
-  color: $our-red;
-}
-
-.event-info-card-body p {
-  color: $gray;
-  font-size: 12px;
-  font-family: $body-font;
-  line-height: 1;
-  opacity: .7;
-  margin-bottom: 8px;
-  margin-top: 8px;
-}
-
-.event-confermation-container {
-  margin-top: 15px;
-  margin-left: 200px;
-  margin-bottom: 20px;
-  padding-bottom: 20px;
 }
 
 .confirmation {

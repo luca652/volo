@@ -10,17 +10,16 @@ Rails.application.routes.draw do
       patch :accepted
       patch :declined
     end
-    post "events/:event_id/bookings", to: "groups#create_booking", as: :event_bookings
+    post "events/:event_id/bookings", to: "bookings#create", as: :event_bookings
     resources :chatrooms, only: [:show] do
       resources :messages, only: [:create]
     end
   end
+  delete "events/:event_id/bookings/:id", to: "bookings#destroy", as: :bookings_destroy
 
-  resources :resources, only: [:index, :show] do
-    resources :pins, only: [:create]
+  resources :resources do
     post :pin_unpin, to: "pins#pin_unpin"
   end
-  resources :pins, only: [:index, :destroy]
 
   resources :stories, only: [:index]
   get "stories/:id", to: "stories#show_story", as: :story
