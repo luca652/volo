@@ -17,6 +17,15 @@
   }
 }
 
+.mapboxgl-ctrl-geocoder--input {
+  font: inherit;
+  width: 100%;
+  border: 0;
+  padding: 0px 16px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
 
 
 // LOCATION SEARCH
@@ -33,12 +42,15 @@
 
 .mapboxgl-ctrl-geocoder.mapboxgl-ctrl {
   width: 355px;
-  height: 32px;
+  height: 36px;
   border-radius: 20px;
   display: flex !important;
   align-items: center !important;
   padding-left: 10px;
 
+  .mapboxgl-ctrl-geocoder--icon {
+    display: none;
+  }
 
   .mapboxgl-ctrl-geocoder--icon-search {
     margin: 0;
@@ -52,7 +64,7 @@
   color: transparent;
   border-radius: 10px;
   position: absolute;
-  top: 9.5%;
+  top: 10%;
   left: 90%;
   transform: translate(-50%, -50%);
   #new_filter_form {
@@ -62,7 +74,7 @@
   .form-select.select.optional{
     // width is related to the filter bar
     width: 80px;
-    height: 32px;
+    height: 36px;
     background-color: white;
     border-radius: 20px 0 0 20px;
     margin: 0px !important;
@@ -87,6 +99,6 @@
 
   .filter-group-container{
     top: 88%;
-    left: 75%;
+    left: 77.5%;
   }
 }
