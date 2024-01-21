@@ -35,6 +35,10 @@
   right: 50% !important;
   transform: translate(50%, 50%);
 
+  @include media(tabletAndUp) {
+    top: 0% !important;
+  }
+
   .mapboxgl-ctrl {
     margin: 0 0 !important;
   }
@@ -64,15 +68,21 @@
   color: transparent;
   border-radius: 10px;
   position: absolute;
-  top: 10%;
-  left: 90%;
+  top: 88%;
+  left: 77.5%;
   transform: translate(-50%, -50%);
+
+  @include media(tabletAndUp) {
+    top: 9%;
+    left: 90%;
+  }
+
   #new_filter_form {
     display: flex;
     align-items: center;
   }
+
   .form-select.select.optional{
-    // width is related to the filter bar
     width: 80px;
     height: 36px;
     background-color: white;
@@ -87,18 +97,5 @@
 
   .filter_form_children_age {
     margin-bottom: 0 !important;
-  }
-}
-
-
-@media (max-width: 768px) {
-  .mapboxgl-ctrl-top-right {
-    position: absolute;
-    top: 0% !important;
-  }
-
-  .filter-group-container{
-    top: 88%;
-    left: 77.5%;
   }
 }
