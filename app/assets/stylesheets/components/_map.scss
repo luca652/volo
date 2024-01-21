@@ -17,6 +17,11 @@
   }
 }
 
+.mapboxgl-ctrl-geocoder {
+  box-shadow: none;
+  border: 1px solid #dee2e6;
+}
+
 .mapboxgl-ctrl-geocoder--input {
   font: inherit;
   width: 100%;
@@ -68,13 +73,12 @@
   color: transparent;
   border-radius: 10px;
   position: absolute;
-  top: 88%;
-  left: 77.5%;
-  transform: translate(-50%, -50%);
+  bottom: 9%;
+  right: 3%;
 
   @include media(tabletAndUp) {
-    top: 9%;
-    left: 90%;
+    top: 7%;
+    right: 2%;
   }
 
   #new_filter_form {
