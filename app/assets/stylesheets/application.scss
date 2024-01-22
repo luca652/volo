@@ -8,6 +8,15 @@
 @import "font-awesome";
 @import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder";
 
+//  Your Mixins
+@import "mixins/media";
+
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+
+
+#content-wrapper {
+  margin-top: 45px;
+}

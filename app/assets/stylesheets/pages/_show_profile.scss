@@ -1,6 +1,6 @@
 .show-profile-container {
   color: $gray;
-  margin: 70px 20px 80px 20px;
+  margin: 70px auto;
 }
 
 .show-profile-headers {
@@ -42,17 +42,6 @@
   }
 }
 
-// .header-bottom > button {
-//   background-color: $blue;
-//   border: 0px;
-//   color: white;
-//   font-size: small;
-//   padding: 3px 6px;
-//   border-radius: 10px;
-//   flex: 1;
-//   transition: 0.3s;
-// }
-
 .profile-tab {
   overflow: hidden;
   display: flex;
@@ -91,11 +80,20 @@
   border-top: none;
 }
 
-.profile-list {
-  padding: 0px 0px;
+.cards-container {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-gap: 24px;
+}
 
-  li {
-    list-style-type: none;
+@media (min-width: 769px) {
+  .cards-container {
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    max-width: 769px; /* Maximum width for two columns */
+    margin: 0 auto; /* Center the container horizontally */
+    place-items: center;
+    margin-top: 24px;
   }
 }
 
@@ -105,7 +103,7 @@
   background: white;
   transition: 0.3s;
   border-radius: 10px;
-  margin: 10px 20px;
+  width: 320px;
 
   h4 {
     font-size: 16px;
@@ -120,7 +118,7 @@
   }
 
   .profile-group-image {
-    height: 100px;
+    height: 120px;
     width: 100%;
     object-fit: cover;
   }
@@ -130,12 +128,6 @@
     position: relative;
   }
 }
-
-// .profile-group-name-role {
-//     display: flex;
-//     justify-content: flex-start;
-
-//   }
 
 .profile-group-logo {
   width: 20px;
@@ -177,115 +169,6 @@ color: inherit;
   padding: 3px 6px;
 }
 
-.profile-pin-card {
-    overflow: hidden;
-    height: 120px;
-    background: white;
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    display: flex;
-    align-items: center;
-    border-radius: 10px;
-    margin: 10px 0px;
-    position: relative;
-}
-
-.profile-pin-card img {
-  height: 100%;
-  width: 120px;
-  object-fit: cover;
-}
-
-.profile-pin-card h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-  display:flex;
-}
-
-.profile-pin-card p {
-  font-size: 12px;
-  line-height: 1.4;
-  opacity: .7;
-  margin-bottom: 5px;
-  margin-top: 5px;
-}
-
-.profile-pin-card .profile-pin-infos {
-  padding: 10px 10px 8px 10px;
-}
-
-.profile-pins-category {
-  display: flex;
-  justify-content: flex-end;
-
-  .fa-map-pin {
-    margin-left: 4px;
-  }
-}
-
-.profile-pins-category > button {
-  font-size: 10px;
-  align-items: flex-end;
-  color: $our-blue;
-  background-color: white;
-  border: solid 1px $our-blue;
-  margin-right: 5px;
-  padding: 0px 6px;
-  border-radius: 10px;
-}
-
-.profile-icon-pin {
-  position: absolute;
-  top: 8px;
-  right: 14px;
-  padding: 0px;
-  color: $our-blue;
-  font-size: 14px;
-}
-
-.profile-event-card {
-  position: relative;
-
-    .profile-event-tag {
-    font-size: 10px;
-    align-items: flex-end;
-    color: $our-blue;
-    background-color: white;
-    border: solid 1px $our-blue;
-    margin-right: 5px;
-    padding: 0px 6px;
-    border-radius: 10px;
-    position: absolute;
-    right: 14px;
-    top: 16px;
-  }
-
-  p {
-    margin-left: 6px;
-  }
-}
-
-.profile-event-time-place {
-  display: flex;
-  justify-content: space-between;
-  padding-top: 8px;
-  border-top: 1px solid rgb(189, 189, 189);
-
-  i {
-    margin-left: 5px;
-  }
-
-  a {
-    color: $our-blue
-  }
-}
-
-.profile-event-time-place p {
-  margin: 0px;
-  margin-left: 2px;
-  display: flex;
-  align-items: center;
-}
 
 .laura-presentation {
   margin-top: 85px;

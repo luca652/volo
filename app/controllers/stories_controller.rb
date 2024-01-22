@@ -22,6 +22,7 @@ class StoriesController < ApplicationController
       response = @openai_client.chat(parameters: { model: "gpt-3.5-turbo", messages: [{ role: "user", content: request }],
                                                    temperature: 0.7 })
       generated_story = response.dig("choices", 0, "message", "content")
+
       @story = Story.create!(user_id: @user.id, title: generated_story.partition("#").first.strip,
                              content: generated_story.partition("#").last.strip)
       redirect_to story_path(@story)

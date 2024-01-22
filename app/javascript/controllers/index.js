@@ -25,8 +25,5 @@ application.register("map", MapController)
 import OvalController from "./oval_controller"
 application.register("oval", OvalController)
 
-import ResourcesController from "./resources_controller"
-application.register("resources", ResourcesController)
-
 import UserShowMenuController from "./user_show_menu_controller"
 application.register("user-show-menu", UserShowMenuController)

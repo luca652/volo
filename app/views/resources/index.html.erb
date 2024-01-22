@@ -1,15 +1,16 @@
 
 <div class="show-resources-container">
   <div class="resources-headers">
-    <div class="resources-h1-create">
-      <h1 class="resources-header-title">Resources</h1>
-        <%= link_to "#" do %>
-          <p class="resources-new-button">New</p>
+    <%= turbo_frame_tag "first_turbo_frame" do %>
+      <div class="resources-h1-create">
+        <h1 class="resources-header-title">Resources</h1>
+        <%= link_to new_resource_path, data: { turbo_frame: "second_frame" } do %>
+          <p class="button-primary">New</p>
         <% end %>
       </div>
+    <% end %>
     <p>
       Bits of advice from the Volo community! Browse our selection of recommendations and tips to get your kids speaking Italian!
-      <%# <%= image_tag "resources/italy.png", class: "resources-italian-flag"%>
     </p>
   </div>
 
@@ -21,27 +22,13 @@
           <option value="<%= category %>"><%= category %></option>
         <% end %>
       </select>
-      <button id="filter-button" class="btn button-primary">Filter</button>
+      <button id="filter-button" class="button-primary">Filter</button>
     </div>
   </div>
 
-    <div class="Pins">
-      <% @resources.each do |resource| %>
-        <div class="resources-pin-card" data-category="<%= resource.category %>">
-          <%= image_tag("#{resource.picture_url}",  class: "profile-pin-image") %>
-            <div class="resources-pin-infos">
-              <h2><%= resource.title %></h2>
-              <p class="resources-pin-text"><%= resource.comment %></p>
-              <div class="resources-pins-category">
-                <button class="pin-count"><%= resource.pins.length %><i class="fa-solid fa-map-pin"></i></button>
-                <button><%= resource.category %></button>
-              </div>
-            </div>
-
-            <%= link_to resource_pin_unpin_path(resource), method: :post do %>
-             <i class="fa-solid fa-map-pin"></i>
-            <% end %>
-       </div>
-      <% end %>
+  <%= turbo_frame_tag "second_frame" do %>
+    <div class="resources resource-cards-container">
+      <%= render @resources %>
     </div>
+  <% end %>
 </div>

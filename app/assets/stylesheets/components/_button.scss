@@ -2,9 +2,6 @@
   display: block;
   color: white;
   font-size: small;
-  margin-top: 15px;
-  margin-left: 20px;
-  margin-bottom: 20px;
   border-color: $our-red;
   background-color: $our-red;
   border-radius: 20px;
@@ -40,13 +37,12 @@
 
 .btn-filter{
   display: inline-flex;
-  height: 37px;
-  margin-top: 32px;
+  height: 36px;
   padding-left: 15px;
   padding-right: 15px;
-  margin-left: 8px;
-  border-radius: 20px;
-  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 0 20px 20px 0;
+  font-size: 13px;
+  font-weight: bold;
 }
 
 .btn-apply {
@@ -84,8 +80,8 @@
   background-color: $our-red;
   color: white;
   font-size: 14px;
-  margin-right: 5px;
-  padding: 3px 6px;
+  margin: 0 0 0 0;
+  padding: 3px 8px;
   border: 0px;
   border-radius: 10px;
   flex: 1;

@@ -1,0 +1,23 @@
+
+<div class="group-footer-links">
+  <%= link_to :back, class: "footer-item"  do %>
+    <i class="fa-solid fa-chevron-left"></i>
+  <% end %>
+  <%= link_to groups_path, class: "group-footer-item" do %>
+    <i class="fa-solid fa-map-location-dot"></i>
+  <% end %>
+  <%= link_to user_path(current_user), class: "group-footer-item" do %>
+    <i class="fa-solid fa-user"></i>
+  <% end %>
+  <%= link_to resources_path, class: "group-footer-item" do %>
+    <i class="fa-solid fa-folder"></i>
+  <% end %>
+  <% if controller_name == "groups" && action_name == "show" %>
+    <%= link_to group_chatroom_path(@group.id), class: "group-footer-item" do %>
+      <i class="fa-regular fa-comment"></i>
+    <% end %>
+  <% end %>
+  <%= link_to stories_path, class: "group-footer-item" do %>
+    <i class="fa-solid fa-robot"></i>
+  <% end %>
+</div>

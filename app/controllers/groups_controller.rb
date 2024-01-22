@@ -5,7 +5,6 @@ class FilterForm
 
   def apply_filters(groups)
     groups = groups.where(children_age: children_age) if children_age.present?
-    # groups = groups.filter { |group| group.childrens_age.include?(childrens_age) }
     groups
   end
 end
@@ -29,20 +28,14 @@ class GroupsController < ApplicationController
   def show
     @group = Group.find(params[:id])
     @admin = @group.user
+    # REQUESTS & MEMBERS
+    @requests = Request.where(group_id: @group.id)
+    @members = @group.users.joins(:requests).where(requests: { accepted: true }).uniq
+    # EVENTS AND EVENT BOOKINGS (RSVPs)
     @events = @group.events
     @booking = Booking.new
-    @chatroom = @group.id
-    @members = @group.users.joins(:requests).where(requests: { accepted: true }).uniq
-    @requests = Request.where(group_id: @group.id)
-  end
 
-  def create_booking
-    @group = Group.find(params[:group_id])
-    @event = Event.find(params[:event_id])
-    @booking = Booking.new(booking_params)
-    if @booking.save
-      redirect_to group_path(@group)
-    end
+    @chatroom = @group.id
   end
 
   private
@@ -51,7 +44,4 @@ class GroupsController < ApplicationController
     params.permit(filter_form: [:children_age])[:filter_form]
   end
 
-  def booking_params
-    params.require(:booking).permit(:user_id, :event_id)
-  end
 end

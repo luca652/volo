@@ -1,0 +1,13 @@
+.card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.resource-show-buttons {
+  margin-top: 12px;
+
+  a {
+    text-decoration: none;
+  }
+}

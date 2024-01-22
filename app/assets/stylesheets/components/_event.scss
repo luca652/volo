@@ -1,0 +1,86 @@
+
+.event-info-card-body {
+  width: 320px;
+  align-items: center;
+  padding: 10px 20px;
+  display: block;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  position: relative;
+
+  a {
+    text-decoration: none;
+  }
+
+  p {
+    margin-left: 6px;
+  }
+}
+
+.event-info-card-body h4 {
+  color: $our-red;
+}
+
+.event-info-card-body p {
+  color: $gray;
+  font-size: 12px;
+  font-family: $body-font;
+  line-height: 1;
+  opacity: .7;
+  margin-bottom: 8px;
+  margin-top: 8px;
+}
+
+.event-confermation-container {
+  margin-top: 15px;
+  margin-left: 200px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+
+
+.profile-event-card {
+  position: relative;
+
+    .profile-event-tag {
+    font-size: 10px;
+    align-items: flex-end;
+    color: $our-blue;
+    background-color: white;
+    border: solid 1px $our-blue;
+    margin-right: 5px;
+    padding: 0px 6px;
+    border-radius: 10px;
+    position: absolute;
+    right: 14px;
+    top: 16px;
+  }
+
+  p {
+    margin-left: 6px;
+  }
+}
+
+.profile-event-time-place {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 8px;
+  border-top: 1px solid rgb(189, 189, 189);
+
+  i {
+    margin-left: 5px;
+  }
+
+  a {
+    color: $our-blue
+  }
+}
+
+.profile-event-time-place p {
+  margin: 0px;
+  margin-left: 2px;
+  display: flex;
+  align-items: center;
+}
