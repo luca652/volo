@@ -5,7 +5,6 @@ class FilterForm
 
   def apply_filters(groups)
     groups = groups.where(children_age: children_age) if children_age.present?
-    # groups = groups.filter { |group| group.childrens_age.include?(childrens_age) }
     groups
   end
 end
