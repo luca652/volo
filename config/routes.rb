@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get "users/:id", to: "users#show_profile", as: "user"
   root to: "groups#index"
 
-  resources :groups, only: [:index, :show] do
+  resources :groups, only: [:index, :show, :create, :new] do
     resources :requests, only: [:create] do
       patch :accepted
       patch :declined
