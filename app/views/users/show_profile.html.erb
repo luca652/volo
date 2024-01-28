@@ -9,40 +9,42 @@
     <% end %>
   </div>
     <!-- Tab links -->
-    <div class="row justify-content-center">
-      <div class="col-sm-12 col-md-8 col-lg-8">
-        <div class="profile-tab">
-          <button class="tablinks active" id="groups" data-user-show-menu-target="groupsButton" data-action="click->user-show-menu#activateMenu">My groups</button>
-          <button class="tablinks" id="events" data-user-show-menu-target="eventsButton" data-action="click->user-show-menu#activateMenu">My events</button>
-          <button class="tablinks" id="pins" data-user-show-menu-target="pinsButton" data-action="click->user-show-menu#activateMenu">My pins</button>
-        </div>
+  <div class="row justify-content-center">
+    <div class="col-sm-12 col-md-8 col-lg-8">
+      <div class="profile-tab">
+        <button class="tablinks active" id="groups" data-user-show-menu-target="groupsButton" data-action="click->user-show-menu#activateMenu">My groups</button>
+        <button class="tablinks" id="events" data-user-show-menu-target="eventsButton" data-action="click->user-show-menu#activateMenu">My events</button>
+        <button class="tablinks" id="pins" data-user-show-menu-target="pinsButton" data-action="click->user-show-menu#activateMenu">My pins</button>
       </div>
     </div>
+  </div>
 
     <!-- Tab content -->
-    <div id="groups-content" data-user-show-menu-target="groupsContent" class="tabcontent card-product cards-container">
-      <%= turbo_frame_tag "first_turbo_frame" do %>
-        <div class="resources-h1-create">
-          <%= link_to new_group_path, data: { turbo_frame: "third_frame" } do %>
-            <p class="button-primary">Create a group</p>
-          <% end %>
-        </div>
-      <% end %>
+  <div id="groups-content" data-user-show-menu-target="groupsContent" class="tabcontent">
+    <%= turbo_frame_tag "first_turbo_frame" do %>
+      <div class="resources-h1-create create-group-section justify-content-center">
+        <%= link_to new_group_path, data: { turbo_frame: "third_frame" } do %>
+          <p class="button-primary">Create a group</p>
+        <% end %>
+      </div>
+    <% end %>
 
+    <div class="card-product cards-container">
       <%= turbo_frame_tag "third_frame" do %>
-        <div id= "group-card-container" class="resources resource-cards-container">
+        <div id="group-card-container" class="resources resource-cards-container">
           <%= render @groups%>
         </div>
       <% end %>
     </div>
+  </div>
 
-    <div id="events-content" data-user-show-menu-target="eventsContent" class="tabcontent d-none cards-container">
-      <%= render @events %>
-    </div>
+  <div id="events-content" data-user-show-menu-target="eventsContent" class="tabcontent d-none cards-container">
+    <%= render @events %>
+  </div>
 
-    <div id="pins-content" data-user-show-menu-target="pinsContent" class="tabcontent d-none cards-container">
-      <%= render @resources %>
-    </div>
+  <div id="pins-content" data-user-show-menu-target="pinsContent" class="tabcontent d-none cards-container">
+    <%= render @resources %>
+  </div>
 
   <% else %>
     <div class = "laura-presentation">
