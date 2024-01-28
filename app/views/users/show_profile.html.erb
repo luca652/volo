@@ -29,13 +29,15 @@
       </div>
     <% end %>
 
-    <div class="card-product cards-container">
+<div id="group-card-container" class="resources resource-cards-container">
       <%= turbo_frame_tag "third_frame" do %>
-        <div id="group-card-container" class="resources resource-cards-container">
+          <div class="card-product cards-container">
           <%= render @groups%>
-        </div>
+          </div>
       <% end %>
-    </div>
+     </div>
+
+
   </div>
 
   <div id="events-content" data-user-show-menu-target="eventsContent" class="tabcontent d-none cards-container">

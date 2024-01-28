@@ -19,7 +19,7 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params)
 
     if @group.save
-      redirect_to group_path(@group), notice: "The group was successfully created"
+      redirect_to user_path(current_user), notice: "The group was successfully created"
     else
       render :new, status: :unprocessable_entity
     end
@@ -56,7 +56,7 @@ class GroupsController < ApplicationController
   private
 
   def group_params
-    params.require(:group).permit(:name, :location, :descrition, :picture_url, :user_id, :language, :children_age)
+    params.require(:group).permit(:name, :location, :description, :picture_url, :user_id, :language, :children_age)
   end
 
   def filter_form_params

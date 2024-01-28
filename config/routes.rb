@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'users/show_profile'
+
   get 'stories/show'
   devise_for :users
   get "users/:id", to: "users#show_profile", as: "user"
