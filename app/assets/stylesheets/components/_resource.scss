@@ -9,6 +9,19 @@
   align-items: center;
   border-radius: 10px;
   position: relative;
+
+  a {
+    color: inherit;
+  }
+
+    .resource-pin-button {
+    position: absolute;
+    top: 8px;
+    right: 14px;
+    padding: 0px;
+    color: $our-red;
+    font-size: 14px;
+  }
 }
 
 .resource-card img {
@@ -46,7 +59,7 @@ justify-content: flex-end;
   }
 }
 
-.resource-category > button {
+.resource-category > div {
 font-size: 10px;
 align-items: flex-end;
 color: $our-blue;
@@ -55,13 +68,4 @@ border: solid 1px $our-blue;
 margin-right: 5px;
 padding: 0px 6px;
 border-radius: 10px;
-}
-
-.resource-pin-button {
-  position: absolute;
-  top: 8px;
-  right: 14px;
-  padding: 0px;
-  color: $our-red;
-  font-size: 14px;
 }
