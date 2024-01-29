@@ -18,16 +18,16 @@
 
     <!-- Tab content -->
   <div id="groups-content" data-user-show-menu-target="groupsContent" class="tabcontent">
-    <%= turbo_frame_tag "first_turbo_frame" do %>
+    <%= turbo_frame_tag "groups_frame" do %>
       <div class="resources-h1-create create-group-section justify-content-center">
-        <%= link_to new_group_path, data: { turbo_frame: "third_frame" } do %>
+        <%= link_to new_group_path, data: { turbo_frame: "new_group_frame" } do %>
           <p class="button-primary">New Group</p>
         <% end %>
       </div>
     <% end %>
 
   <div id="group-card-container" class="resources resource-cards-container">
-      <%= turbo_frame_tag "third_frame" do %>
+      <%= turbo_frame_tag "new_group_frame" do %>
           <div class="card-product cards-container">
           <%= render @groups%>
           </div>
