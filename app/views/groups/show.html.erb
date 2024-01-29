@@ -4,6 +4,14 @@
   <div class = "group-page-info">
       <div class="group-showpage-description">
         <h1><strong><%= @group.name %></strong></h1>
+        <% if current_user.group_admin?(@group) %>
+          <div class="edit-delete-buttons">
+            <p><%= link_to "Edit", edit_group_path, class: "button-primary" %></p>
+            <p><%= link_to "Delete", group_path,
+                        data: { turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "button-secondary" %></p>
+          </div>
+        <% end %>
+
         <div class="group-show-tags">
           <p class="group-show-tag"><strong> <%= @group.language %></strong></p>
           <p class="group-show-tag"><strong> <%= @group.children_age %> years</strong></p>
