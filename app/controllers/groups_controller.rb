@@ -10,6 +10,7 @@ class FilterForm
 end
 
 class GroupsController < ApplicationController
+  before_action :set_group, only: [:show, :destroy, :edit, :update]
 
   def new
     @group = Group.new
@@ -23,6 +24,22 @@ class GroupsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def edit
+  end
+
+  def update
+    if @group.update(group_params)
+      redirect_to user_path(current_user), notice: "Group was successfully updated."
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @group.destroy
+    redirect_to user_path(current_user), notice: "Group was successfully destroyed."
   end
 
   def index
@@ -41,7 +58,6 @@ class GroupsController < ApplicationController
   end
 
   def show
-    @group = Group.find(params[:id])
     @admin = @group.user
     # REQUESTS & MEMBERS
     @requests = Request.where(group_id: @group.id)
@@ -54,6 +70,10 @@ class GroupsController < ApplicationController
   end
 
   private
+
+  def set_group
+    @group = Group.find(params[:id])
+  end
 
   def group_params
     params.require(:group).permit(:name, :location, :description, :picture_url, :user_id, :language, :children_age)
