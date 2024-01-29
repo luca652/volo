@@ -95,6 +95,15 @@
     place-items: center;
     margin-top: 24px;
   }
+
+  // .button-primary{
+  //   display: grid;
+  //   width: 100%;
+  //   padding: 5px 15px;
+  //   align-items: center;
+  //   justify-content: center;
+  //   margin-bottom: 10px;
+  // }
 }
 
 .card-profile-group {
@@ -236,5 +245,13 @@ color: inherit;
     padding: 0px 6px;
     border-radius: 10px;
     margin-bottom: 0px;
+  }
+}
+
+.create-group-section {
+  display: flex;
+
+  a {
+    text-decoration: none;
   }
 }

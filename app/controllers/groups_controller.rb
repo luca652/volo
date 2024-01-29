@@ -10,10 +10,25 @@ class FilterForm
 end
 
 class GroupsController < ApplicationController
+
+  def new
+    @group = Group.new
+  end
+
+  def create
+    @group = Group.new(group_params)
+
+    if @group.save
+      redirect_to user_path(current_user), notice: "The group was successfully created"
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
   def index
     @filter_form = FilterForm.new(filter_form_params)
     @groups = Group.all
-    @groups= @filter_form.apply_filters(@groups) if @filter_form.valid?
+    @groups = @filter_form.apply_filters(@groups) if @filter_form.valid?
     @request = Request.new
     @markers = @groups.geocoded.map do |group|
       {
@@ -39,6 +54,10 @@ class GroupsController < ApplicationController
   end
 
   private
+
+  def group_params
+    params.require(:group).permit(:name, :location, :description, :picture_url, :user_id, :language, :children_age)
+  end
 
   def filter_form_params
     params.permit(filter_form: [:children_age])[:filter_form]

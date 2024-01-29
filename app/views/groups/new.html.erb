@@ -1,0 +1,10 @@
+<main class="container">
+
+  <div class="header">
+    <h1>New Group</h1>
+  </div>
+
+  <%= turbo_frame_tag "new_group_frame" do %>
+    <%= render "form", group: @group %>
+  <% end %>
+</main>

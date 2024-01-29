@@ -1,7 +1,7 @@
 
 
-<div class="card-profile-group">
-  <%= link_to group_path(group), class: 'profile-card-link' do %>
+<div class="card-profile-group" data-turbo-frame="none">
+  <%= link_to group_path(group), class: 'profile-card-link', data: { turbo: false } do %>
   <%= image_tag group.picture_url, class: "profile-group-image" %>
   <div class="profile-group-info">
     <div class="profile-group-name">

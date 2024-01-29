@@ -4,33 +4,46 @@
   <% if @user == current_user  %>
   <div class="show-profile-headers">
     <h1 class="header-title">Ciao <%= @user.first_name %>!</h1>
-    <%= link_to user_path(current_user)  do %>
-      <i class="fa-solid fa-gear profile-edit-button"></i>
-    <% end %>
   </div>
     <!-- Tab links -->
-    <div class="row justify-content-center">
-      <div class="col-sm-12 col-md-8 col-lg-8">
-        <div class="profile-tab">
-          <button class="tablinks active" id="groups" data-user-show-menu-target="groupsButton" data-action="click->user-show-menu#activateMenu">My groups</button>
-          <button class="tablinks" id="events" data-user-show-menu-target="eventsButton" data-action="click->user-show-menu#activateMenu">My events</button>
-          <button class="tablinks" id="pins" data-user-show-menu-target="pinsButton" data-action="click->user-show-menu#activateMenu">My pins</button>
-        </div>
+  <div class="row justify-content-center">
+    <div class="col-sm-12 col-md-8 col-lg-8">
+      <div class="profile-tab">
+        <button class="tablinks active" id="groups" data-user-show-menu-target="groupsButton" data-action="click->user-show-menu#activateMenu">My groups</button>
+        <button class="tablinks" id="events" data-user-show-menu-target="eventsButton" data-action="click->user-show-menu#activateMenu">My events</button>
+        <button class="tablinks" id="pins" data-user-show-menu-target="pinsButton" data-action="click->user-show-menu#activateMenu">My pins</button>
       </div>
     </div>
+  </div>
 
     <!-- Tab content -->
-    <div id="groups-content" data-user-show-menu-target="groupsContent" class="tabcontent card-product cards-container">
-      <%= render @groups %>
-    </div>
+  <div id="groups-content" data-user-show-menu-target="groupsContent" class="tabcontent">
+    <%= turbo_frame_tag "groups_frame" do %>
+      <div class="resources-h1-create create-group-section justify-content-center">
+        <%= link_to new_group_path, data: { turbo_frame: "new_group_frame" } do %>
+          <p class="button-primary">New Group</p>
+        <% end %>
+      </div>
+    <% end %>
 
-    <div id="events-content" data-user-show-menu-target="eventsContent" class="tabcontent d-none cards-container">
-      <%= render @events %>
-    </div>
+  <div id="group-card-container" class="resources resource-cards-container">
+      <%= turbo_frame_tag "new_group_frame" do %>
+          <div class="card-product cards-container">
+          <%= render @groups%>
+          </div>
+      <% end %>
+     </div>
 
-    <div id="pins-content" data-user-show-menu-target="pinsContent" class="tabcontent d-none cards-container">
-      <%= render @resources %>
-    </div>
+
+  </div>
+
+  <div id="events-content" data-user-show-menu-target="eventsContent" class="tabcontent d-none cards-container">
+    <%= render @events %>
+  </div>
+
+  <div id="pins-content" data-user-show-menu-target="pinsContent" class="tabcontent d-none cards-container">
+    <%= render @resources %>
+  </div>
 
   <% else %>
     <div class = "laura-presentation">

@@ -141,8 +141,10 @@ group40 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "St Nicho
 puts "#{Group.all.length} group_images created."
 
 #CHATROOM FOR GROUP
-Chatroom.create!(group_id: group1.id)
-puts "chatroom created"
+for group in Group.all do
+  chat = Chatroom.create!(group_id: group.id)
+  puts "chatroom created"
+end
 
 # REQUESTS
 # request1 = Request.create!(user_id: user1.id, group_id: group1.id, accepted: true)
