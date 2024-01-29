@@ -25,6 +25,22 @@ class GroupsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @group.update(group_params)
+      rediredct_to groups_path, notice: "Group was successfully updated."
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @group.destroy
+    redirect_to groups_path, notice: "Group was successfully destroyed."
+  end
+
   def index
     @filter_form = FilterForm.new(filter_form_params)
     @groups = Group.all
