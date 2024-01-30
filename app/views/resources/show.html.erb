@@ -1,12 +1,14 @@
 <div class="container d-flex flex-column align-items-center">
-  <h1 class="mt-3 mb-3">Update or delete your resource</h1>
+  <h1 class="mt-3 mb-3"><%= @resource.title %></h1>
   <div class="card-container">
     <%= render @resource %>
+    <% if current_user.resource_creator?(@resource) %>
     <div class="resource-show-buttons">
       <%= link_to "Edit Resource", edit_resource_path(@resource),
           class: "button-secondary" %>
       <%= link_to "Delete", resource_path(@resource),
           data: { turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "button-primary" %>
+    <% end %>
     </div>
   </div>
 </div>
