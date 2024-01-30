@@ -11,7 +11,8 @@
   position: relative;
 
   a {
-    color: inherit;
+    color: $our-red;
+    text-decoration: underline;
   }
 
     .resource-pin-button {
