@@ -1,24 +1,27 @@
 
 <div class = "group-page-container">
-  <%= image_tag(@group.picture_url, class: "banner") %>
-  <div class = "group-page-info">
-      <div class="group-showpage-description">
-        <h1><strong><%= @group.name %></strong></h1>
-        <% if current_user.group_admin?(@group) %>
-          <div class="edit-delete-buttons">
-            <p><%= link_to "Edit", edit_group_path, class: "button-primary" %></p>
-            <p><%= link_to "Delete", group_path,
-                        data: { turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "button-secondary" %></p>
-          </div>
-        <% end %>
-
-        <div class="group-show-tags">
-          <p class="group-show-tag"><strong> <%= @group.language %></strong></p>
-          <p class="group-show-tag"><strong> <%= @group.children_age %> years</strong></p>
-          <p class="group-show-tag"><strong>Southwark</strong></p>
-        </div>
-        <p> <%= @group.description %> </p>
+  <div class="banner d-flex justify-content-center align-items-end" style="background-image: url('<%= asset_url(@group.picture_url) %>');">
+    <div>
+      <h1 class="group-show-title"><strong><%= @group.name %></strong></h1>
+      <% if current_user.group_admin?(@group) %>
+      <div class="edit-delete-buttons d-flex justify-content-center">
+        <p class="mr-1"><%= link_to "Edit", edit_group_path, class: "button-primary" %></p>
+        <p class="ml-1"><%= link_to "Delete", group_path,
+                data: { turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "button-secondary" %></p>
       </div>
+    <% end %>
+    </div>
+  </div>
+  <div class="group-showpage-description d-flex flex-column align-items-center">
+
+
+    <div class="group-show-tags">
+      <p class="group-show-tag"><strong> <%= @group.language %></strong></p>
+      <p class="group-show-tag"><strong> <%= @group.children_age %> years</strong></p>
+      <p class="group-show-tag"><strong>Southwark</strong></p>
+    </div>
+    <p class="group-show-description"> <%= @group.description %> </p>
+  </div>
 
   <div class= "group-members-container">
     <p class="group-headers"> <strong>Members</strong></p>
@@ -28,9 +31,7 @@
         <% next if member.picture_url.nil?  %>
         <%= image_tag (member.picture_url), class: "avatar avatar-member" %>
       <%end%>
-
     </div>
-
   </div>
 
   <div class= "group-request-container" data-controller="group-request" data-group-request-target="container">
@@ -41,8 +42,8 @@
         <div class="group-request-name-buttons">
           <span><%= link_to request.user.first_name, user_path(request.user), id: "request-user" %> wants to join!</span>
             <div>
-              <%= link_to "Accept", group_request_accepted_path(@group.id, request.id, ), method: "patch", class: "button-request-accept", data: { action: "click->group-request#hideGroupRequestContainer" }%>
-              <%= link_to "Decline", group_request_declined_path(@group.id, request.id), method: "patch", class: "button-request-decline" %>
+              <%= link_to "Accept", group_request_accepted_path(@group.id, request.id, ), method: "patch", class: "button-primary", data: { action: "click->group-request#hideGroupRequestContainer" }%>
+              <%= link_to "Decline", group_request_declined_path(@group.id, request.id), method: "patch", class: "button-secondary" %>
             </div>
         </div>
         <% end %>
