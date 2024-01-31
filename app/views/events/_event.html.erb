@@ -4,23 +4,15 @@
   <p> Organised by <%= link_to event.user.first_name, user_path(event.user) %><p>
   <p><%= "#{pluralize(event.bookings.length, "person")} going!"%></p>
   <div class="profile-event-time-place">
-      <% difference = (event.date.to_date - Date.today).to_i %>
-      <% if difference == 7 %>
-        <p><strong>in a week!</strong></p>
-      <% elsif difference < 7 && difference > 1 %>
-        <p><strong><%= "In #{difference} days!"%></strong></p>
-      <% elsif difference == 1 %>
-        <p><strong>Tomorrow</strong></p>
-      <% else %>
-      <p><strong><%= event.date.strftime("%b %e, %l:%M %p") %></strong></p>
-      <% end %>
+      <p><strong><%= days_until_event(event) %></strong></p>
       <p><%= link_to event.location.partition(",").first,
         "https://www.google.com/maps/search/?api=1&query=#{event.latitude}%2C#{event.longitude}"%>
         <i class="fa-sharp fa-solid fa-location-dot" style="color: #fd1015;"></i>
       </p>
     </div>
   <% if Booking.where(event: event, user: current_user).present? %>
-    <%= link_to bookings_destroy_path(event_id: event), method: :delete do %>
+  <% booking = Booking.where(event: event, user: current_user) %>
+    <%= link_to group_event_booking_path(event.group, event, booking), method: :delete do %>
       <div class="tag-confirm-going top-corner-right"><strong>Going!</strong></div>
     <% end %>
   <% else %>

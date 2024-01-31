@@ -10,7 +10,7 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    @group = Group.find(params[:id])
+    @group = Group.find(params[:group_id])
     @event = Event.find(params[:event_id])
     @booking = Booking.find_by(event: @event, user: current_user)
     @booking.destroy

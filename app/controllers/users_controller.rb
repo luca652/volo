@@ -22,10 +22,7 @@ class UsersController < ApplicationController
     # EVENTS
     # getting user's upcoming events from bookings
     @bookings = Booking.where(user_id: @user.id)
-    @events = []
-    @bookings.each do |booking|
-      @events.push(booking.event)
-    end
+    @events = Event.includes(:bookings).where(bookings: { user_id: current_user.id })
 
     # PINS & RESOURCES
     @pins = Pin.where(user_id: @user.id)
