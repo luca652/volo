@@ -44,12 +44,12 @@ user6 = User.create!(first_name: "Mario", last_name: "Lolli", language: "English
 # the email variable is used to create unique email addresses dynamycally - the value is incremented each time it loops
 childrens_age = ["newborn", "pre-school", "primary"]
 email = 1
-100.times do
-  User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, language: "English group_images/ Italian",
-               number_of_children: rand(1..6), childrens_age: childrens_age.sample, location: "10-14, Mercy Terrace, London SE13 7UX",
-               email: "#{email}@me.com", password: "123456")
-  email += 1
-end
+# 100.times do
+#   User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, language: "English group_images/ Italian",
+#                number_of_children: rand(1..6), childrens_age: childrens_age.sample, location: "10-14, Mercy Terrace, London SE13 7UX",
+#                email: "#{email}@me.com", password: "123456")
+#   email += 1
+# end
 puts "#{User.all.length} users created."
 
 # group_images
