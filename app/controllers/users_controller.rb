@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def show_profile
 
-    @user = current_user
+    @user = User.find(params[:id])
     # GROUPS
     # groups where user is an admin
     @groups_admin = Group.where(user_id: @user.id)

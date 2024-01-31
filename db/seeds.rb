@@ -65,79 +65,79 @@ group4 = Group.create!(name: "Museo Horniman", location: "100 London Rd, London 
                        picture_url: "group_images/walrus.png", language: "Italian", user_id: user4.id, children_age: "3-5")
 group5 = Group.create!(name: "Biblioteca di Canada Water", location: "21 Surrey Quays Rd, London SE16 7AR", description: "Join our story-telling group!",
                        picture_url: "group_images/canada.png", language: "Italian", user_id: user2.id, children_age: "3-5")
-group6 = Group.create!(name: "Sydenham - Mayow Park", location: "313-315 Kirkdale, London SE26 4QB", description: "Join our small tennis team!",
-                       picture_url: "group_images/peckham.png", language: "Italian", user_id: user3.id, children_age: "5-8")
-group7 = Group.create!(name: "I dinosauri di Crystal Palace", location: "95 Church Rd, London SE19 2TA", description: "We organise dino-themes activities!",
-                       picture_url: "group_images/crystalpalace.png", language: "Italian", user_id: user4.id, children_age: "3-5")
-group8 = Group.create!(name: "Dulwich Village - Mamme e bambini", location: "116a Lordship Ln, London SE22 8HD", description: "Join our baby-yoga sessions in the park!",
-                       picture_url: "group_images/dulwich.png", language: "Italian", user_id: user2.id, children_age: "3-5")
-group9 = Group.create!(name: "Brockwell Park - Estate Ragazzi", location: "10 Half Moon Ln, London SE24 9HU", description: "We organise a wide range of outdoor activities trought all the summer!",
-                       picture_url: "group_images/brockwell.png", language: "Italian", user_id: user3.id, children_age: "7-13")
-group10 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "The Hill Station, Kitto Rd, London SE14 5TW", description: "We organise sessions to help children with thier homework",
-                        picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
+# group6 = Group.create!(name: "Sydenham - Mayow Park", location: "313-315 Kirkdale, London SE26 4QB", description: "Join our small tennis team!",
+#                        picture_url: "group_images/peckham.png", language: "Italian", user_id: user3.id, children_age: "5-8")
+# group7 = Group.create!(name: "I dinosauri di Crystal Palace", location: "95 Church Rd, London SE19 2TA", description: "We organise dino-themes activities!",
+#                        picture_url: "group_images/crystalpalace.png", language: "Italian", user_id: user4.id, children_age: "3-5")
+# group8 = Group.create!(name: "Dulwich Village - Mamme e bambini", location: "116a Lordship Ln, London SE22 8HD", description: "Join our baby-yoga sessions in the park!",
+#                        picture_url: "group_images/dulwich.png", language: "Italian", user_id: user2.id, children_age: "3-5")
+# group9 = Group.create!(name: "Brockwell Park - Estate Ragazzi", location: "10 Half Moon Ln, London SE24 9HU", description: "We organise a wide range of outdoor activities trought all the summer!",
+#                        picture_url: "group_images/brockwell.png", language: "Italian", user_id: user3.id, children_age: "7-13")
+# group10 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "The Hill Station, Kitto Rd, London SE14 5TW", description: "We organise sessions to help children with thier homework",
+#                         picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
 
-group11 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "The Old Sessions House, 22 Clerkenwell Grn, London EC1R 0NA", description: "We organise sessions to help children with thier homework",
-                        picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
-group12 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "First Floor, 2 Percy St, London W1T 1DD", description: "We organise sessions to help children with thier homework",
-                        picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
-group13 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "18 Soho Square, London W1D 3QL", description: "We organise sessions to help children with thier homework",
-                        picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
-group14 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "70-71 Shelton St, London WC2H 9JQ", description: "We organise sessions to help children with thier homework",
-                        picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
-group15 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "88 Masbro Rd, Brook Grn, London W14 0LR", description: "We organise sessions to help children with thier homework",
-                        picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
-group16 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "22-28 Broadway, London SW1H 0BH", description: "We organise sessions to help children with thier homework",
-                        picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
-group17 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "101 Wood Ln, London W12 7FR", description: "We organise sessions to help children with thier homework",
-                        picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
-group18 = Group.create!(name: "Telegraph Hill - Doposcuola", location: " 94 Waterford Rd, London SW6 2HA", description: "We organise sessions to help children with thier homework",
-                        picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
-group19 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "13-15 West St, London WC2H 9NE", description: "We organise sessions to help children with thier homework",
-                        picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
-group20 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "104 Chepstow Rd, London W2 5QS", description: "We organise sessions to help children with thier homework",
-                        picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
+# group11 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "The Old Sessions House, 22 Clerkenwell Grn, London EC1R 0NA", description: "We organise sessions to help children with thier homework",
+#                         picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
+# group12 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "First Floor, 2 Percy St, London W1T 1DD", description: "We organise sessions to help children with thier homework",
+#                         picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
+# group13 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "18 Soho Square, London W1D 3QL", description: "We organise sessions to help children with thier homework",
+#                         picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
+# group14 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "70-71 Shelton St, London WC2H 9JQ", description: "We organise sessions to help children with thier homework",
+#                         picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
+# group15 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "88 Masbro Rd, Brook Grn, London W14 0LR", description: "We organise sessions to help children with thier homework",
+#                         picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
+# group16 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "22-28 Broadway, London SW1H 0BH", description: "We organise sessions to help children with thier homework",
+#                         picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
+# group17 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "101 Wood Ln, London W12 7FR", description: "We organise sessions to help children with thier homework",
+#                         picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
+# group18 = Group.create!(name: "Telegraph Hill - Doposcuola", location: " 94 Waterford Rd, London SW6 2HA", description: "We organise sessions to help children with thier homework",
+#                         picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
+# group19 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "13-15 West St, London WC2H 9NE", description: "We organise sessions to help children with thier homework",
+#                         picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
+# group20 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "104 Chepstow Rd, London W2 5QS", description: "We organise sessions to help children with thier homework",
+#                         picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
 
-group21 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "4 Redchurch St, London E1 6JL", description: "We organise sessions to help children with thier homework",
-                          picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
-group22 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "1 Corbridge Cres, Cambridge Heath, London E2 9DT", description: "We organise sessions to help children with thier homework",
-                          picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
-group23 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "52 Wilton Way, London E8 1BG", description: "We organise sessions to help children with thier homework",
-                          picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
-group24 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "49 Columbia Rd, London E2 7RG", description: "We organise sessions to help children with thier homework",
-                          picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
-group25 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "332 Bethnal Grn Rd, London E2 0AG", description: "We organise sessions to help children with thier homework",
-                          picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
-group26 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "22-28 Broadway, London SW1H 0BH", description: "We organise sessions to help children with thier homework",
-                          picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
-group27 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "1a Dunston St, London E8 4EB", description: "We organise sessions to help children with thier homework",
-                          picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
-group28 = Group.create!(name: "Telegraph Hill - Doposcuola", location: " 8 Patriot Square, London E2 9NF", description: "We organise sessions to help children with thier homework",
-                          picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
-group29 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "151 Commercial St, London E1 6BJ", description: "We organise sessions to help children with thier homework",
-                          picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
-group30 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "1 Green Bank, London E1W 2PA", description: "We organise sessions to help children with thier homework",
-                          picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
+# group21 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "4 Redchurch St, London E1 6JL", description: "We organise sessions to help children with thier homework",
+#                           picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
+# group22 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "1 Corbridge Cres, Cambridge Heath, London E2 9DT", description: "We organise sessions to help children with thier homework",
+#                           picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
+# group23 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "52 Wilton Way, London E8 1BG", description: "We organise sessions to help children with thier homework",
+#                           picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
+# group24 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "49 Columbia Rd, London E2 7RG", description: "We organise sessions to help children with thier homework",
+#                           picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
+# group25 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "332 Bethnal Grn Rd, London E2 0AG", description: "We organise sessions to help children with thier homework",
+#                           picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
+# group26 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "22-28 Broadway, London SW1H 0BH", description: "We organise sessions to help children with thier homework",
+#                           picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
+# group27 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "1a Dunston St, London E8 4EB", description: "We organise sessions to help children with thier homework",
+#                           picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
+# group28 = Group.create!(name: "Telegraph Hill - Doposcuola", location: " 8 Patriot Square, London E2 9NF", description: "We organise sessions to help children with thier homework",
+#                           picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
+# group29 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "151 Commercial St, London E1 6BJ", description: "We organise sessions to help children with thier homework",
+#                           picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
+# group30 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "1 Green Bank, London E1W 2PA", description: "We organise sessions to help children with thier homework",
+#                           picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
 
-group31 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "113 Woodside, London SW19 7BA", description: "We organise sessions to help children with thier homework",
-                            picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
-group32 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "27 Chapter Way, London SW19 2RF", description: "We organise sessions to help children with thier homework",
-                            picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
-group33 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "8 Walsingham Rd, London CR4 4LN", description: "We organise sessions to help children with thier homework",
-                            picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
-group34 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "23 Camborne Rd, Sutton SM2 6RJ", description: "We organise sessions to help children with thier homework",
-                            picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
-group35 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "332 Bethnal Grn Rd, London E2 0AG", description: "We organise sessions to help children with thier homework",
-                            picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
-group36 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "78 Worple Rd, London SW19 4HZ", description: "We organise sessions to help children with thier homework",
-                            picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
-group37 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "Warren Rd, Kingston upon Thames KT2 7HY", description: "We organise sessions to help children with thier homework",
-                            picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
-group38 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "Brighton Rd, Burgh Heath, Banstead, Tadworth KT20 6BW", description: "We organise sessions to help children with thier homework",
-                            picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
-group39 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "6 Manor Rd, Wallington SM6 0AA", description: "We organise sessions to help children with thier homework",
-                            picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
-group40 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "St Nicholas Way, Sutton SM1 1AT", description: "We organise sessions to help children with thier homework",
-                            picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
+# group31 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "113 Woodside, London SW19 7BA", description: "We organise sessions to help children with thier homework",
+#                             picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
+# group32 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "27 Chapter Way, London SW19 2RF", description: "We organise sessions to help children with thier homework",
+#                             picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
+# group33 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "8 Walsingham Rd, London CR4 4LN", description: "We organise sessions to help children with thier homework",
+#                             picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
+# group34 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "23 Camborne Rd, Sutton SM2 6RJ", description: "We organise sessions to help children with thier homework",
+#                             picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
+# group35 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "332 Bethnal Grn Rd, London E2 0AG", description: "We organise sessions to help children with thier homework",
+#                             picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
+# group36 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "78 Worple Rd, London SW19 4HZ", description: "We organise sessions to help children with thier homework",
+#                             picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
+# group37 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "Warren Rd, Kingston upon Thames KT2 7HY", description: "We organise sessions to help children with thier homework",
+#                             picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
+# group38 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "Brighton Rd, Burgh Heath, Banstead, Tadworth KT20 6BW", description: "We organise sessions to help children with thier homework",
+#                             picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
+# group39 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "6 Manor Rd, Wallington SM6 0AA", description: "We organise sessions to help children with thier homework",
+#                             picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
+# group40 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "St Nicholas Way, Sutton SM1 1AT", description: "We organise sessions to help children with thier homework",
+#                             picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
 puts "#{Group.all.length} group_images created."
 
 #CHATROOM FOR GROUP
@@ -224,45 +224,45 @@ Pin.create!(user_id: user1.id, resource_id: resource1.id)
 Pin.create!(user_id: user1.id, resource_id: resource3.id)
 Pin.create!(user_id: user1.id, resource_id: resource5.id)
 
-n = 1
-99.times do
-  Pin.create!(user_id: "#{user5.id + n}", resource_id: resource1.id)
-  n += 1
-end
+# n = 1
+# 99.times do
+#   Pin.create!(user_id: "#{user5.id + n}", resource_id: resource1.id)
+#   n += 1
+# end
 
-n = 1
-76.times do
-  Pin.create!(user_id: "#{user5.id + n}", resource_id: resource2.id)
-  n += 1
-end
+# n = 1
+# 76.times do
+#   Pin.create!(user_id: "#{user5.id + n}", resource_id: resource2.id)
+#   n += 1
+# end
 
-n = 1
-55.times do
-  Pin.create!(user_id: "#{user5.id + n}", resource_id: resource3.id)
-  n += 1
-end
+# n = 1
+# 55.times do
+#   Pin.create!(user_id: "#{user5.id + n}", resource_id: resource3.id)
+#   n += 1
+# end
 
-n = 1
-32.times do
-  Pin.create!(user_id: "#{user5.id + n}", resource_id: resource4.id)
-  n += 1
-end
+# n = 1
+# 32.times do
+#   Pin.create!(user_id: "#{user5.id + n}", resource_id: resource4.id)
+#   n += 1
+# end
 
-n = 1
-24.times do
-  Pin.create!(user_id: "#{user5.id + n}", resource_id: resource6.id)
-  n += 1
-end
+# n = 1
+# 24.times do
+#   Pin.create!(user_id: "#{user5.id + n}", resource_id: resource6.id)
+#   n += 1
+# end
 
-n = 1
-15.times do
-  Pin.create!(user_id: "#{user5.id + n}", resource_id: resource7.id)
-  n += 1
-end
+# n = 1
+# 15.times do
+#   Pin.create!(user_id: "#{user5.id + n}", resource_id: resource7.id)
+#   n += 1
+# end
 
-n = 1
-8.times do
-  Pin.create!(user_id: "#{user5.id + n}", resource_id: resource8.id)
-  n += 1
-end
+# n = 1
+# 8.times do
+#   Pin.create!(user_id: "#{user5.id + n}", resource_id: resource8.id)
+#   n += 1
+# end
 puts "#{Pin.all.length} pins created."
