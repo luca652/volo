@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  get 'events/new'
+  get 'events/create'
+  get 'events/edit'
+  get 'events/update'
+  get 'events/destroy'
+  get 'events/show'
+  get 'events/index'
 
   get 'stories/show'
   devise_for :users
