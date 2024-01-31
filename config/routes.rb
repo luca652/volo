@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
   get "users/:id", to: "users#show_profile", as: "user"
 
-  root to: "groups#index"
+  root to: "users#show_profile"
 
   resources :groups do
     resources :requests, only: [:create] do
