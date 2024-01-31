@@ -1,7 +1,14 @@
 class UsersController < ApplicationController
   def show_profile
-
-    @user = current_user
+    # this if statement is needed because when we open the app the user should
+    # be set to current_user (the new root_path is the user's profile).
+    # This causes issues when clicking on other users' profiles, because in those cases
+    # @user should = User.find(params[:id]), so we are checking that if the params are presente and different from current_user id
+    if params[:id].present? && params[:id] != current_user.id.to_s
+      @user = User.find(params[:id])
+    else
+      @user = current_user
+    end
     # GROUPS
     # groups where user is an admin
     @groups_admin = Group.where(user_id: @user.id)

@@ -1,7 +1,7 @@
 <div class="event-info-card-body drop_down_item" >
   <h4><strong><%= event.name%></strong></h4>
   <p><%= link_to event.group.name, group_path(event.group) %></p>
-  <p> Organised by <%= link_to event.user.first_name, user_path(event.user) %><p>
+  <p> Organised by <strong><%= event.user.first_name %></strong><p>
   <p><%= "#{pluralize(event.bookings.length, "person")} going!"%></p>
   <div class="profile-event-time-place">
       <p><strong><%= days_until_event(event) %></strong></p>
