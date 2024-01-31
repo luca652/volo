@@ -1,12 +1,12 @@
 class StoriesController < ApplicationController
 
-  def index
+  def new
     @prompt = Prompt.new
     @user = current_user
     @prompt.user = @user
   end
 
-  def show_story
+  def show
     @story = Story.find(params[:id])
   end
 
@@ -27,7 +27,7 @@ class StoriesController < ApplicationController
                              content: generated_story.partition("#").last.strip)
       redirect_to story_path(@story)
     else
-      render :index, status: :unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 
