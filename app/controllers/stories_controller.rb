@@ -33,10 +33,6 @@ class StoriesController < ApplicationController
 
   private
 
-  def game_params
-    params.require(:game).permit(:nickname, :user_id)
-  end
-
   def prompt_params
     params.require(:prompt).permit(:protagonist, :language, :weapon, :setting, :food, :enemy, :game_id)
   end
