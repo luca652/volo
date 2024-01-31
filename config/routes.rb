@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'stories/show'
+  # get 'stories/show'
   devise_for :users
   get "users/:id", to: "users#show_profile", as: "user"
 
@@ -23,7 +23,6 @@ Rails.application.routes.draw do
     post :pin_unpin, to: "pins#pin_unpin"
   end
 
-  resources :stories, only: [:index]
-  get "stories/:id", to: "stories#show_story", as: :story
+  resources :stories, only: [:new, :show]
   post "prompts", to: "stories#create_prompt"
 end
