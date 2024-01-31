@@ -80,13 +80,13 @@
   background-color: $our-red;
   color: white;
   font-size: 14px;
-  margin: 0 0 0 0;
-  padding: 3px 8px;
+  padding: 4px 12px;
   border: 0px;
   border-radius: 10px;
   flex: 1;
   transition: 0.3s;
   text-decoration: none;
+  font-weight: bold;
 }
 
 .button-primary-small {
@@ -104,10 +104,11 @@
   background-color: white;
   color: $our-red;
   font-size: small;
-  padding: 3px 6px;
+  padding: 4px 12px;
   border: solid 1px $our-red;
   border-radius: 10px;
   flex: 1;
   transition: 0.3s;
   text-decoration: none;
+  font-weight: bold;
 }
