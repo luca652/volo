@@ -36,6 +36,7 @@
 // LOCATION SEARCH
 .mapboxgl-ctrl-top-right {
   position: absolute;
+  position: relative;
   top: 1% !important;
   right: 50% !important;
   transform: translate(50%, 50%);
@@ -77,8 +78,8 @@
   right: 3%;
 
   @include media(tabletAndUp) {
-    top: 7%;
-    right: 2%;
+    top: 14%;
+    right: 53%;
   }
 
   #new_filter_form {
