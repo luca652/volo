@@ -27,3 +27,6 @@ application.register("oval", OvalController)
 
 import UserShowMenuController from "./user_show_menu_controller"
 application.register("user-show-menu", UserShowMenuController)
+
+import ResourcesController from "./resources_controller"
+application.register("resources", ResourcesController)
