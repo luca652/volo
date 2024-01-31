@@ -60,9 +60,9 @@
 
 .group-show-description {
   width: 90%;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  border-radius: 10px;
+  // background: white;
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  // border-radius: 10px;
   padding: 10px 20px;
   text-align: center;
 }
@@ -80,6 +80,7 @@
 .group-show-tags {
   display: flex;
   justify-content: center;
+  margin-top:14px;
 
   .group-show-tag {
     font-size: 12px;
@@ -90,6 +91,7 @@
     padding: 0px 6px;
     border-radius: 10px;
     margin-bottom: 16px;
+    background: white;
   }
 }
 
@@ -120,8 +122,6 @@
   align-items: center;
   margin-left: 10px;
   margin-right: 10px;
-  margin-top: 8px;
-  // border-top: 1px solid $our-grey;
 
   .group-request-item {
     display: flex;
@@ -189,8 +189,7 @@
 .group-page-item {
   margin-left: 10px;
   margin-right: 10px;
-  margin-top: 8px;
-  // border-top: 1px solid $our-grey;
+  margin-top: -10px;
 }
 
 .hide {
