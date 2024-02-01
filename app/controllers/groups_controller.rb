@@ -14,17 +14,17 @@ class GroupsController < ApplicationController
 
   def new
     @group = Group.new
+    # @chatroom = Chatroom.new
   end
 
   def create
     @group = Group.new(group_params)
-    @chatroom = Chatroom.new(group_id: @group.id)
-    # @group.chatroom = @chatroom
+    @chatroom = Chatroom.new
+    @group.chatroom = @chatroom
 
     if @group.save && @chatroom.save
       redirect_to user_path(current_user), notice: "The group was successfully created"
     else
-      puts @group.errors.full_messages.join(", ")
       render :new, status: :unprocessable_entity
     end
   end

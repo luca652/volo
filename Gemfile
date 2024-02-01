@@ -35,6 +35,7 @@ gem "geocoder"
 
 gem 'ruby-openai'
 
+gem 'pry-byebug', '~> 3.10', '>= 3.10.1'
 
 gem "faker"
 
