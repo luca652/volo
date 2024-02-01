@@ -96,11 +96,7 @@
   }
 }
 
-#group-card-container {
-  margin-top: 20px;
-}
-
-.button-new-group {
+.button-new-item {
   text-decoration: none !important;
   background-color: $our-blue;
 }
@@ -243,9 +239,4 @@ color: inherit;
     border-radius: 10px;
     margin-bottom: 0px;
   }
-}
-
-.create-group-section {
-  display: flex;
-
 }

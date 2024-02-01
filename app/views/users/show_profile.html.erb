@@ -18,29 +18,56 @@
 
       <!-- Tab content -->
     <div id="groups-content" data-user-show-menu-target="groupsContent" class="tabcontent">
-      <%= turbo_frame_tag "groups_frame" do %>
-        <div class="resources-h1-create create-group-section justify-content-center">
+
+      <div class="d-flex justify-content-center">
+        <%= turbo_frame_tag "groups_frame" do %>
           <%= link_to new_group_path, data: { turbo_frame: "new_group_frame" } do %>
-            <button class="button-primary button-new-group">New Group</button>
+            <button class="button-primary button-new-item">New Group</button>
           <% end %>
+        <% end %>
+      </div>
+
+      <%= turbo_frame_tag "new_group_frame" do %>
+        <div class="cards-container">
+          <%= render @groups%>
         </div>
       <% end %>
 
-      <div id="group-card-container" class="resources resource-cards-container">
-        <%= turbo_frame_tag "new_group_frame" do %>
-          <div class="card-product cards-container">
-          <%= render @groups%>
-          </div>
+    </div>
+
+    <div id="events-content" data-user-show-menu-target="eventsContent" class="tabcontent d-none">
+
+      <div class="d-flex justify-content-center">
+        <%= turbo_frame_tag "events_frame" do %>
+          <%= link_to new_event_path, data: { turbo_frame: "new_event_frame" } do %>
+            <button class="button-primary button-new-item">New Event</button>
+          <% end %>
         <% end %>
       </div>
+
+      <%= turbo_frame_tag "new_event_frame" do %>
+        <div class="cards-container">
+          <%= render @events%>
+        </div>
+      <% end %>
+
     </div>
 
-    <div id="events-content" data-user-show-menu-target="eventsContent" class="tabcontent d-none cards-container">
-      <%= render @events %>
-    </div>
+    <div id="pins-content" data-user-show-menu-target="pinsContent" class="tabcontent d-none">
 
-    <div id="pins-content" data-user-show-menu-target="pinsContent" class="tabcontent d-none cards-container">
-      <%= render @resources %>
+      <div class="d-flex justify-content-center">
+        <%= turbo_frame_tag "resources_frame" do %>
+          <%= link_to new_resource_path, data: { turbo_frame: "new_resource_frame" } do %>
+            <button class="button-primary button-new-item">New Resource</button>
+          <% end %>
+        <% end %>
+      </div>
+
+      <%= turbo_frame_tag "new_resource_frame" do %>
+        <div class="cards-container">
+          <%= render @pins %>
+        </div>
+      <% end %>
     </div>
 
   <% else %>
