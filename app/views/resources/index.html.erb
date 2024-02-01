@@ -5,7 +5,7 @@
       <div class="resources-h1-create">
         <h1 class="resources-header-title">Resources</h1>
         <%= link_to new_resource_path, data: { turbo_frame: "second_frame" } do %>
-          <p class="button-primary">New</p>
+          <button class="button-primary">New</button>
         <% end %>
       </div>
     <% end %>
@@ -14,7 +14,7 @@
     </p>
   </div>
 
-  <div class= "resources-filter-container">
+  <div class= "container justify-content-center resources-filter-container">
   <%= simple_form_for @filter_form, url: resources_path, method: :get do |form|%>
     <%= form.input :category, label_html: {class: 'resources-filter-label'}, collection: Resource.pluck(:category).uniq, include_blank: 'All'%>
     <%= form.button :submit, 'Apply ', class: "btn btn-success btn-filter" %>

@@ -16,7 +16,6 @@ class ResourcesController < ApplicationController
     @filter_form = FilterForm.new(filter_form_params)
     @resources = Resource.order(created_at: :desc).all
     @resources = @filter_form.apply_filters(@resources) if @filter_form.valid?
-    # @categories = Resource.distinct.pluck(:category)
   end
 
   def show
