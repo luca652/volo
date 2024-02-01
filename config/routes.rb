@@ -23,5 +23,5 @@ Rails.application.routes.draw do
   end
 
   post "prompts", to: "prompts#create"
-  resources :stories, only: [:new, :show]
+  resources :stories, only: [:new, :create, :show]
 end
