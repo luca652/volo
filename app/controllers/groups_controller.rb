@@ -14,7 +14,6 @@ class GroupsController < ApplicationController
 
   def new
     @group = Group.new
-    # @chatroom = Chatroom.new
   end
 
   def create

@@ -138,13 +138,13 @@ group5 = Group.create!(name: "Biblioteca di Canada Water", location: "21 Surrey 
 #                             picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
 # group40 = Group.create!(name: "Telegraph Hill - Doposcuola", location: "St Nicholas Way, Sutton SM1 1AT", description: "We organise sessions to help children with thier homework",
 #                             picture_url: "group_images/telegraph.png", language: "Italian", user_id: user4.id, children_age: "5-13")
-puts "#{Group.all.length} group_images created."
+puts "#{Group.all.length} groups created."
 
 #CHATROOM FOR GROUP
 for group in Group.all do
   chat = Chatroom.create!(group_id: group.id)
-  puts "chatroom created"
 end
+puts "#{Chatroom.all.length} chatrooms created"
 
 # REQUESTS
 # request1 = Request.create!(user_id: user1.id, group_id: group1.id, accepted: true)
