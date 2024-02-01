@@ -22,6 +22,8 @@ Rails.application.routes.draw do
     post :pin_unpin, to: "pins#pin_unpin"
   end
 
+  post "prompts", to: "prompts#create"
   resources :stories, only: [:new, :show]
-  post "prompts", to: "stories#create_prompt"
+
+
 end
