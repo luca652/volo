@@ -1,6 +1,6 @@
 class Group < ApplicationRecord
   belongs_to :user
-  has_one :chatroom
+  has_one :chatroom, dependent: :destroy
   has_many :requests
   has_many :events
   has_many :users, through: :requests
