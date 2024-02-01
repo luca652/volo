@@ -24,6 +24,4 @@ Rails.application.routes.draw do
 
   post "prompts", to: "prompts#create"
   resources :stories, only: [:new, :show]
-
-
 end

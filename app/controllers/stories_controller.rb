@@ -30,10 +30,4 @@ class StoriesController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
-
-  private
-
-  def prompt_params
-    params.require(:prompt).permit(:protagonist, :language, :weapon, :setting, :food, :enemy, :game_id)
-  end
 end
