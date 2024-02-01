@@ -14,16 +14,12 @@
     </p>
   </div>
 
-  <div class="resources-filter-new">
-    <div class="filter-container">
-      <select id="category-filter" class="form-control">
-        <option value="">Categories</option>
-        <% @categories.each do |category| %>
-          <option value="<%= category %>"><%= category %></option>
-        <% end %>
-      </select>
-      <button id="filter-button" class="button-primary">Filter</button>
-    </div>
+  <div class= "resources-filter-container">
+  <%= simple_form_for @filter_form, url: resources_path, method: :get do |form|%>
+    <%= form.input :category, label_html: {class: 'resources-filter-label'}, collection: Resource.pluck(:category).uniq, include_blank: 'All'%>
+    <%= form.button :submit, 'Apply ', class: "btn btn-success btn-filter" %>
+    <%= @resources_all %>
+  <% end %>
   </div>
 
   <div class="space-one-rem"></div>
