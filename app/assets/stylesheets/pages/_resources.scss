@@ -34,10 +34,6 @@
   }
 }
 
-.resources-italian-flag {
-  width: 18px;
-  padding-bottom: 4px;
-}
 .resources-h1-create {
   display: flex;
   flex-direction: row;
@@ -81,6 +77,9 @@
 .form-select {
   font-size: 14px;
   padding: 4px 12px;
+  background-color: white;
+  color: grey;
+  border-radius: 10px 0 0 10px;
 }
 
 .resources-filter-container label {
