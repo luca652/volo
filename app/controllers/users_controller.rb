@@ -24,10 +24,6 @@ class UsersController < ApplicationController
     @events = Event.includes(:bookings).where(bookings: { user_id: current_user.id })
 
     # PINS & RESOURCES
-    @pins = Pin.where(user_id: @user.id)
-    @resources = []
-    @pins.each do |pin|
-      @resources << pin.resource
-    end
+    @resources = Resource.joins(:pins).where(pins: { user_id: @user.id })
   end
 end

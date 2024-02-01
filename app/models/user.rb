@@ -5,9 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :groups
   has_many :requests
-  has_many :resources
+  has_many :resources, through: :pins
   has_many :pins, dependent: :destroy
-  # has_many :pinned_resources, through: :pins, source: :resource
   has_many :events
   has_many :bookings
   # has_many :events, through: :bookings
