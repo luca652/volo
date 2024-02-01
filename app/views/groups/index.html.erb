@@ -5,11 +5,3 @@
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 </div>
-
-<div class= "filter-group-container">
- <%= simple_form_for @filter_form, url: groups_path, method: :get do |form|%>
-  <%= form.input :children_age, label_html: {class: 'map-filter-label'}, collection: Group.pluck(:children_age).uniq, include_blank: 'All', :prompt => "Age"%>
-  <%= form.button :submit, 'Apply ', class: "btn btn-success btn-filter" %>
-  <%= @groups_all %>
-<% end %>
-</div>

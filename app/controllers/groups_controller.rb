@@ -1,14 +1,3 @@
-class FilterForm
-  include ActiveModel::Model
-
-  attr_accessor :children_age
-
-  def apply_filters(groups)
-    groups = groups.where(children_age: children_age) if children_age.present?
-    groups
-  end
-end
-
 class GroupsController < ApplicationController
   before_action :set_group, only: [:show, :destroy, :edit, :update]
 
@@ -45,9 +34,7 @@ class GroupsController < ApplicationController
   end
 
   def index
-    @filter_form = FilterForm.new(filter_form_params)
     @groups = Group.all
-    @groups = @filter_form.apply_filters(@groups) if @filter_form.valid?
     @request = Request.new
     @markers = @groups.geocoded.map do |group|
       {
@@ -80,9 +67,4 @@ class GroupsController < ApplicationController
   def group_params
     params.require(:group).permit(:name, :location, :description, :picture_url, :user_id, :language, :children_age)
   end
-
-  def filter_form_params
-    params.permit(filter_form: [:children_age])[:filter_form]
-  end
-
 end
