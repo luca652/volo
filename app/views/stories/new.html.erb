@@ -13,6 +13,7 @@
     <%= f.input :setting, label: "Where is your story set?" %>
     <%= f.input :enemy, label: "Who is the baddie?" %>
     <%= f.input :language, label: "What language should I use?" %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
   <div class="d-flex justify-content-center">
     <div>
       <%= f.submit "Submit", class: "button-primary button-large", data: { action:"click->oval#loading" }%>
