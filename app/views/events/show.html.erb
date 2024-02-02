@@ -1,2 +1,14 @@
-<h1>Events#show</h1>
-<p>Find me in app/views/events/show.html.erb</p>
+<div class="container d-flex flex-column align-items-center">
+  <h1 class="mt-3 mb-3"><%= @event.name %></h1>
+  <div class="card-container">
+    <%= render @event %>
+    <% if current_user.event_creator?(@event) %>
+    <div class="event-show-buttons">
+      <%= link_to "Edit event", edit_group_event_path(@group, @event),
+          class: "button-secondary" %>
+      <%= link_to "Delete", group_event_path(@event),
+          data: { turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "button-primary" %>
+    <% end %>
+    </div>
+  </div>
+</div>

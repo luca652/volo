@@ -1,26 +1,28 @@
-<div class="event-info-card-body drop_down_item" >
-  <h4><strong><%= event.name%></strong></h4>
-  <p><%= link_to event.group.name, group_path(event.group) %></p>
-  <p> Organised by <strong><%= event.user.first_name %></strong><p>
-  <p><%= "#{pluralize(event.bookings.length, "person")} going!"%></p>
-  <div class="profile-event-time-place">
-      <p><strong><%= days_until_event(event) %></strong></p>
-      <p><%= link_to event.location.partition(",").first,
-        "https://www.google.com/maps/search/?api=1&query=#{event.latitude}%2C#{event.longitude}"%>
-        <i class="fa-sharp fa-solid fa-location-dot" style="color: #fd1015;"></i>
-      </p>
-    </div>
-  <% if Booking.where(event: event, user: current_user).present? %>
-  <% booking = Booking.where(event: event, user: current_user) %>
-    <%= link_to group_event_booking_path(event.group, event, booking), method: :delete do %>
-      <div class="tag-confirm-going top-corner-right"><strong>Going!</strong></div>
-    <% end %>
-  <% else %>
-  <%= simple_form_for [@group, event, @booking] do |f| %>
-      <%= f.hidden_field :user_id, value: current_user.id %>
-      <%= f.hidden_field :group_id, value: @group.id %>
-      <%= f.hidden_field :event_id, value: event.id %>
-      <%= f.submit "RSVP!", class: "button-request-accept top-corner-right" %>
+<%= link_to group_event_path(@group, event), data: {turbo: false} do %>
+  <div class="event-info-card-body drop_down_item" >
+    <h4><strong><%= event.name%></strong></h4>
+    <p><%= link_to event.group.name, group_path(event.group) %></p>
+    <p> Organised by <strong><%= event.user.first_name %></strong><p>
+    <p><%= "#{pluralize(event.bookings.length, "person")} going!"%></p>
+    <div class="profile-event-time-place">
+        <p><strong><%= days_until_event(event) %></strong></p>
+        <p><%= link_to event.location.partition(",").first,
+          "https://www.google.com/maps/search/?api=1&query=#{event.latitude}%2C#{event.longitude}"%>
+          <i class="fa-sharp fa-solid fa-location-dot" style="color: #fd1015;"></i>
+        </p>
+      </div>
+    <% if Booking.where(event: event, user: current_user).present? %>
+    <% booking = Booking.where(event: event, user: current_user) %>
+      <%= link_to group_event_booking_path(event.group, event, booking), method: :delete do %>
+        <div class="tag-confirm-going top-corner-right"><strong>Going!</strong></div>
       <% end %>
-  <% end %>
-</div>
+    <% else %>
+    <%= simple_form_for [@group, event, @booking] do |f| %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <%= f.hidden_field :group_id, value: @group.id %>
+        <%= f.hidden_field :event_id, value: event.id %>
+        <%= f.submit "RSVP!", class: "button-request-accept top-corner-right" %>
+        <% end %>
+    <% end %>
+  </div>
+<% end %>

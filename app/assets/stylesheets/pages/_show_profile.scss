@@ -46,13 +46,14 @@
   width: 80%;
   margin: 0 auto;
   margin-top: 15px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .profile-tab .tablinks {
   background-color: $our-red;
   color: white;
-  font-size: small;
+  font-size: 14px;
+  font-weight: bold;
   margin-right: 5px;
   padding: 3px 6px;
   border: 0px;
@@ -95,8 +96,9 @@
   }
 }
 
-.button-new-group {
+.button-new-item {
   text-decoration: none !important;
+  background-color: $our-blue;
 }
 
 .card-profile-group {
@@ -237,9 +239,4 @@ color: inherit;
     border-radius: 10px;
     margin-bottom: 0px;
   }
-}
-
-.create-group-section {
-  display: flex;
-
 }

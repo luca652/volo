@@ -1,38 +1,6 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: [:show, :destroy, :edit, :update]
 
-  def new
-    @group = Group.new
-  end
-
-  def create
-    @group = Group.new(group_params)
-    @chatroom = Chatroom.new
-    @group.chatroom = @chatroom
-
-    if @group.save && @chatroom.save
-      redirect_to user_path(current_user), notice: "The group was successfully created"
-    else
-      render :new, status: :unprocessable_entity
-    end
-  end
-
-  def edit
-  end
-
-  def update
-    if @group.update(group_params)
-      redirect_to user_path(current_user), notice: "Group was successfully updated."
-    else
-      render :edit, status: :unprocessable_entity
-    end
-  end
-
-  def destroy
-    @group.destroy
-    redirect_to user_path(current_user), notice: "Group was successfully destroyed."
-  end
-
   def index
     @groups = Group.all
     @request = Request.new
@@ -56,6 +24,38 @@ class GroupsController < ApplicationController
     @booking = Booking.new
 
     @chatroom = @group.id
+  end
+
+  def new
+    @group = Group.new
+  end
+
+  def create
+    @group = Group.new(group_params)
+    @chatroom = Chatroom.new
+    @group.chatroom = @chatroom
+
+    if @group.save && @chatroom.save
+      redirect_to user_path(current_user), notice: "The group was successfully created"
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @group.update(group_params)
+      redirect_to group_path(@group), notice: "Group was successfully updated."
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @group.destroy
+    redirect_to user_path(current_user), notice: "Group was successfully destroyed."
   end
 
   private

@@ -14,7 +14,7 @@
     <% if current_user.group_admin?(group) %>
       <% requests = group.requests.where(accepted: false, declined: false)  %>
       <% unless requests.empty?  %>
-      <%= link_to "#{pluralize(requests.length, 'request')} pending", group_path(group), class: "request-count" %>
+      <%= link_to "#{pluralize(requests.length, 'request')} pending", group_path(group), class: "request-count", data: { turbo: false } %>
       <% end %>
     <% end %>
   </div>
