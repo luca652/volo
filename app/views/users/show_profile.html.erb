@@ -36,21 +36,9 @@
     </div>
 
     <div id="events-content" data-user-show-menu-target="eventsContent" class="tabcontent d-none">
-
-      <div class="d-flex justify-content-center">
-        <%= turbo_frame_tag "events_frame" do %>
-          <%= link_to new_group_event_path, data: { turbo_frame: "new_event_frame" } do %>
-            <button class="button-primary button-new-item">New Event</button>
-          <% end %>
-        <% end %>
+      <div class="cards-container">
+        <%= render @events%>
       </div>
-
-      <%= turbo_frame_tag "new_event_frame" do %>
-        <div class="cards-container">
-          <%= render @events%>
-        </div>
-      <% end %>
-
     </div>
 
     <div id="pins-content" data-user-show-menu-target="pinsContent" class="tabcontent d-none">
@@ -65,7 +53,7 @@
 
       <%= turbo_frame_tag "new_resource_frame" do %>
         <div class="cards-container">
-          <%= render @pins %>
+          <%= render @resources %>
         </div>
       <% end %>
     </div>
