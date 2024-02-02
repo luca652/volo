@@ -1,5 +1,5 @@
 <div class="container">
-  <%= simple_form_for group event, html: { class: "event_form" } do |f| %>
+  <%= simple_form_for [@group, @event], html: { class: "event_form" } do |f| %>
     <% if event.errors.any? %>
       <div class="error-message">
         <%= event.errors.full_messages.to_sentence.capitalize %>
@@ -18,3 +18,7 @@
     </div>
   <% end %>
 </div>
+
+<div class="space-one-rem"></div>
+<div class="space-one-rem"></div>
+<div class="space-one-rem"></div>

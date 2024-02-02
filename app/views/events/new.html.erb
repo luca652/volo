@@ -1,2 +1,10 @@
-<h1>Events#new</h1>
-<p>Find me in app/views/events/new.html.erb</p>
+<main class="container">
+
+  <div class="header">
+    <h1>New Group</h1>
+  </div>
+
+  <%= turbo_frame_tag "new_event_frame" do %>
+    <%= render "form", event: @event %>
+  <% end %>
+</main>
