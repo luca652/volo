@@ -1,5 +1,8 @@
 class EventsController < ApplicationController
 
+  before_action :set_event, only: [:show, :edit, :update]
+  before_action :set_group, only: [:show, :edit, :update]
+
   def show
   end
 
@@ -15,7 +18,7 @@ class EventsController < ApplicationController
 
     if @event.save
       @booking = Booking.create(event_id: @event.id, user_id: current_user.id)
-      redirect_to group_path(@group), notice: "Event was successfully created."
+      redirect_to group_path(@group), notice: "Event was successfully updated."
     else
       render :new, status: :unprocessable_entity
     end
@@ -25,6 +28,11 @@ class EventsController < ApplicationController
   end
 
   def update
+    if @event.update(event_params)
+      redirect_to group_event_path(@group, @event), notice: "Event was successfully created."
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def destroy
@@ -34,5 +42,13 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(:name, :location, :category, :description, :date, :group_id, :user_id)
+  end
+
+  def set_event
+    @event = Event.find(params[:id])
+  end
+
+  def set_group
+    @group = @event.group
   end
 end
