@@ -1,7 +1,6 @@
 class EventsController < ApplicationController
 
-  before_action :set_event, only: [:show, :edit, :update]
-  before_action :set_group, only: [:show, :edit, :update]
+  before_action :set_event_and_group, only: [:show, :edit, :update, :destroy]
 
   def show
   end
@@ -36,6 +35,10 @@ class EventsController < ApplicationController
   end
 
   def destroy
+    @bookings = @event.bookings
+    @bookings.destroy_all
+    @event.destroy
+    redirect_to group_path(@group), notice: "Event was succesfully deleted."
   end
 
   private
@@ -44,11 +47,8 @@ class EventsController < ApplicationController
     params.require(:event).permit(:name, :location, :category, :description, :date, :group_id, :user_id)
   end
 
-  def set_event
+  def set_event_and_group
     @event = Event.find(params[:id])
-  end
-
-  def set_group
     @group = @event.group
   end
 end
