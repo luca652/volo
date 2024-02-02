@@ -19,7 +19,9 @@ class ResourcesController < ApplicationController
   end
 
   def show
-
+    # we can now access resources/show from two pages (show_profile and resources/index)
+    # this store the url of the page we are coming from so we can set proper redirects for update/destroy
+    session[:previous_url] = request.referrer
   end
 
   def new
@@ -42,7 +44,8 @@ class ResourcesController < ApplicationController
 
   def update
     if @resource.update(resource_params)
-      redirect_to resources_path
+      # redirect_to resources_path
+      redirect_to session.delete(:previous_url) || groups_path
     else
       render :edit, status: :unprocessable_entity
     end
@@ -50,7 +53,8 @@ class ResourcesController < ApplicationController
 
   def destroy
     @resource.destroy
-    redirect_to resources_path
+    # redirect_to resources_path
+    redirect_to session.delete(:previous_url) || groups_path
   end
 
   private
