@@ -40,27 +40,29 @@
       </div>
     </div>
 
-    <div class="gray-line"></div>
+    <div id="droplist" data-controller="dropdown" data-dropdown-hide-class="hide">
 
-    <div class= "group-request-container" data-controller="group-request" data-group-request-target="container">
-      <h2 class="group-headers"> <strong>Requests</strong></h2>
-      <div class="group-request-item">
-        <%= render @requests %>
+      <div class= "group-request-container" data-controller="group-request" data-group-request-target="container">
+        <div class="d-flex">
+          <p class="mb-0"> <%= "#{pluralize(@requests.count, "request")} for your group"%></p>
+          <button class="d-inline-block button-request-accept button-request-less" data-action="click->dropdown#toggle">more</button>
+        </div>
+        <div class= "event-droplist hide" data-dropdown-target="display">
+          <%= render @requests %>
+        </div>
       </div>
     </div>
+
     <div class="gray-line"></div>
   </div>
 </div>
 
 
-<div class = "group-page-item" id="droplist" data-controller="dropdown" data-dropdown-hide-class="hide">
-  <div class="d-flex flex-column align-items-center"><h2 class="group-headers"><strong>Upcoming events</strong> </h2>
-    <button class="d-inline-block button-request-accept button-request-less" data-action="click->dropdown#toggle">less</button>
-  </div>
+<h2 class="group-headers"><strong>Upcoming events</strong> </h2>
+
 
   <div class="space-one-rem"></div>
 
-  <div class= "event-droplist cards-container" data-dropdown-target="display">
 
     <div class="d-flex justify-content-center">
         <%= turbo_frame_tag "events_frame" do %>
@@ -77,5 +79,4 @@
       <% end %>
     </div>
 
-  </div>
 </div>
