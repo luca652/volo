@@ -17,7 +17,7 @@ class GroupsController < ApplicationController
   def show
     @admin = @group.user
     # REQUESTS & MEMBERS
-    @requests = Request.where(group_id: @group.id)
+    @requests = Request.where(group_id: @group.id, accepted: false, declined: false)
     @members = @group.users.joins(:requests).where(requests: { accepted: true }).uniq
     # EVENTS AND EVENT BOOKINGS (RSVPs)
     @events = @group.events

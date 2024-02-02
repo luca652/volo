@@ -9,6 +9,7 @@ class UsersController < ApplicationController
     else
       @user = current_user
     end
+
     # GROUPS
     # groups where user is an admin
     @groups_admin = Group.where(user_id: @user.id)
