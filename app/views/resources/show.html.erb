@@ -3,7 +3,7 @@
   <div class="card-container">
     <%= render @resource %>
     <% if current_user.resource_creator?(@resource) %>
-    <div class="resource-show-buttons">
+    <div class="buttons">
       <%= link_to "Edit Resource", edit_resource_path(@resource),
           class: "button-secondary" %>
       <%= link_to "Delete", resource_path(@resource),

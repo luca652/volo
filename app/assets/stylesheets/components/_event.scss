@@ -22,8 +22,14 @@
   }
 
   h4 {
-    color: $our-red;
+    color: #eb1d36;
+
+    a {
+      text-decoration: underline solid $our-blue;
+    }
   }
+
+
 }
 
 .event-confermation-container {
