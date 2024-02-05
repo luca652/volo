@@ -3,7 +3,7 @@
   <div class="card-container">
     <%= render @event %>
     <% if current_user.event_creator?(@event) %>
-    <div class="event-show-buttons">
+    <div class="buttons">
       <%= link_to "Edit event", edit_group_event_path(@group, @event),
           class: "button-secondary" %>
       <%= link_to "Delete", group_event_path(@event),
