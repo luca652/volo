@@ -21,13 +21,10 @@
   <% end %>
   </div>
 </div>
+
 <div class="group-showpage-description d-flex flex-column align-items-center">
-
-
   <div class="group-show-description">
-
     <p> <%= @group.description %> </p>
-
     <div class="gray-line"></div>
     <div class= "group-members-container">
       <h2 class="group-headers"> <strong>Members</strong></h2>
@@ -44,11 +41,15 @@
 
       <div class= "group-request-container" data-controller="group-request" data-group-request-target="container">
         <div class="d-flex">
-          <p class="mb-0"> <%= "#{pluralize(@requests.count, "request")} for your group"%></p>
+          <p class="mb-0"> You have
+            <span class="group-request-count"><%= "#{pluralize(@requests.count, "pending request")}"%></span>
+            for <%= "#{@group.name}"%></p>
           <button class="d-inline-block button-request-accept button-request-less" data-action="click->dropdown#toggle">more</button>
         </div>
         <div class= "event-droplist hide" data-dropdown-target="display">
+          <div class="requests-container">
           <%= render @requests %>
+          </div>
         </div>
       </div>
     </div>
@@ -60,23 +61,16 @@
 
 <h2 class="group-headers"><strong>Upcoming events</strong> </h2>
 
-
-  <div class="space-one-rem"></div>
-
-
-    <div class="d-flex justify-content-center">
-        <%= turbo_frame_tag "events_frame" do %>
-          <%= link_to new_group_event_path(@group.id), data: { turbo_frame: "new_event_frame" } do %>
-            <button class="button-primary button-new-item">New Event</button>
-          <% end %>
-        <% end %>
-      </div>
-
-      <%= turbo_frame_tag "new_event_frame" do %>
-        <div class="cards-container">
-          <%= render @events %>
-        </div>
-      <% end %>
-    </div>
-
+<div class="d-flex justify-content-center">
+  <%= turbo_frame_tag "events_frame" do %>
+    <%= link_to new_group_event_path(@group.id), data: { turbo_frame: "new_event_frame" } do %>
+      <button class="button-primary button-new-item">New Event</button>
+    <% end %>
+  <% end %>
 </div>
+
+<%= turbo_frame_tag "new_event_frame" do %>
+  <div class="cards-container">
+    <%= render @events %>
+  </div>
+<% end %>
