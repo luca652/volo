@@ -17,14 +17,15 @@ class UsersController < ApplicationController
     @accepted_requests = Request.where(user_id: @user.id, accepted: true)
     @groups_member = Group.joins(:requests).where(requests: { id: @accepted_requests.pluck(:id) })
     # all user's groups
-    @groups = @groups_admin + @groups_member
+    @groups = (@groups_admin + @groups_member).sort_by(&:created_at).reverse
+
 
     # EVENTS
     # getting user's upcoming events from bookings
     @bookings = Booking.where(user_id: @user.id)
-    @events = Event.includes(:bookings).where(bookings: { user_id: current_user.id })
+    @events = Event.includes(:bookings).where(bookings: { user_id: current_user.id }).order(created_at: :desc)
 
     # PINS & RESOURCES
-    @resources = Resource.joins(:pins).where(pins: { user_id: @user.id })
+    @resources = Resource.joins(:pins).where(pins: { user_id: @user.id }).order(created_at: :desc)
   end
 end
