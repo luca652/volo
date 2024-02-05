@@ -59,31 +59,34 @@
   margin-bottom: 0px;
 }
 
-.resources-filter-container form {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
+.resources-filter-container {
 
-.btn-filter {
-  margin-bottom: 1rem;
-  border-radius: 0 10px 10px 0;
-  font-size: 14px;
-  padding: 4px 12px;
-  height: auto;
-}
+  form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
 
-.form-select {
-  font-size: 14px;
-  padding: 4px 12px;
-  background-color: white;
-  color: grey;
-  border-radius: 10px 0 0 10px;
-}
+  .btn-filter {
+    margin-bottom: 1rem;
+    border-radius: 0 10px 10px 0;
+    font-size: 14px;
+    padding: 4px 12px;
+    height: auto;
+  }
 
-.resources-filter-container label {
-  display: none;
+  .form-select {
+    font-size: 14px;
+    padding: 4px 12px;
+    background-color: white;
+    color: grey;
+    border-radius: 10px 0 0 10px;
+  }
+
+  label {
+    display: none;
+  }
 }
 
 .resource-cards-container {
