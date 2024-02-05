@@ -37,22 +37,24 @@
       </div>
     </div>
 
-    <div id="droplist" data-controller="dropdown" data-dropdown-hide-class="hide">
+    <% if current_user.group_admin?(@group) %>
+      <div id="droplist" data-controller="dropdown" data-dropdown-hide-class="hide">
 
-      <div class= "group-request-container" data-controller="group-request" data-group-request-target="container">
-        <div class="d-flex">
-          <p class="mb-0"> You have
-            <span class="group-request-count"><%= "#{pluralize(@requests.count, "pending request")}"%></span>
-            for <%= "#{@group.name}"%></p>
-          <button class="d-inline-block button-request-accept button-request-less" data-action="click->dropdown#toggle">more</button>
-        </div>
-        <div class= "event-droplist hide" data-dropdown-target="display">
-          <div class="requests-container">
-          <%= render @requests %>
+        <div class= "group-request-container" data-controller="group-request" data-group-request-target="container">
+          <div class="d-flex">
+            <p class="mb-0"> You have
+              <span class="group-request-count"><%= "#{pluralize(@requests.count, "pending request")}"%></span>
+              for <%= "#{@group.name}"%></p>
+            <button class="d-inline-block button-request-accept button-request-less" data-action="click->dropdown#toggle">more</button>
+          </div>
+          <div class= "event-droplist hide" data-dropdown-target="display">
+            <div class="requests-container">
+            <%= render @requests %>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    <% end %>
 
     <div class="gray-line"></div>
   </div>
