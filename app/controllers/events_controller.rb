@@ -3,6 +3,7 @@ class EventsController < ApplicationController
   before_action :set_event_and_group, only: [:show, :edit, :update, :destroy]
 
   def show
+    session[:previous_url] = request.referrer
   end
 
   def new
@@ -17,7 +18,7 @@ class EventsController < ApplicationController
 
     if @event.save
       @booking = Booking.create(event_id: @event.id, user_id: current_user.id)
-      redirect_to group_path(@group), notice: "Event was successfully updated."
+      redirect_to group_path(@group), notice: "Event was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -28,7 +29,8 @@ class EventsController < ApplicationController
 
   def update
     if @event.update(event_params)
-      redirect_to group_event_path(@group, @event), notice: "Event was successfully created."
+      # redirect_to group_event_path(@group, @event), notice: "Event was successfully updated."
+      redirect_to session.delete(:previous_url) || root_path, notice: "Event was successfully updated."
     else
       render :new, status: :unprocessable_entity
     end
@@ -38,7 +40,8 @@ class EventsController < ApplicationController
     @bookings = @event.bookings
     @bookings.destroy_all
     @event.destroy
-    redirect_to group_path(@group), notice: "Event was succesfully deleted."
+    # redirect_to group_path(@group), notice: "Event was succesfully deleted."
+    redirect_to session.delete(:previous_url) || root_path, notice: "Event was successfully deleted."
   end
 
   private
