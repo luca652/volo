@@ -42,7 +42,7 @@
 
         <div class= "group-request-container" data-controller="group-request" data-group-request-target="container">
           <div class="d-flex">
-            <p class="mb-0"> You have
+            <p class="mb-0">
               <span class="group-request-count"><%= "#{pluralize(@requests.count, "pending request")}"%></span>
               for <%= "#{@group.name}"%></p>
             <button class="d-inline-block button-request-accept button-request-less" data-action="click->dropdown#toggle">more</button>
