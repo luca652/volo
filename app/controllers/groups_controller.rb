@@ -36,7 +36,7 @@ class GroupsController < ApplicationController
     @group.chatroom = @chatroom
 
     if @group.save && @chatroom.save
-      redirect_to user_path(current_user), notice: "The group was successfully created"
+      redirect_to user_path(current_user), notice: "The group was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
