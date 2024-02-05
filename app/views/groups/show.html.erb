@@ -21,13 +21,10 @@
   <% end %>
   </div>
 </div>
+
 <div class="group-showpage-description d-flex flex-column align-items-center">
-
-
   <div class="group-show-description">
-
     <p> <%= @group.description %> </p>
-
     <div class="gray-line"></div>
     <div class= "group-members-container">
       <h2 class="group-headers"> <strong>Members</strong></h2>
@@ -40,52 +37,40 @@
       </div>
     </div>
 
-    <div class="gray-line"></div>
+    <div id="droplist" data-controller="dropdown" data-dropdown-hide-class="hide">
 
-    <div class= "group-request-container" data-controller="group-request" data-group-request-target="container">
-      <h2 class="group-headers"> <strong>Requests</strong></h2>
-      <div class="group-request-item">
-        <% @requests.each do |request| %>
-          <% if request.accepted == false && request.declined == false %>
-          <div class="group-request-name-buttons">
-            <div><%= link_to request.user.first_name, user_path(request.user), id: "request-user" %></div>
-              <div>
-                <%= link_to "Accept", group_request_accepted_path(@group.id, request.id, ), method: "patch", class: "button-primary", data: { action: "click->group-request#hideGroupRequestContainer" }%>
-                <%= link_to "Decline", group_request_declined_path(@group.id, request.id), method: "patch", class: "button-secondary" %>
-              </div>
-          </div>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
-    <div class="gray-line"></div>
-  </div>
-</div>
-
-
-<div class = "group-page-item" id="droplist" data-controller="dropdown" data-dropdown-hide-class="hide">
-  <div class="d-flex flex-column align-items-center"><h2 class="group-headers"><strong>Upcoming events</strong> </h2>
-    <button class="d-inline-block button-request-accept button-request-less" data-action="click->dropdown#toggle">less</button>
-  </div>
-
-  <div class="space-one-rem"></div>
-
-  <div class= "event-droplist cards-container" data-dropdown-target="display">
-
-    <div class="d-flex justify-content-center">
-        <%= turbo_frame_tag "events_frame" do %>
-          <%= link_to new_group_event_path(@group.id), data: { turbo_frame: "new_event_frame" } do %>
-            <button class="button-primary button-new-item">New Event</button>
-          <% end %>
-        <% end %>
-      </div>
-
-      <%= turbo_frame_tag "new_event_frame" do %>
-        <div class="cards-container">
-          <%= render @events %>
+      <div class= "group-request-container" data-controller="group-request" data-group-request-target="container">
+        <div class="d-flex">
+          <p class="mb-0"> You have
+            <span class="group-request-count"><%= "#{pluralize(@requests.count, "pending request")}"%></span>
+            for <%= "#{@group.name}"%></p>
+          <button class="d-inline-block button-request-accept button-request-less" data-action="click->dropdown#toggle">more</button>
         </div>
-      <% end %>
+        <div class= "event-droplist hide" data-dropdown-target="display">
+          <div class="requests-container">
+          <%= render @requests %>
+          </div>
+        </div>
+      </div>
     </div>
 
+    <div class="gray-line"></div>
   </div>
 </div>
+
+
+<h2 class="group-headers"><strong>Upcoming events</strong> </h2>
+
+<div class="d-flex justify-content-center">
+  <%= turbo_frame_tag "events_frame" do %>
+    <%= link_to new_group_event_path(@group.id), data: { turbo_frame: "new_event_frame" } do %>
+      <button class="button-primary button-new-item">New Event</button>
+    <% end %>
+  <% end %>
+</div>
+
+<%= turbo_frame_tag "new_event_frame" do %>
+  <div class="cards-container">
+    <%= render @events %>
+  </div>
+<% end %>

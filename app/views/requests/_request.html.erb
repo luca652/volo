@@ -1,0 +1,8 @@
+
+<div class="group-request-name-buttons">
+  <div><%= link_to request.user.first_name, user_path(request.user), id: "request-user" %></div>
+  <div>
+    <%= link_to "Accept", group_request_accepted_path(@group.id, request.id, ), method: "patch", class: "button-primary", data: { action: "click->group-request#hideGroupRequestContainer" }%>
+    <%= link_to "Decline", group_request_declined_path(@group.id, request.id), method: "patch", class: "button-secondary" %>
+  </div>
+</div>

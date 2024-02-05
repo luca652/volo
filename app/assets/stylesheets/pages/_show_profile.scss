@@ -83,14 +83,15 @@
   display: grid;
   justify-content: center;
   align-items: center;
-  grid-gap: 24px;
+  column-gap: 0px;
+  row-gap: 24px;
 }
 
 @media (min-width: 769px) {
   .cards-container {
     grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    max-width: 769px; /* Maximum width for two columns */
-    margin: 0 auto; /* Center the container horizontally */
+    max-width: 769px;
+    margin: 0 auto;
     place-items: center;
     margin-top: 24px;
   }
