@@ -1,0 +1,11 @@
+.container-chatroom .messages {
+    @media (min-width: 768px) {
+    margin-bottom: 80px;
+  }
+}
+
+.message-form #new_message {
+  @media (min-width: 768px) {
+    bottom: 80px;
+  }
+}
