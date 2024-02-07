@@ -22,8 +22,6 @@ class GroupsController < ApplicationController
     # EVENTS AND EVENT BOOKINGS (RSVPs)
     @events = @group.events
     @booking = Booking.new
-
-    @chatroom = @group.id
   end
 
   def new

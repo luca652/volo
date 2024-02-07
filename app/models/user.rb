@@ -5,15 +5,13 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :groups
   has_many :requests
-  has_many :resources, through: :pins
   has_many :pins, dependent: :destroy
+  has_many :resources, through: :pins
   has_many :events
   has_many :bookings
-  # has_many :events, through: :bookings
   has_many :messages
-  # has_many :prompts
   has_many :stories
-  validates :first_name, :last_name, presence: true
+  validates :first_name, presence: true
 
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
