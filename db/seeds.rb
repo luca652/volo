@@ -22,28 +22,23 @@ puts "Database cleared"
 
 # USERS
 
-user1 = User.create!(first_name: "Vittoria", last_name: "Carambola", language: "Italian", number_of_children: 1,
-                     childrens_age: "3 yrs", location: "27, Plover Way, Canada Water, SE16 7TS",
+user1 = User.create!(first_name: "Vittoria", language: "Italian", number_of_children: 1, location: "27, Plover Way, Canada Water, SE16 7TS",
                      email: "vittoria@me.com", password: "123456", picture_url: "avatars/silvia.png")
-user2 = User.create!(first_name: "Elisabetta", last_name: "Bianchi", language: "Italian", number_of_children: 1,
-                     childrens_age: "primary", location: "5-6 Coulgate St, London SE4 2RW",
+user2 = User.create!(first_name: "Elisabetta", language: "Italian", number_of_children: 1, location: "5-6 Coulgate St, London SE4 2RW",
                      email: "elisabetta@me.com", password: "123456", picture_url: "avatars/elisabetta.png")
-user3 = User.create!(first_name: "Jess", last_name: "Ferretti", language: "Italian", number_of_children: 3,
-                     childrens_age: "primary", location: "21 Surrey Quays Rd, London SE16 7AR",
+user3 = User.create!(first_name: "Jess", language: "Italian", number_of_children: 3, location: "21 Surrey Quays Rd, London SE16 7AR",
                      email: "jess@me.com", password: "123456", picture_url: "avatars/jess.png")
-user4 = User.create!(first_name: "Luca", last_name: "Pastorelli", language: "Italian", number_of_children: 1,
-                     childrens_age: "4 yrs", location: "10-14, Mercy Terrace, London SE13 7UX",
+user4 = User.create!(first_name: "Luca", language: "Italian", number_of_children: 1, location: "10-14, Mercy Terrace, London SE13 7UX",
                      email: "mario@me.com", password: "123456", picture_url: "avatars/luca.png")
-user5 = User.create!(first_name: "Laura", last_name: "Martin", language: "English / Italian", number_of_children: 1,
-                     childrens_age: "4yrs", location: "10-14, Mercy Terrace, London SE13 7UX",
+user5 = User.create!(first_name: "Laura", language: "English / Italian", number_of_children: 1,location: "10-14, Mercy Terrace, London SE13 7UX",
                      email: "laura@me.com", password: "123456", picture_url: "avatars/sara.png")
-user6 = User.create!(first_name: "Mario", last_name: "Lolli", language: "English / Italian", number_of_children: 1,
-                     childrens_age: "4yrs", location: "10-14, Mercy Terrace, London SE13 7UX",
+user6 = User.create!(first_name: "Mario", language: "English / Italian", number_of_children: 1, location: "10-14, Mercy Terrace, London SE13 7UX",
                      email: "luigi@me.com", password: "123456", picture_url: "avatars/luigi.png")
 
 # the email variable is used to create unique email addresses dynamycally - the value is incremented each time it loops
-childrens_age = ["newborn", "pre-school", "primary"]
-email = 1
+
+# childrens_age = ["newborn", "pre-school", "primary"]
+# email = 1
 # 100.times do
 #   User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, language: "English group_images/ Italian",
 #                number_of_children: rand(1..6), childrens_age: childrens_age.sample, location: "10-14, Mercy Terrace, London SE13 7UX",

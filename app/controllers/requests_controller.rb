@@ -12,7 +12,6 @@ class RequestsController < ApplicationController
   def accepted
     @group = Group.find(params[:group_id])
     @request = Request.find(params[:request_id])
-    @request.group = @group
     @request.accepted = true
     @request.save
     redirect_to group_path(@group)
@@ -21,7 +20,6 @@ class RequestsController < ApplicationController
   def declined
     @group = Group.find(params[:group_id])
     @request = Request.find(params[:request_id])
-    @request.group = @group
     @request.declined = true
     @request.save
     redirect_to group_path(@group)

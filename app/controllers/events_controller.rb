@@ -29,7 +29,6 @@ class EventsController < ApplicationController
 
   def update
     if @event.update(event_params)
-      # redirect_to group_event_path(@group, @event), notice: "Event was successfully updated."
       redirect_to session.delete(:previous_url) || root_path, notice: "Event was successfully updated."
     else
       render :new, status: :unprocessable_entity
@@ -40,7 +39,6 @@ class EventsController < ApplicationController
     @bookings = @event.bookings
     @bookings.destroy_all
     @event.destroy
-    # redirect_to group_path(@group), notice: "Event was succesfully deleted."
     redirect_to session.delete(:previous_url) || root_path, notice: "Event was successfully deleted."
   end
 
