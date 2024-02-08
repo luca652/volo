@@ -36,12 +36,13 @@
 
   <body>
 
-    <%= render "shared/navbar" %>
+    <%# <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
 
     <%= yield %>
 
     <% if user_signed_in? %>
+    <%= render "shared/navbar" %>
       <div class="floating-button-bar">
         <%= render "shared/footer_links" %>
       </div>
