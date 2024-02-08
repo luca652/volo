@@ -1,13 +1,22 @@
 require 'rails_helper'
 
 RSpec.describe "Story Generator", type: :system do
-  let(:user) { User.find_by(email: "vittoria@me.com") }
+  let(:user) { User.create!(first_name: "test", email: "test@test.com", password: "password") }
 
   before do
+
+    visit new_user_registration_path
+
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
+    fill_in 'Password confirmation', with: user.password
+
+    click_button 'Sign up'
+
     visit new_user_session_path
 
-    fill_in 'Email', with: "vittoria@me.come"
-    fill_in 'Password', with: "123456"
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
 
     click_button 'Log in'
   end
