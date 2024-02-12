@@ -1,0 +1,24 @@
+.logo-sign-in {
+  // width: 6rem;
+  border-radius: 10px;
+}
+
+.links-sign-in a {
+  color: $our-blue;
+  text-decoration:none;
+}
+
+#title-sign-in {
+  font-size: 4rem;
+  margin-left: -16px;
+}
+
+.form-inputs-sign-in .boolean {
+  margin-bottom: 0px !important;
+
+}
+
+.form-actions-sign-in .btn {
+  padding-left: 0px !important;
+  font-weight: bold;
+}

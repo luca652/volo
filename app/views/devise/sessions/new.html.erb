@@ -1,22 +1,31 @@
-<div class="container-lg">
-  <h2>Log in</h2>
+<div class="container col-9">
+  <div class="d-flex flex-column align-items-center">
+    <%= image_tag "logo.png", class: "logo-sign-in col-6" %>
+    <h1 id="title-sign-in">Volo</h1>
+  </div>
+  <div class="d-flex justify-content-center">
+    <p class="text-center">To see a demo log in using <strong> vittoria@me.com </strong> with password <strong>123456</strong></p>
+  </div>
+  <div class="d-flex justify-content-center">
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: :false }) do |f| %>
+      <div class="form-inputs form-inputs-sign-in">
+        <%= f.input :email,
+                    required: false,
+                    autofocus: true,
+                    input_html: { autocomplete: "email" } %>
+        <%= f.input :password,
+                    required: false,
+                    input_html: { autocomplete: "current-password" } %>
+        <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+      </div>
 
-  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: :false }) do |f| %>
-    <div class="form-inputs">
-      <%= f.input :email,
-                  required: false,
-                  autofocus: true,
-                  input_html: { autocomplete: "email" } %>
-      <%= f.input :password,
-                  required: false,
-                  input_html: { autocomplete: "current-password" } %>
-      <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-    </div>
+      <div class="form-actions form-actions-sign-in">
+        <%= f.button :submit, "Log in" %>
+      </div>
 
-    <div class="form-actions">
-      <%= f.button :submit, "Log in" %>
-    </div>
-  <% end %>
-
-  <%= render "devise/shared/links" %>
+      <div class="links-sign-in">
+        <%= render "devise/shared/links" %>
+      </div>
+    <% end %>
+  </div>
 </div>
