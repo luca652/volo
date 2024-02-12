@@ -4,9 +4,9 @@ RSpec.describe User do
   let(:user) { User.create(email: "user_1@test.com", password: "123456", first_name: 'John') }
   let(:user_2) { User.create(email: "user_2@test.com", password: "123456", first_name: 'Steve') }
   let(:resource) { Resource.create!(title: "test_resource", user_id: user.id)}
-  let(:group_1) { Group.create(user_id: user.id, name: 'Group 1') }
-  let(:group_2) { Group.create(user_id: user.id, name: 'Group 2') }
-  let(:group_3) { Group.create(user_id: user_2.id, name: 'Group 3') }
+  let(:group_1) { Group.create(user_id: user.id, name: 'Group 1', location: "Hyde Park") }
+  let(:group_2) { Group.create(user_id: user.id, name: 'Group 2', location: "Hyde Park") }
+  let(:group_3) { Group.create(user_id: user_2.id, name: 'Group 3', location: "Hyde Park") }
   let(:event) { Event.create!(user_id: user.id, group_id: group_1.id)}
 
 

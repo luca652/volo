@@ -8,6 +8,21 @@ RSpec.describe Group, type: :model do
     expect(group.name).to eq "Test"
   end
 
+  it "can't be created without a name" do
+    nameless_group = Group.new(user: user)
+    expect(nameless_group).not_to be_valid, "group is valid without a name"
+  end
+
+  it "can't be created with an empty string as a name" do
+    empty_string_group = Group.new(user: user, name: "", location: "Hyde Park")
+    expect(empty_string_group).not_to be_valid, "group is valid with an empty string as a name"
+  end
+
+  it "can't be created without a location" do
+    nowhere_group = Group.new(user: user, name: "test_name")
+    expect(nowhere_group).not_to be_valid, "group is valid without location"
+  end
+
   it 'can be renamed' do
     group.name = "Test 2"
     expect(group.name).to eq "Test 2"
