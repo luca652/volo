@@ -1,17 +1,17 @@
 class StoriesController < ApplicationController
 
   def new
-    @prompt_form = PromptForm.new
+    @prompt = Prompt.new
     @user = current_user
   end
 
   def create
-    @prompt_form = PromptForm.new(prompt_form_params)
+    @prompt = Prompt.new(prompt_params)
     @user = current_user
 
-    if @prompt_form.valid?
+    if @prompt.valid?
       story_generator = StoryGenerator.new
-      generated_story = story_generator.generate_story(@prompt_form)
+      generated_story = story_generator.generate_story(@prompt)
       @story = Story.create(user_id: @user.id, title: generated_story.partition("#").first.strip,
       content: generated_story.partition("#").last.strip)
       redirect_to story_path(@story)
@@ -26,7 +26,7 @@ class StoriesController < ApplicationController
 
   private
 
-  def prompt_form_params
-    params.require(:prompt_form).permit(:protagonist, :language, :weapon, :setting, :food, :enemy, :user_id)
+  def prompt_params
+    params.require(:prompt).permit(:protagonist, :language, :weapon, :setting, :food, :enemy, :user_id)
   end
 end

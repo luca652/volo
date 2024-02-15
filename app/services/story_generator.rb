@@ -1,8 +1,6 @@
 
 class StoryGenerator
-  # def initialize
 
-  # end
   def generate_story(prompt)
     request = "Tell me a story of maximum 250 words in #{prompt.language}. The protagonist is #{prompt.protagonist},
     and the story is set in #{prompt.setting}. His mortal enemy is #{prompt.enemy}, and his/her favorite food is #{prompt.food}.
@@ -11,4 +9,5 @@ class StoryGenerator
                                                   temperature: 0.7 })
     generated_story = response.dig("choices", 0, "message", "content")
   end
+
 end
