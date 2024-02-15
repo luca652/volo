@@ -1,6 +1,7 @@
 class PromptsController < ApplicationController
 
   def create
+    raise
     @prompt = Prompt.new(prompt_params)
     @user = @prompt.user
 
