@@ -37,7 +37,7 @@
       </div>
     </div>
 
-    <% if current_user.group_admin?(@group) %>
+    <% if current_user.group_admin?(@group) && @requests.count > 0 %>
       <div id="droplist" data-controller="dropdown" data-dropdown-hide-class="hide">
 
         <div class= "group-request-container" data-controller="group-request" data-group-request-target="container">
