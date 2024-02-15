@@ -6,7 +6,7 @@
     </div>
 
   <div class="stories-form">
-    <%= simple_form_for [@prompt], html: { data: { oval_target: "container" }, class: "stories-form" } do |f| %>
+    <%= simple_form_for [@prompt], url: stories_path, html: { data: { oval_target: "container" }, class: "stories-form" } do |f| %>
     <p>Ciao! Please answer my questions so I can generate an original story for you.</p>
     <%= f.input :protagonist, label: "What's the protagonist's name?" %>
     <%= f.input :food, label: "What food do they love?" %>
