@@ -7,7 +7,7 @@ RSpec.describe User do
   let(:group_1) { Group.create(user_id: user.id, name: 'Group 1', location: "Hyde Park") }
   let(:group_2) { Group.create(user_id: user.id, name: 'Group 2', location: "Hyde Park") }
   let(:group_3) { Group.create(user_id: user_2.id, name: 'Group 3', location: "Hyde Park") }
-  let(:event) { Event.create!(user_id: user.id, group_id: group_1.id)}
+  let(:event) { Event.create!(name: "test event", location: "Lewisham", date: "12 October 2025", user_id: user.id, group_id: group_1.id)}
 
 
   it 'has many groups' do
