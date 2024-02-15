@@ -6,7 +6,6 @@ RSpec.describe Event, type: :model do
   let(:event) { Event.create!(name: "Test event", location: "Westminster", user: user, date: DateTime.now, group: group)}
 
   it 'has a date in the correct format' do
-    p event.date.class
     expect(event.date).to be_a ActiveSupport::TimeWithZone
   end
 
