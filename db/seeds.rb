@@ -86,27 +86,27 @@ puts "#{Request.all.length} requests created"
 
 # EVENTS
 event1 = Event.create!(name: "Story-Time in Italiano", location: "Crofton Park Library, 375 Brockley Rd, London SE4 2AG",
-                       category: "Reading", date: "2023-7-2, 10:00AM", user_id: user2.id, group_id: group1.id)
+                       date: Date.today + 4, user_id: user2.id, group_id: group1.id)
 event2 = Event.create!(name: "Filastrocche nel parco", location: "Canada Water Library, 21 Surrey Quays Rd, London SE16 7AR",
-                       category: "Music", date: "2023-7-9, 4:00PM", user_id: user3.id, group_id: group1.id)
+                       date: Date.today, user_id: user3.id, group_id: group1.id)
 event3 = Event.create!(name: "Puppet teather", location: "95A Rye Ln, London SE15 4ST",
-                       category: "Stories", date: "2023-7-12, 12:00PM", user_id: user4.id, group_id: group1.id)
+                       date: Date.today + 1, user_id: user4.id, group_id: group1.id)
 event4 = Event.create!(name: "Time to sing!", location: "1 Coulgate St, London SE4 2RW",
-                       category: "Music", date: "2023-8-15, 2:00PM", user_id: user4.id, group_id: group1.id)
+                       date: Date.today + 7, user_id: user4.id, group_id: group1.id)
 event5 = Event.create!(name: "Sunday Morning Playclub", location: "317 Brockley Rd, London SE4 2QZG",
-                       category: "Games", date: "2023-7-20, 9:00AM", user_id: user3.id, group_id: group1.id)
+                       date: Date.today + 1, user_id: user3.id, group_id: group1.id)
 event6 = Event.create!(name: "Picnic nel parco", location: "Hilly Fields, 375 Brockley Rd, London SE4 2AG",
-                       category: "Food", date: "2023-8-12, 4:30PM", user_id: user2.id, group_id: group1.id)
+                       date: Date.today, user_id: user2.id, group_id: group1.id)
 event7 = Event.create!(name: "Festa di Andrea", location: "95 Church Rd, London SE19 2TA",
-                       category: "Party", date: "2023-7-4, 10:00AM", user_id: user4.id, group_id: group3.id)
+                       date: Date.today + 1, user_id: user4.id, group_id: group3.id)
 event8 = Event.create!(name: "Cantiamo insieme!", location: "1 Coulgate St, London SE4 2RW",
-                       category: "Music", date: "2023-8-15, 2:00PM", user_id: user4.id, group_id: group3.id)
+                       date: Date.today + 7, user_id: user4.id, group_id: group3.id)
 event9 = Event.create!(name: "Playclub della domenica", location: "317 Brockley Rd, London SE4 2QZG",
-                       category: "Games", date: "2023-7-20, 9:00AM", user_id: user3.id, group_id: group3.id)
+                       date: Date.today, user_id: user3.id, group_id: group3.id)
 event10 = Event.create!(name: "Grigliata nel parco", location: "Hilly Fields, 375 Brockley Rd, London SE4 2AG",
-                       category: "Food", date: "2023-8-12, 4:30PM", user_id: user2.id, group_id: group3.id)
+                       date: Date.today + 4, user_id: user2.id, group_id: group3.id)
 event11 = Event.create!(name: "Festa di Stefano", location: "95 Church Rd, London SE19 2TA",
-                       category: "Party", date: "2023-7-4, 10:00AM", user_id: user4.id, group_id: group3.id)
+                       date: Date.today + 1, user_id: user4.id, group_id: group3.id)
 puts "#{Event.all.length} events created"
 
 # BOOKINGS FOR EVENTS
@@ -144,7 +144,7 @@ resource7 = Resource.create!(title: "Mamma Dough Honor Oak", category: "Food",
 resource8 = Resource.create!(title: "Passeggino definitivo", category: "General",
                              comment: "If you're planning to fly to Italy quite a bit, get this. It folds really really small!",
                              picture_url: "resources/pram.png", user_id: user3.id)
-puts "#{Resource.all.length} resources created."
+puts "#{Resource.all.length} resources created"
 
 #PINS
 # method below create pins for resources we have. Every time we do rails:db seed,the ids of all our instances increase.
