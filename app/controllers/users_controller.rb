@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     @accepted_requests = Request.where(user_id: @user.id, accepted: true)
     @groups_member = Group.joins(:requests).where(requests: { id: @accepted_requests.pluck(:id) })
     # all user's groups
-    @groups = (@groups_admin + @groups_member).sort_by(&:created_at).reverse
+    @groups = (@groups_admin + @groups_member).sort_by(&:created_at)
 
 
     # EVENTS
