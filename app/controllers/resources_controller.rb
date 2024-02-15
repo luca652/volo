@@ -32,7 +32,7 @@ class ResourcesController < ApplicationController
     @resource = Resource.new(resource_params)
 
     if @resource.save
-      @pin = Pin.create(user_id: current_user.id, resource_id: @resource.id)
+      @pin = Pin.create!(user_id: current_user.id, resource_id: @resource.id)
       redirect_to user_path(current_user), notice: "Resource was successfully created."
     else
       render :new, status: :unprocessable_entity

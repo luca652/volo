@@ -20,7 +20,7 @@ class GroupsController < ApplicationController
     @requests = Request.where(group_id: @group.id, accepted: false, declined: false)
     @members = @group.users.joins(:requests).where(requests: { accepted: true }).uniq
     # EVENTS AND EVENT BOOKINGS (RSVPs)
-    @events = @group.events
+    @events = @group.events.order(created_at: :desc)
     @booking = Booking.new
   end
 

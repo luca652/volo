@@ -10,7 +10,7 @@
     <%= f.input :location %>
     <%= f.input :description %>
     <%= f.input :children_age %>
-    <%= f.input :picture_url %>
+    <%= f.hidden_field :picture_url, value: "group_images/playing.png" %>
     <%= f.hidden_field :user_id, value: current_user.id %>
 
     <div style="text-align: center;">
