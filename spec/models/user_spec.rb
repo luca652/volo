@@ -3,12 +3,23 @@ require 'rails_helper'
 RSpec.describe User do
   let(:user) { User.create(email: "user_1@test.com", password: "123456", first_name: 'John') }
   let(:user_2) { User.create(email: "user_2@test.com", password: "123456", first_name: 'Steve') }
-  let(:resource) { Resource.create!(title: "test_resource", user_id: user.id)}
+  let(:resource) { Resource.create!(title: "test_resource", comment: "Amazing", user_id: user.id)}
   let(:group_1) { Group.create(user_id: user.id, name: 'Group 1', location: "Hyde Park") }
   let(:group_2) { Group.create(user_id: user.id, name: 'Group 2', location: "Hyde Park") }
   let(:group_3) { Group.create(user_id: user_2.id, name: 'Group 3', location: "Hyde Park") }
   let(:event) { Event.create!(name: "test event", location: "Lewisham", date: "12 October 2025", user_id: user.id, group_id: group_1.id)}
 
+  it "has a first name" do
+    expect(user.first_name).to eq('John')
+  end
+
+  it "has an email address" do
+    expect(user.email).to eq('user_1@test.com')
+  end
+
+  it "has a password" do
+    expect(user.password).to eq("123456")
+  end
 
   it 'has many groups' do
     expect(user.groups).to include(group_1, group_2)
