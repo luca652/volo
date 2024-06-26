@@ -11,9 +11,9 @@ class StoriesController < ApplicationController
 
     if @prompt.valid?
       story_generator = StoryGenerator.new
-      generated_story = story_generator.generate_story(@prompt)
-      @story = Story.create(user_id: @user.id, title: generated_story.partition("#").first.strip,
-      content: generated_story.partition("#").last.strip)
+      title_and_story = story_generator.generate_story(@prompt)
+      @story = Story.create(user_id: @user.id, title: title_and_story[:title],
+                            content: title_and_story[:story])
       redirect_to story_path(@story)
     else
       render :new
