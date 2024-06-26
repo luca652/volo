@@ -9,9 +9,9 @@ export default class extends Controller {
     console.log(this.buttonTarget);
   }
 
-  loading() {
-    this.containerTarget.classList.add("hidden-content")
-    this.spinnerTarget.classList.add("display-spinner")
-  }
+  // loading() {
+  //   this.containerTarget.classList.add("hidden-content")
+  //   this.spinnerTarget.classList.add("display-spinner")
+  // }
 
 }
