@@ -12,9 +12,19 @@ class StoriesController < ApplicationController
     if @prompt.valid?
       story_generator = StoryGenerator.new
       title_and_story = story_generator.generate_story(@prompt)
-      @story = Story.create(user_id: @user.id, title: title_and_story[:title],
-                            content: title_and_story[:story])
-      redirect_to story_path(@story)
+
+      begin
+        @story = Story.create!(
+          user_id: @user.id,
+          title: title_and_story[:title],
+          content: title_and_story[:story]
+        )
+
+        redirect_to story_path(@story)
+      rescue ActiveRecord::RecordInvalid => e
+        flash.now[:alert] = "There was an issue creating your story. Please try again."
+        render :new
+      end
     else
       render :new
     end
