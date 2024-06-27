@@ -12,4 +12,14 @@ RSpec.describe Story, type: :model do
   it "has content" do
     expect(story.content).to eq("Engaging story")
   end
+
+  it "cannot be created without a title" do
+    story.title = nil
+    expect(story).not_to be_valid
+  end
+
+  it "cannot be created without content" do
+    story.content = nil
+    expect(story).not_to be_valid
+  end
 end
