@@ -27,4 +27,23 @@ RSpec.describe Prompt, type: :model do
   it "belongs to a user" do
     expect(prompt.user).to eq(user)
   end
+
+  context "validations" do
+
+    it 'is valid with a protagonist of valid length' do
+      expect(prompt).to be_valid
+    end
+
+    it 'is invalid if the protagonist is too short' do
+      prompt.protagonist = 'A'
+      expect(prompt).not_to be_valid
+      expect(prompt.errors[:protagonist]).to include('is too short (minimum is 2 characters)')
+    end
+
+    it 'is invalid if the protagonist is too long' do
+      prompt.protagonist = 'A' * 101
+      expect(prompt).not_to be_valid
+      expect(prompt.errors[:protagonist]).to include('is too long (maximum is 100 characters)')
+    end
+  end
 end
