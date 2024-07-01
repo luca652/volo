@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_02_15_141920) do
+ActiveRecord::Schema[7.0].define(version: 2024_07_01_123257) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -79,6 +79,19 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_15_141920) do
     t.index ["user_id"], name: "index_pins_on_user_id"
   end
 
+  create_table "prompts", force: :cascade do |t|
+    t.string "protagonist"
+    t.string "weapon"
+    t.text "setting"
+    t.string "enemy"
+    t.string "food"
+    t.string "language"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_prompts_on_user_id"
+  end
+
   create_table "requests", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "group_id", null: false
@@ -140,6 +153,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_15_141920) do
   add_foreign_key "messages", "users"
   add_foreign_key "pins", "resources"
   add_foreign_key "pins", "users"
+  add_foreign_key "prompts", "users"
   add_foreign_key "requests", "groups"
   add_foreign_key "requests", "users"
   add_foreign_key "resources", "users"

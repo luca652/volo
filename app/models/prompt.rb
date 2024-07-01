@@ -1,11 +1,6 @@
-class Prompt
-  include ActiveModel::Model
+class Prompt < ApplicationRecord
+  belongs_to :user
 
-  attr_accessor :protagonist, :language, :setting, :food, :enemy, :user_id
+  validates :protagonist, :setting, :food, :enemy, :language, presence: true
 
-  validates :protagonist, presence: true
-  validates :setting, presence: true
-  validates :food, presence: true
-  validates :enemy, presence: true
-  validates :language, presence: true
 end

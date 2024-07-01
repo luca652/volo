@@ -9,7 +9,7 @@ class StoriesController < ApplicationController
     @prompt = Prompt.new(prompt_params)
     @user = current_user
 
-    if @prompt.valid?
+    if @prompt.save!
       story_generator = StoryGenerator.new
       title_and_story = story_generator.generate_story(@prompt)
 
