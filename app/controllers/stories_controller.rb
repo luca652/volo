@@ -16,6 +16,7 @@ class StoriesController < ApplicationController
       begin
         @story = Story.create!(
           user_id: @user.id,
+          prompt_id: @prompt.id,
           title: title_and_story[:title],
           content: title_and_story[:story]
         )
