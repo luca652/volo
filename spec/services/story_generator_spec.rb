@@ -2,31 +2,30 @@ require 'rails_helper'
 require 'story_generator'
 
 RSpec.describe StoryGenerator do
-  before(:each) do
-    @prompt = Prompt.new(
-      protagonist: "Stefano",
-      language: "Italiano",
-      setting: "Un bosco",
-      enemy: "Il drago rosso",
-      food: "Trenette col pesto"
-    )
-    @generator = StoryGenerator.new
-  end
+  let(:user) {User.create!( first_name: 'Mike', email: 'mike@test.com', password: "123456")}
+  let(:prompt) { Prompt.create( protagonist: "Stefano",
+                                language: "Italiano",
+                                 setting: "Bosco",
+                                   enemy: "Il drago rosso",
+                                    food: "Trenette col pesto",
+                                 user_id: user.id)}
 
-  describe "#generate_story" do
-    it "returns a valid story hash" do
-      story = @generator.generate_story(@prompt)
-      expect(story[:title]).not_to be_nil
-      expect(story[:story]).not_to be_nil
-    end
-  end
+  describe '#generate_story' do
+    it 'generates a story with title and body' do
 
-  describe "#extract_title_and_story" do
-    it "correctly parses title and story" do
-      generated_story = "Stefano nel bosco oscuro # C'era una volta..."
-      title_and_story = @generator.send(:extract_title_and_story, generated_story)
-      expect(title_and_story[:title]).to eq("Stefano nel bosco oscuro")
-      expect(title_and_story[:story]).to eq("C'era una volta...")
+      response_content = "#{prompt.protagonist} e le avventure nel #{prompt.setting} # Una volta... #{prompt.protagonist} fece un giro in un #{prompt.setting}."
+
+      allow($open_ai_client).to receive(:chat).and_return({
+        "choices" => [{ "message" => { "content" => response_content } }]
+      })
+
+      generator = StoryGenerator.new
+      generated_story = generator.generate_story(prompt)
+
+      expect(generated_story).to be_a(Hash)
+      expect(generated_story.keys).to contain_exactly(:title, :body)
+      expect(generated_story[:title]).to eq("Stefano e le avventure nel Bosco")
+      expect(generated_story[:body]).to eq("Una volta... Stefano fece un giro in un Bosco.")
     end
   end
 end

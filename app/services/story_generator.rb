@@ -2,7 +2,6 @@
 class StoryGenerator
 
   def generate_story(prompt)
-
     request = request(prompt)
     response = $open_ai_client.chat(parameters: { model: "gpt-3.5-turbo",
                                                   messages: [{ role: "user",
@@ -19,7 +18,7 @@ class StoryGenerator
 
   def request(prompt)
     request = "Important: this is a story aimed at children.
-               Make the language suitable for children. No themes that are not suitable for children.
+               Make the language suitable for children in terms of language used and themes.
                Tell me a story of maximum 250 words in #{prompt.language}.
                The protagonist is #{prompt.protagonist}.
                The story is set in #{prompt.setting}.
