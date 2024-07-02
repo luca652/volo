@@ -2,6 +2,22 @@
 class StoryGenerator
 
   def generate_story(prompt)
+
+    request = request(prompt)
+    response = $open_ai_client.chat(parameters: { model: "gpt-3.5-turbo",
+                                                  messages: [{ role: "user",
+                                                  content: request }],
+                                                  temperature: 0.7 })
+    response_content = response.dig("choices", 0, "message", "content")
+    extract_title_and_story(response_content)
+  end
+
+  def extract_title_and_story(response_content)
+    generated_story = { title: response_content.partition("#").first.strip,
+                        body: response_content.partition("#").last.strip }
+  end
+
+  def request(prompt)
     request = "Important: this is a story aimed at children.
                Make the language suitable for children. No themes that are not suitable for children.
                Tell me a story of maximum 250 words in #{prompt.language}.
@@ -11,15 +27,5 @@ class StoryGenerator
                The protagonist's favorite food is #{prompt.food}.
                Start with a title, something like 'Arthur and the dark forest'.
                Put a # at the end of the title."
-
-    response = $open_ai_client.chat(parameters: { model: "gpt-3.5-turbo", messages: [{ role: "user", content: request }],
-                                                  temperature: 0.7 })
-    response_content = response.dig("choices", 0, "message", "content")
-    extract_title_and_story(response_content)
-  end
-
-  def extract_title_and_story(response_content)
-    generated_story = { title: response_content.partition("#").first.strip,
-                        body: response_content.partition("#").last.strip }
   end
 end
