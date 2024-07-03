@@ -3,12 +3,19 @@ class StoryGenerator
 
   def generate_story(prompt)
     request = request(prompt)
-    response = $open_ai_client.chat(parameters: { model: "gpt-3.5-turbo",
+
+    begin
+      response = $open_ai_client.chat(parameters: { model: "gpt-3.5-turbo",
                                                   messages: [{ role: "user",
                                                   content: request }],
                                                   temperature: 0.7 })
-    response_content = response.dig("choices", 0, "message", "content")
-    extract_title_and_story(response_content)
+      response_content = response.dig("choices", 0, "message", "content")
+      extract_title_and_story(response_content)
+    rescue StandardError => e
+      Rails.logger.error("Error generating story: #{e.message}")
+      { title: nil, body: nil }
+    end
+
   end
 
   def extract_title_and_story(response_content)
