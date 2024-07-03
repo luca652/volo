@@ -12,19 +12,18 @@ class StoryGenerator
   end
 
   def extract_title_and_story(response_content)
-    generated_story = { title: response_content.partition("#").first.strip,
-                        body: response_content.partition("#").last.strip }
+    title, body = response_content.split('###', 2).map(&:strip)
+    { title: title, body: body }
   end
 
   def request(prompt)
-    request = "Important: this is a story aimed at children.
-               Make the language suitable for children in terms of language used and themes.
-               Tell me a story of maximum 250 words in #{prompt.language}.
-               The protagonist is #{prompt.protagonist}.
-               The story is set in #{prompt.setting}.
-               The protagonist's mortal enemy is #{prompt.enemy}.
-               The protagonist's favorite food is #{prompt.food}.
-               Start with a title, something like 'Arthur and the dark forest'.
-               Put a # at the end of the title."
+    "Important: this is a story aimed at children. Make the language suitable for children in terms of language used and themes.
+     Tell me a story of maximum 250 words in #{prompt.language}.
+     The protagonist is #{prompt.protagonist}.
+     The story is set in #{prompt.setting}.
+     The protagonist's mortal enemy is #{prompt.enemy}.
+     The protagonist's favorite food is #{prompt.food}.
+     Start with a title, followed by the delimiter ###, and then the body of the story.
+     For example 'Arthur and the dark forest ### Once upon a time Arthy found himself in a dark forest...'"
   end
 end

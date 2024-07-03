@@ -23,6 +23,7 @@ class StoriesController < ApplicationController
 
         redirect_to story_path(@story)
       rescue ActiveRecord::RecordInvalid => e
+        Rails.logger.error("StoryGenerator Error: #{e}")
         flash.now[:alert] = "There was an issue creating your story. Please try again."
         render :new
       end
