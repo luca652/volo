@@ -25,12 +25,12 @@ class StoryGenerator
 
   def request(prompt)
     "Important: this is a story aimed at children. Make the language suitable for children in terms of language used and themes.
-     Tell me a story of maximum 250 words in #{prompt.language}.
+     Tell me a story of maximum 250 words in Italian.
      The protagonist is #{prompt.protagonist}.
      The story is set in #{prompt.setting}.
      The protagonist's mortal enemy is #{prompt.enemy}.
      The protagonist's favorite food is #{prompt.food}.
      Start with a title, followed by the delimiter ###, and then the body of the story.
-     For example 'Arthur and the dark forest ### Once upon a time Arthy found himself in a dark forest...'"
+     For example 'Arturo e la foresta oscura ### C'era una volta un bambino di nome Arturo...'"
   end
 end

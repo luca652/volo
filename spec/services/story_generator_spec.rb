@@ -3,11 +3,10 @@ require 'rails_helper'
 RSpec.describe StoryGenerator do
   let(:user) {User.create!( first_name: 'Mike', email: 'mike@test.com', password: "123456")}
   let(:prompt) { Prompt.create( protagonist: "Stefano",
-                                language: "Italiano",
-                                 setting: "Bosco",
-                                   enemy: "Il drago rosso",
-                                    food: "Trenette col pesto",
-                                 user_id: user.id)}
+                                    setting: "Bosco",
+                                      enemy: "Il drago rosso",
+                                       food: "Trenette col pesto",
+                                    user_id: user.id)}
 
   describe '#generate_story' do
     it 'generates a story with title and body from a prompt' do
