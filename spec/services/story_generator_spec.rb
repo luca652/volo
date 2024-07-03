@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'story_generator'
 
 RSpec.describe StoryGenerator do
   let(:user) {User.create!( first_name: 'Mike', email: 'mike@test.com', password: "123456")}

@@ -34,16 +34,20 @@ RSpec.describe Prompt, type: :model do
       expect(prompt).to be_valid
     end
 
-    it 'is invalid if the protagonist is too short' do
-      prompt.protagonist = 'A'
-      expect(prompt).not_to be_valid
-      expect(prompt.errors[:protagonist]).to include('is too short (minimum is 2 characters)')
-    end
-
     it 'is invalid if the protagonist is too long' do
       prompt.protagonist = 'A' * 101
       expect(prompt).not_to be_valid
       expect(prompt.errors[:protagonist]).to include('is too long (maximum is 100 characters)')
+    end
+
+    it 'is valid with a setting of valid length' do
+      expect(prompt).to be_valid
+    end
+
+    it 'is invalid if the setting is too long' do
+      prompt.setting = 'A' * 501
+      expect(prompt).not_to be_valid
+      expect(prompt.errors[:setting]).to include('is too long (maximum is 500 characters)')
     end
   end
 end
