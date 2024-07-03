@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :events
   has_many :bookings
   has_many :messages
+  has_many :prompts
   has_many :stories
   validates :first_name, presence: true
 
