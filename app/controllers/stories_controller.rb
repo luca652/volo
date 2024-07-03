@@ -9,24 +9,26 @@ class StoriesController < ApplicationController
     @prompt = Prompt.new(prompt_params)
     @user = current_user
 
-    if @prompt.valid?
+    if @prompt.save
       story_generator = StoryGenerator.new
-      title_and_story = story_generator.generate_story(@prompt)
+      generated_story = story_generator.generate_story(@prompt)
 
       begin
         @story = Story.create!(
           user_id: @user.id,
-          title: title_and_story[:title],
-          content: title_and_story[:story]
+          prompt_id: @prompt.id,
+          title: generated_story[:title],
+          body: generated_story[:body]
         )
 
         redirect_to story_path(@story)
       rescue ActiveRecord::RecordInvalid => e
+        Rails.logger.error("StoryGenerator Error: #{e}")
         flash.now[:alert] = "There was an issue creating your story. Please try again."
         render :new
       end
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 

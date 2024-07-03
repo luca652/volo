@@ -1,11 +1,8 @@
-class Prompt
-  include ActiveModel::Model
+class Prompt < ApplicationRecord
+  belongs_to :user
+  has_one :story
 
-  attr_accessor :protagonist, :language, :setting, :food, :enemy, :user_id
-
-  validates :protagonist, presence: true
-  validates :setting, presence: true
-  validates :food, presence: true
-  validates :enemy, presence: true
+  validates :protagonist, :food, :enemy, presence: true, length: { minimum: 2, maximum: 100 }
+  validates :setting, presence: true, length: { minimum: 2, maximum: 500 }
   validates :language, presence: true
 end
