@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe StoryGenerator do
-  let(:user) {User.create!( first_name: 'Mike', email: 'mike@test.com', password: "123456")}
+  let(:user) {User.create( first_name: 'Mike', email: 'mike@test.com', password: "123456")}
   let(:prompt) { Prompt.create( protagonist: "Stefano",
                                     setting: "Bosco",
                                       enemy: "Il drago rosso",

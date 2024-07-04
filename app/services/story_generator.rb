@@ -7,7 +7,7 @@ class StoryGenerator
   # @param prompt [Prompt] The prompt object containing the details for the story.
   # @return [Hash] A hash containing the :title and :body of the generated story.
   def generate_story(prompt)
-    request = request(prompt)
+    request = prompt_to_request(prompt)
 
     begin
       response = $open_ai_client.chat(parameters: { model: "gpt-3.5-turbo",
@@ -38,7 +38,7 @@ class StoryGenerator
   #
   # @param prompt [Prompt] The prompt object containing the details for the story.
   # @return [String] The formatted request string.
-  def request(prompt)
+  def prompt_to_request(prompt)
     "Important: this is a story aimed at children. Make the language suitable for children in terms of language used and themes.
      Tell me a story of maximum 250 words in Italian.
      The protagonist is #{prompt.protagonist}.
