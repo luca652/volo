@@ -3,6 +3,7 @@
 class StoryGenerator
   # Generates a story from the given prompt.
   # Sends a request to the OpenAI API and processes the response to extract the story title and body.
+  #
   # @param prompt [Prompt] The prompt object containing the details for the story.
   # @return [Hash] A hash containing the :title and :body of the generated story.
   def generate_story(prompt)
@@ -34,6 +35,7 @@ class StoryGenerator
 
 
   # Formats the request content for the OpenAI API based on the given prompt.
+  #
   # @param prompt [Prompt] The prompt object containing the details for the story.
   # @return [String] The formatted request string.
   def request(prompt)
